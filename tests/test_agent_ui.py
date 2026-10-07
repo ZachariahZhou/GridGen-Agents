@@ -31,7 +31,7 @@ class ScriptedModel(BaseChatModel):
 
 def test_langchain_agent_runs_real_tool_and_retains_thread(tmp_path):
     with agent_session(tmp_path, 'project_a', model=ScriptedModel()) as agent:
-        result = agent.invoke({'messages': [{'role': 'user', 'content': '生成算例'}]},
+        result = agent.invoke({'messages': [{'role': 'user', 'content': 'Generate cases'}]},
                               {'configurable': {'thread_id': 'thread1'}})
         tool_messages = [m for m in result['messages'] if m.type == 'tool']
         assert tool_messages
@@ -50,7 +50,7 @@ def test_ui_loads_without_api_key():
     from streamlit.testing.v1 import AppTest
     app = AppTest.from_file(Path(__file__).resolve().parents[1] / 'app.py').run(timeout=20)
     assert not app.exception
-    assert any('馈线' in item.value for item in app.title)
+    assert any('GridGen-Agents' in item.value for item in app.title)
 
 
 def test_natural_design_error_is_recorded_with_support_id(tmp_path, monkeypatch):
@@ -62,8 +62,8 @@ def test_natural_design_error_is_recorded_with_support_id(tmp_path, monkeypatch)
         raise TypeError("unexpected keyword argument 'planning_mode'")
     monkeypatch.setattr(design, 'design_from_request', broken)
     app = AppTest.from_file(Path(__file__).resolve().parents[1] / 'app.py').run(timeout=20)
-    next(w for w in app.text_area if w.label == '自然语言设计需求').set_value('生成一条10kv的农村配电网，30多个节点，聚集成3个村落')
-    next(b for b in app.button if b.label == '根据需求设计馈线').click().run(timeout=20)
+    next(w for w in app.text_area if w.label == 'Design request').set_value('生成一条10kv的农村配电网，30多个节点，聚集成3个村落')
+    next(b for b in app.button if b.label == 'Generate from request').click().run(timeout=20)
     assert not app.exception
     records = list((tmp_path / 'workspace/ui_errors').glob('*.json'))
     assert len(records) == 1
@@ -83,19 +83,19 @@ def test_ui_form_generates_real_case_without_model_credentials(tmp_path, monkeyp
     run_experiment(ExperimentSpec(n_loads_min=4,n_loads_max=4,total_kw_min=200,total_kw_max=200),tmp_path/'workspace','aa_old')
     app = AppTest.from_file(entrypoint).run(timeout=20)
     for widget in app.number_input:
-        if widget.label == '生成尝试数':
+        if widget.label == 'Generation attempts':
             widget.set_value(1)
-        elif widget.label in {'最少负荷点', '最多负荷点'}:
+        elif widget.label in {'Minimum load points', 'Maximum load points'}:
             widget.set_value(4)
     for widget in app.text_input:
-        if widget.label == '实验 ID（相同配置可恢复）':
+        if widget.label == 'Experiment ID (resume with identical settings)':
             widget.set_value('ui_case')
-    next(button for button in app.button if button.label == '生成并验证').click().run(timeout=45)
+    next(button for button in app.button if button.label == 'Generate and validate').click().run(timeout=45)
     assert not app.exception
     assert app.success
     summary = json.loads((tmp_path / 'workspace/experiments/ui_case/summary.json').read_text())
     assert summary['attempted'] == summary['accepted'] == 1
-    assert 'ui_case' in str(next(w for w in app.selectbox if w.label=='选择实验').value)
+    assert 'ui_case' in str(next(w for w in app.selectbox if w.label=='Select experiment').value)
 
 
 class MultiStepModel(ScriptedModel):
@@ -139,19 +139,19 @@ def test_new_design_selects_its_own_view_and_allows_sample_switch(tmp_path, monk
     saved(root,'z_old')
     monkeypatch.setattr(design,'design_from_request',lambda request,project_root,design_id,**kwargs:saved(project_root,design_id))
     app=AppTest.from_file(entrypoint).run(timeout=20)
-    next(w for w in app.text_input if w.label=='设计 ID').set_value('a_new')
-    next(w for w in app.text_area if w.label=='自然语言设计需求').set_value('生成新案例')
-    next(b for b in app.button if b.label=='根据需求设计馈线').click().run(timeout=20)
+    next(w for w in app.text_input if w.label=='Design ID').set_value('a_new')
+    next(w for w in app.text_area if w.label=='Design request').set_value('生成新案例')
+    next(b for b in app.button if b.label=='Generate from request').click().run(timeout=20)
     assert not app.exception
-    selected=next(w for w in app.selectbox if w.label=='查看设计记录')
+    selected=next(w for w in app.selectbox if w.label=='Select design')
     assert 'a_new' in str(selected.value)
-    sample=next(w for w in app.selectbox if w.label=='查看设计样本')
+    sample=next(w for w in app.selectbox if w.label=='Select design sample')
     sample.set_value('sample_00001').run(timeout=20)
     assert not app.exception
     assert any('a_new' in c.value and 'sample_00001' in c.value for c in app.caption)
     assert app.get('iframe')
     new_view=app.get('iframe')[0].proto.srcdoc
-    selected=next(w for w in app.selectbox if w.label=='查看设计记录')
+    selected=next(w for w in app.selectbox if w.label=='Select design')
     selected.set_value(str(root/'designs/z_old/result.json')).run(timeout=20)
     assert not app.exception
     assert app.get('iframe')

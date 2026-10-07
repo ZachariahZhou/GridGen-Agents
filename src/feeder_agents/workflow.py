@@ -477,10 +477,10 @@ def _batch_index(root, summary):
         rows.append(f'<tr><td><a href="{name}/visualization.html">{name}</a></td>'
                     f'<td>{s["accepted"]}</td><td>{s["operational_pass"]}</td>'
                     f'<td>{s.get("load_count", "—")}</td><td>{s.get("min_voltage_pu", "—")}</td></tr>')
-    (root / 'index.html').write_text('<!doctype html><meta charset="utf-8"><title>馈线实验</title>'
+    (root / 'index.html').write_text('<!doctype html><meta charset="utf-8"><title>Feeder experiment</title>'
         '<style>body{font:16px system-ui;max-width:1100px;margin:40px auto}td,th{padding:10px;border-bottom:1px solid #ddd}</style>'
-        f'<h1>实验 {html.escape(root.name)}</h1><p>接受 {summary["accepted"]} / 尝试 {summary["attempted"]}；研究检查，不代表完整规范认证。</p>'
-        '<a href="dataset.zip">下载数据集 ZIP</a><table><tr><th>样本</th><th>接受</th><th>运行合格</th><th>负荷点</th><th>最低电压 pu</th></tr>'
+        f'<h1>Experiment {html.escape(root.name)}</h1><p>Accepted {summary["accepted"]} / attempted {summary["attempted"]}; research checks do not constitute complete planning certification.</p>'
+        '<a href="dataset.zip">Download dataset ZIP</a><table><tr><th>Sample</th><th>Accepted</th><th>Operating checks passed</th><th>Load points</th><th>Minimum voltage (pu)</th></tr>'
         + ''.join(rows) + '</table>', encoding='utf-8')
 
 

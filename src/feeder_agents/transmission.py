@@ -253,10 +253,10 @@ def visualization(case,metadata,checks):
     metrics=checks.get('metrics',{})
     voltage=metrics.get('min_voltage_pu');voltage_text=f'{voltage:.4f} pu' if voltage is not None else '—'
     voltage_label='/'.join(f'{v:g}' for v in sorted(set(case['bus'][:,9]),reverse=True))
-    return svg_page('输电网络 · Transmission network',f"{voltage_label} kV · 平衡正序模型 · 合成空间坐标",''.join(body),
-        [('平衡母线（方形）','#ba8545'),('PV母线（三角）','#318579'),('PQ母线（圆形）','#536a81'),('线路','#8295a7'),('变压器（虚线）','#ba8545')],
-        [('母线',len(points)),('发电机',len(case['gen'])),('最低电压',voltage_text),('验收','通过' if checks['accepted'] else '未通过')],
-        notes='符号表示母线类型，不表示电压高低。坐标等比例显示，非GIS；指标来自交流潮流校验。')
+    return svg_page('Transmission network',f"{voltage_label} kV · Balanced positive-sequence model · Synthetic spatial coordinates",''.join(body),
+        [('Slack bus (square)','#ba8545'),('PV bus (triangle)','#318579'),('PQ bus (circle)','#536a81'),('Lines','#8295a7'),('Transformer (dashed)','#ba8545')],
+        [('Buses',len(points)),('Generators',len(case['gen'])),('Minimum voltage',voltage_text),('Acceptance','Passed' if checks['accepted'] else 'Failed')],
+        notes='Symbols indicate bus type, not voltage level. Synthetic coordinates are shown at equal scale, not as GIS data. Metrics come from AC power-flow validation.')
 
 
 def read_transmission_result(root):
@@ -309,11 +309,11 @@ def run_transmission(spec,workspace,run_id,*,agent_feedback=False,feedback_model
                 row=dict(sample_id=path.name,seed=seed,accepted=False,error=f'{type(exc).__name__}: {exc}');rows.append(row);atomic_json(path/'error.json',row)
         accepted=sum(r['accepted'] for r in rows)
         voltage_label='/'.join(str(v.kv) for v in spec.voltage_layers) if spec.voltage_layers else str(spec.voltage_kv)
-        report=f'输电网科研模型：{voltage_label}kV，{spec.n_buses}母线，{spec.n_generators}台静态发电机，总负荷{spec.total_mw}MW；{spec.topology}。生成{spec.count}例，交流潮流与约束检查通过{accepted}例。\n\nMATPOWER v2模型及逐例参数来源/假设随文件交付。参数按电压分级的工程典型值生成，按长度与基准量换算并核对；以工程合理性为目标，不要求复刻真实网络分布；不包含时序、动态、OPF或N-1验证。'
-        report+=f'\n\n目标约束{len(spec.targets)}项，内部校验条件{len(spec.validation_conditions)}组，适用文档规则{len(spec.document_rules)}条；Agent反馈'+('已开启' if agent_feedback else '未开启')+'。'
+        report=f'Transmission research model: {voltage_label} kV; {spec.n_buses} buses; {spec.n_generators} static generators; {spec.total_mw} MW demand; {spec.topology}. Generated {spec.count} cases; {accepted} passed AC power flow and constraint checks.\n\nMATPOWER v2 models include per-case parameter provenance and assumptions. Voltage-dependent engineering parameters are converted using length and base quantities and then checked. The objective is plausible research cases, not exact replication of real-network distributions. Time series, dynamics, OPF and N-1 validation are not included.'
+        report+=f'\n\nTarget constraints: {len(spec.targets)}; internal validation conditions: {len(spec.validation_conditions)}; applicable document rules: {len(spec.document_rules)}; agent feedback '+('enabled' if agent_feedback else 'disabled')+'.'
         (root/'report.md').write_text(report)
         links=''.join(f'<li><a href="{r["sample_id"]}/visualization.html">{r["sample_id"]}</a>: {r["accepted"]} · <a href="{r["sample_id"]}/case_generated.m">MATPOWER</a></li>' for r in rows if 'error' not in r)
-        (root/'index.html').write_text('<meta charset="utf-8"><h1>输电网科研模型</h1><p>'+html.escape(report)+'</p><ul>'+links+'</ul>')
+        (root/'index.html').write_text('<meta charset="utf-8"><h1>Transmission research models</h1><p>'+html.escape(report)+'</p><ul>'+links+'</ul>')
         with zipfile.ZipFile(root/'dataset.zip','w',zipfile.ZIP_DEFLATED) as z:
             for p in sorted(root.rglob('*')):
                 if p.is_file() and p.name not in ('.lock','dataset.zip','result.json'):z.write(p,p.relative_to(root))

@@ -12,7 +12,8 @@
   "wheel_license_and_third_party_notices_present": true,
   "wheel_runtime_byte_identical_to_source": true,
   "runtime_regressions_rerun": true,
-  "reason": "Final curated checkout passed all 159 selected tests. Runtime and test assertions remain unchanged from the curated M87 snapshot.",
+  "reason": "The initial curated checkout passed 159 tests. See verification-summary.json for the subsequent English presentation update.",
   "prior_runtime_checks": "verification-summary.json",
-  "record_scope": "Prepublication checks; commit and publication status are recorded in Git history."
+  "record_scope": "Initial repository and wheel preparation, retained as historical evidence for commit 47acf3a.",
+  "subsequent_presentation_update": "verification-summary.json#presentation_update"
 }

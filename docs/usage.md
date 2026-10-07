@@ -1,10 +1,10 @@
-# 使用与输出
+# Usage and outputs
 
-所有命令从发布目录执行，先按 [README](../README.md) 安装。示例配置不需要原研究目录和外部参考数据文件。
+Install the package following the [README](../README.md), then run commands from the release directory. Examples do not require the original research workspace or raw reference downloads.
 
-## 入口与工作区
+## Entry points
 
-`--workspace` 是全局参数，需要放在子命令之前，例如：
+`--workspace` is a global option and precedes the subcommand:
 
 ```bash
 feeder-agents --workspace workspace/demo generate --spec examples/distribution_villages.yaml --id villages
@@ -13,55 +13,63 @@ feeder-agents --workspace workspace/demo transmission --spec examples/transmissi
 feeder-agents --workspace workspace/demo transmission --spec examples/transmission_237.yaml --id tx237
 ```
 
-命令输出 JSON 摘要；验收失败也会保留证据，不要只用进程是否结束来判断案例是否合格。关注 `accepted`、逐项验证与错误记录。
+Commands return JSON summaries. A completed execution may still contain unaccepted cases: inspect `accepted`, individual checks and recorded errors.
 
-| 类型 | 默认工作区内的位置 | 模型文件 |
+| Family | Path inside the workspace | Model artifacts |
 |---|---|---|
-| 单电压配电 | `experiments/<id>/sample_00000/` | `feeder.json`、`opendss/Master.dss` |
-| 多电压配电 | `hierarchical_experiments/<id>/sample_00000/` | `feeder.json`、OpenDSS 模型 |
-| 输电 | `transmission_experiments/<id>/sample_00000/` | `case.json`、`case_generated.m` |
-| 自然语言设计 | `projects/<project>/designs/<id>/` | 方案与结果索引，生成模型位置由 `outcome.directory` 给出 |
+| Single-voltage distribution | `experiments/<id>/sample_00000/` | `feeder.json`, `opendss/Master.dss` |
+| MV/LV distribution | `hierarchical_experiments/<id>/sample_00000/` | `feeder.json`, OpenDSS files |
+| Transmission | `transmission_experiments/<id>/sample_00000/` | `case.json`, `case_generated.m` |
+| Natural-language design | `projects/<project>/designs/<id>/` | Plan and result index; `outcome.directory` locates generated models |
 
-模型文件、验证 JSON、可视化 HTML 和元数据应一起保存。MATPOWER 导出用于平衡模型；逐相不平衡配电使用 OpenDSS。查看每次运行实际生成的文件和能力说明，不把一个格式视为能表达全部模型。
+Keep models, validation JSON, HTML views and metadata together. MATPOWER exports represent balanced models; phase-resolved unbalanced distribution uses OpenDSS. Consult each run's artifact and validation records.
 
-## 模型配置
+## Model configuration
 
-`.env.example` 只包含变量名、示例地址及示例模型名，没有密钥。复制为 `.env` 后填写自己的值。`FEEDER_MODEL` 选择模型，`OPENAI_API_KEY` 提供密钥，`OPENAI_BASE_URL` 指向兼容服务；进程环境优先于当前目录的 `.env`。
+Copy `.env.example` to `.env`. Set `FEEDER_MODEL`, `OPENAI_API_KEY` and `OPENAI_BASE_URL` for an available compatible service. Process environment variables override the file in the launch directory. The template contains no API key.
 
-自然语言只形成草案：
+Create a draft without electrical generation:
 
 ```bash
-feeder-agents design '生成一条10kV农村配电馈线，准确37个节点，3个村落，总负荷480kW。' --id rural_draft --draft
+feeder-agents design 'Generate a rural 10 kV feeder with exactly 37 buses, three villages and 480 kW total demand.' --id rural_draft --draft
 ```
 
-`--draft` 仍会调用 LLM 解释需求，但不执行电气生成。`--nodes 37` 可以显式指定总母线数；原文与该值冲突时应修正输入，不应默默覆盖。
+`--draft` still calls the LLM. `--nodes 37` explicitly supplies the total bus count. Resolve contradictions between the text and this option rather than silently overriding either.
 
-## 反馈和经验
+## Feedback and experience
 
 ```bash
 feeder-agents hierarchy --spec examples/hierarchical_urban.yaml --id urban_feedback --agent-feedback
 feeder-agents transmission --spec examples/transmission_37.yaml --id tx_feedback --agent-feedback
 ```
 
-这两条命令启用外部模型参与失败诊断和允许的修复。多电压配电的 `--local-topology` 还允许同配变供区内的局部用户重接，具体仍受请求和动作约束；输电拓扑许可由其规格字段控制。
+These options enable external model participation in diagnosis and permitted repair. For hierarchical distribution, `--local-topology` additionally permits constrained customer reconnections within one transformer service area. Transmission topology permissions are controlled by its specification.
 
-单电压配置通过 `repair_policy.strategy` 选择 `none`、`fixed`、`heuristic` 或 `agent`。只有 `agent` 策略使用真实 LLM 选择修复。自然语言规划记忆由 `design --planning-memory learn|read_only|off` 控制，默认 `learn`。
+Single-voltage distribution selects `none`, `fixed`, `heuristic` or `agent` through `repair_policy.strategy`; only `agent` uses a live LLM for repair selection. Planning memory uses `design --planning-memory learn|read_only|off`, with `learn` as the default.
 
-新建工作区初始没有学习记录。经验通过运行积累；未经复验的失败记录不能作为成功修复知识。复制整个用户工作区会同时复制其输入、记忆和模型记录，因此不作为本代码快照的一部分。
+New workspaces begin without learned records. Experiences require validation before reuse as successful repairs. User workspaces contain requests, memory and models and are excluded from the release repository.
 
-## 内置参考与规则
+## References and rules
 
 ```bash
 feeder-agents references
 feeder-agents styles
-feeder-agents rules --query 电压
+feeder-agents rules --query voltage
 ```
 
-参考案例及派生参数已经包含在包内 JSON 中。原始提取脚本和下载库未包含；`source_path`、来源 URL、提交号和校验值用于溯源，不要求本机存在原始目录。来源与分发状态见 [THIRD_PARTY.md](../THIRD_PARTY.md)。
+Reference cases and derived parameters are packaged as JSON. Original extraction scripts and downloads are not included. Source paths, URLs, commits and hashes are provenance identifiers, not local runtime dependencies. See [THIRD_PARTY.md](../THIRD_PARTY.md).
 
-## 常见问题
+## Reproduce the figures
 
-- 导入报错：确认当前虚拟环境安装了本目录的包；输电需要 `transmission` 可选依赖。
-- 模型认证失败：核对当前启动目录的 `.env`、进程环境以及服务可用模型名；不要把密钥写进 YAML 或提交到仓库。
-- 结果未通过：查看失败的需求或电气检查项，区分需求矛盾、能力不支持、服务错误及搜索未达标。
-- 查看图时位置变化：拓扑布局只影响显示。低压台区视图是筛选显示，不是新的等值网络。
+```bash
+python scripts/build_gallery.py
+```
+
+Each run creates a fresh directory below `workspace/gallery/`, executes all seven specifications and writes PNG/PDF figures, a CSV table and a JSON provenance manifest to `docs/assets/`. The overview selection is declared before generation. No historical case or alternative seed is substituted based on appearance or acceptance. The hierarchy detail uses the same newly generated urban model as the overview.
+
+## Troubleshooting
+
+- Import failure: check the active environment and install the `transmission` extra for transmission cases.
+- Authentication failure: check `.env`, environment overrides and the provider model identifier.
+- Unaccepted case: distinguish requirement conflicts, unsupported capabilities, service errors and unresolved numerical targets using the validation evidence.
+- Different plotted positions: topology layouts change display coordinates. MV/LV view filtering does not construct an equivalent electrical model.

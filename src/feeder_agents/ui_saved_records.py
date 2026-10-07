@@ -42,25 +42,25 @@ def load_verified_design_record(result_path,workspace):
     if outcome is None:
         if raw.get('status') in ('draft','planning_failed','needs_clarification','unsupported'):
             return raw,None
-        return None,f'{result_path}: 未验证：已执行设计缺少结果目录。'
+        return None,f'{result_path}: Unverified: executed design has no result directory.'
     brief,error=load_json_record(result_path.parent/'brief.json')
-    if error:return None,f'{result_path}: 未验证：设计条件无法读取；{error}'
+    if error:return None,f'{result_path}: Unverified: could not read the specification; {error}'
     brief_hash=brief.get('brief_hash')
     if not isinstance(brief_hash,str) or digest({k:v for k,v in brief.items() if k!='brief_hash'})!=brief_hash:
-        return None,f'{result_path}: 未验证：设计条件摘要不匹配。'
+        return None,f'{result_path}: Unverified: specification checksum mismatch.'
     family=brief.get('plan_type')
     folders={'feeder':'experiments','hierarchical':'hierarchical_experiments',
              'transmission':'transmission_experiments','hierarchical_inverse':'hierarchical_inverse_designs'}
     if family not in folders:
-        return None,f'{result_path}: 未验证：该设计类型没有可验证结果读取器。'
+        return None,f'{result_path}: Unverified: no verified reader for this design family.'
     if not isinstance(outcome,dict) or not isinstance(outcome.get('directory'),str):
-        return None,f'{result_path}: 未验证：结果目录无效。'
+        return None,f'{result_path}: Unverified: invalid result directory.'
     project=result_path.parent.parent.parent.resolve()
     folder=Path(outcome['directory']).resolve()
     design_id=result_path.parent.name
     if not folder.is_relative_to(Path(workspace).resolve()) or folder.parent!=project/folders[family] or not (
             folder.name==design_id or folder.name.startswith(design_id[:45]+'_recovery_')):
-        return None,f'{result_path}: 未验证：结果目录与设计记录不符。'
+        return None,f'{result_path}: Unverified: result directory does not match the design record.'
     try:
         if family=='feeder':
             from .workflow import read_verified_experiment
@@ -75,10 +75,10 @@ def load_verified_design_record(result_path,workspace):
             from .hierarchy_inverse import read_hierarchy_inverse
             verified=read_hierarchy_inverse(folder)
     except Exception as exc:
-        return None,f'{result_path}: 未验证：{type(exc).__name__}: {exc}'
+        return None,f'{result_path}: Unverified: {type(exc).__name__}: {exc}'
     changed=any(key in outcome and outcome[key]!=verified.get(key) for key in
                 ('attempted','accepted','operational_pass','target_met','verification_passed'))
-    warning=f'{result_path}: 已保存设计摘要与验证结果不符；显示重新核验的结果。' if changed else None
+    warning=f'{result_path}: Saved summary differs from validated artifacts; reconstructed results are shown.' if changed else None
     report=verified['verified_report']
     displayed={**raw,'verified_family':family,'verified_report':report,'outcome':verified}
     ledger_data=brief.get('requirement_ledger')
@@ -92,11 +92,11 @@ def load_verified_design_record(result_path,workspace):
                 trace,trace_error=load_json_record(recovery_dir/'recovery.json')
                 selected,selected_error=load_json_record(recovery_dir/'selected_brief.json')
                 if trace_error or selected_error:
-                    raise ValueError('恢复交付的选定条件或轨迹缺失')
+                    raise ValueError('Selected recovery specification or trajectory is missing')
                 if Path(trace.get('selected_directory','')).resolve()!=folder:
-                    raise ValueError('恢复轨迹与模型目录不一致')
+                    raise ValueError('Recovery trajectory does not match the model directory')
                 if selected.get('requirement_ledger')!=ledger_data or selected.get('request')!=brief.get('request') or selected.get('plan_type')!=family:
-                    raise ValueError('恢复条件与原始需求合同不一致')
+                    raise ValueError('Recovery specification differs from the original requirement contract')
                 audit_brief=selected
             ledger=RequirementLedger.model_validate(ledger_data)
             acceptance=audit_delivery(ledger,audit_brief,verified)
@@ -104,15 +104,15 @@ def load_verified_design_record(result_path,workspace):
             displayed['outcome']={**verified,'requirement_accepted':acceptance['jointly_accepted']}
             failed=sum(row['failed'] for row in acceptance['samples'])
             pending=sum(row['unverified'] for row in acceptance['samples'])
-            report+=f"\n\n独立需求验收：{acceptance['jointly_accepted']}/{acceptance['attempted']}例通过模型验收与全部硬需求；不满足项{failed}，未取得自动验收证据项{pending}。"
+            report+=f"\n\nIndependent requirement acceptance: {acceptance['jointly_accepted']}/{acceptance['attempted']} cases passed model acceptance and all hard requirements; failed items: {failed}; items lacking automated verification: {pending}."
             if not acceptance['all_satisfied']:
                 displayed['status']='completed_unaccepted'
         except Exception as exc:
-            warning=(warning+' ' if warning else '')+f'{result_path}: 需求合同尚未核验：{type(exc).__name__}: {exc}'
-            report+='\n\n模型文件已验证；需求合同尚未核验。'
+            warning=(warning+' ' if warning else '')+f'{result_path}: Requirement contract is unverified: {type(exc).__name__}: {exc}'
+            report+='\n\nModel artifacts verified; requirement contract not yet verified.'
             displayed['status']='completed_unverified'
     else:
-        report+='\n\n模型文件已验证；需求合同尚未核验。'
+        report+='\n\nModel artifacts verified; requirement contract not yet verified.'
         displayed['status']='completed_unverified' if family in ('feeder','hierarchical','transmission') else displayed.get('status')
     if verified.get('attempted') is not None and verified.get('accepted')!=verified['attempted']:
         displayed['status']='completed_unaccepted'

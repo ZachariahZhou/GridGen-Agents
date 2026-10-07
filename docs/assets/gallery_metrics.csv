@@ -1,0 +1,8 @@
+example,accepted,buses,physical_branches,energized_branches,open_branches,transformers,active_mean_degree,active_cycle_rank,connected,model_sha256
+distribution_radial.yaml,True,25,24,24,0,0,1.92,0,True,cfd73586e7628a459a2cc5252c4fa183f451e1b48f41a1bdcf0e885d5ad2d302
+distribution_villages.yaml,True,37,36,36,0,0,1.945945945945946,0,True,86559c8fc553874f0a18539334cb04b550a7f2fa0a417ea81584a2535616be7c
+hierarchical_rural.yaml,True,40,39,39,0,3,1.95,0,True,71b953e1ba9f306aaeea5cdf4e012125e99f274c9f2b3d918373f90737650dc5
+hierarchical_urban.yaml,True,40,39,39,0,3,1.95,0,True,40f8e9e090dbef1e9ee96d42413f2353ee5b693e22f3e0ac3246bb816bff32bf
+transmission_139.yaml,True,139,185,185,0,0,2.661870503597122,47,True,454388ea3e03a2a95d12246de82dc4cdf022ddf9c7e3e883eae97b466a3e0336
+transmission_237.yaml,True,237,318,318,0,2,2.6835443037974684,82,True,a654133e6ca5e5b99975b5228233ee948defbea686f49ee3066f653c77e1933e
+transmission_37.yaml,True,37,49,49,0,0,2.6486486486486487,13,True,512e7afc9d801c0e34461b333201facfe96a8a3e523207e5ec2bffe457cb704f

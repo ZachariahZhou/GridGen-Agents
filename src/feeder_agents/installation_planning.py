@@ -95,16 +95,16 @@ def decision_record(spec):
 
 def decision_summary(spec):
     if spec.lv_regions:
-        return '\n\n'.join(f'区域 {r.name} ({r.id})，配变编号{r.transformer_indices}：\n'+decision_summary(spec.model_copy(update={'lv_regions':[],'lv_installation_decision':r.decision})) for r in spec.lv_regions)
+        return '\n\n'.join(f'Region {r.name} ({r.id}), transformer indices {r.transformer_indices}:\n'+decision_summary(spec.model_copy(update={'lv_regions':[],'lv_installation_decision':r.decision})) for r in spec.lv_regions)
     from .lv_equipment import resolve_installation
     profile,installation=resolve_installation(spec)
     d=spec.lv_installation_decision
     if d:
-        facts='；'.join(f'{f.criterion} [{f.origin}]：{f.observation}' for f in d.factors)
-        options='；'.join(f'{a.installation}：{a.reason}' for a in d.alternatives)
-        return f'低压敷设分析：{installation}（{profile}）。{d.reason}\n\n依据：{facts}\n\n候选比较：{options}\n\n未知条件：'+('；'.join(d.unknowns) or '未列出')
+        facts='; '.join(f'{f.criterion} [{f.origin}]: {f.observation}' for f in d.factors)
+        options='; '.join(f'{a.installation}: {a.reason}' for a in d.alternatives)
+        return f'LV installation analysis: {installation} ({profile}). {d.reason}\n\nEvidence: {facts}\n\nAlternatives: {options}\n\nUnknown conditions: '+('; '.join(d.unknowns) or 'None listed')
     record=decision_record(spec)
-    return f'低压敷设：{installation}（{profile}）；决策来源：{record["decision_source"]}。'+record.get('decision_notice','')
+    return f'LV installation: {installation} ({profile}); decision source: {record["decision_source"]}. '+record.get('decision_notice','')
 
 
 class InstallationRegion(StrictModel):

@@ -95,5 +95,27 @@
     }
   },
   "external_llm_calls": 0,
-  "record_scope": "Local prepublication verification; remote CI status is reported by GitHub Actions."
+  "record_scope": "Initial packaging checks plus independently verified English presentation update.",
+  "presentation_update": {
+    "date": "2026-10-07",
+    "regression": {
+      "tests": 159,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 159,
+      "duration_seconds": 104.24
+    },
+    "fresh_examples": 7,
+    "fresh_examples_accepted": 7,
+    "external_llm_calls": 0,
+    "html_views_english": 7,
+    "generated_reports_english": 7,
+    "gallery_manifest": "assets/gallery_manifest.json",
+    "metrics": "assets/gallery_metrics.csv",
+    "wheel_build_passed": true,
+    "wheel_sha256": "f5877f72915c569757316857b2d92fd5087e7e2925ab93eb30a3a06fb57cee3a",
+    "runtime_matches_current_checkout": true,
+    "test_changes": "English widget and diagram label assertions; numerical assertions retained."
+  }
 }

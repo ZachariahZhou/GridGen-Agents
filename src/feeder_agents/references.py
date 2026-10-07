@@ -163,9 +163,9 @@ def reference_visualization(case,result):
         label=html.escape(f'bus {int(b[0])}; {b[9]}kV; P={b[2]*1000:.5g}kW Q={b[3]*1000:.5g}kvar; V={v}')
         svg.append(f'<circle cx="{x}" cy="{y}" r="5" fill="{color}" tabindex="0"><title>{label}</title></circle>')
     from .visual_theme import svg_page
-    return svg_page(case['name']+' · Reference network','拓扑布局示意 · 非地理坐标', ''.join(svg),
-        [('电源','#ba8545'),('负荷','#318579'),('连接节点','#536a81'),('断开支路（虚线）','#8a719c')],
-        [('母线',len(case['bus'])),('支路',len(case['branch']))],notes='弹簧布局不表示真实位置或线路长度。悬停或点击查看参数。',viewbox='0 0 900 700')
+    return svg_page(case['name']+' · Reference network','Topology schematic | Non-geographic coordinates', ''.join(svg),
+        [('Source','#ba8545'),('Load','#318579'),('Junction','#536a81'),('Open branch (dashed)','#8a719c')],
+        [('Buses',len(case['bus'])),('Branches',len(case['branch']))],notes='Spring-layout positions do not represent geography or line lengths. Hover or click to inspect parameters.',viewbox='0 0 900 700')
 
 
 def run_reference_case(case_id,workspace,run_id,load_scale=1.0):
@@ -204,13 +204,13 @@ def run_reference_case(case_id,workspace,run_id,load_scale=1.0):
         atomic_json(root/'simulation.json',result)
         atomic_json(root/'validation.json',checks)
         (root/'visualization.html').write_text(reference_visualization(case,result),encoding='utf-8')
-        report=(f"MATPOWER参考 {case_id}：负荷倍率 {load_scale:g}，{len(case['bus'])}个母线；"
-            f"电气一致性{'通过' if checks['valid'] else '未通过'}，原案例电压范围 {checks['voltage_status']}；"
-            f"支路MVA限额 {checks['rating_status']}。来源类别：{entry['provenance']['evidence_class']}。"
-            '保留零负荷连接点、原电压和阻抗；坐标为拓扑示意，无真实长度。额定限额缺失不能称为不过载。')
+        report=(f"MATPOWER reference {case_id}: load multiplier {load_scale:g}; {len(case['bus'])} buses; "
+            f"electrical consistency {'passed' if checks['valid'] else 'failed'}; original voltage bounds: {checks['voltage_status']}; "
+            f"branch MVA ratings: {checks['rating_status']}. Source category: {entry['provenance']['evidence_class']}. "
+            'Zero-load junctions, original voltages and impedances are retained. Coordinates show topology, not physical distances. Missing ratings cannot establish the absence of overloads.')
         (root/'report.md').write_text(report,encoding='utf-8')
-        (root/'index.html').write_text('<!doctype html><meta charset="utf-8"><h1>MATPOWER参考馈线</h1><p>'+html.escape(report)+
-            '</p><a href="visualization.html">拓扑示意图</a> · <a href="dataset.zip">模型包</a> · <a href="validation.json">检查证据</a>',encoding='utf-8')
+        (root/'index.html').write_text('<!doctype html><meta charset="utf-8"><h1>MATPOWER reference feeder</h1><p>'+html.escape(report)+
+            '</p><a href="visualization.html">Network schematic</a> · <a href="dataset.zip">Model archive</a> · <a href="validation.json">Validation evidence</a>',encoding='utf-8')
         with zipfile.ZipFile(root/'dataset.zip','w',zipfile.ZIP_DEFLATED) as archive:
             for p in sorted(root.rglob('*')):
                 if p.is_file() and p.name not in {'.lock','dataset.zip','result.json'}:

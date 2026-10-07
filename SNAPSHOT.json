@@ -3,7 +3,7 @@
   "package_version": "0.1.0",
   "prepared_on": "2026-10-07",
   "selection": "Curated standalone code snapshot; not a copy of the full research workspace.",
-  "runtime_byte_identical": true,
+  "runtime_byte_identical": false,
   "runtime_python_files": 100,
   "runtime_json_files": 18,
   "excluded": [
@@ -16,16 +16,16 @@
     "historical scripts and most tests",
     "paper drafts and historical reports"
   ],
-  "illustrative_figures": "Two PNGs copied from the previous M84/M87 gallery; no generated model datasets copied.",
+  "illustrative_figures": "Fresh runs of all seven packaged specifications; six preselected cases in the overview and the same urban case in the hierarchy detail. PNG/PDF, metrics and hashes included; generated model directories excluded.",
   "repository": "https://github.com/ZachariahZhou/GridGen-Agents",
   "default_branch": "main",
   "git_repository_present": true,
   "remote_base_commit": "c91c8c200f877b9abbce9998189f4807ef1051bf",
   "code_license": "Apache-2.0",
   "third_party_status": "Upstream conditions remain separate; data redistribution terms still require review.",
-  "manifest_scope": "All working-tree files except SNAPSHOT.json and .git. Source paths are provenance, not runtime dependencies.",
-  "file_count_excluding_manifest": 166,
-  "bytes_excluding_manifest": 4670822,
+  "manifest_scope": "Tracked and non-ignored release files except SNAPSHOT.json; .git and generated workspace contents excluded. Source paths record historical provenance, not runtime dependencies.",
+  "file_count_excluding_manifest": 171,
+  "bytes_excluding_manifest": 4710168,
   "files": [
     {
       "path": ".env.example",
@@ -57,95 +57,115 @@
     },
     {
       "path": "README.md",
-      "bytes": 6387,
-      "sha256": "16992b02633a1fc82c2511088114e2bda44dc6905c0c8fcdcd063658c8a08652",
+      "bytes": 7298,
+      "sha256": "91d713b027c7b9beab470bf4fef023754a33f3bdba2da8d10b19635aeee06394",
       "curated_snapshot_sha256": "8095e2f1d8e2f7f2d6e9e1eb007abcc2bcd282eb3e7feefcc7fda505d715b326",
       "identical_to_curated_snapshot": false
     },
     {
       "path": "THIRD_PARTY.md",
-      "bytes": 2561,
-      "sha256": "16643718170e2078686f19a3ef9c6ae16324eb6d28f9ed3e99b24c7143cc6d02",
+      "bytes": 2618,
+      "sha256": "36f95c70c47f28f2ed3e0562a3af5b3184494405b28ac05e78367511d673c78a",
       "curated_snapshot_sha256": "5e8f27252e36762282e27c6abc37db72ef5e32348bac2370d98d5281b87b8f3b",
       "identical_to_curated_snapshot": false
     },
     {
       "path": "app.py",
-      "bytes": 30365,
-      "sha256": "d7bc7a9bf99fe513a05a1747c5f5019ca97c326868454d76b066bf5334ba140e",
+      "bytes": 31361,
+      "sha256": "b6e67ffb29e9561d98e305bc614ce26aae26082e8c1849dd76b65321f01a8cb8",
       "source": "app.py",
       "source_sha256": "d7bc7a9bf99fe513a05a1747c5f5019ca97c326868454d76b066bf5334ba140e",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "d7bc7a9bf99fe513a05a1747c5f5019ca97c326868454d76b066bf5334ba140e",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "docs/architecture.md",
-      "bytes": 3712,
-      "sha256": "93a9c15a3c50e09bf1cf301aaaa95c8233d21cc18a2c7f9fd83c5791fcaebcc5",
+      "bytes": 4631,
+      "sha256": "fcf5e8c4d892aa8a256847d4cf86ae5245b476696851cb7a8616179972179fa8",
       "curated_snapshot_sha256": "93a9c15a3c50e09bf1cf301aaaa95c8233d21cc18a2c7f9fd83c5791fcaebcc5",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
+    },
+    {
+      "path": "docs/assets/gallery_manifest.json",
+      "generated_by": "scripts/build_gallery.py",
+      "bytes": 20889,
+      "sha256": "3867fd6e1ab61aef3e8693d59197741ee5e65ef3990c4e42a0a5b8e3f14bbb9b"
+    },
+    {
+      "path": "docs/assets/gallery_metrics.csv",
+      "generated_by": "scripts/build_gallery.py",
+      "bytes": 1040,
+      "sha256": "bbe007cd7cbf680b1d9c88f915eb6a98d6c4efa0e81274783c80c0a4f8da05d3"
+    },
+    {
+      "path": "docs/assets/hierarchy_detail.pdf",
+      "generated_by": "scripts/build_gallery.py",
+      "bytes": 34862,
+      "sha256": "0bb1986e57c64edc3e252f531422223c888a55a698825059bac3f87ce1d3ef8b"
     },
     {
       "path": "docs/assets/hierarchy_detail.png",
-      "bytes": 290349,
-      "sha256": "3927aa47024ab0ed15eab73874b15652ffea28e4c33ed6d62feb6b359e2f2781",
-      "source": "workspace/m87_grid_visualizations/07_hierarchy_detail.png",
-      "source_sha256": "3927aa47024ab0ed15eab73874b15652ffea28e4c33ed6d62feb6b359e2f2781",
-      "identical_to_source": true,
+      "bytes": 236479,
+      "sha256": "4821d0d6c4e4ba399232cfd9e8b39c74b58a03e3eaeb2fdc647f41506c31ee5d",
       "curated_snapshot_sha256": "3927aa47024ab0ed15eab73874b15652ffea28e4c33ed6d62feb6b359e2f2781",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false,
+      "generated_by": "scripts/build_gallery.py"
+    },
+    {
+      "path": "docs/assets/network_overview.pdf",
+      "generated_by": "scripts/build_gallery.py",
+      "bytes": 130973,
+      "sha256": "8fdad4ae009a9767972c27c832faa4adc411031836967896a3f9ca62c4e61ea2"
     },
     {
       "path": "docs/assets/network_overview.png",
-      "bytes": 599352,
-      "sha256": "568202064a5ee593854b0ce11d7ff9619e782f364637ea488a1afa9d4e828d77",
-      "source": "workspace/m87_grid_visualizations/00_overview.png",
-      "source_sha256": "568202064a5ee593854b0ce11d7ff9619e782f364637ea488a1afa9d4e828d77",
-      "identical_to_source": true,
+      "bytes": 487367,
+      "sha256": "c1576a50f33ec09fe02e1b14174b67356163788171a9a1ba7edf0af1abe75599",
       "curated_snapshot_sha256": "568202064a5ee593854b0ce11d7ff9619e782f364637ea488a1afa9d4e828d77",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false,
+      "generated_by": "scripts/build_gallery.py"
     },
     {
       "path": "docs/repository-preparation.json",
-      "bytes": 911,
-      "sha256": "c800a51f0b6068b3f5b7463db0152ea147b70bf7f28dbac1c36e6724c3edbdb0"
+      "bytes": 1003,
+      "sha256": "acf77a618988218b6e729f291748324e31a745c331867490b8b703c7aa57cc92"
     },
     {
       "path": "docs/research/sources-and-rules.md",
-      "bytes": 4189,
-      "sha256": "7ec2bdee811e41bd0f0dae768aff6a9c3acb03242c16becec5e274c7aeef12e2",
+      "bytes": 4294,
+      "sha256": "99f7470907e2c6366a0b54da0f056bd583c19a30c38bb3fb975fac6985d92f00",
       "source": "docs/research/sources-and-rules.md",
       "source_sha256": "7ec2bdee811e41bd0f0dae768aff6a9c3acb03242c16becec5e274c7aeef12e2",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "7ec2bdee811e41bd0f0dae768aff6a9c3acb03242c16becec5e274c7aeef12e2",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "docs/snapshot-scope.md",
-      "bytes": 2741,
-      "sha256": "869e67496f4694ec54e04a477d3504934fb05af46528049f39145c7b9623421b",
+      "bytes": 2545,
+      "sha256": "4c4862fae2878e2a575558d63e63e2e605b4e147c717f5329326a48ae4b4ee97",
       "curated_snapshot_sha256": "4975ae20fa21a248327b1144ff5091e28ee05474c6ae60bf7407e1216a9c2044",
       "identical_to_curated_snapshot": false
     },
     {
       "path": "docs/usage.md",
-      "bytes": 4174,
-      "sha256": "5d6836ff067d308cdd3ba8b8cb5df8a970cc02e586d6a23e7d99a71aa4cce80c",
+      "bytes": 4648,
+      "sha256": "6c989a592eb3baddfd5cafdac95441038afb5e1ea6e8af2f204339ff69fdd5eb",
       "curated_snapshot_sha256": "5d6836ff067d308cdd3ba8b8cb5df8a970cc02e586d6a23e7d99a71aa4cce80c",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "docs/verification-summary.json",
-      "bytes": 2317,
-      "sha256": "2a73fb7a2e00c21ec660e6751a294d664bb3ec743d3f85a6e9fd77894d14de6b",
+      "bytes": 3053,
+      "sha256": "7f021bc39128f584f67e2a14be3b0f1eeb3720d69a3433aa589ed5970ba0cf8f",
       "curated_snapshot_sha256": "a37a0a2531b8a270aa9142bc072a6d7ff387015485f2bb924e09df87b950713a",
       "identical_to_curated_snapshot": false
     },
     {
       "path": "docs/verification.md",
-      "bytes": 4012,
-      "sha256": "7b9d7282971c474a9cf8380096d440b4b88d40988cad2dc4d4aa5b7e8d9fb6e5",
+      "bytes": 4050,
+      "sha256": "07318bcff48e03d1e3a955d1fa09491fbdd71a3ea71c9f2c2c53badbfe54f171",
       "curated_snapshot_sha256": "9304897c68cfed77bd3cb5fb92fde030531c3687075056a04c5b331e14fbed14",
       "identical_to_curated_snapshot": false
     },
@@ -225,6 +245,11 @@
       "identical_to_curated_snapshot": true
     },
     {
+      "path": "scripts/build_gallery.py",
+      "bytes": 12255,
+      "sha256": "90fce4c6390c8365422284e0c0d0f019cb1f726b49dba56f6ab1f8602c772178"
+    },
+    {
       "path": "scripts/check_examples.py",
       "bytes": 2108,
       "sha256": "38ff039027bb6ba4e8c284e6840eccbd4ef1efa65832d794ebd51084c3b7f6b9",
@@ -283,13 +308,13 @@
     },
     {
       "path": "src/feeder_agents/artifacts.py",
-      "bytes": 4708,
-      "sha256": "b9da0281c4a9e27f979a164339e0d5da53e7139dc6fdfcee044ab5ee5fd3027e",
+      "bytes": 4775,
+      "sha256": "e48ac81be8bd7cab0cb940dc731a2d15c9de3aaeef0a4b6b09ffdc77dacdfb69",
       "source": "src/feeder_agents/artifacts.py",
       "source_sha256": "b9da0281c4a9e27f979a164339e0d5da53e7139dc6fdfcee044ab5ee5fd3027e",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "b9da0281c4a9e27f979a164339e0d5da53e7139dc6fdfcee044ab5ee5fd3027e",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "src/feeder_agents/benchmark/__init__.py",
@@ -753,13 +778,13 @@
     },
     {
       "path": "src/feeder_agents/hierarchy_workflow.py",
-      "bytes": 16008,
-      "sha256": "ffe0b4b692da8eca8c41a73be1053ca5ac9f415607191e66e113195e05e88c0b",
+      "bytes": 16021,
+      "sha256": "df210fba7ce0b396c62b02b51ed378bffc4e8c429a869f45183d3fd8018dd4d2",
       "source": "src/feeder_agents/hierarchy_workflow.py",
       "source_sha256": "ffe0b4b692da8eca8c41a73be1053ca5ac9f415607191e66e113195e05e88c0b",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "ffe0b4b692da8eca8c41a73be1053ca5ac9f415607191e66e113195e05e88c0b",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "src/feeder_agents/injection_contract.py",
@@ -773,13 +798,13 @@
     },
     {
       "path": "src/feeder_agents/installation_planning.py",
-      "bytes": 9011,
-      "sha256": "e64b2d4e2065f1b9b9c69ee7b7a14fdc455b3ed503937c37ed45536d3a4e8459",
+      "bytes": 9018,
+      "sha256": "1135ed1965d790a24e5f89e275cb6f96c0c7cd1fbb053e925740b7219866ba99",
       "source": "src/feeder_agents/installation_planning.py",
       "source_sha256": "e64b2d4e2065f1b9b9c69ee7b7a14fdc455b3ed503937c37ed45536d3a4e8459",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "e64b2d4e2065f1b9b9c69ee7b7a14fdc455b3ed503937c37ed45536d3a4e8459",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "src/feeder_agents/inverse.py",
@@ -1043,13 +1068,13 @@
     },
     {
       "path": "src/feeder_agents/references.py",
-      "bytes": 13777,
-      "sha256": "592c05d128c50568bef41e00aa83834d434af80c4ef5e458bfa97530be2d781e",
+      "bytes": 13876,
+      "sha256": "8c09b3b6a5704040e7ce5b695bd707c8456d5d959933fb8f57f72e72a5196a72",
       "source": "src/feeder_agents/references.py",
       "source_sha256": "592c05d128c50568bef41e00aa83834d434af80c4ef5e458bfa97530be2d781e",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "592c05d128c50568bef41e00aa83834d434af80c4ef5e458bfa97530be2d781e",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "src/feeder_agents/repairs.py",
@@ -1063,13 +1088,13 @@
     },
     {
       "path": "src/feeder_agents/reporting.py",
-      "bytes": 5997,
-      "sha256": "844c4dad6b326d31fe0f08bf842ebec2f46ac8933d02c95a73b821c92b9fd710",
+      "bytes": 6327,
+      "sha256": "962a5348fc6d97b09f74a32ff1f33e30db39b0877966449a0eb15dcf0ffa98ba",
       "source": "src/feeder_agents/reporting.py",
       "source_sha256": "844c4dad6b326d31fe0f08bf842ebec2f46ac8933d02c95a73b821c92b9fd710",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "844c4dad6b326d31fe0f08bf842ebec2f46ac8933d02c95a73b821c92b9fd710",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "src/feeder_agents/request_contract.py",
@@ -1173,13 +1198,13 @@
     },
     {
       "path": "src/feeder_agents/schematic.py",
-      "bytes": 13478,
-      "sha256": "fc8ebc294f11d0296d587501be9b1b9451959bc78e710194844d474d636eeab7",
+      "bytes": 13646,
+      "sha256": "dbbe396f7fb7fa8347b36c07e32a52ecd2aa99cff135d6498021a451248cab6e",
       "source": "src/feeder_agents/schematic.py",
       "source_sha256": "fc8ebc294f11d0296d587501be9b1b9451959bc78e710194844d474d636eeab7",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "fc8ebc294f11d0296d587501be9b1b9451959bc78e710194844d474d636eeab7",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "src/feeder_agents/settlements.py",
@@ -1303,13 +1328,13 @@
     },
     {
       "path": "src/feeder_agents/transmission.py",
-      "bytes": 27201,
-      "sha256": "49b99dc7a3746bd10471f37e7d83be67fb99e22b5e308e43ae09a9e0516f4ca0",
+      "bytes": 27349,
+      "sha256": "b5416a7661d2d916d8651823cbf328c2ae9b8c93b81e2181888f7824b412ee03",
       "source": "src/feeder_agents/transmission.py",
       "source_sha256": "49b99dc7a3746bd10471f37e7d83be67fb99e22b5e308e43ae09a9e0516f4ca0",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "49b99dc7a3746bd10471f37e7d83be67fb99e22b5e308e43ae09a9e0516f4ca0",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "src/feeder_agents/transmission_equipment.py",
@@ -1373,13 +1398,13 @@
     },
     {
       "path": "src/feeder_agents/ui_saved_records.py",
-      "bytes": 9518,
-      "sha256": "8ffe932f69a6fd2fec400900fb6474d14ee08bc2db1cf81fe2856ce2afd3c657",
+      "bytes": 9680,
+      "sha256": "ea457f41b1370511d901b2c4b88c377385447e1a68542cbcdffd41da1648fb72",
       "source": "src/feeder_agents/ui_saved_records.py",
       "source_sha256": "8ffe932f69a6fd2fec400900fb6474d14ee08bc2db1cf81fe2856ce2afd3c657",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "8ffe932f69a6fd2fec400900fb6474d14ee08bc2db1cf81fe2856ce2afd3c657",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "src/feeder_agents/verified_memory.py",
@@ -1393,13 +1418,13 @@
     },
     {
       "path": "src/feeder_agents/visual_theme.py",
-      "bytes": 9327,
-      "sha256": "1e8e35e8c7d4ffdb055d4e824a4a32fc9f83ca631c18ac187648a4fe606bfb4c",
+      "bytes": 9296,
+      "sha256": "dc53f1bf59dc3ec7a5ea4cefdb5af1d633383d0fb4af6d1aebae2eb2877e1a88",
       "source": "src/feeder_agents/visual_theme.py",
       "source_sha256": "1e8e35e8c7d4ffdb055d4e824a4a32fc9f83ca631c18ac187648a4fe606bfb4c",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "1e8e35e8c7d4ffdb055d4e824a4a32fc9f83ca631c18ac187648a4fe606bfb4c",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "src/feeder_agents/voltage.py",
@@ -1413,13 +1438,13 @@
     },
     {
       "path": "src/feeder_agents/workflow.py",
-      "bytes": 30428,
-      "sha256": "a827be7975e3d5cfdab58fd260e90dff6853e778d8eb7d9e6cfb435a54aa147c",
+      "bytes": 30483,
+      "sha256": "60f117659df31fd038b98bb2cb41970fcb778c5aa16417750d60d97221b4413c",
       "source": "src/feeder_agents/workflow.py",
       "source_sha256": "a827be7975e3d5cfdab58fd260e90dff6853e778d8eb7d9e6cfb435a54aa147c",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "a827be7975e3d5cfdab58fd260e90dff6853e778d8eb7d9e6cfb435a54aa147c",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "tests/planning_fixtures.py",
@@ -1440,13 +1465,13 @@
     },
     {
       "path": "tests/test_agent_ui.py",
-      "bytes": 8130,
-      "sha256": "9db75c0f5d7ac9022495cb481ea2c0665160f5598af07efd38c81a0282fdc0b3",
+      "bytes": 8139,
+      "sha256": "79abeec6eb91fca3fc04a3b894b66f3f632d44354c39f301f0934f81c41f2c62",
       "source": "tests/test_agent_ui.py",
       "source_sha256": "9db75c0f5d7ac9022495cb481ea2c0665160f5598af07efd38c81a0282fdc0b3",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "9db75c0f5d7ac9022495cb481ea2c0665160f5598af07efd38c81a0282fdc0b3",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "tests/test_config.py",
@@ -1550,13 +1575,13 @@
     },
     {
       "path": "tests/test_schematic.py",
-      "bytes": 5999,
-      "sha256": "5e5bd0e4d0cbe765069f46b2de16b18135e9cbc950ce66f154c6d991ed6649c3",
+      "bytes": 6022,
+      "sha256": "e9e516c52d0cac8c3096571c6e9ea94cc5c5bcc9af329d864c850bee2c631821",
       "source": "tests/test_schematic.py",
       "source_sha256": "5e5bd0e4d0cbe765069f46b2de16b18135e9cbc950ce66f154c6d991ed6649c3",
-      "identical_to_source": true,
+      "identical_to_source": false,
       "curated_snapshot_sha256": "5e5bd0e4d0cbe765069f46b2de16b18135e9cbc950ce66f154c6d991ed6649c3",
-      "identical_to_curated_snapshot": true
+      "identical_to_curated_snapshot": false
     },
     {
       "path": "tests/test_transmission.py",
@@ -1629,5 +1654,6 @@
       "identical_to_curated_snapshot": true
     }
   ],
-  "record_scope": "Prepublication file manifest; publication status is tracked in Git history."
+  "record_scope": "Release file manifest; commit and publication status are recorded in Git history.",
+  "presentation_update": "English documentation, default UI, report templates and diagrams; regenerated gallery with provenance. Numerical generator and acceptance logic retained."
 }

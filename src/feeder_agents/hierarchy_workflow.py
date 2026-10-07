@@ -77,18 +77,16 @@ def visualization(feeder,result,checks):
             x,y=xy[b.id]
             svg.append(f'<text x="{x+9}" y="{y-9}" font-family="Arial, sans-serif" font-size="11" fill="#45566b">{html.escape(b.id)}</text>')
     body=''.join(svg)
-    state='通过' if checks['accepted'] else '未通过'
+    state='Passed' if checks['accepted'] else 'Failed'
     analysis=feeder.design_evidence.get('lv_equipment',{})
-    decision=analysis.get('installation_decision')
-    analysis_text=(decision['reason'] if decision else analysis.get('decision_notice',analysis.get('decision_source','旧模型')))
-    if analysis.get('regions'):
-        analysis_text='；'.join(r['name']+'：'+r['decision']['selected']+' — '+r['decision']['reason'] for r in analysis['regions'])
-    analysis_html=html.escape(str(analysis.get('installation',''))+'：'+analysis_text)
     topology=feeder.design_evidence.get('resolved_mv_topology',{}).get('family','legacy balanced_tree')
-    return svg_page('多电压配电网络 · MV–LV feeder','中压—配变—低压—用户 · 合成空间坐标',body,
-        [('中压','#356a93'),('配变（方形）','#ba8545'),('低压','#318579'),('用户','#84719a'),('常开联络 NO','#bd7628'),('线路越限','#b64b4b')],
-        [('母线',len(feeder.buses)),('配变',len(feeder.transformers)),('用户',len(feeder.loads)),('验收',state)],
-        notes='中压拓扑：'+topology+'；常开联络线 '+str(len(feeder.tie_lines))+' 条（橙色点划线，空心圆 NO）；实际运行径向。实线：架空；虚线：电缆。等比例合成坐标，交叉不代表连接，非GIS；等效接地，无显式中性线。低压敷设：'+str(analysis.get('installation',''))+' · '+analysis_text)
+    return svg_page('MV-LV distribution feeder','MV-transformer-LV-customer network · Synthetic spatial coordinates',body,
+        [('MV','#356a93'),('Transformer (square)','#ba8545'),('LV','#318579'),('Customers','#84719a'),('Normally-open tie (NO)','#bd7628'),('Line limit violation','#b64b4b')],
+        [('Buses',len(feeder.buses)),('Transformers',len(feeder.transformers)),('Customers',len(feeder.loads)),('Acceptance',state)],
+        notes='MV topology: '+topology+'; normally-open ties: '+str(len(feeder.tie_lines))+
+        '. Energized connectivity is radial. Solid lines: overhead; dashed lines: cable; orange dash-dot lines: open ties (NO). '
+        'Synthetic coordinates use equal scale; crossings do not imply connections. Equivalent grounding, without an explicit neutral. '
+        'LV installation: '+str(analysis.get('installation',''))+'. Installation rationale and equipment provenance are stored in design_evidence.json.')
 
 
 def _solve(master,connection):
@@ -185,19 +183,19 @@ def run_hierarchy(spec,workspace,run_id,*,agent_feedback=False,feedback_model=No
         accepted=sum(s['accepted'] for s in samples)
         from .lv_equipment import resolve_installation
         lv_profile,lv_installation=resolve_installation(spec)
-        report=f'多电压科研馈线：{spec.voltage_kv}/{spec.lv_voltage_kv}kV；{spec.transformer_count}台配变；{spec.users}个单相用户；{spec.n_buses}个总母线。尝试{spec.count}例，通过{accepted}例。\n\n低压目录：{lv_profile}；敷设：{lv_installation}。产品和阻抗等值转换分别记录，配变参数成套选取并记录迁移。等效接地模型，不含中性线位移、时序和保护验证。'
+        report=f'MV/LV research feeder: {spec.voltage_kv}/{spec.lv_voltage_kv} kV; {spec.transformer_count} transformers; {spec.users} single-phase customers; {spec.n_buses} total buses. Attempted {spec.count} cases; accepted {accepted}.\n\nLV catalog: {lv_profile}; installation: {lv_installation}. Product data and impedance-equivalent conversions are recorded separately. Transformer parameters are selected jointly with transfer assumptions recorded. Equivalent grounding excludes neutral displacement, time series and protection validation.'
         from .hierarchy_topology_design import resolve_mv_topology,resolve_lv_topology
-        report+='\n\n中压拓扑：'+resolve_mv_topology(spec).family+'；低压拓扑：'+resolve_lv_topology(spec)+'。环网保留常开联络线，带电连接为单等效电源径向图；不代表多电源或N-1保证。'
-        report+='\n\n各样本 structure_diagnostic.json 单独记录图结构与建模简化。电气通过不等于真实馈线总体的统计相似性已验证。'
+        report+='\n\nMV topology: '+resolve_mv_topology(spec).family+'; LV topology: '+resolve_lv_topology(spec)+'. Ring configurations retain normally-open ties. Energized connectivity is radial with one equivalent source; multi-source operation and N-1 security are not guaranteed.'
+        report+='\n\nEach structure_diagnostic.json records graph structure and modeling simplifications. Electrical acceptance does not establish statistical similarity to the population of real feeders.'
         from .installation_planning import decision_summary
         report+='\n\n'+decision_summary(spec)
         if spec.structure_targets is not None:
-            report+='\n\n显式结构目标：'+json.dumps(spec.structure_targets.model_dump(exclude_none=True),ensure_ascii=False)+'。深度从电源按中压带电边计跳数；配变距离统计非源中压节点。未满足目标不验收；无合法局部动作不等同于全局不可行。'
+            report+='\n\nExplicit structure targets: '+json.dumps(spec.structure_targets.model_dump(exclude_none=True),ensure_ascii=False)+'. Depth counts energized MV hops from the source; transformer-distance statistics exclude the source. Unmet targets prevent acceptance. Absence of a permitted local action does not prove global infeasibility.'
         if agent_feedback:
-            report+='\n\n评估反馈循环：Agent依据量测选择设备或获准的局部拓扑修复工具，程序校验固定条件并重新计算；每例最多'+str(feedback_rounds)+'轮。\n'+ '\n'.join(s['sample_id']+'：'+s.get('feedback',{}).get('stop_reason',s.get('error','未完成')) for s in samples)
+            report+='\n\nFeedback loop: the agent selects equipment or permitted local topology repairs from measured evidence. The executor checks invariants and recalculates, with at most '+str(feedback_rounds)+' rounds per case.\n'+ '\n'.join(s['sample_id']+': '+s.get('feedback',{}).get('stop_reason',s.get('error','Incomplete')) for s in samples)
         (root/'report.md').write_text(report)
-        rows=''.join(f'<li><a href="{s["sample_id"]}/visualization.html">{s["sample_id"]}</a>：'+('通过' if s['accepted'] else '未通过')+'</li>' for s in samples)
-        (root/'index.html').write_text('<meta charset="utf-8"><h1>中低压分层科研案例</h1><p>'+html.escape(report)+'</p><ul>'+rows+'</ul><a href="dataset.zip">下载OpenDSS、模型与验证结果</a>')
+        rows=''.join(f'<li><a href="{s["sample_id"]}/visualization.html">{s["sample_id"]}</a>: '+('Passed' if s['accepted'] else 'Failed')+'</li>' for s in samples)
+        (root/'index.html').write_text('<meta charset="utf-8"><h1>MV/LV research cases</h1><p>'+html.escape(report)+'</p><ul>'+rows+'</ul><a href="dataset.zip">Download OpenDSS models and validation evidence</a>')
         with zipfile.ZipFile(root/'dataset.zip','w',zipfile.ZIP_DEFLATED) as archive:
             for path in sorted(root.rglob('*')):
                 if path.is_file() and path.name not in ('.lock','dataset.zip','result.json'):archive.write(path,path.relative_to(root))

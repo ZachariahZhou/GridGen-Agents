@@ -26,7 +26,7 @@ def test_display_coordinates_do_not_change_feeder_or_drop_open_ties():
         bus.y_km += 700
     assert schematic_layout(network_graph(changed)) == positions
     page = schematic_html(graph, positions=positions)
-    assert 'NO' in page and '非地理' in page
+    assert 'NO' in page and 'Non-geographic' in page
     assert feeder.model_dump_json() == before
 
 
@@ -54,8 +54,8 @@ def test_saved_view_layout_switch_does_not_rewrite_artifact(tmp_path):
     view = tmp_path/'visualization.html'
     view.write_text('frozen original view')
     before = {p.name:p.read_bytes() for p in tmp_path.iterdir()}
-    assert '非地理' in render_saved_view(view,layout_mode='topology')
-    assert '合成空间坐标' in render_saved_view(view,layout_mode='geographic')
+    assert 'Non-geographic' in render_saved_view(view,layout_mode='topology')
+    assert 'Synthetic spatial coordinates' in render_saved_view(view,layout_mode='geographic')
     assert {p.name:p.read_bytes() for p in tmp_path.iterdir()} == before
 
 
@@ -96,8 +96,8 @@ def test_mv_and_local_lv_views_preserve_model_and_aggregate_actual_customers():
     local=network_view(full,'lv',transformer.id)
     expected={b.id for b in feeder.buses if b.transformer_id==transformer.id}|{transformer.bus1}
     assert set(local)==expected
-    assert '中压馈线骨架' in schematic_html(mv)
-    assert '全模型母线' in schematic_html(mv)
+    assert 'MV backbone' in schematic_html(mv)
+    assert 'Full-model buses' in schematic_html(mv)
     assert feeder.model_dump_json()==original
     assert dict(full.nodes(data=True))==dict(original_graph.nodes(data=True))
     with pytest.raises(ValueError):network_view(full,'lv','missing')
@@ -110,7 +110,7 @@ def test_saved_scope_switch_is_read_only_and_supports_geographic_positions(tmp_p
     (tmp_path/'validation.json').write_text('{"accepted":true}')
     path=tmp_path/'visualization.html';path.write_text('frozen')
     before={p.name:p.read_bytes() for p in tmp_path.iterdir()}
-    assert '中压馈线骨架' in render_saved_view(path,layout_mode='topology',scope='mv')
-    assert '合成空间坐标' in render_saved_view(path,layout_mode='geographic',scope='mv')
-    assert '低压台区 tx_1' in render_saved_view(path,layout_mode='topology',scope='lv',transformer_id='tx_1')
+    assert 'MV backbone' in render_saved_view(path,layout_mode='topology',scope='mv')
+    assert 'Synthetic spatial coordinates' in render_saved_view(path,layout_mode='geographic',scope='mv')
+    assert 'LV service area: tx_1' in render_saved_view(path,layout_mode='topology',scope='lv',transformer_id='tx_1')
     assert {p.name:p.read_bytes() for p in tmp_path.iterdir()}==before

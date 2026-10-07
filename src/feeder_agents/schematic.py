@@ -189,15 +189,15 @@ def schematic_html(graph, *, positions=None, accepted=None, geographic=False):
         body.append(shape+f' fill="{color}" stroke="{border}" stroke-width="1" tabindex="0"><title>{label}</title></{end}>')
     kv='/'.join(f'{v:g}' for v in sorted({n['voltage_kv'] for _,n in graph.nodes(data=True)},reverse=True))
     scope=graph.graph.get('scope','full')
-    title='中压馈线骨架' if scope=='mv' else f'低压台区 {graph.graph["transformer_id"]}' if scope=='lv' else '电力网络拓扑示意图'
-    layout='合成空间坐标' if geographic else '非地理布局'
-    detail='低压用户按配变汇总，点击接点查看用户数和功率' if scope=='mv' else '含该配变及其用户' if scope=='lv' else '全部母线可见'
+    title='MV backbone' if scope=='mv' else f'LV service area: {graph.graph["transformer_id"]}' if scope=='lv' else 'Power network schematic'
+    layout='Synthetic spatial coordinates' if geographic else 'Non-geographic layout'
+    detail='LV customers aggregated by transformer; select a tap to inspect customer counts and demand' if scope=='mv' else 'Includes the selected transformer and its customers' if scope=='lv' else 'All buses shown'
     return svg_page(title,f'{kv} kV · {layout} · {detail}',''.join(body),
-        [('电源 / 平衡母线（方形）','#24364b'),('MV配变接点（菱形）/ 母线','#395d85'),('用户','#58a896'),('配变低压侧','#9b6080'),('常开联络 NO / PV用户边框','#c58a31')],
-        [('显示母线',len(graph)),('全模型母线',graph.graph.get('full_node_count',len(graph))),
-         ('显示支路',graph.number_of_edges()),('常开联络',sum(e['kind']=='tie' for *_,e in graph.edges(data=True))),('全模型验收','通过' if accepted is True else '未通过' if accepted is False else '见验证记录')],
-        notes=('沿用模型合成空间坐标。' if geographic else 'NetworkX自动拓扑布局（弹簧/Kamada–Kawai，可选依赖缺失时回退），显示距离无物理单位。')+
-        '紫色虚线为变压器，橙色虚线为常开/断开支路。交叉不代表连接。视图筛选不生成等值电气模型；导出仍保留全网络。PV为节点属性。')
+        [('Source / slack (square)','#24364b'),('MV transformer tap (diamond) / bus','#395d85'),('Customers','#58a896'),('Transformer LV side','#9b6080'),('Open tie (NO) / PV customer border','#c58a31')],
+        [('Displayed buses',len(graph)),('Full-model buses',graph.graph.get('full_node_count',len(graph))),
+         ('Displayed branches',graph.number_of_edges()),('Open ties',sum(e['kind']=='tie' for *_,e in graph.edges(data=True))),('Full-model acceptance','Passed' if accepted is True else 'Failed' if accepted is False else 'See validation record')],
+        notes=('Uses the synthetic coordinates stored in the model. ' if geographic else 'Automatic NetworkX spring/Kamada-Kawai layout, with fallback when optional dependencies are unavailable. Display distances have no physical units. ')+
+        'Purple dashed edges are transformers; orange dashed edges are open branches. Crossings do not imply connections. View filtering is not electrical equivalencing; model exports retain the full network. PV is a bus attribute.')
 
 
 def draw_schematic(ax, graph, positions=None):
