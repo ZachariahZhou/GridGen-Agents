@@ -1,0 +1,150 @@
+{
+  "version": "research_topology_families_v1",
+  "purpose": "科研馈线案例生成；场景名称是研究模板，不是地域/电压适用性认证",
+  "operating_model": "单源、单电压；平衡或6/10/20kV逐相不平衡；带电线路为树，常开联络另存为物理支路",
+  "families": [
+    {
+      "id": "spatial_mst",
+      "name": "空间邻近辐射",
+      "scenario": {
+        "layout": "spatial_mst"
+      },
+      "controls": [
+        "aspect_ratio",
+        "positions_km"
+      ],
+      "use": "紧凑/狭长空间布点、距离约束连接对照"
+    },
+    {
+      "id": "rural_villages",
+      "name": "主干—村落聚集",
+      "scenario": {
+        "kind": "rural",
+        "layout": "rural_villages"
+      },
+      "controls": [
+        "village_count",
+        "trunk_fraction"
+      ],
+      "use": "聚集负荷、主干与局部分支；80/20负荷分配为假设"
+    },
+    {
+      "id": "empirical_tree",
+      "name": "参考边际树",
+      "scenario": {
+        "layout": "empirical_tree",
+        "calibration_profile": "epri_dpv_j1_k1"
+      },
+      "controls": [
+        "empirical_weight"
+      ],
+      "use": "指定EPRI参考边际统计对照；非完整真实形态拟合"
+    },
+    {
+      "id": "long_trunk",
+      "name": "长链式",
+      "scenario": {
+        "layout": "structured_radial",
+        "topology": {
+          "family": "long_trunk"
+        }
+      },
+      "controls": [],
+      "use": "沿线供电、较深路径、电压降研究"
+    },
+    {
+      "id": "comb",
+      "name": "主干多支线式",
+      "scenario": {
+        "layout": "structured_radial",
+        "topology": {
+          "family": "comb"
+        }
+      },
+      "controls": [
+        "topology.branch_count",
+        "topology.trunk_fraction"
+      ],
+      "use": "主干沿线分出若干径向支线；与村落聚集不同"
+    },
+    {
+      "id": "multi_branch",
+      "name": "同源多臂式",
+      "scenario": {
+        "layout": "structured_radial",
+        "topology": {
+          "family": "multi_branch"
+        }
+      },
+      "controls": [
+        "topology.branch_count"
+      ],
+      "use": "同一个等值电源的多条放射路径；不是多个独立电源"
+    },
+    {
+      "id": "balanced_tree",
+      "name": "分层分支树",
+      "scenario": {
+        "layout": "structured_radial",
+        "topology": {
+          "family": "balanced_tree"
+        }
+      },
+      "controls": [
+        "topology.branching_factor"
+      ],
+      "use": "规则分层的深度/分叉数对照，非工程最优性声明"
+    },
+    {
+      "id": "irregular_tree",
+      "name": "不规则分支树",
+      "scenario": {
+        "layout": "structured_radial",
+        "topology": {
+          "family": "irregular_tree"
+        }
+      },
+      "controls": [
+        "topology.branching_factor"
+      ],
+      "use": "受最大子分支数约束的随机生长，多种子形态多样性"
+    },
+    {
+      "id": "open_ring",
+      "name": "常开环形",
+      "scenario": {
+        "layout": "structured_radial",
+        "topology": {
+          "family": "open_ring"
+        },
+        "tie_count": 1
+      },
+      "controls": [],
+      "use": "物理环形、一个常开断点、当前运行径向；不含供电恢复与闭环调度"
+    }
+  ],
+  "load_shapes": {
+    "heterogeneous": "保持生成器的异质分配",
+    "uniform": "各正负荷接入点等有功",
+    "downstream_heavy": "按图深度向末端增加相对权重",
+    "upstream_heavy": "按图深度向近源增加相对权重"
+  },
+  "composition_rules": [
+    "非默认负荷形状仅用于spatial_mst/legacy_random/structured_radial的all_nodes布点；村落/经验/条件布点有自身分配合同",
+    "structured_radial需topology；参数只适用于列出的拓扑族，不兼容参数拒绝",
+    "open_ring必须tie_count=1；其他布局可请求0–10条常开联络，空间候选不足时拒绝而不放宽长度",
+    "所有现有支持电压均可用于新结构研究；电压等级规则依旧生效；村落/经验/条件布点维持原电压限制",
+    "常开联络已导出并验证断开；没有N-1保障、保护整定、切换策略或自动供电恢复认证",
+    "支持局部修订与新结构间重设计；条件零负荷布点父案例的联合拓扑重设计暂不支持",
+    "初次生成structured_radial可结合MV reference_conditioned布点保留零负荷连接点；需参考ID、load_shape默认；含条件布点父案例的重设计仍拒绝"
+  ],
+  "unsupported": [
+    "多独立电源运行",
+    "闭环带电潮流设计",
+    "跨电压变压器层级",
+    "详细低压中性线、变压器及缺相主干",
+    "部分子网锁定后自动重构",
+    "道路GIS和建设规划",
+    "时序开关调度及恢复策略"
+  ]
+}

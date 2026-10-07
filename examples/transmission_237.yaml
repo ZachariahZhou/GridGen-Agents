@@ -1,0 +1,20 @@
+network_kind: transmission
+voltage_kv: 500
+voltage_layers:
+- kv: 500
+  buses: 97
+- kv: 220
+  buses: 140
+n_buses: 237
+n_generators: 36
+total_mw: 6500.0
+power_factor: 0.97
+topology: meshed
+extra_edges: 79
+mesh_style: local
+mesh_family: auto
+radial_bus_count: 15
+shunt_compensation: 0.7
+radius_km: 40
+count: 1
+seed: 41

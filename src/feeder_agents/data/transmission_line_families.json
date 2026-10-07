@@ -1,0 +1,32 @@
+{
+  "version": "joint-overhead-v1",
+  "frequency_hz": 50,
+  "policy": "Voltage-conditioned joint line-type sampling with declared engineering selection weights. Not fitted real-grid probabilities or product certification. R, X, C and current rating must be selected together.",
+  "source_url": "https://pandapower.readthedocs.io/en/v3.3.3/std_types/basic.html",
+  "profiles": {
+    "110": [
+      {"profile_id": "pp_110_305", "r_ohm_km": 0.0949, "x_ohm_km": 0.38, "c_nf_km": 9.2, "max_i_ka": 0.74, "installation": "overhead", "source_kind": "published_standard_type", "basis": "pandapower 3.3.3 305-AL1/39-ST1A 110.0, 50 Hz"},
+      {"profile_id": "pp_110_490", "r_ohm_km": 0.059, "x_ohm_km": 0.37, "c_nf_km": 9.75, "max_i_ka": 0.96, "installation": "overhead", "source_kind": "published_standard_type", "basis": "pandapower 3.3.3 490-AL1/64-ST1A 110.0, 50 Hz"},
+      {"profile_id": "pp_110_679", "r_ohm_km": 0.042, "x_ohm_km": 0.36, "c_nf_km": 9.95, "max_i_ka": 1.15, "installation": "overhead", "source_kind": "published_standard_type", "basis": "pandapower 3.3.3 679-AL1/86-ST1A 110.0, 50 Hz"}
+    ],
+    "220": [
+      {"profile_id": "pp_220_490", "r_ohm_km": 0.059, "x_ohm_km": 0.285, "c_nf_km": 10.0, "max_i_ka": 0.96, "installation": "overhead", "source_kind": "published_standard_type", "basis": "pandapower 3.3.3 490-AL1/64-ST1A 220.0, 50 Hz"},
+      {"profile_id": "pp_220_679", "r_ohm_km": 0.042, "x_ohm_km": 0.275, "c_nf_km": 11.7, "max_i_ka": 1.15, "installation": "overhead", "source_kind": "published_standard_type", "basis": "pandapower 3.3.3 679-AL1/86-ST1A 220.0, 50 Hz"}
+    ],
+    "330": [
+      {"profile_id": "eng_330_light", "r_ohm_km": 0.039, "x_ohm_km": 0.315, "c_nf_km": 11.0, "max_i_ka": 1.25, "installation": "overhead", "source_kind": "engineering_prior", "basis": "Synthetic bundled overhead-line family: lighter equivalent conductor; 50 Hz engineering prior, not a named product or measured sample"},
+      {"profile_id": "eng_330_standard", "r_ohm_km": 0.030, "x_ohm_km": 0.30, "c_nf_km": 12.0, "max_i_ka": 1.50, "installation": "overhead", "source_kind": "engineering_prior", "basis": "Synthetic bundled overhead-line family: central equivalent conductor; 50 Hz engineering prior, not a named product or measured sample"},
+      {"profile_id": "eng_330_heavy", "r_ohm_km": 0.021, "x_ohm_km": 0.285, "c_nf_km": 13.0, "max_i_ka": 1.80, "installation": "overhead", "source_kind": "engineering_prior", "basis": "Synthetic bundled overhead-line family: heavier equivalent conductor; 50 Hz engineering prior, not a named product or measured sample"}
+    ],
+    "500": [
+      {"profile_id": "eng_500_light", "r_ohm_km": 0.024, "x_ohm_km": 0.30, "c_nf_km": 12.0, "max_i_ka": 1.65, "installation": "overhead", "source_kind": "engineering_prior", "basis": "Synthetic bundled overhead-line family: lighter equivalent conductor; 50 Hz engineering prior, not a named product or measured sample"},
+      {"profile_id": "eng_500_standard", "r_ohm_km": 0.018, "x_ohm_km": 0.28, "c_nf_km": 13.0, "max_i_ka": 1.90, "installation": "overhead", "source_kind": "engineering_prior", "basis": "Synthetic bundled overhead-line family: central equivalent conductor; 50 Hz engineering prior, not a named product or measured sample"},
+      {"profile_id": "eng_500_heavy", "r_ohm_km": 0.014, "x_ohm_km": 0.27, "c_nf_km": 14.0, "max_i_ka": 2.25, "installation": "overhead", "source_kind": "engineering_prior", "basis": "Synthetic bundled overhead-line family: heavier equivalent conductor; 50 Hz engineering prior, not a named product or measured sample"}
+    ],
+    "750": [
+      {"profile_id": "eng_750_light", "r_ohm_km": 0.015, "x_ohm_km": 0.285, "c_nf_km": 13.0, "max_i_ka": 2.20, "installation": "overhead", "source_kind": "engineering_prior", "basis": "Synthetic bundled overhead-line family: lighter equivalent conductor; 50 Hz engineering prior, not a named product or measured sample"},
+      {"profile_id": "eng_750_standard", "r_ohm_km": 0.012, "x_ohm_km": 0.27, "c_nf_km": 14.0, "max_i_ka": 2.50, "installation": "overhead", "source_kind": "engineering_prior", "basis": "Synthetic bundled overhead-line family: central equivalent conductor; 50 Hz engineering prior, not a named product or measured sample"},
+      {"profile_id": "eng_750_heavy", "r_ohm_km": 0.009, "x_ohm_km": 0.255, "c_nf_km": 15.0, "max_i_ka": 2.90, "installation": "overhead", "source_kind": "engineering_prior", "basis": "Synthetic bundled overhead-line family: heavier equivalent conductor; 50 Hz engineering prior, not a named product or measured sample"}
+    ]
+  }
+}

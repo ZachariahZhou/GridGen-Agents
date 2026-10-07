@@ -1,0 +1,17 @@
+{
+  "illustrative": {
+    "r1_factor": 1.0, "x1_factor": 1.0, "r0_factor": 1.0, "x0_factor": 1.0,
+    "c1_nf_per_km": 0.0, "c0_nf_per_km": 0.0,
+    "scope": "Legacy illustrative sequence equivalent: preserves catalog impedances and zero charging. Uncalibrated research assumption, not manufacturer design parameters or Chinese engineering rules."
+  },
+  "overhead": {
+    "r1_factor": 1.0, "x1_factor": 1.0, "r0_factor": 1.0, "x0_factor": 1.0,
+    "c1_nf_per_km": 0.0, "c0_nf_per_km": 0.0,
+    "scope": "Overhead ground-return sequence equivalent using legacy impedances; shunt charging neglected. Uncalibrated research assumption, not a geometry-derived conductor model, manufacturer design parameters or Chinese engineering rules."
+  },
+  "cable": {
+    "r1_factor": 1.0, "x1_factor": 0.3, "r0_factor": 0.8, "x0_factor": 0.4,
+    "c1_nf_per_km": 200.0, "c0_nf_per_km": 100.0,
+    "scope": "Illustrative cable sequence equivalent with lower reactance, changed zero-sequence impedance and nonzero shunt charging. Sequence differences affect the equivalent phase self and mutual impedances; no explicit sheath, bonding or soil model. Uncalibrated research assumption, not manufacturer design parameters or Chinese engineering rules."
+  }
+}

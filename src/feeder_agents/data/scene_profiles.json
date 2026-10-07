@@ -1,0 +1,31 @@
+{
+  "generic": {
+    "profile_id": "generic_research_v1",
+    "kind": "any",
+    "construction": "illustrative",
+    "category_mix": {
+      "aggregated": 1.0
+    },
+    "scope": "Legacy generic feeder; geometry, electrical totals and conductor grades remain unchanged. No claimed urban or rural engineering calibration."
+  },
+  "urban": {
+    "profile_id": "urban_research_v1",
+    "kind": "urban",
+    "construction": "cable",
+    "category_mix": {
+      "residential": 0.5,
+      "commercial": 0.5
+    },
+    "scope": "urban construction/category selection; equipment parameters assigned in the subsequent equipment selection stage. Category probabilities are illustrative peak-snapshot labels, not measured population shares or time-series curves; geography is synthetic."
+  },
+  "rural": {
+    "profile_id": "rural_research_v1",
+    "kind": "rural",
+    "construction": "overhead",
+    "category_mix": {
+      "residential": 0.7,
+      "agricultural": 0.3
+    },
+    "scope": "rural construction/category selection; equipment parameters assigned in the subsequent equipment selection stage. Category probabilities are illustrative peak-snapshot labels, not measured population shares or time-series curves; geography is synthetic."
+  }
+}

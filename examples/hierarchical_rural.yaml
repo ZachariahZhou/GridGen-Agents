@@ -1,0 +1,16 @@
+scene: rural
+voltage_kv: 10
+lv_voltage_kv: 0.38
+transformer_count: 3
+lv_branches: 2
+users: 24
+total_kw: 72
+pv_ratio: 0.5
+mv_segment_km_min: 0.1
+mv_segment_km_max: 0.3
+lv_segment_km_min: 0.02
+lv_segment_km_max: 0.05
+service_km_min: 0.005
+service_km_max: 0.015
+count: 1
+seed: 71

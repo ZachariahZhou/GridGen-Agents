@@ -1,0 +1,19 @@
+count: 1
+n_buses: 25
+total_kw_min: 400
+total_kw_max: 400
+voltage_kv: 10
+pv_ratio: 0.3
+scenario:
+  kind: rural
+  layout: structured_radial
+  topology:
+    family: comb
+    branch_count: 4
+    trunk_fraction: 0.5
+  load_shape: downstream_heavy
+  load_concentration: 2
+  tie_count: 0
+repair_policy:
+  strategy: none
+max_repairs: 0

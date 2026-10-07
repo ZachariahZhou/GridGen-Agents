@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-07",
+  "milestone": "M87",
+  "package_version": "0.1.0",
+  "platform": "Linux",
+  "python": "3.12.7",
+  "offline_wheel_build": true,
+  "wheel_sha256": "73e897f8766ad5819b54b32176aea127afe0180914813414e73cad44d21a40b3",
+  "isolated_target_install": true,
+  "installed_import_location_verified": true,
+  "dependencies_reused_from_local_environment": true,
+  "smoke_cases": [
+    {
+      "family": "single_voltage",
+      "phase_mode": "balanced",
+      "buses": 9,
+      "accepted": true
+    },
+    {
+      "family": "single_voltage",
+      "phase_mode": "unbalanced",
+      "buses": 9,
+      "accepted": true
+    },
+    {
+      "family": "hierarchical",
+      "buses": 23,
+      "accepted": true
+    },
+    {
+      "family": "transmission",
+      "buses": 9,
+      "accepted": true,
+      "matpower_reloaded": true
+    }
+  ],
+  "examples": [
+    {
+      "example": "distribution_radial.yaml",
+      "expected": 1,
+      "accepted": 1
+    },
+    {
+      "example": "distribution_villages.yaml",
+      "expected": 1,
+      "accepted": 1
+    },
+    {
+      "example": "hierarchical_rural.yaml",
+      "expected": 1,
+      "accepted": 1
+    },
+    {
+      "example": "hierarchical_urban.yaml",
+      "expected": 1,
+      "accepted": 1
+    },
+    {
+      "example": "transmission_139.yaml",
+      "expected": 1,
+      "accepted": 1
+    },
+    {
+      "example": "transmission_237.yaml",
+      "expected": 1,
+      "accepted": 1
+    },
+    {
+      "example": "transmission_37.yaml",
+      "expected": 1,
+      "accepted": 1
+    }
+  ],
+  "regression": {
+    "total_unique_tests": 159,
+    "first_full_run": {
+      "passed": 156,
+      "failed": 3
+    },
+    "after_fixture_import_fix": {
+      "targeted_tests_passed": 48,
+      "unaffected_previous_passes": 111,
+      "unresolved_failures": 0
+    },
+    "changed_test_assertions": false,
+    "reran_full_suite_after_fix": true,
+    "final_full_run": {
+      "passed": 159,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "duration_seconds": 112.04,
+      "command": "python -m pytest -q -p no:cacheprovider",
+      "scope": "Final curated GridGen-Agents checkout; all 19 selected test files"
+    }
+  },
+  "external_llm_calls": 0,
+  "record_scope": "Local prepublication verification; remote CI status is reported by GitHub Actions."
+}

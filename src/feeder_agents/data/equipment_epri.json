@@ -1,0 +1,2464 @@
+{
+  "profile_id": "epri_joint_equipment_v1",
+  "catalog": {
+    "epri_j1_ef6a748af28e": {
+      "r1": 0.85376372,
+      "x1": 0.52808766,
+      "r0": 1.2467747,
+      "x0": 1.4672122,
+      "c1": 8.2172,
+      "c0": 4.7725,
+      "normamps": 142.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.85376372
+      ],
+      "xmatrix": [
+        0.52808766
+      ],
+      "cmatrix": [
+        8.217200000000002
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_4cu_4cun",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 583,
+      "role_counts": {
+        "backbone": 442,
+        "terminal": 141
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_6d1e125f8a45": {
+      "r1": 0.85376372,
+      "x1": 0.52788263,
+      "r0": 1.2308676,
+      "x0": 1.4899794,
+      "c1": 8.2205,
+      "c0": 4.5833,
+      "normamps": 142.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.9794650133333335,
+        0.12570129333333335,
+        0.12570129333333335,
+        0.9794650133333335
+      ],
+      "xmatrix": [
+        0.8485815533333333,
+        0.3206989233333333,
+        0.3206989233333333,
+        0.8485815533333333
+      ],
+      "cmatrix": [
+        7.0081,
+        -1.2123999999999997,
+        -1.2123999999999997,
+        7.0081
+      ],
+      "nphases": 2,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-2x_4cu_4cun",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 88,
+      "role_counts": {
+        "backbone": 84,
+        "terminal": 4
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_0af43d561989": {
+      "r1": 0.54556375,
+      "x1": 0.52589424,
+      "r0": 0.92200269,
+      "x0": 1.5880255,
+      "c1": 9.8297,
+      "c0": 4.4764,
+      "normamps": 264.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.6710433966666667,
+        0.12547964666666667,
+        0.12547964666666667,
+        0.12547964666666667,
+        0.6710433966666667,
+        0.12547964666666667,
+        0.12547964666666667,
+        0.12547964666666667,
+        0.6710433966666667
+      ],
+      "xmatrix": [
+        0.8799379933333333,
+        0.3540437533333334,
+        0.3540437533333334,
+        0.3540437533333334,
+        0.8799379933333333,
+        0.3540437533333334,
+        0.3540437533333334,
+        0.3540437533333334,
+        0.8799379933333333
+      ],
+      "cmatrix": [
+        8.045266666666667,
+        -1.7844333333333335,
+        -1.7844333333333335,
+        -1.7844333333333335,
+        8.045266666666667,
+        -1.7844333333333335,
+        -1.7844333333333335,
+        -1.7844333333333335,
+        8.045266666666667
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_1/0aaac_4cun",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 13,
+      "role_counts": {
+        "backbone": 13
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_cb8ed3b9adde": {
+      "r1": 0.86867666,
+      "x1": 0.5299866,
+      "r0": 1.2363605,
+      "x0": 1.6002603,
+      "c1": 9.4442,
+      "c0": 4.4182,
+      "normamps": 155.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.99123794,
+        0.12256128,
+        0.12256128,
+        0.12256128,
+        0.99123794,
+        0.12256128,
+        0.12256128,
+        0.12256128,
+        0.99123794
+      ],
+      "xmatrix": [
+        0.8867444999999999,
+        0.3567579,
+        0.3567579,
+        0.3567579,
+        0.8867444999999999,
+        0.3567579,
+        0.3567579,
+        0.3567579,
+        0.8867444999999999
+      ],
+      "cmatrix": [
+        7.768866666666667,
+        -1.6753333333333336,
+        -1.6753333333333336,
+        -1.6753333333333336,
+        7.768866666666667,
+        -1.6753333333333336,
+        -1.6753333333333336,
+        -1.6753333333333336,
+        7.768866666666667
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_2aaac_2aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 9,
+      "role_counts": {
+        "backbone": 5,
+        "terminal": 4
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_026a443fc18b": {
+      "r1": 0.12241009,
+      "x1": 0.39494091,
+      "r0": 0.33466485,
+      "x0": 1.2742766,
+      "c1": 11.1973,
+      "c0": 4.8089,
+      "normamps": 732.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.1931616766666667,
+        0.07075158666666667,
+        0.07075158666666667,
+        0.07075158666666667,
+        0.1931616766666667,
+        0.07075158666666667,
+        0.07075158666666667,
+        0.07075158666666667,
+        0.1931616766666667
+      ],
+      "xmatrix": [
+        0.6880528066666667,
+        0.2931118966666667,
+        0.2931118966666667,
+        0.2931118966666667,
+        0.6880528066666667,
+        0.2931118966666667,
+        0.2931118966666667,
+        0.2931118966666667,
+        0.6880528066666667
+      ],
+      "cmatrix": [
+        9.067833333333333,
+        -2.129466666666666,
+        -2.129466666666666,
+        -2.129466666666666,
+        9.067833333333333,
+        -2.129466666666666,
+        -2.129466666666666,
+        -2.129466666666666,
+        9.067833333333333
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_477aac_4/0aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 84,
+      "role_counts": {
+        "backbone": 83,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_3fc162890cf6": {
+      "r1": 0.52729604,
+      "x1": 0.559132,
+      "r0": 0.84236156,
+      "x0": 1.395562,
+      "c1": 9.1185,
+      "c0": 5.1312,
+      "normamps": 269.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.52729604
+      ],
+      "xmatrix": [
+        0.559132
+      ],
+      "cmatrix": [
+        9.1185
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_1/0acsr_1/0acsrn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 1,
+      "role_counts": {
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_c55957624959": {
+      "r1": 0.12241009,
+      "x1": 0.39494091,
+      "r0": 0.49884719,
+      "x0": 1.4570715,
+      "c1": 11.1973,
+      "c0": 4.74,
+      "normamps": 732.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.24788912333333335,
+        0.12547903333333332,
+        0.12547903333333332,
+        0.12547903333333332,
+        0.24788912333333335,
+        0.12547903333333332,
+        0.12547903333333332,
+        0.12547903333333332,
+        0.24788912333333335
+      ],
+      "xmatrix": [
+        0.74898444,
+        0.35404353000000005,
+        0.35404353000000005,
+        0.35404353000000005,
+        0.74898444,
+        0.35404353000000005,
+        0.35404353000000005,
+        0.35404353000000005,
+        0.74898444
+      ],
+      "cmatrix": [
+        9.044866666666667,
+        -2.152433333333333,
+        -2.152433333333333,
+        -2.152433333333333,
+        9.044866666666667,
+        -2.152433333333333,
+        -2.152433333333333,
+        -2.152433333333333,
+        9.044866666666667
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_477aac_4cun",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 5,
+      "role_counts": {
+        "backbone": 5
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_e9e7b3c7c20a": {
+      "r1": 0.54556375,
+      "x1": 0.52589424,
+      "r0": 0.8534158,
+      "x0": 1.4977962,
+      "c1": 9.8297,
+      "c0": 4.5149,
+      "normamps": 264.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.6481811,
+        0.10261734999999998,
+        0.10261734999999998,
+        0.10261734999999998,
+        0.6481811,
+        0.10261734999999998,
+        0.10261734999999998,
+        0.10261734999999998,
+        0.6481811
+      ],
+      "xmatrix": [
+        0.8498615599999998,
+        0.32396732,
+        0.32396732,
+        0.32396732,
+        0.8498615599999998,
+        0.32396732,
+        0.32396732,
+        0.32396732,
+        0.8498615599999998
+      ],
+      "cmatrix": [
+        8.058100000000001,
+        -1.7716000000000003,
+        -1.7716000000000003,
+        -1.7716000000000003,
+        8.058100000000001,
+        -1.7716000000000003,
+        -1.7716000000000003,
+        -1.7716000000000003,
+        8.058100000000001
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_1/0aaac_1/0aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 44,
+      "role_counts": {
+        "backbone": 44
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_7dc83b6a513b": {
+      "r1": 0.85376372,
+      "x1": 0.49484991,
+      "r0": 1.2302027,
+      "x0": 1.5569817,
+      "c1": 8.7903,
+      "c0": 4.2476,
+      "normamps": 142.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.9792433800000001,
+        0.12547966,
+        0.12547966,
+        0.12547966,
+        0.9792433800000001,
+        0.12547966,
+        0.12547966,
+        0.12547966,
+        0.9792433800000001
+      ],
+      "xmatrix": [
+        0.84889384,
+        0.35404392999999995,
+        0.35404392999999995,
+        0.35404392999999995,
+        0.84889384,
+        0.35404392999999995,
+        0.35404392999999995,
+        0.35404392999999995,
+        0.84889384
+      ],
+      "cmatrix": [
+        7.276066666666668,
+        -1.5142333333333335,
+        -1.5142333333333335,
+        -1.5142333333333335,
+        7.276066666666668,
+        -1.5142333333333335,
+        -1.5142333333333335,
+        -1.5142333333333335,
+        7.276066666666668
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_4cu_4cun",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 100,
+      "role_counts": {
+        "terminal": 9,
+        "backbone": 91
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_3d7c17d73e94": {
+      "r1": 0.86867666,
+      "x1": 0.56322436,
+      "r0": 1.2522863,
+      "x0": 1.5109443,
+      "c1": 8.7858,
+      "c0": 5.0003,
+      "normamps": 155.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.8686766599999998
+      ],
+      "xmatrix": [
+        0.56322436
+      ],
+      "cmatrix": [
+        8.7858
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_2aaac_2aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 131,
+      "role_counts": {
+        "terminal": 65,
+        "backbone": 66
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_5859ccd2c811": {
+      "r1": 0.12241009,
+      "x1": 0.42817866,
+      "r0": 0.35578771,
+      "x0": 1.1431984,
+      "c1": 10.2836,
+      "c0": 5.5164,
+      "normamps": 732.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.12241008999999999
+      ],
+      "xmatrix": [
+        0.42817866
+      ],
+      "cmatrix": [
+        10.2836
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_477aac_4/0aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 17,
+      "role_counts": {
+        "backbone": 13,
+        "terminal": 4
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_a6f9da163268": {
+      "r1": 0.571599,
+      "x1": 0.394881,
+      "r0": 1.10175,
+      "x0": 0.422781,
+      "c1": 389.1497,
+      "c0": 36.0472,
+      "normamps": 170.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.571599
+      ],
+      "xmatrix": [
+        0.394881
+      ],
+      "cmatrix": [
+        389.1497
+      ],
+      "nphases": 1,
+      "construction": "cable",
+      "source_feeder": "J1",
+      "source_linecode": "ug-1c1/0alurd_15",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 17,
+      "role_counts": {
+        "terminal": 15,
+        "backbone": 2
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_8a38905257cd": {
+      "r1": 0.54419673,
+      "x1": 0.47441863,
+      "r0": 0.92063567,
+      "x0": 1.5365511,
+      "c1": 9.3084,
+      "c0": 4.365,
+      "normamps": 188.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.6696763766666667,
+        0.12547964666666667,
+        0.12547964666666667,
+        0.12547964666666667,
+        0.6696763766666667,
+        0.12547964666666667,
+        0.12547964666666667,
+        0.12547964666666667,
+        0.6696763766666667
+      ],
+      "xmatrix": [
+        0.8284627866666665,
+        0.3540441566666667,
+        0.3540441566666667,
+        0.3540441566666667,
+        0.8284627866666665,
+        0.3540441566666667,
+        0.3540441566666667,
+        0.3540441566666667,
+        0.8284627866666665
+      ],
+      "cmatrix": [
+        7.6606000000000005,
+        -1.6478000000000004,
+        -1.6478000000000004,
+        -1.6478000000000004,
+        7.6606000000000005,
+        -1.6478000000000004,
+        -1.6478000000000004,
+        -1.6478000000000004,
+        7.6606000000000005
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_2cu_4cun",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 27,
+      "role_counts": {
+        "backbone": 26,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_752c3b21b6e9": {
+      "r1": 0.54419673,
+      "x1": 0.50745072,
+      "r0": 0.92130055,
+      "x0": 1.4695486,
+      "c1": 8.6718,
+      "c0": 4.7202,
+      "normamps": 188.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.6698980033333333,
+        0.12570127333333334,
+        0.12570127333333334,
+        0.6698980033333333
+      ],
+      "xmatrix": [
+        0.8281500133333334,
+        0.3206992933333333,
+        0.3206992933333333,
+        0.8281500133333334
+      ],
+      "cmatrix": [
+        7.3546000000000005,
+        -1.3172000000000001,
+        -1.3172000000000001,
+        7.3546000000000005
+      ],
+      "nphases": 2,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-2x_2cu_4cun",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 2,
+      "role_counts": {
+        "backbone": 2
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_876ae4ba752a": {
+      "r1": 0.12241009,
+      "x1": 0.38976119,
+      "r0": 0.25767385,
+      "x0": 1.1994821,
+      "c1": 11.3545,
+      "c0": 4.7952,
+      "normamps": 732.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.16749801,
+        0.04508791999999999,
+        0.04508791999999999,
+        0.04508791999999999,
+        0.16749801,
+        0.04508791999999999,
+        0.04508791999999999,
+        0.04508791999999999,
+        0.16749801
+      ],
+      "xmatrix": [
+        0.65966816,
+        0.26990697,
+        0.26990697,
+        0.26990697,
+        0.65966816,
+        0.26990697,
+        0.26990697,
+        0.26990697,
+        0.65966816
+      ],
+      "cmatrix": [
+        9.168066666666666,
+        -2.1864333333333335,
+        -2.1864333333333335,
+        -2.1864333333333335,
+        9.168066666666666,
+        -2.1864333333333335,
+        -2.1864333333333335,
+        -2.1864333333333335,
+        9.168066666666666
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3v_477aac_477aacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 7,
+      "role_counts": {
+        "backbone": 7
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_0e3d980b26f3": {
+      "r1": 0.86867666,
+      "x1": 0.56322436,
+      "r0": 1.0883623,
+      "x0": 1.3060038,
+      "c1": 8.7858,
+      "c0": 5.0631,
+      "normamps": 155.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.8686766599999998
+      ],
+      "xmatrix": [
+        0.56322436
+      ],
+      "cmatrix": [
+        8.7858
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_2aaac_4/0aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 1,
+      "role_counts": {
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_c0262fe46a37": {
+      "r1": 0.54419673,
+      "x1": 0.50765639,
+      "r0": 0.9372077,
+      "x0": 1.4467817,
+      "c1": 8.6681,
+      "c0": 4.9212,
+      "normamps": 188.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.54419673
+      ],
+      "xmatrix": [
+        0.50765639
+      ],
+      "cmatrix": [
+        8.668099999999999
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_2cu_4cun",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 3,
+      "role_counts": {
+        "backbone": 3
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_3dfc8377dcad": {
+      "r1": 0.12241009,
+      "x1": 0.42797363,
+      "r0": 0.33495999,
+      "x0": 1.2067273,
+      "c1": 10.2888,
+      "c0": 5.2422,
+      "normamps": 732.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.19326005666666665,
+        0.07084996666666665,
+        0.07084996666666665,
+        0.19326005666666665
+      ],
+      "xmatrix": [
+        0.6875581866666667,
+        0.2595845566666667,
+        0.2595845566666667,
+        0.6875581866666667
+      ],
+      "cmatrix": [
+        8.606600000000002,
+        -1.6822000000000001,
+        -1.6822000000000001,
+        8.606600000000002
+      ],
+      "nphases": 2,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-2x_477aac_4/0aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 5,
+      "role_counts": {
+        "terminal": 1,
+        "backbone": 4
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_3cad18e26748": {
+      "r1": 0.86867666,
+      "x1": 0.56322436,
+      "r0": 1.2522863,
+      "x0": 1.5109443,
+      "c1": 8.7858,
+      "c0": 5.0003,
+      "normamps": 155.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.8686766599999998
+      ],
+      "xmatrix": [
+        0.56322436
+      ],
+      "cmatrix": [
+        8.7858
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_2aaac_default",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_5924f908cd77": {
+      "r1": 0.34486091,
+      "x1": 0.4559583,
+      "r0": 0.6339227,
+      "x0": 1.371602,
+      "c1": 9.6953,
+      "c0": 4.4774,
+      "normamps": 323.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.44121484,
+        0.09635392999999998,
+        0.09635392999999998,
+        0.09635392999999998,
+        0.44121484,
+        0.09635392999999998,
+        0.09635392999999998,
+        0.09635392999999998,
+        0.44121484
+      ],
+      "xmatrix": [
+        0.7611728666666666,
+        0.30521456666666663,
+        0.30521456666666663,
+        0.30521456666666663,
+        0.7611728666666666,
+        0.30521456666666663,
+        0.30521456666666663,
+        0.30521456666666663,
+        0.7611728666666666
+      ],
+      "cmatrix": [
+        7.9559999999999995,
+        -1.7392999999999998,
+        -1.7392999999999998,
+        -1.7392999999999998,
+        7.9559999999999995,
+        -1.7392999999999998,
+        -1.7392999999999998,
+        -1.7392999999999998,
+        7.9559999999999995
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_1/0cu_1cun",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 3,
+      "role_counts": {
+        "backbone": 3
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_b69682c5043c": {
+      "r1": 0.12241009,
+      "x1": 0.39494091,
+      "r0": 0.43025964,
+      "x0": 1.3668422,
+      "c1": 11.1973,
+      "c0": 4.7832,
+      "normamps": 732.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.22502660666666666,
+        0.10261651666666666,
+        0.10261651666666666,
+        0.10261651666666666,
+        0.22502660666666666,
+        0.10261651666666666,
+        0.10261651666666666,
+        0.10261651666666666,
+        0.22502660666666666
+      ],
+      "xmatrix": [
+        0.7189080066666667,
+        0.3239670966666667,
+        0.3239670966666667,
+        0.3239670966666667,
+        0.7189080066666667,
+        0.3239670966666667,
+        0.3239670966666667,
+        0.3239670966666667,
+        0.7189080066666667
+      ],
+      "cmatrix": [
+        9.059266666666668,
+        -2.1380333333333335,
+        -2.1380333333333335,
+        -2.1380333333333335,
+        9.059266666666668,
+        -2.1380333333333335,
+        -2.1380333333333335,
+        -2.1380333333333335,
+        9.059266666666668
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_477aac_1/0aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 31,
+      "role_counts": {
+        "backbone": 31
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_ddb56571dba1": {
+      "r1": 0.871162,
+      "x1": 0.47370315,
+      "r0": 1.0834169,
+      "x0": 1.3530371,
+      "c1": 9.3191,
+      "c0": 4.4259,
+      "normamps": 161.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.9419136333333333,
+        0.07075163333333334,
+        0.07075163333333334,
+        0.07075163333333334,
+        0.9419136333333333,
+        0.07075163333333334,
+        0.07075163333333334,
+        0.07075163333333334,
+        0.9419136333333333
+      ],
+      "xmatrix": [
+        0.7668144666666667,
+        0.29311131666666673,
+        0.29311131666666673,
+        0.29311131666666673,
+        0.7668144666666667,
+        0.29311131666666673,
+        0.29311131666666673,
+        0.29311131666666673,
+        0.7668144666666667
+      ],
+      "cmatrix": [
+        7.688033333333334,
+        -1.6310666666666664,
+        -1.6310666666666664,
+        -1.6310666666666664,
+        7.688033333333334,
+        -1.6310666666666664,
+        -1.6310666666666664,
+        -1.6310666666666664,
+        7.688033333333334
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_2al_2aln",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 2,
+      "role_counts": {
+        "backbone": 1,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_f56aee5606bd": {
+      "r1": 0.27340324,
+      "x1": 0.480692,
+      "r0": 0.50136809,
+      "x0": 1.2055467,
+      "c1": 9.1779,
+      "c0": 5.1544,
+      "normamps": 374.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.27340324
+      ],
+      "xmatrix": [
+        0.48069200000000006
+      ],
+      "cmatrix": [
+        9.1779
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_2/0cu_2/0cun",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 4,
+      "role_counts": {
+        "backbone": 4
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_13dbf20321a7": {
+      "r1": 0.54556375,
+      "x1": 0.559132,
+      "r0": 0.86629684,
+      "x0": 1.4014526,
+      "c1": 9.1185,
+      "c0": 5.1312,
+      "normamps": 264.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.54556375
+      ],
+      "xmatrix": [
+        0.559132
+      ],
+      "cmatrix": [
+        9.1185
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_1/0aaac_1/0aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 5,
+      "role_counts": {
+        "backbone": 4,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_9b7174bf8782": {
+      "r1": 0.87116211,
+      "x1": 0.50694117,
+      "r0": 1.2729157,
+      "x0": 1.4495467,
+      "c1": 8.6774,
+      "c0": 4.9573,
+      "normamps": 161.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.8711621099999999
+      ],
+      "xmatrix": [
+        0.50694117
+      ],
+      "cmatrix": [
+        8.6774
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_2al_2aln",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 11,
+      "role_counts": {
+        "terminal": 3,
+        "backbone": 8
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_cd415ce0e9d8": {
+      "r1": 0.640012,
+      "x1": 0.161557,
+      "r0": 1.50745,
+      "x0": 1.75537,
+      "c1": 194.4921,
+      "c0": 11.1946,
+      "normamps": 225.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.640012
+      ],
+      "xmatrix": [
+        0.161557
+      ],
+      "cmatrix": [
+        194.49210000000002
+      ],
+      "nphases": 1,
+      "construction": "cable",
+      "source_feeder": "J1",
+      "source_linecode": "ug-1c1/0alaer_15",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 5,
+      "role_counts": {
+        "terminal": 5
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_28bfdee9ecec": {
+      "r1": 0.12241009,
+      "x1": 0.39494091,
+      "r0": 0.25708354,
+      "x0": 1.1976615,
+      "c1": 11.1973,
+      "c0": 4.8372,
+      "normamps": 732.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.16730124,
+        0.04489115,
+        0.04489115,
+        0.04489115,
+        0.16730124,
+        0.04489115,
+        0.04489115,
+        0.04489115,
+        0.16730124
+      ],
+      "xmatrix": [
+        0.6625144399999998,
+        0.26757353,
+        0.26757353,
+        0.26757353,
+        0.6625144399999998,
+        0.26757353,
+        0.26757353,
+        0.26757353,
+        0.6625144399999998
+      ],
+      "cmatrix": [
+        9.077266666666668,
+        -2.1200333333333337,
+        -2.1200333333333337,
+        -2.1200333333333337,
+        9.077266666666668,
+        -2.1200333333333337,
+        -2.1200333333333337,
+        -2.1200333333333337,
+        9.077266666666668
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_477aac_477aacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 2,
+      "role_counts": {
+        "backbone": 2
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_e38b9e239a23": {
+      "r1": 0.571599,
+      "x1": 0.394881,
+      "r0": 1.10175,
+      "x0": 0.422781,
+      "c1": 389.1497,
+      "c0": 22.3987,
+      "normamps": 175.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.748316,
+        0.176717,
+        0.176717,
+        0.176717,
+        0.748316,
+        0.176717,
+        0.176717,
+        0.176717,
+        0.748316
+      ],
+      "xmatrix": [
+        0.4041809999999999,
+        0.009300000000000011,
+        0.009300000000000011,
+        0.009300000000000011,
+        0.4041809999999999,
+        0.009300000000000011,
+        0.009300000000000011,
+        0.009300000000000011,
+        0.4041809999999999
+      ],
+      "cmatrix": [
+        266.8993666666667,
+        -122.25033333333332,
+        -122.25033333333332,
+        -122.25033333333332,
+        266.8993666666667,
+        -122.25033333333332,
+        -122.25033333333332,
+        -122.25033333333332,
+        266.8993666666667
+      ],
+      "nphases": 3,
+      "construction": "cable",
+      "source_feeder": "J1",
+      "source_linecode": "ug-3c1/0alurd_15",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 6,
+      "role_counts": {
+        "terminal": 5,
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_d143064c78fb": {
+      "r1": 0.12241009,
+      "x1": 0.38976119,
+      "r0": 0.3361412,
+      "x0": 1.2772468,
+      "c1": 11.3545,
+      "c0": 4.7672,
+      "normamps": 732.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.19365379333333332,
+        0.07124370333333332,
+        0.07124370333333332,
+        0.07124370333333332,
+        0.19365379333333332,
+        0.07124370333333332,
+        0.07124370333333332,
+        0.07124370333333332,
+        0.19365379333333332
+      ],
+      "xmatrix": [
+        0.6855897266666666,
+        0.29582853666666664,
+        0.29582853666666664,
+        0.29582853666666664,
+        0.6855897266666666,
+        0.29582853666666664,
+        0.29582853666666664,
+        0.29582853666666664,
+        0.6855897266666666
+      ],
+      "cmatrix": [
+        9.158733333333334,
+        -2.1957666666666666,
+        -2.1957666666666666,
+        -2.1957666666666666,
+        9.158733333333334,
+        -2.1957666666666666,
+        -2.1957666666666666,
+        -2.1957666666666666,
+        9.158733333333334
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3v_477aac_4/0aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 3,
+      "role_counts": {
+        "backbone": 3
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_f0be2b4a75fc": {
+      "r1": 0.12241009,
+      "x1": 0.42817866,
+      "r0": 0.26010404,
+      "x0": 1.0885861,
+      "c1": 10.2836,
+      "c0": 5.578,
+      "normamps": 732.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.12241008999999999
+      ],
+      "xmatrix": [
+        0.42817866
+      ],
+      "cmatrix": [
+        10.2836
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_477aac_477aacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 3,
+      "role_counts": {
+        "backbone": 3
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_123d34bbc9ae": {
+      "r1": 0.27278188,
+      "x1": 0.51301758,
+      "r0": 0.4924676,
+      "x0": 1.255797,
+      "c1": 9.6689,
+      "c0": 5.3444,
+      "normamps": 451.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.27278188
+      ],
+      "xmatrix": [
+        0.51301758
+      ],
+      "cmatrix": [
+        9.668900000000002
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-1x_4/0aaac_4/0aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 2,
+      "role_counts": {
+        "backbone": 1,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_e271a5fecf14": {
+      "r1": 0.12241009,
+      "x1": 0.38976119,
+      "r0": 0.43283087,
+      "x0": 1.3712104,
+      "c1": 11.3545,
+      "c0": 4.7417,
+      "normamps": 732.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.22588368333333328,
+        0.10347359333333331,
+        0.10347359333333331,
+        0.10347359333333331,
+        0.22588368333333328,
+        0.10347359333333331,
+        0.10347359333333331,
+        0.10347359333333331,
+        0.22588368333333328
+      ],
+      "xmatrix": [
+        0.7169109266666668,
+        0.3271497366666667,
+        0.3271497366666667,
+        0.3271497366666667,
+        0.7169109266666668,
+        0.3271497366666667,
+        0.3271497366666667,
+        0.3271497366666667,
+        0.7169109266666668
+      ],
+      "cmatrix": [
+        9.150233333333334,
+        -2.2042666666666673,
+        -2.2042666666666673,
+        -2.2042666666666673,
+        9.150233333333334,
+        -2.2042666666666673,
+        -2.2042666666666673,
+        -2.2042666666666673,
+        9.150233333333334
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3v_477aac_1/0aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_1011701496a7": {
+      "r1": 0.85376372,
+      "x1": 0.49484991,
+      "r0": 1.0660179,
+      "x0": 1.3741868,
+      "c1": 8.7903,
+      "c0": 4.3029,
+      "normamps": 142.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.9245151133333334,
+        0.07075139333333336,
+        0.07075139333333336,
+        0.07075139333333336,
+        0.9245151133333334,
+        0.07075139333333336,
+        0.07075139333333336,
+        0.07075139333333336,
+        0.9245151133333334
+      ],
+      "xmatrix": [
+        0.7879622066666666,
+        0.29311229666666666,
+        0.29311229666666666,
+        0.29311229666666666,
+        0.7879622066666666,
+        0.29311229666666666,
+        0.29311229666666666,
+        0.29311229666666666,
+        0.7879622066666666
+      ],
+      "cmatrix": [
+        7.2945,
+        -1.4958000000000002,
+        -1.4958000000000002,
+        -1.4958000000000002,
+        7.2945,
+        -1.4958000000000002,
+        -1.4958000000000002,
+        -1.4958000000000002,
+        7.2945
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_4cu_4/0aaacn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_a5bb991c2c92": {
+      "r1": 0.85376372,
+      "x1": 0.49484991,
+      "r0": 1.2384297,
+      "x0": 1.5601756,
+      "c1": 8.7903,
+      "c0": 4.2655,
+      "normamps": 142.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.9819857133333333,
+        0.1282219933333333,
+        0.1282219933333333,
+        0.1282219933333333,
+        0.9819857133333333,
+        0.1282219933333333,
+        0.1282219933333333,
+        0.1282219933333333,
+        0.9819857133333333
+      ],
+      "xmatrix": [
+        0.8499584733333334,
+        0.3551085633333333,
+        0.3551085633333333,
+        0.3551085633333333,
+        0.8499584733333334,
+        0.3551085633333333,
+        0.3551085633333333,
+        0.3551085633333333,
+        0.8499584733333334
+      ],
+      "cmatrix": [
+        7.2820333333333345,
+        -1.508266666666667,
+        -1.508266666666667,
+        -1.508266666666667,
+        7.2820333333333345,
+        -1.508266666666667,
+        -1.508266666666667,
+        -1.508266666666667,
+        7.2820333333333345
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_4cu_2aln",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 1,
+      "role_counts": {
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_j1_4eb7b67cb444": {
+      "r1": 0.12241009,
+      "x1": 0.39494091,
+      "r0": 0.33466485,
+      "x0": 1.2742766,
+      "c1": 11.1973,
+      "c0": 4.8089,
+      "normamps": 732.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.1931616766666667,
+        0.07075158666666667,
+        0.07075158666666667,
+        0.07075158666666667,
+        0.1931616766666667,
+        0.07075158666666667,
+        0.07075158666666667,
+        0.07075158666666667,
+        0.1931616766666667
+      ],
+      "xmatrix": [
+        0.6880528066666667,
+        0.2931118966666667,
+        0.2931118966666667,
+        0.2931118966666667,
+        0.6880528066666667,
+        0.2931118966666667,
+        0.2931118966666667,
+        0.2931118966666667,
+        0.6880528066666667
+      ],
+      "cmatrix": [
+        9.067833333333333,
+        -2.129466666666666,
+        -2.129466666666666,
+        -2.129466666666666,
+        9.067833333333333,
+        -2.129466666666666,
+        -2.129466666666666,
+        -2.129466666666666,
+        9.067833333333333
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "J1",
+      "source_linecode": "oh-3x_477aac_4/0aan",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_5c9f987770b6": {
+      "r1": 0.535622,
+      "x1": 0.543016,
+      "r0": 0.867434,
+      "x0": 1.393922,
+      "c1": 9.421,
+      "c0": 4.9579,
+      "normamps": 301.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.535622
+      ],
+      "xmatrix": [
+        0.5430159999999999
+      ],
+      "cmatrix": [
+        9.421
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "K1",
+      "source_linecode": "oh-1ph_1/0ar",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 264,
+      "role_counts": {
+        "terminal": 114,
+        "backbone": 150
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_e5e6243592d9": {
+      "r1": 0.073322,
+      "x1": 0.370648,
+      "r0": 0.302173,
+      "x0": 1.206516,
+      "c1": 12.1576,
+      "c0": 4.9291,
+      "normamps": 900.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.14960566666666666,
+        0.07628366666666668,
+        0.07628366666666668,
+        0.07628366666666668,
+        0.14960566666666666,
+        0.07628366666666668,
+        0.07628366666666668,
+        0.07628366666666668,
+        0.14960566666666666
+      ],
+      "xmatrix": [
+        0.6492706666666666,
+        0.2786226666666666,
+        0.2786226666666666,
+        0.2786226666666666,
+        0.6492706666666666,
+        0.2786226666666666,
+        0.2786226666666666,
+        0.2786226666666666,
+        0.6492706666666666
+      ],
+      "cmatrix": [
+        9.7481,
+        -2.4095000000000004,
+        -2.4095000000000004,
+        -2.4095000000000004,
+        9.7481,
+        -2.4095000000000004,
+        -2.4095000000000004,
+        -2.4095000000000004,
+        9.7481
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "K1",
+      "source_linecode": "oh-3ph_795aa",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 60,
+      "role_counts": {
+        "backbone": 59,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_fedbd222669c": {
+      "r1": 0.144158,
+      "x1": 0.397118,
+      "r0": 0.373009,
+      "x0": 1.232986,
+      "c1": 11.2992,
+      "c0": 4.7819,
+      "normamps": 590.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.22044166666666665,
+        0.07628366666666665,
+        0.07628366666666665,
+        0.07628366666666665,
+        0.22044166666666665,
+        0.07628366666666665,
+        0.07628366666666665,
+        0.07628366666666665,
+        0.22044166666666665
+      ],
+      "xmatrix": [
+        0.6757406666666667,
+        0.2786226666666666,
+        0.2786226666666666,
+        0.2786226666666666,
+        0.6757406666666667,
+        0.2786226666666666,
+        0.2786226666666666,
+        0.2786226666666666,
+        0.6757406666666667
+      ],
+      "cmatrix": [
+        9.126766666666667,
+        -2.1724333333333337,
+        -2.1724333333333337,
+        -2.1724333333333337,
+        9.126766666666667,
+        -2.1724333333333337,
+        -2.1724333333333337,
+        -2.1724333333333337,
+        9.126766666666667
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "K1",
+      "source_linecode": "oh-3ph_397aa",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 19,
+      "role_counts": {
+        "backbone": 19
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_b9333906df7b": {
+      "r1": 1.351482,
+      "x1": 0.545812,
+      "r0": 1.770348,
+      "x0": 1.644707,
+      "c1": 8.7325,
+      "c0": 4.7158,
+      "normamps": 175.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        1.3514819999999999
+      ],
+      "xmatrix": [
+        0.545812
+      ],
+      "cmatrix": [
+        8.732500000000002
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "K1",
+      "source_linecode": "oh-1ph_4ar",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 83,
+      "role_counts": {
+        "backbone": 76,
+        "terminal": 7
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_d63db68da559": {
+      "r1": 0.557743,
+      "x1": 0.098425,
+      "r0": 2.362204,
+      "x0": 0.098425,
+      "c1": 215.7543,
+      "c0": 215.7543,
+      "normamps": 155.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.557743
+      ],
+      "xmatrix": [
+        0.09842499999999998
+      ],
+      "cmatrix": [
+        215.7543
+      ],
+      "nphases": 1,
+      "construction": "cable",
+      "source_feeder": "K1",
+      "source_linecode": "ug-1ph_1/0urd",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 43,
+      "role_counts": {
+        "backbone": 30,
+        "terminal": 13
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_b7722cdf6b11": {
+      "r1": 0.535622,
+      "x1": 0.520088,
+      "r0": 0.850657,
+      "x0": 1.478987,
+      "c1": 9.9323,
+      "c0": 4.4906,
+      "normamps": 301.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.6406336666666667,
+        0.10501166666666666,
+        0.10501166666666666,
+        0.10501166666666666,
+        0.6406336666666667,
+        0.10501166666666666,
+        0.10501166666666666,
+        0.10501166666666666,
+        0.6406336666666667
+      ],
+      "xmatrix": [
+        0.8397209999999999,
+        0.319633,
+        0.319633,
+        0.319633,
+        0.8397209999999999,
+        0.319633,
+        0.319633,
+        0.319633,
+        0.8397209999999999
+      ],
+      "cmatrix": [
+        8.118400000000001,
+        -1.8139,
+        -1.8139,
+        -1.8139,
+        8.118400000000001,
+        -1.8139,
+        -1.8139,
+        -1.8139,
+        8.118400000000001
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "K1",
+      "source_linecode": "oh-3ph_1/0ar",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 34,
+      "role_counts": {
+        "backbone": 31,
+        "terminal": 3
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_b4a105b372ec": {
+      "r1": 1.354589,
+      "x1": 0.531396,
+      "r0": 1.776562,
+      "x0": 1.631161,
+      "c1": 8.1749,
+      "c0": 4.5139,
+      "normamps": 175.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        1.354589
+      ],
+      "xmatrix": [
+        0.531396
+      ],
+      "cmatrix": [
+        8.1749
+      ],
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "K1",
+      "source_linecode": "oh-1ph_6cu",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 39,
+      "role_counts": {
+        "backbone": 36,
+        "terminal": 3
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_a64988811468": {
+      "r1": 0.548111,
+      "x1": 0.469259,
+      "r0": 0.884149,
+      "x0": 1.416788,
+      "c1": 9.4113,
+      "c0": 4.3584,
+      "normamps": 304.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.6601236666666667,
+        0.11201266666666665,
+        0.11201266666666665,
+        0.11201266666666665,
+        0.6601236666666667,
+        0.11201266666666665,
+        0.11201266666666665,
+        0.11201266666666665,
+        0.6601236666666667
+      ],
+      "xmatrix": [
+        0.7851019999999999,
+        0.315843,
+        0.315843,
+        0.315843,
+        0.7851019999999999,
+        0.315843,
+        0.315843,
+        0.315843,
+        0.7851019999999999
+      ],
+      "cmatrix": [
+        7.727000000000001,
+        -1.6843000000000004,
+        -1.6843000000000004,
+        -1.6843000000000004,
+        7.727000000000001,
+        -1.6843000000000004,
+        -1.6843000000000004,
+        -1.6843000000000004,
+        7.727000000000001
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "K1",
+      "source_linecode": "oh-3ph_2cu",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 13,
+      "role_counts": {
+        "backbone": 13
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_0b2d97c9d1ce": {
+      "r1": 1.351482,
+      "x1": 0.522946,
+      "r0": 1.749346,
+      "x0": 1.710075,
+      "c1": 9.17,
+      "c0": 4.2956,
+      "normamps": 175.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        1.4841033333333333,
+        0.13262133333333334,
+        0.13262133333333334,
+        0.13262133333333334,
+        1.4841033333333333,
+        0.13262133333333334,
+        0.13262133333333334,
+        0.13262133333333334,
+        1.4841033333333333
+      ],
+      "xmatrix": [
+        0.9186556666666666,
+        0.3957096666666667,
+        0.3957096666666667,
+        0.3957096666666667,
+        0.9186556666666666,
+        0.3957096666666667,
+        0.3957096666666667,
+        0.3957096666666667,
+        0.9186556666666666
+      ],
+      "cmatrix": [
+        7.5451999999999995,
+        -1.6248,
+        -1.6248,
+        -1.6248,
+        7.5451999999999995,
+        -1.6248,
+        -1.6248,
+        -1.6248,
+        7.5451999999999995
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "K1",
+      "source_linecode": "oh-3ph_4ar",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 26,
+      "role_counts": {
+        "backbone": 26
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_38e3986b6ded": {
+      "r1": 0.270296,
+      "x1": 0.425266,
+      "r0": 0.499147,
+      "x0": 1.261135,
+      "c1": 10.5673,
+      "c0": 4.6457,
+      "normamps": 498.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.3465796666666667,
+        0.07628366666666668,
+        0.07628366666666668,
+        0.07628366666666668,
+        0.3465796666666667,
+        0.07628366666666668,
+        0.07628366666666668,
+        0.07628366666666668,
+        0.3465796666666667
+      ],
+      "xmatrix": [
+        0.7038889999999999,
+        0.278623,
+        0.278623,
+        0.278623,
+        0.7038889999999999,
+        0.278623,
+        0.278623,
+        0.278623,
+        0.7038889999999999
+      ],
+      "cmatrix": [
+        8.593433333333332,
+        -1.9738666666666667,
+        -1.9738666666666667,
+        -1.9738666666666667,
+        8.593433333333332,
+        -1.9738666666666667,
+        -1.9738666666666667,
+        -1.9738666666666667,
+        8.593433333333332
+      ],
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "K1",
+      "source_linecode": "oh-3ph_4/0aa",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 46,
+      "role_counts": {
+        "backbone": 44,
+        "terminal": 2
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_117b48a82795": {
+      "r1": 0.535622,
+      "x1": 0.557618,
+      "r0": 0.848606,
+      "x0": 1.40871,
+      "c1": 9.1209,
+      "c0": 4.8626,
+      "normamps": 301.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.63995,
+        0.10432799999999998,
+        0.10432799999999998,
+        0.63995
+      ],
+      "xmatrix": [
+        0.8413153333333332,
+        0.2836973333333333,
+        0.2836973333333333,
+        0.8413153333333332
+      ],
+      "cmatrix": [
+        7.701466666666666,
+        -1.4194333333333335,
+        -1.4194333333333335,
+        7.701466666666666
+      ],
+      "nphases": 2,
+      "construction": "overhead",
+      "source_feeder": "K1",
+      "source_linecode": "oh-2ph_1/0ar",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 6,
+      "role_counts": {
+        "backbone": 5,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_k1_fb36e8525ef8": {
+      "r1": 0.557743,
+      "x1": 0.164042,
+      "r0": 1.148294,
+      "x0": 0.098425,
+      "c1": 215.7543,
+      "c0": 215.7543,
+      "normamps": 155.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.7545933333333331,
+        0.19685033333333332,
+        0.19685033333333332,
+        0.19685033333333332,
+        0.7545933333333331,
+        0.19685033333333332,
+        0.19685033333333332,
+        0.19685033333333332,
+        0.7545933333333331
+      ],
+      "xmatrix": [
+        0.14216966666666664,
+        -0.02187233333333333,
+        -0.02187233333333333,
+        -0.02187233333333333,
+        0.14216966666666664,
+        -0.02187233333333333,
+        -0.02187233333333333,
+        -0.02187233333333333,
+        0.14216966666666664
+      ],
+      "cmatrix": [
+        215.7543,
+        0.0,
+        0.0,
+        0.0,
+        215.7543,
+        0.0,
+        0.0,
+        0.0,
+        215.7543
+      ],
+      "nphases": 3,
+      "construction": "cable",
+      "source_feeder": "K1",
+      "source_linecode": "ug-3ph_1/0urd",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+      "source_file": "reference_data/epri_dpv/K1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 5,
+      "role_counts": {
+        "terminal": 5
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    }
+  },
+  "training_feeders": [
+    "J1",
+    "K1"
+  ],
+  "heldout_feeders": [
+    "M1"
+  ],
+  "repository": "https://github.com/GRIDAPPSD/Powergrid-Models",
+  "commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+  "source_url": "https://github.com/GRIDAPPSD/Powergrid-Models/tree/eaa0c3dcbc607e01c3f98092e3dea18929ae4d60/models/feeders/OpenDSS/EPRI",
+  "scope": "Observed MV line parameter tuples in published US utility-derived models; not telemetry or Chinese equipment certification. Whole-tuple weighted bootstrap conditioned on construction, phase count, role and required current.",
+  "permission": "EPRI DPV research/study permission; preserve original source headers and attribution.",
+  "counts": {
+    "J1": {
+      "included_segments": 1219,
+      "equipment_tuples": 35,
+      "excluded": {
+        "switch_disabled_open": 24,
+        "not_mv": 1382
+      }
+    },
+    "K1": {
+      "included_segments": 638,
+      "equipment_tuples": 12,
+      "excluded": {
+        "switch_disabled_open": 5,
+        "not_mv": 320
+      }
+    }
+  },
+  "raw_sha256": {
+    "J1/AddBusXY.py": "28297420babaec4bccc793e8530aea9adf5e04f3a44f08ad27deba1e93547ddc",
+    "J1/Buscoords.dss": "4c524feecad37ab50e8a0b389967397edda0df75671d02009543f894fb900ac8",
+    "J1/Capacitors.dss": "ae7859c7559d5f833e863bc8bf1377922598a7b036ca2aec927e406f8bdeb48e",
+    "J1/ExistingPV.dss": "a3c2e2d224fee984dfc112160e36b0b508c298fa71acc75c65b598a4e491187c",
+    "J1/LineCodes.dss": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+    "J1/Lines.dss": "e59d32dbeffa11630a6fe827e62792da272617f165a4445d4410ffac24944868",
+    "J1/LoadShapes_mod.dss": "67e64c3a48d0595184eff89ac24e40f96761424161df8dfe54c6972860ab8020",
+    "J1/LoadsInd.dss": "2d69a7b1e97c2f159392796dd20b7e7af51551afe5c882f7e06eceb810d4a440",
+    "J1/Master.dss": "cef6bdcf7e2ec9c377bf957a32e9f87a675b75e9f6d5d4c8b2972c61a4d307ae",
+    "J1/Regulators.dss": "77fabcc0b61ab9dae5771502e54d7dcf2d929f93fc6ddaa9293e70c0f3f38a8b",
+    "J1/Services.dss": "9ae339c9ddadc2045271544be99cad4915d0b0235a2c106748c70f477b189009",
+    "J1/Substation.dss": "3f4c50989cd2e466ce0e930cd5555471ef801fa09fa619224e44281b01c6d938",
+    "J1/Transformers.dss": "9063423833f53c1be278098b0f6dd613d1199c5ecd654085c76a853c7508f073",
+    "J1/convert.jsona": "14d1b6025b3203eae025ca67fd152ec460770f177be3bd9632e58fad8eeac5b3",
+    "J1/epri_dpv_j1_uuids.dat": "16084b81d9fcb0bc8b65d6cf7e916de167cf3467e41ce0d073aa2f8ac2a60646",
+    "J1/monitors.dss": "723240f438427aa44f4276e9f8d1097941076d99ffcf8de0e60ca776c1b59f87",
+    "K1/AllocationFactors.txt": "7e4929383b19b559efbddd5d2fe8af44b3cf9f09334b1f9d0003efade2340559",
+    "K1/Buscoords.dss": "bb75048b59e442ce7cfdcaeecd6fd684918bac3793ca7b7c169434ee20f5421c",
+    "K1/Capacitors.dss": "d6a6c1c78740aa75d8a818e5ce8d218c32c2e2277175f8c875b0770198b74b99",
+    "K1/LineCodes.dss": "41e344f218e815252943f56dc28215a6e3e13716d558f9e5122d5d76f69ddaae",
+    "K1/Lines.dss": "f1dd376e4a3c9697fa071929d800ab757782da50c952c55ada9170637f8cdc26",
+    "K1/Master.dss": "1c770e3e398941c3637cf9dbcb94d0b846d6ba0fe56124fff7f75abfe446b071",
+    "K1/Substation.dss": "6556b11da2fbe708e5015d5c43a453d10feca9493921ca12f05de8805f092091",
+    "K1/loads.dss": "24bbbd56bb725772efe87144deda7b082b055397ed4d8ecd3d3f6616dc931b8a",
+    "K1/loadshapes.dss": "9b63a9e1284f36677fe6276b71004e5c3628f2df4dd3afdb8fc205a96e4f46b2",
+    "K1/services.dss": "3d61c67d6327b46195f52e142dbad316321f078cef7c40124a015ce2001d74ae",
+    "K1/triplexlinecodes.dss": "28d12b7efd2a3ad0595fd1c3979cf79b894edbb91945a780d64cb6d609e1a0d2",
+    "K1/vbases.dss": "5eefe46367f57e5899ebba0c94f688ee83d59c95217252d017de8e73793e9262",
+    "K1/xfmrs.dss": "2d97e499403a6243a461974c896d0b424da6b9ecccf509700da6876656d876ff"
+  }
+}

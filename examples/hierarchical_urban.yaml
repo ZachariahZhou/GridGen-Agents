@@ -1,0 +1,11 @@
+scene: urban
+voltage_kv: 10
+lv_voltage_kv: 0.4
+transformer_count: 3
+lv_branches: 2
+users: 24
+total_kw: 96
+pv_ratio: 0.3
+phase_weights: [0.5, 0.3, 0.2]
+count: 1
+seed: 42

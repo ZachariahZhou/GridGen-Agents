@@ -1,0 +1,12 @@
+{
+  "objective": "Engineering-plausible research parameters; real-network statistical matching is optional, not an acceptance condition.",
+  "frequency_hz": 50,
+  "source_url": "https://pandapower.readthedocs.io/en/v3.3.3/std_types/basic.html",
+  "profiles": {
+    "110": {"r_ohm_km": 0.059, "x_ohm_km": 0.37, "c_nf_km": 9.75, "max_i_ka": 0.96, "basis": "pandapower 490-AL1/64-ST1A 110.0 standard type"},
+    "220": {"r_ohm_km": 0.059, "x_ohm_km": 0.285, "c_nf_km": 10.0, "max_i_ka": 0.96, "basis": "pandapower 490-AL1/64-ST1A 220.0 standard type"},
+    "330": {"r_ohm_km": 0.030, "x_ohm_km": 0.30, "c_nf_km": 12.0, "max_i_ka": 1.50, "basis": "Synthetic bundled overhead-line engineering prior; not a named product or regulatory limit"},
+    "500": {"r_ohm_km": 0.018, "x_ohm_km": 0.28, "c_nf_km": 13.0, "max_i_ka": 1.90, "basis": "Synthetic bundled overhead-line engineering prior; not a named product or regulatory limit"},
+    "750": {"r_ohm_km": 0.012, "x_ohm_km": 0.27, "c_nf_km": 14.0, "max_i_ka": 2.50, "basis": "Synthetic bundled overhead-line engineering prior; not a named product or regulatory limit"}
+  }
+}

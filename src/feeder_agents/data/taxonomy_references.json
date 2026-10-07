@@ -1,0 +1,5328 @@
+{
+  "schema_version": 1,
+  "commit": "9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16",
+  "boundary": "36 representative models, not 575+2700 raw utility feeders. Each model is a separate reference stratum; PV variants are not additional feeders. Static GLM extraction only, no source power-flow verification or DSS conversion. No verified geographic coordinates or urban/rural labels; overhead share is not an urban/rural classifier. Line lengths and phase mixtures inform design hypotheses, not mandatory engineering rules. Equipment remains inventory-only until electrical conversion and rating checks pass. Transformer configuration statistics count definitions, not installed transformer usage.",
+  "cases": [
+    {
+      "case_id": "GC-12.47-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/GC-12.47-1.glm",
+      "source_files": [
+        {
+          "path": "GC-12.47-1.glm",
+          "sha256": "7a229a9bc71323d7b5e0d18cdc276776ffb3d443a745a51c9b319d719c4879a4"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 1,
+          "fuse": 3,
+          "line_configuration": 3,
+          "line_spacing": 1,
+          "load": 3,
+          "meter": 4,
+          "node": 28,
+          "recorder": 2,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 5,
+          "transformer": 3,
+          "transformer_configuration": 1,
+          "triplex_line_configuration": 1,
+          "underground_line": 18,
+          "underground_line_conductor": 3
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 18
+        },
+        "line_count": 18,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "underground_line": {
+            "count": 18,
+            "min": 0.0031720536,
+            "p10": 0.00390543288,
+            "median": 0.031101334799999998,
+            "p90": 0.13524987936,
+            "max": 0.15078852239999999
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "underground_line": {
+            "count": 18,
+            "min": 0.0031720536,
+            "p10": 0.00390543288,
+            "median": 0.031101334799999998,
+            "p90": 0.13524987936,
+            "max": 0.15078852239999999
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 18
+        },
+        "overhead_fraction_by_count": 0.0,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 4,
+          "nodes": 31,
+          "edges": 30,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 6,
+            "2": 22,
+            "3": 2,
+            "4": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 31,
+          "depth": {
+            "count": 31,
+            "min": 0,
+            "p10": 3.0,
+            "median": 12.0,
+            "p90": 18.0,
+            "max": 20
+          }
+        },
+        "equipment": {
+          "definition_count": 10,
+          "conductor_count": 3,
+          "explicit_summer_rating_count": 3,
+          "summer_rating_a": {
+            "count": 3,
+            "min": 112.0,
+            "p10": 187.2,
+            "median": 488.0,
+            "p90": 717.6,
+            "max": 775.0
+          },
+          "transformer_configuration_count": 1,
+          "transformer_config_rating_kva": {
+            "count": 1,
+            "min": 3000.0,
+            "p10": 3000.0,
+            "median": 3000.0,
+            "p90": 3000.0,
+            "max": 3000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_AL0001",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/AL0001/AL0001_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/AL0001/AL0001_glmfile_PVend.glm",
+          "sha256": "00a6fabbf0cf49d964c0b7a6cd704b232fed81dd301c73fb5fd53838addd08eb"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/AL0001/AL0001_glmfile_equip_manual.glm",
+          "sha256": "e155edc00e3741135fef91c3ba19cac5ecdcdcd2bd3e24b40559e0df23df4dd6"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/AL0001/AL0001_glmfile_loads.glm",
+          "sha256": "1fb84bd41cda74b033e73ea01a5fd64e43b797a63e42ebf688e99a6b664aa3d0"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/AL0001/AL0001_glmfile_ts.glm",
+          "sha256": "b1da28723e666fba50098a25626d02bfe79b35c06bb1cbf65b3478c533dc024b"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/AL0001/load_schedule_PP.glm",
+          "sha256": "0eaa7b94d750ba88a11b8b35d8232346067330e7107299349c4329dfef7265b5"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 4,
+          "climate": 1,
+          "inverter": 2,
+          "line_configuration": 843,
+          "line_spacing": 45,
+          "load": 527,
+          "multi_recorder": 2,
+          "node": 629,
+          "overhead_line": 815,
+          "overhead_line_conductor": 16,
+          "solar": 2,
+          "switch": 98,
+          "transformer": 2,
+          "transformer_configuration": 2,
+          "triplex_meter": 2,
+          "underground_line": 244,
+          "underground_line_conductor": 26
+        },
+        "source_voltage_ll_kv": [
+          12.6
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 350,
+          "AB": 258,
+          "BC": 329,
+          "C": 90,
+          "AC": 16,
+          "A": 16
+        },
+        "line_count": 1059,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 815,
+            "min": 0.0030480000975359996,
+            "p10": 0.0313944010046208,
+            "median": 0.0725424023213568,
+            "p90": 0.1773326456746445,
+            "max": 0.815949626109168
+          },
+          "underground_line": {
+            "count": 244,
+            "min": 0.0015240000487679998,
+            "p10": 0.01481328047402496,
+            "median": 0.070104002243328,
+            "p90": 0.14478000463295998,
+            "max": 0.344424011021568
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 815,
+            "min": 0.0030480000975359996,
+            "p10": 0.0313944010046208,
+            "median": 0.0725424023213568,
+            "p90": 0.1773326456746445,
+            "max": 0.815949626109168
+          },
+          "underground_line": {
+            "count": 244,
+            "min": 0.0015240000487679998,
+            "p10": 0.01481328047402496,
+            "median": 0.070104002243328,
+            "p90": 0.14478000463295998,
+            "max": 0.344424011021568
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 1059
+        },
+        "overhead_fraction_by_count": 0.7695939565627951,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 1158,
+          "edges": 1159,
+          "components": 1,
+          "cycle_rank": 2,
+          "radial": false,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 209,
+            "2": 752,
+            "3": 183,
+            "4": 14
+          },
+          "source_count": 1,
+          "reachable_from_source": 1158,
+          "depth": {
+            "count": 1158,
+            "min": 0,
+            "p10": 25.0,
+            "median": 81.5,
+            "p90": 151.0,
+            "max": 181
+          }
+        },
+        "equipment": {
+          "definition_count": 932,
+          "conductor_count": 42,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 2,
+          "transformer_config_rating_kva": {
+            "count": 2,
+            "min": 100000.0,
+            "p10": 100000.0,
+            "median": 100000.0,
+            "p90": 100000.0,
+            "max": 100000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_AT0001",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/AT0001/AT0001_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/AT0001/AT0001_glmfile_PVend.glm",
+          "sha256": "5d2122e65e3310277e1b8ea6f2f2e695854b54ddb2a07d1ff2ab035466869191"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/AT0001/AT0001_glmfile_equip_manual.glm",
+          "sha256": "42c49448c8070c40223337354bbe530987d8da4a11ec7c10219f7e00875646cb"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/AT0001/AT0001_glmfile_loads.glm",
+          "sha256": "0063ce7c11309130fac004e5f8d5aedd9d91f84bd7f7c7851052b9f20d1071e4"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/AT0001/AT0001_glmfile_ts.glm",
+          "sha256": "5a5d73b03b72346129c533c692579489a15e18c633aed4e0c6c0f2939711775b"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/AT0001/load_schedule_OFP.glm",
+          "sha256": "eb48de6dd92f0b8c203bd4ae80e5e76a7e2b2a0ceeb2ca41fc059ee5b6f2fc37"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 4,
+          "climate": 1,
+          "inverter": 3,
+          "line_configuration": 279,
+          "line_spacing": 36,
+          "load": 316,
+          "multi_recorder": 2,
+          "node": 346,
+          "overhead_line": 253,
+          "overhead_line_conductor": 12,
+          "solar": 3,
+          "switch": 94,
+          "transformer": 3,
+          "transformer_configuration": 1,
+          "triplex_meter": 3,
+          "underground_line": 314,
+          "underground_line_conductor": 22
+        },
+        "source_voltage_ll_kv": [
+          12.6
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 296,
+          "AB": 271
+        },
+        "line_count": 567,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 253,
+            "min": 0.0030480000975359996,
+            "p10": 0.02414016077248512,
+            "median": 0.06156960197022719,
+            "p90": 0.1303934441725901,
+            "max": 0.6711696214762081
+          },
+          "underground_line": {
+            "count": 314,
+            "min": 0.0030480000975359996,
+            "p10": 0.015331440490606078,
+            "median": 0.070104002243328,
+            "p90": 0.13432536429841152,
+            "max": 0.374904011996928
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 253,
+            "min": 0.0030480000975359996,
+            "p10": 0.02414016077248512,
+            "median": 0.06156960197022719,
+            "p90": 0.1303934441725901,
+            "max": 0.6711696214762081
+          },
+          "underground_line": {
+            "count": 314,
+            "min": 0.0030480000975359996,
+            "p10": 0.015331440490606078,
+            "median": 0.070104002243328,
+            "p90": 0.13432536429841152,
+            "max": 0.374904011996928
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 567
+        },
+        "overhead_fraction_by_count": 0.4462081128747795,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 665,
+          "edges": 664,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 105,
+            "2": 469,
+            "3": 79,
+            "4": 12
+          },
+          "source_count": 1,
+          "reachable_from_source": 665,
+          "depth": {
+            "count": 665,
+            "min": 0,
+            "p10": 24.0,
+            "median": 55.0,
+            "p90": 77.0,
+            "max": 101
+          }
+        },
+        "equipment": {
+          "definition_count": 350,
+          "conductor_count": 34,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 1,
+          "transformer_config_rating_kva": {
+            "count": 1,
+            "min": 100000.0,
+            "p10": 100000.0,
+            "median": 100000.0,
+            "p90": 100000.0,
+            "max": 100000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_BR0015",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/BR0015/BR0015_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/BR0015/BR0015_glmfile_PVend.glm",
+          "sha256": "3d742e44c4469184fa662da34ac10e5d60a79097bbc64cbde24278a070862960"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/BR0015/BR0015_glmfile_equip_manual.glm",
+          "sha256": "f6afc7fa60657dc915177a78ad7d3a2bd90a97974d8f6f830085f4cf3502dbba"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/BR0015/BR0015_glmfile_loads.glm",
+          "sha256": "27e9e19d6f2c7708c7231f01ec9f874a22adb81426473a36cc7cf8ae8305039d"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/BR0015/BR0015_glmfile_ts.glm",
+          "sha256": "e0d4cdd19dbef7d5b88b18e5d13ba1c35b7b973734e90c60d58ab50e4991abb3"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/BR0015/load_schedule_OFP.glm",
+          "sha256": "008a0a2caa224a61b445b03d81c8ef12e6bd60cd9f04882e7428b5bade454cb6"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 2,
+          "climate": 1,
+          "inverter": 3,
+          "line_configuration": 59,
+          "line_spacing": 25,
+          "load": 49,
+          "multi_recorder": 2,
+          "node": 200,
+          "overhead_line": 34,
+          "overhead_line_conductor": 6,
+          "solar": 3,
+          "switch": 66,
+          "transformer": 3,
+          "transformer_configuration": 1,
+          "triplex_meter": 3,
+          "underground_line": 150,
+          "underground_line_conductor": 24
+        },
+        "source_voltage_ll_kv": [
+          12.6
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 183,
+          "AB": 1
+        },
+        "line_count": 184,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 34,
+            "min": 0.0030480000975359996,
+            "p10": 0.009845040315041279,
+            "median": 0.048006001536192,
+            "p90": 0.08738616279635711,
+            "max": 0.134112004291584
+          },
+          "underground_line": {
+            "count": 150,
+            "min": 0.0027432000877824,
+            "p10": 0.009144000292608,
+            "median": 0.0371856011899392,
+            "p90": 0.14356080459394557,
+            "max": 0.38404801228953594
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 34,
+            "min": 0.0030480000975359996,
+            "p10": 0.009845040315041279,
+            "median": 0.048006001536192,
+            "p90": 0.08738616279635711,
+            "max": 0.134112004291584
+          },
+          "underground_line": {
+            "count": 150,
+            "min": 0.0027432000877824,
+            "p10": 0.009144000292608,
+            "median": 0.0371856011899392,
+            "p90": 0.14356080459394557,
+            "max": 0.38404801228953594
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 184
+        },
+        "overhead_fraction_by_count": 0.18478260869565216,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 252,
+          "edges": 253,
+          "components": 1,
+          "cycle_rank": 2,
+          "radial": false,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 51,
+            "2": 152,
+            "3": 45,
+            "4": 4
+          },
+          "source_count": 1,
+          "reachable_from_source": 252,
+          "depth": {
+            "count": 252,
+            "min": 0,
+            "p10": 15.0,
+            "median": 31.0,
+            "p90": 68.9,
+            "max": 79
+          }
+        },
+        "equipment": {
+          "definition_count": 115,
+          "conductor_count": 30,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 1,
+          "transformer_config_rating_kva": {
+            "count": 1,
+            "min": 100000.0,
+            "p10": 100000.0,
+            "median": 100000.0,
+            "p90": 100000.0,
+            "max": 100000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_BU0001",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/BU0001/BU0001_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/BU0001/BU0001_glmfile_PVend.glm",
+          "sha256": "fd2bab9f9c0db9a82e97286d2e3e33eb3aa2fd3b886fc705180e35d5b9bdf5dd"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/BU0001/BU0001_glmfile_equip_manual.glm",
+          "sha256": "bf313f6e6941d73db5ed29950b0d46ed461d4175ee3a143bb8127cbcaf2a194e"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/BU0001/BU0001_glmfile_loads.glm",
+          "sha256": "5c13b4c605c42265964ce6a4248ed4e14c46401d4c2a8b346b33fecae2125d97"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/BU0001/BU0001_glmfile_ts.glm",
+          "sha256": "4cdea74465ebef9aff8dbae00f0bd1a4d09c4a36183f2e041863749b8fe02c6b"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/BU0001/load_schedule_PP.glm",
+          "sha256": "4753c9a5a30f9887a3173c8e7df4330ef0a286bebd0c9016790ef3a3ff671728"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 2,
+          "climate": 1,
+          "csv_reader": 1,
+          "inverter": 3,
+          "line_configuration": 115,
+          "line_spacing": 27,
+          "load": 73,
+          "multi_recorder": 2,
+          "node": 84,
+          "overhead_line": 95,
+          "overhead_line_conductor": 18,
+          "solar": 3,
+          "switch": 28,
+          "transformer": 3,
+          "transformer_configuration": 1,
+          "triplex_meter": 3,
+          "underground_line": 33,
+          "underground_line_conductor": 17
+        },
+        "source_voltage_ll_kv": [
+          4.37
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "AB": 12,
+          "ABC": 77,
+          "A": 20,
+          "C": 12,
+          "B": 7
+        },
+        "line_count": 128,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 95,
+            "min": 0.006400800204825599,
+            "p10": 0.0146304004681728,
+            "median": 0.047853601531315196,
+            "p90": 0.08753856280123395,
+            "max": 0.614172019653504
+          },
+          "underground_line": {
+            "count": 33,
+            "min": 0.012192000390143998,
+            "p10": 0.025968960831006718,
+            "median": 0.08382000268223999,
+            "p90": 0.18507456592238591,
+            "max": 0.32918401053388796
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 95,
+            "min": 0.006400800204825599,
+            "p10": 0.0146304004681728,
+            "median": 0.047853601531315196,
+            "p90": 0.08753856280123395,
+            "max": 0.614172019653504
+          },
+          "underground_line": {
+            "count": 33,
+            "min": 0.012192000390143998,
+            "p10": 0.025968960831006718,
+            "median": 0.08382000268223999,
+            "p90": 0.18507456592238591,
+            "max": 0.32918401053388796
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 128
+        },
+        "overhead_fraction_by_count": 0.7421875,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 160,
+          "edges": 159,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 42,
+            "2": 84,
+            "3": 28,
+            "4": 6
+          },
+          "source_count": 1,
+          "reachable_from_source": 160,
+          "depth": {
+            "count": 160,
+            "min": 0,
+            "p10": 9.0,
+            "median": 28.0,
+            "p90": 47.0,
+            "max": 50
+          }
+        },
+        "equipment": {
+          "definition_count": 178,
+          "conductor_count": 35,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 1,
+          "transformer_config_rating_kva": {
+            "count": 1,
+            "min": 10000.0,
+            "p10": 10000.0,
+            "median": 10000.0,
+            "p90": 10000.0,
+            "max": 10000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_D0001",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/D0001/D0001_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/D0001/D0001_glmfile_PVend.glm",
+          "sha256": "f3ca620f30718cda23aa39111015eca3f0e67fd0dc56f969a2592776dde23f26"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/D0001/D0001_glmfile_equip_manual.glm",
+          "sha256": "e17e7f88499a24d1f85c3b18d5c70da12eb2a5001aa85aa76f722157ee8ed333"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/D0001/D0001_glmfile_loads.glm",
+          "sha256": "1957ccb80addadeb925df8081d3aa51a8d0e656e8b7b7ea2e727d83d08f3051b"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/D0001/D0001_glmfile_ts.glm",
+          "sha256": "00b73efeb9e99cbe300a76841d9d8e8bb906ceb4068ef9bfe2ebf50a79e42c39"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/D0001/load_schedule_OFP.glm",
+          "sha256": "cde4bfb554d807b348fe42eaf06a9eb70f7cbacee018e47a41595c21aadc7d8f"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 7,
+          "climate": 1,
+          "inverter": 3,
+          "line_configuration": 264,
+          "line_spacing": 42,
+          "load": 221,
+          "multi_recorder": 2,
+          "node": 457,
+          "overhead_line": 230,
+          "overhead_line_conductor": 12,
+          "solar": 3,
+          "switch": 140,
+          "transformer": 3,
+          "transformer_configuration": 3,
+          "triplex_meter": 3,
+          "underground_line": 307,
+          "underground_line_conductor": 33
+        },
+        "source_voltage_ll_kv": [
+          12.6
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 456,
+          "AB": 67,
+          "BC": 14
+        },
+        "line_count": 537,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 230,
+            "min": 0.0048768001560576,
+            "p10": 0.014813280474024961,
+            "median": 0.044805601433779194,
+            "p90": 0.10668000341376,
+            "max": 0.1594104051011328
+          },
+          "underground_line": {
+            "count": 307,
+            "min": 0.0009144000292608,
+            "p10": 0.006096000195071999,
+            "median": 0.024384000780287997,
+            "p90": 0.10308336329866755,
+            "max": 0.34716721110995996
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 230,
+            "min": 0.0048768001560576,
+            "p10": 0.014813280474024961,
+            "median": 0.044805601433779194,
+            "p90": 0.10668000341376,
+            "max": 0.1594104051011328
+          },
+          "underground_line": {
+            "count": 307,
+            "min": 0.0009144000292608,
+            "p10": 0.006096000195071999,
+            "median": 0.024384000780287997,
+            "p90": 0.10308336329866755,
+            "max": 0.34716721110995996
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 537
+        },
+        "overhead_fraction_by_count": 0.42830540037243947,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 681,
+          "edges": 680,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 113,
+            "2": 469,
+            "3": 87,
+            "4": 12
+          },
+          "source_count": 1,
+          "reachable_from_source": 681,
+          "depth": {
+            "count": 681,
+            "min": 0,
+            "p10": 25.0,
+            "median": 83.0,
+            "p90": 158.0,
+            "max": 184
+          }
+        },
+        "equipment": {
+          "definition_count": 354,
+          "conductor_count": 45,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 3,
+          "transformer_config_rating_kva": {
+            "count": 3,
+            "min": 500000.0,
+            "p10": 500000.0,
+            "median": 500000.0,
+            "p90": 500000.0,
+            "max": 500000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_HL0004",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/HL0004/HL0004_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/HL0004/HL0004_glmfile_PVend.glm",
+          "sha256": "7e791c5c15778f8873c4160ea7728cb9b98be48a9240ca4d6a27683e0c3d5744"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/HL0004/HL0004_glmfile_equip_manual.glm",
+          "sha256": "58307133d414f888cd45ce0e836a0939b681b89ea3a7d298bbdb08d91d97211e"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/HL0004/HL0004_glmfile_loads.glm",
+          "sha256": "c9961df10fa1406f813571e6b042e361e6fcd4b481d9339addd0149861a6e4b6"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/HL0004/HL0004_glmfile_ts.glm",
+          "sha256": "4ff9a6928a8eba13f26e08b1af6e95025493cb96f2283842ea679dbd8eef8f2e"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/HL0004/load_schedule_PP.glm",
+          "sha256": "570efebb8abffb7eacf68be0d33279a1aaecea68c72476a43feb260d22b40ae5"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 4,
+          "climate": 1,
+          "inverter": 2,
+          "line_configuration": 1592,
+          "line_spacing": 46,
+          "load": 1042,
+          "multi_recorder": 2,
+          "node": 1046,
+          "overhead_line": 1558,
+          "overhead_line_conductor": 18,
+          "solar": 2,
+          "switch": 193,
+          "transformer": 2,
+          "transformer_configuration": 1,
+          "triplex_meter": 2,
+          "underground_line": 336,
+          "underground_line_conductor": 22
+        },
+        "source_voltage_ll_kv": [
+          21.819
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "AB": 394,
+          "ABC": 1327,
+          "A": 153,
+          "C": 20
+        },
+        "line_count": 1894,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 1558,
+            "min": 0.0030480000975359996,
+            "p10": 0.0280416008973312,
+            "median": 0.08321040266273279,
+            "p90": 0.23076408738445042,
+            "max": 2.218944071006208
+          },
+          "underground_line": {
+            "count": 336,
+            "min": 0.0012192000390144,
+            "p10": 0.0044196001414272,
+            "median": 0.0391668012533376,
+            "p90": 0.149352004779264,
+            "max": 0.484022415489936
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 1558,
+            "min": 0.0030480000975359996,
+            "p10": 0.0280416008973312,
+            "median": 0.08321040266273279,
+            "p90": 0.23076408738445042,
+            "max": 2.218944071006208
+          },
+          "underground_line": {
+            "count": 336,
+            "min": 0.0012192000390144,
+            "p10": 0.0044196001414272,
+            "median": 0.0391668012533376,
+            "p90": 0.149352004779264,
+            "max": 0.484022415489936
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 1894
+        },
+        "overhead_fraction_by_count": 0.82259767687434,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 2090,
+          "edges": 2089,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 405,
+            "2": 1313,
+            "3": 341,
+            "4": 31
+          },
+          "source_count": 1,
+          "reachable_from_source": 2090,
+          "depth": {
+            "count": 2090,
+            "min": 0,
+            "p10": 47.0,
+            "median": 102.0,
+            "p90": 142.0,
+            "max": 174
+          }
+        },
+        "equipment": {
+          "definition_count": 1679,
+          "conductor_count": 40,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 1,
+          "transformer_config_rating_kva": {
+            "count": 1,
+            "min": 500000.0,
+            "p10": 500000.0,
+            "median": 500000.0,
+            "p90": 500000.0,
+            "max": 500000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_MC0001",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/MC0001/MC0001_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MC0001/MC0001_glmfile_PVend.glm",
+          "sha256": "5c843f2af8fe1f2994817186593346bcdf7045fd4baeb1009cfabf37bdc5b44b"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MC0001/MC0001_glmfile_equip_manual.glm",
+          "sha256": "de982d8a9a8326bb7a20ccf02d892b02fe75acf24e7b02484f30cf563a3d7cf5"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MC0001/MC0001_glmfile_loads.glm",
+          "sha256": "730c742d34290abd8ea59373b0a5efbf88a2e99c5206a7f839810ab45b681bb1"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MC0001/MC0001_glmfile_ts.glm",
+          "sha256": "533f786baf80f59cea74f2fc502f07f05b382c30e77963be2d1ff93b1f199917"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MC0001/load_schedule_OFP.glm",
+          "sha256": "bff0eca8a56fa759eca04290f32fe6e24cffaca69b5d763874ebeaa7c1211e6c"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 5,
+          "climate": 1,
+          "inverter": 3,
+          "line_configuration": 1070,
+          "line_spacing": 24,
+          "load": 715,
+          "multi_recorder": 3,
+          "node": 399,
+          "overhead_line": 1038,
+          "overhead_line_conductor": 19,
+          "regulator": 2,
+          "regulator_configuration": 1,
+          "solar": 3,
+          "switch": 57,
+          "transformer": 3,
+          "transformer_configuration": 3,
+          "triplex_meter": 3,
+          "underground_line": 52,
+          "underground_line_conductor": 14
+        },
+        "source_voltage_ll_kv": [
+          12.6
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 990,
+          "AB": 85,
+          "BC": 8,
+          "C": 3,
+          "AC": 4
+        },
+        "line_count": 1090,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 1038,
+            "min": 0.0030480000975359996,
+            "p10": 0.03343656106996992,
+            "median": 0.10668000341376,
+            "p90": 0.2866948891742362,
+            "max": 0.73152002340864
+          },
+          "underground_line": {
+            "count": 52,
+            "min": 0.009144000292608,
+            "p10": 0.047914561533265926,
+            "median": 0.10637520340400639,
+            "p90": 0.17138904548444928,
+            "max": 0.25908000829056
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 1038,
+            "min": 0.0030480000975359996,
+            "p10": 0.03343656106996992,
+            "median": 0.10668000341376,
+            "p90": 0.2866948891742362,
+            "max": 0.73152002340864
+          },
+          "underground_line": {
+            "count": 52,
+            "min": 0.009144000292608,
+            "p10": 0.047914561533265926,
+            "median": 0.10637520340400639,
+            "p90": 0.17138904548444928,
+            "max": 0.25908000829056
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 1090
+        },
+        "overhead_fraction_by_count": 0.9522935779816514,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 1117,
+          "edges": 1152,
+          "components": 1,
+          "cycle_rank": 36,
+          "radial": false,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 298,
+            "2": 543,
+            "3": 211,
+            "4": 43,
+            "5": 18,
+            "6": 3,
+            "7": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 1117,
+          "depth": {
+            "count": 1117,
+            "min": 0,
+            "p10": 26.0,
+            "median": 53.0,
+            "p90": 79.0,
+            "max": 90
+          }
+        },
+        "equipment": {
+          "definition_count": 1131,
+          "conductor_count": 33,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 3,
+          "transformer_config_rating_kva": {
+            "count": 3,
+            "min": 500000.0,
+            "p10": 500000.0,
+            "median": 500000.0,
+            "p90": 500000.0,
+            "max": 500000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_MC0006",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/MC0006/MC0006_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MC0006/MC0006_glmfile_PVend.glm",
+          "sha256": "4aac5d1d97e2128e2f5654313b9f82b710444f58b85de2a56de36199ad6f75c5"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MC0006/MC0006_glmfile_equip_manual.glm",
+          "sha256": "e5466509e7f6dd32093efd5d7d412da596c5f4657276480b32c9eeeb169c1795"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MC0006/MC0006_glmfile_loads.glm",
+          "sha256": "962e10995f584de73d6c278b9e38f49870886b9eceba36131707eac294ae6223"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MC0006/MC0006_glmfile_ts.glm",
+          "sha256": "d39b82a7c562fc27542fc0a71e0d698054146042b30b252b3bcb454c35a0f8ee"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MC0006/load_schedule_PP.glm",
+          "sha256": "ce7ff0e700a4687e825ad147e4c6ac3013d3193479f433d6da9b5f471991cf8b"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 8,
+          "climate": 1,
+          "inverter": 3,
+          "line_configuration": 1554,
+          "line_spacing": 30,
+          "load": 1095,
+          "multi_recorder": 3,
+          "node": 656,
+          "overhead_line": 1525,
+          "overhead_line_conductor": 14,
+          "regulator": 4,
+          "regulator_configuration": 1,
+          "solar": 3,
+          "switch": 117,
+          "transformer": 3,
+          "transformer_configuration": 1,
+          "triplex_meter": 3,
+          "underground_line": 104,
+          "underground_line_conductor": 18
+        },
+        "source_voltage_ll_kv": [
+          12.6
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 1543,
+          "AB": 84,
+          "AC": 2
+        },
+        "line_count": 1629,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 1525,
+            "min": 0.0027432000877824,
+            "p10": 0.032125921028029435,
+            "median": 0.09753600312115199,
+            "p90": 0.2526792080857344,
+            "max": 0.848563227154632
+          },
+          "underground_line": {
+            "count": 104,
+            "min": 0.004572000146304,
+            "p10": 0.018867120603747838,
+            "median": 0.073914002365248,
+            "p90": 0.15840456506894593,
+            "max": 0.27005280864168957
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 1525,
+            "min": 0.0027432000877824,
+            "p10": 0.032125921028029435,
+            "median": 0.09753600312115199,
+            "p90": 0.2526792080857344,
+            "max": 0.848563227154632
+          },
+          "underground_line": {
+            "count": 104,
+            "min": 0.004572000146304,
+            "p10": 0.018867120603747838,
+            "median": 0.073914002365248,
+            "p90": 0.15840456506894593,
+            "max": 0.27005280864168957
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 1629
+        },
+        "overhead_fraction_by_count": 0.9361571516267649,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 1754,
+          "edges": 1753,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 455,
+            "2": 908,
+            "3": 329,
+            "4": 62
+          },
+          "source_count": 1,
+          "reachable_from_source": 1754,
+          "depth": {
+            "count": 1754,
+            "min": 0,
+            "p10": 35.0,
+            "median": 77.0,
+            "p90": 116.0,
+            "max": 136
+          }
+        },
+        "equipment": {
+          "definition_count": 1618,
+          "conductor_count": 32,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 1,
+          "transformer_config_rating_kva": {
+            "count": 1,
+            "min": 500000.0,
+            "p10": 500000.0,
+            "median": 500000.0,
+            "p90": 500000.0,
+            "max": 500000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_MO0001",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/MO0001/MO0001_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MO0001/MO0001_glmfile_PVend.glm",
+          "sha256": "91bb7c287e2f46a46e80160609e7dd0e8c8f613906a031852cd64ba5e3344a68"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MO0001/MO0001_glmfile_equip_manual.glm",
+          "sha256": "6adf44646bc7e1815415f1bbec193cabd85788d13f5e4266f06b035fd4ce7055"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MO0001/MO0001_glmfile_loads.glm",
+          "sha256": "dd935f97354e2f9a7d1c1aaceec135ef9274c193517e40c3231d38a3e6ca1287"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MO0001/MO0001_glmfile_ts.glm",
+          "sha256": "d2b95ccb114a804a95ec1c479496f8522fc731b77a32d17e26d61a8342858946"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/MO0001/load_schedule_PP.glm",
+          "sha256": "bdeeed289103f81616a651182023c4cfa7222e12097552cea4e040778a93f636"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 5,
+          "climate": 1,
+          "inverter": 2,
+          "line_configuration": 996,
+          "line_spacing": 58,
+          "load": 442,
+          "multi_recorder": 2,
+          "node": 907,
+          "overhead_line": 322,
+          "overhead_line_conductor": 12,
+          "solar": 2,
+          "switch": 600,
+          "transformer": 2,
+          "transformer_configuration": 1,
+          "triplex_meter": 2,
+          "underground_line": 426,
+          "underground_line_conductor": 30
+        },
+        "source_voltage_ll_kv": [
+          12.6
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 373,
+          "AB": 241,
+          "AC": 58,
+          "BC": 76
+        },
+        "line_count": 748,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 322,
+            "min": 0.006096000195071999,
+            "p10": 0.02441448078126336,
+            "median": 0.05791200185318399,
+            "p90": 0.13216128422916099,
+            "max": 0.3048000097536
+          },
+          "underground_line": {
+            "count": 426,
+            "min": 0.0030480000975359996,
+            "p10": 0.015240000487679999,
+            "median": 0.079248002535936,
+            "p90": 0.19278600616915198,
+            "max": 0.416052013313664
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 322,
+            "min": 0.006096000195071999,
+            "p10": 0.02441448078126336,
+            "median": 0.05791200185318399,
+            "p90": 0.13216128422916099,
+            "max": 0.3048000097536
+          },
+          "underground_line": {
+            "count": 426,
+            "min": 0.0030480000975359996,
+            "p10": 0.015240000487679999,
+            "median": 0.079248002535936,
+            "p90": 0.19278600616915198,
+            "max": 0.416052013313664
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 748
+        },
+        "overhead_fraction_by_count": 0.4304812834224599,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 1351,
+          "edges": 1350,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 202,
+            "2": 960,
+            "3": 178,
+            "4": 11
+          },
+          "source_count": 1,
+          "reachable_from_source": 1351,
+          "depth": {
+            "count": 1351,
+            "min": 0,
+            "p10": 31.0,
+            "median": 62.0,
+            "p90": 87.0,
+            "max": 103
+          }
+        },
+        "equipment": {
+          "definition_count": 1097,
+          "conductor_count": 42,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 1,
+          "transformer_config_rating_kva": {
+            "count": 1,
+            "min": 500000.0,
+            "p10": 500000.0,
+            "median": 500000.0,
+            "p90": 500000.0,
+            "max": 500000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_OC0001",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/OC0001/OC0001_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/OC0001/OC0001_glmfile_PVend.glm",
+          "sha256": "e763a8aa1eca5b6e63493b8494087712165a029441532e1e2f548531acf61418"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/OC0001/OC0001_glmfile_equip_manual.glm",
+          "sha256": "6c567906fa6ccc5267794a56a67623b152738a645471d4e9eea1ea2eb309a787"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/OC0001/OC0001_glmfile_loads.glm",
+          "sha256": "466a24d67f2842465af7e5088d0ba66795776c88d589a2814a74dc80c5db82b9"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/OC0001/OC0001_glmfile_ts.glm",
+          "sha256": "ba94d80f8fdcea345ef2a83c98611c8c67d9ae44958d43f7a4d86e65feadcb1c"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/OC0001/load_schedule_PP.glm",
+          "sha256": "da6b78b2b0213738cf7df015571ff1cd85452354a838d213719500d56cc64bc5"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 5,
+          "climate": 1,
+          "inverter": 2,
+          "line_configuration": 772,
+          "line_spacing": 43,
+          "load": 586,
+          "multi_recorder": 2,
+          "node": 513,
+          "overhead_line": 747,
+          "overhead_line_conductor": 17,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "solar": 2,
+          "switch": 125,
+          "transformer": 2,
+          "transformer_configuration": 1,
+          "triplex_meter": 2,
+          "underground_line": 225,
+          "underground_line_conductor": 23
+        },
+        "source_voltage_ll_kv": [
+          12.6
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 645,
+          "AB": 327
+        },
+        "line_count": 972,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 747,
+            "min": 0.0027432000877824,
+            "p10": 0.024384000780287997,
+            "median": 0.060960001950719996,
+            "p90": 0.13283184425061886,
+            "max": 2.75844008827008
+          },
+          "underground_line": {
+            "count": 225,
+            "min": 0.0015240000487679998,
+            "p10": 0.015240000487679999,
+            "median": 0.0603504019312128,
+            "p90": 0.15111984483583485,
+            "max": 0.70104002243328
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 747,
+            "min": 0.0027432000877824,
+            "p10": 0.024384000780287997,
+            "median": 0.060960001950719996,
+            "p90": 0.13283184425061886,
+            "max": 2.75844008827008
+          },
+          "underground_line": {
+            "count": 225,
+            "min": 0.0015240000487679998,
+            "p10": 0.015240000487679999,
+            "median": 0.0603504019312128,
+            "p90": 0.15111984483583485,
+            "max": 0.70104002243328
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 972
+        },
+        "overhead_fraction_by_count": 0.7685185185185185,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 1101,
+          "edges": 1100,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 253,
+            "2": 632,
+            "3": 181,
+            "4": 35
+          },
+          "source_count": 1,
+          "reachable_from_source": 1101,
+          "depth": {
+            "count": 1101,
+            "min": 0,
+            "p10": 38.0,
+            "median": 68.0,
+            "p90": 127.0,
+            "max": 146
+          }
+        },
+        "equipment": {
+          "definition_count": 857,
+          "conductor_count": 40,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 1,
+          "transformer_config_rating_kva": {
+            "count": 1,
+            "min": 500000.0,
+            "p10": 500000.0,
+            "median": 500000.0,
+            "p90": 500000.0,
+            "max": 500000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_PL0001",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/PL0001/PL0001_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/PL0001/PL0001_glmfile_PVend.glm",
+          "sha256": "44230f39a19ab0b05cfc0a74869e945e023c3690d66eb22288c28e26d2d36ac1"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/PL0001/PL0001_glmfile_equip_manual.glm",
+          "sha256": "c1e80965596c10004cc16d70bbabfd968be4f80c43617e5764631da75a36b260"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/PL0001/PL0001_glmfile_loads.glm",
+          "sha256": "3cc802b78264cd39987a9d79e8e2a9c029400779f4219f59ebbb2d1fa3054985"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/PL0001/PL0001_glmfile_ts.glm",
+          "sha256": "b1da7623f72ae01eed799b9d6006dcebc57131575e2d9237b4c9a85424f8473d"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/PL0001/load_schedule_OFP.glm",
+          "sha256": "1a102d55551f70b115f21cb002720e9955e3ae69a843923dd41d1a07596c13f7"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 4,
+          "climate": 1,
+          "inverter": 3,
+          "line_configuration": 109,
+          "line_spacing": 25,
+          "load": 114,
+          "multi_recorder": 2,
+          "node": 208,
+          "overhead_line": 87,
+          "overhead_line_conductor": 7,
+          "solar": 3,
+          "switch": 50,
+          "transformer": 3,
+          "transformer_configuration": 1,
+          "triplex_meter": 3,
+          "underground_line": 184,
+          "underground_line_conductor": 17
+        },
+        "source_voltage_ll_kv": [
+          12.6
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 191,
+          "AB": 39,
+          "BC": 29,
+          "AC": 12
+        },
+        "line_count": 271,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 87,
+            "min": 0.0030480000975359996,
+            "p10": 0.02298192073542144,
+            "median": 0.092964002974848,
+            "p90": 0.31662625013155205,
+            "max": 0.8464296270845278
+          },
+          "underground_line": {
+            "count": 184,
+            "min": 0.0012192000390144,
+            "p10": 0.0067056002145792,
+            "median": 0.05120640163860479,
+            "p90": 0.1286560841169946,
+            "max": 0.481888815419832
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 87,
+            "min": 0.0030480000975359996,
+            "p10": 0.02298192073542144,
+            "median": 0.092964002974848,
+            "p90": 0.31662625013155205,
+            "max": 0.8464296270845278
+          },
+          "underground_line": {
+            "count": 184,
+            "min": 0.0012192000390144,
+            "p10": 0.0067056002145792,
+            "median": 0.05120640163860479,
+            "p90": 0.1286560841169946,
+            "max": 0.481888815419832
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 271
+        },
+        "overhead_fraction_by_count": 0.3210332103321033,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 325,
+          "edges": 324,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 46,
+            "2": 239,
+            "3": 36,
+            "4": 4
+          },
+          "source_count": 1,
+          "reachable_from_source": 325,
+          "depth": {
+            "count": 325,
+            "min": 0,
+            "p10": 24.4,
+            "median": 60.0,
+            "p90": 86.0,
+            "max": 102
+          }
+        },
+        "equipment": {
+          "definition_count": 159,
+          "conductor_count": 24,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 1,
+          "transformer_config_rating_kva": {
+            "count": 1,
+            "min": 500000.0,
+            "p10": 500000.0,
+            "median": 500000.0,
+            "p90": 500000.0,
+            "max": 500000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "PGE_TMP0009",
+      "family": "pge_prototypes",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/PGE_Models/GLD%20Simulation%20Primary/GLD%20Simulation%20Primary/TMP0009/TMP0009_glmfile_ts.glm",
+      "source_files": [
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/TMP0009/TMP0009_glmfile_PV1.glm",
+          "sha256": "e77ba872b7ba2e4622c91b9505bd99baa49cbf399efa97bacb78c6b54a3fb318"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/TMP0009/TMP0009_glmfile_VVO.glm",
+          "sha256": "f8cdd9df232c3ae6b72a5bcc62f94be709fe914b00ddaad347ff225ba3d27b9b"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/TMP0009/TMP0009_glmfile_loads.glm",
+          "sha256": "99c657869755e007864002d05e95054e60bd951989011e2ae0f0353955eaeec7"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/TMP0009/TMP0009_glmfile_ts.glm",
+          "sha256": "e71060aa85f61507ccd19583ba2b75236184b77cc96f9dc8e9e4e450ad2170ea"
+        },
+        {
+          "path": "PGE_Models/GLD Simulation Primary/GLD Simulation Primary/TMP0009/load_schedule_nominal.glm",
+          "sha256": "4e46d962c8689df4e3b2ef8d2396a69234792ed5a9ddd22a44d4b05f3d1f3da1"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 17,
+          "climate": 1,
+          "inverter": 592,
+          "line_configuration": 3812,
+          "line_spacing": 80,
+          "load": 2558,
+          "node": 2009,
+          "overhead_line": 3770,
+          "overhead_line_conductor": 19,
+          "solar": 592,
+          "switch": 349,
+          "transformer": 592,
+          "transformer_configuration": 592,
+          "triplex_meter": 592,
+          "underground_line": 447,
+          "underground_line_conductor": 38
+        },
+        "source_voltage_ll_kv": [
+          21.819
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 1845,
+          "AB": 2071,
+          "A": 97,
+          "AC": 204
+        },
+        "line_count": 4217,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 3770,
+            "min": 0.0012192000390144,
+            "p10": 0.0460248014727936,
+            "median": 0.11308080361858559,
+            "p90": 0.27432000877824,
+            "max": 1.65689285301996
+          },
+          "underground_line": {
+            "count": 447,
+            "min": 0.0015240000487679998,
+            "p10": 0.030480000975359998,
+            "median": 0.12954000414528,
+            "p90": 0.2848051291137638,
+            "max": 1.2329160394533119
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 3770,
+            "min": 0.0012192000390144,
+            "p10": 0.0460248014727936,
+            "median": 0.11308080361858559,
+            "p90": 0.27432000877824,
+            "max": 1.65689285301996
+          },
+          "underground_line": {
+            "count": 447,
+            "min": 0.0015240000487679998,
+            "p10": 0.030480000975359998,
+            "median": 0.12954000414528,
+            "p90": 0.2848051291137638,
+            "max": 1.2329160394533119
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 4217
+        },
+        "overhead_fraction_by_count": 0.8940004742708086,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 0,
+          "nodes": 5159,
+          "edges": 5158,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 1619,
+            "2": 2305,
+            "3": 987,
+            "4": 171,
+            "5": 45,
+            "6": 18,
+            "7": 6,
+            "8": 6,
+            "9": 1,
+            "10": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 5159,
+          "depth": {
+            "count": 5159,
+            "min": 0,
+            "p10": 60.0,
+            "median": 134.0,
+            "p90": 187.0,
+            "max": 265
+          }
+        },
+        "equipment": {
+          "definition_count": 4541,
+          "conductor_count": 57,
+          "explicit_summer_rating_count": 0,
+          "summer_rating_a": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "transformer_configuration_count": 592,
+          "transformer_config_rating_kva": {
+            "count": 592,
+            "min": 10000.0,
+            "p10": 10000.0,
+            "median": 10000.0,
+            "p90": 10000.0,
+            "max": 10000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R1-12.47-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R1-12.47-1.glm",
+      "source_files": [
+        {
+          "path": "R1-12.47-1.glm",
+          "sha256": "18c99e2bbe0790cc1760f988f889cb92c3dbd449e6944080b1b6fe55bd891959"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 3,
+          "fuse": 122,
+          "line_configuration": 19,
+          "line_spacing": 5,
+          "load": 20,
+          "meter": 21,
+          "node": 617,
+          "overhead_line": 327,
+          "overhead_line_conductor": 6,
+          "recorder": 4,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 9,
+          "transformer": 618,
+          "transformer_configuration": 64,
+          "triplex_line": 598,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 598,
+          "triplex_node": 1196,
+          "underground_line": 157,
+          "underground_line_conductor": 3
+        },
+        "source_voltage_ll_kv": [
+          12.5
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "A": 173,
+          "ABC": 158,
+          "C": 93,
+          "B": 59,
+          "AC": 1
+        },
+        "line_count": 484,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 327,
+            "min": 0.0114281712,
+            "p10": 0.03685684272,
+            "median": 0.0611889048,
+            "p90": 0.10658228112000001,
+            "max": 0.29373088319999996
+          },
+          "underground_line": {
+            "count": 157,
+            "min": 0.0026773632,
+            "p10": 0.02129320608,
+            "median": 0.0902241528,
+            "p90": 0.20588819375999998,
+            "max": 0.7314404472
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 327,
+            "min": 0.0114281712,
+            "p10": 0.03685684272,
+            "median": 0.0611889048,
+            "p90": 0.10658228112000001,
+            "max": 0.29373088319999996
+          },
+          "underground_line": {
+            "count": 157,
+            "min": 0.0026773632,
+            "p10": 0.02129320608,
+            "median": 0.0902241528,
+            "p90": 0.20588819375999998,
+            "max": 0.7314404472
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 484
+        },
+        "overhead_fraction_by_count": 0.6756198347107438,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 619,
+          "nodes": 1833,
+          "edges": 1832,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 642,
+            "2": 804,
+            "3": 250,
+            "4": 46,
+            "5": 67,
+            "6": 23,
+            "7": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 1833,
+          "depth": {
+            "count": 1833,
+            "min": 0,
+            "p10": 27.0,
+            "median": 47.0,
+            "p90": 65.0,
+            "max": 82
+          }
+        },
+        "equipment": {
+          "definition_count": 99,
+          "conductor_count": 9,
+          "explicit_summer_rating_count": 9,
+          "summer_rating_a": {
+            "count": 9,
+            "min": 142.0,
+            "p10": 172.4,
+            "median": 214.0,
+            "p90": 701.2,
+            "max": 858.0
+          },
+          "transformer_configuration_count": 64,
+          "transformer_config_rating_kva": {
+            "count": 64,
+            "min": 5.0,
+            "p10": 5.0,
+            "median": 25.0,
+            "p90": 50.0,
+            "max": 150.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R1-12.47-2",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R1-12.47-2.glm",
+      "source_files": [
+        {
+          "path": "R1-12.47-2.glm",
+          "sha256": "07f5dcc772d66ee7cf8ee7ffcfd0c5473eb1389b60b48dc2a0e97e33d51a5eb8"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 1,
+          "fuse": 84,
+          "line_configuration": 29,
+          "line_spacing": 11,
+          "load": 13,
+          "meter": 14,
+          "node": 338,
+          "overhead_line": 131,
+          "overhead_line_conductor": 6,
+          "recorder": 2,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 4,
+          "transformer": 264,
+          "transformer_configuration": 59,
+          "triplex_line": 251,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 251,
+          "triplex_node": 502,
+          "underground_line": 117,
+          "underground_line_conductor": 2
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 17,
+          "A": 54,
+          "C": 61,
+          "B": 88,
+          "BC": 24,
+          "AB": 4
+        },
+        "line_count": 248,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 131,
+            "min": 0.0130579368,
+            "p10": 0.024384,
+            "median": 0.085737192,
+            "p90": 0.3165070632,
+            "max": 2.4295464744
+          },
+          "underground_line": {
+            "count": 117,
+            "min": 0.0016736567999999998,
+            "p10": 0.02612398128,
+            "median": 0.1085426328,
+            "p90": 0.25645872000000003,
+            "max": 2.3204119199999997
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 131,
+            "min": 0.0130579368,
+            "p10": 0.024384,
+            "median": 0.085737192,
+            "p90": 0.3165070632,
+            "max": 2.4295464744
+          },
+          "underground_line": {
+            "count": 117,
+            "min": 0.0016736567999999998,
+            "p10": 0.02612398128,
+            "median": 0.1085426328,
+            "p90": 0.25645872000000003,
+            "max": 2.3204119199999997
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 248
+        },
+        "overhead_fraction_by_count": 0.5282258064516129,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 265,
+          "nodes": 853,
+          "edges": 852,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 275,
+            "2": 419,
+            "3": 77,
+            "4": 58,
+            "5": 17,
+            "6": 6,
+            "7": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 853,
+          "depth": {
+            "count": 853,
+            "min": 0,
+            "p10": 13.0,
+            "median": 26.0,
+            "p90": 36.0,
+            "max": 48
+          }
+        },
+        "equipment": {
+          "definition_count": 109,
+          "conductor_count": 8,
+          "explicit_summer_rating_count": 8,
+          "summer_rating_a": {
+            "count": 8,
+            "min": 120.0,
+            "p10": 135.4,
+            "median": 188.5,
+            "p90": 466.29999999999995,
+            "max": 775.0
+          },
+          "transformer_configuration_count": 59,
+          "transformer_config_rating_kva": {
+            "count": 59,
+            "min": 5.0,
+            "p10": 9.000000000000004,
+            "median": 30.0,
+            "p90": 125.0,
+            "max": 300.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R1-12.47-3",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R1-12.47-3.glm",
+      "source_files": [
+        {
+          "path": "R1-12.47-3.glm",
+          "sha256": "efd92a239772cc202f18e5853e3856004305a5d940341ab5b102953e310a9818"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "fuse": 7,
+          "line_configuration": 17,
+          "line_spacing": 8,
+          "load": 21,
+          "meter": 22,
+          "node": 53,
+          "overhead_line": 30,
+          "overhead_line_conductor": 5,
+          "recorder": 1,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 6,
+          "transformer": 22,
+          "transformer_configuration": 16,
+          "triplex_line": 1,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 1,
+          "triplex_node": 2,
+          "underground_line": 8,
+          "underground_line_conductor": 2
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 24,
+          "AC": 3,
+          "C": 3,
+          "BC": 2,
+          "A": 3,
+          "B": 3
+        },
+        "line_count": 38,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 30,
+            "min": 0.0194758056,
+            "p10": 0.033774369840000006,
+            "median": 0.07939506599999999,
+            "p90": 0.22431627984,
+            "max": 0.45712959119999996
+          },
+          "underground_line": {
+            "count": 8,
+            "min": 0.02264664,
+            "p10": 0.02484275448,
+            "median": 0.049674932399999996,
+            "p90": 0.06679058015999999,
+            "max": 0.07868198639999999
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 30,
+            "min": 0.0194758056,
+            "p10": 0.033774369840000006,
+            "median": 0.07939506599999999,
+            "p90": 0.22431627984,
+            "max": 0.45712959119999996
+          },
+          "underground_line": {
+            "count": 8,
+            "min": 0.02264664,
+            "p10": 0.02484275448,
+            "median": 0.049674932399999996,
+            "p90": 0.06679058015999999,
+            "max": 0.07868198639999999
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 38
+        },
+        "overhead_fraction_by_count": 0.7894736842105263,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 23,
+          "nodes": 76,
+          "edges": 75,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 30,
+            "2": 27,
+            "3": 10,
+            "4": 9
+          },
+          "source_count": 1,
+          "reachable_from_source": 76,
+          "depth": {
+            "count": 76,
+            "min": 0,
+            "p10": 5.5,
+            "median": 12.0,
+            "p90": 17.0,
+            "max": 19
+          }
+        },
+        "equipment": {
+          "definition_count": 50,
+          "conductor_count": 7,
+          "explicit_summer_rating_count": 7,
+          "summer_rating_a": {
+            "count": 7,
+            "min": 120.0,
+            "p10": 133.2,
+            "median": 180.0,
+            "p90": 395.6,
+            "max": 488.0
+          },
+          "transformer_configuration_count": 16,
+          "transformer_config_rating_kva": {
+            "count": 16,
+            "min": 25.0,
+            "p10": 31.25,
+            "median": 75.0,
+            "p90": 162.5,
+            "max": 450.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R1-12.47-4",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R1-12.47-4.glm",
+      "source_files": [
+        {
+          "path": "R1-12.47-4.glm",
+          "sha256": "022481557d6a0569f36eebf9668f20f1720289fc8f089ac51c20f8e62d829567"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 1,
+          "fuse": 44,
+          "line_configuration": 7,
+          "line_spacing": 3,
+          "load": 12,
+          "meter": 13,
+          "node": 305,
+          "recorder": 2,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 21,
+          "transformer": 50,
+          "transformer_configuration": 26,
+          "triplex_line": 38,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 38,
+          "triplex_node": 76,
+          "underground_line": 238,
+          "underground_line_conductor": 3
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 182,
+          "A": 25,
+          "C": 31
+        },
+        "line_count": 238,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "underground_line": {
+            "count": 238,
+            "min": 0.0003048,
+            "p10": 0.0003048,
+            "median": 0.021183599999999997,
+            "p90": 0.10677144,
+            "max": 0.25420319999999996
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 0,
+            "min": null,
+            "p10": null,
+            "median": null,
+            "p90": null,
+            "max": null
+          },
+          "underground_line": {
+            "count": 238,
+            "min": 0.0003048,
+            "p10": 0.0003048,
+            "median": 0.021183599999999997,
+            "p90": 0.10677144,
+            "max": 0.25420319999999996
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 238
+        },
+        "overhead_fraction_by_count": 0.0,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 51,
+          "nodes": 393,
+          "edges": 392,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 72,
+            "2": 267,
+            "3": 40,
+            "4": 12,
+            "5": 2
+          },
+          "source_count": 1,
+          "reachable_from_source": 393,
+          "depth": {
+            "count": 393,
+            "min": 0,
+            "p10": 18.200000000000003,
+            "median": 35.0,
+            "p90": 48.0,
+            "max": 59
+          }
+        },
+        "equipment": {
+          "definition_count": 41,
+          "conductor_count": 3,
+          "explicit_summer_rating_count": 3,
+          "summer_rating_a": {
+            "count": 3,
+            "min": 142.0,
+            "p10": 211.2,
+            "median": 488.0,
+            "p90": 717.6,
+            "max": 775.0
+          },
+          "transformer_configuration_count": 26,
+          "transformer_config_rating_kva": {
+            "count": 26,
+            "min": 5.0,
+            "p10": 7.5,
+            "median": 30.0,
+            "p90": 75.0,
+            "max": 112.5
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R1-25.00-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R1-25.00-1.glm",
+      "source_files": [
+        {
+          "path": "R1-25.00-1.glm",
+          "sha256": "a16f7d26afed38ad0feea051caa3ceb3b7f29c637327c55788e36ae5d9ba5d6b"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 1,
+          "fuse": 11,
+          "line_configuration": 34,
+          "line_spacing": 14,
+          "load": 90,
+          "meter": 91,
+          "node": 325,
+          "overhead_line": 170,
+          "overhead_line_conductor": 6,
+          "recloser": 3,
+          "recorder": 3,
+          "regulator": 2,
+          "regulator_configuration": 2,
+          "switch": 6,
+          "transformer": 115,
+          "transformer_configuration": 66,
+          "triplex_line": 25,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 25,
+          "triplex_node": 50,
+          "underground_line": 132,
+          "underground_line_conductor": 3
+        },
+        "source_voltage_ll_kv": [
+          24.9
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 81,
+          "B": 22,
+          "C": 116,
+          "A": 66,
+          "AB": 1,
+          "BC": 1,
+          "AC": 15
+        },
+        "line_count": 302,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 170,
+            "min": 0.0001274064,
+            "p10": 0.029984120880000003,
+            "median": 0.1625827584,
+            "p90": 1.06301685288,
+            "max": 1.8848030376
+          },
+          "underground_line": {
+            "count": 132,
+            "min": 0.0090348816,
+            "p10": 0.06254779464,
+            "median": 0.34137889559999995,
+            "p90": 1.4507931360000008,
+            "max": 9.1504008
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 170,
+            "min": 0.0001274064,
+            "p10": 0.029984120880000003,
+            "median": 0.1625827584,
+            "p90": 1.06301685288,
+            "max": 1.8848030376
+          },
+          "underground_line": {
+            "count": 132,
+            "min": 0.0090348816,
+            "p10": 0.06254779464,
+            "median": 0.34137889559999995,
+            "p90": 1.4507931360000008,
+            "max": 9.1504008
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 302
+        },
+        "overhead_fraction_by_count": 0.5629139072847682,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 116,
+          "nodes": 465,
+          "edges": 464,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 127,
+            "2": 237,
+            "3": 80,
+            "4": 18,
+            "5": 3
+          },
+          "source_count": 1,
+          "reachable_from_source": 465,
+          "depth": {
+            "count": 465,
+            "min": 0,
+            "p10": 20.400000000000006,
+            "median": 54.0,
+            "p90": 77.0,
+            "max": 95
+          }
+        },
+        "equipment": {
+          "definition_count": 126,
+          "conductor_count": 9,
+          "explicit_summer_rating_count": 9,
+          "summer_rating_a": {
+            "count": 9,
+            "min": 120.0,
+            "p10": 137.6,
+            "median": 197.0,
+            "p90": 422.20000000000005,
+            "max": 775.0
+          },
+          "transformer_configuration_count": 66,
+          "transformer_config_rating_kva": {
+            "count": 66,
+            "min": 5.0,
+            "p10": 15.0,
+            "median": 50.0,
+            "p90": 175.0,
+            "max": 3000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R2-12.47-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R2-12.47-1.glm",
+      "source_files": [
+        {
+          "path": "R2-12.47-1.glm",
+          "sha256": "d220872a3ef2b54c563b2fdb94f75c2514e29ab428d1896adf559202ca176f54"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 1,
+          "fuse": 35,
+          "line_configuration": 41,
+          "line_spacing": 10,
+          "load": 82,
+          "meter": 83,
+          "node": 488,
+          "overhead_line": 189,
+          "overhead_line_conductor": 14,
+          "recloser": 1,
+          "recorder": 2,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 40,
+          "transformer": 173,
+          "transformer_configuration": 78,
+          "triplex_line": 91,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 91,
+          "triplex_node": 182,
+          "underground_line": 221,
+          "underground_line_conductor": 5
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 268,
+          "B": 61,
+          "A": 42,
+          "C": 35,
+          "AB": 3,
+          "BC": 1
+        },
+        "line_count": 410,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 189,
+            "min": 0.0015773399999999998,
+            "p10": 0.01515837456,
+            "median": 0.04268388719999999,
+            "p90": 0.07951031088000003,
+            "max": 0.1717953384
+          },
+          "underground_line": {
+            "count": 221,
+            "min": 0.0008068055999999998,
+            "p10": 0.00466344,
+            "median": 0.052120799999999995,
+            "p90": 0.1261872,
+            "max": 0.45330557039999997
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 189,
+            "min": 0.0015773399999999998,
+            "p10": 0.01515837456,
+            "median": 0.04268388719999999,
+            "p90": 0.07951031088000003,
+            "max": 0.1717953384
+          },
+          "underground_line": {
+            "count": 221,
+            "min": 0.0008068055999999998,
+            "p10": 0.00466344,
+            "median": 0.052120799999999995,
+            "p90": 0.1261872,
+            "max": 0.45330557039999997
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 410
+        },
+        "overhead_fraction_by_count": 0.4609756097560976,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 174,
+          "nodes": 752,
+          "edges": 751,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 209,
+            "2": 367,
+            "3": 152,
+            "4": 18,
+            "5": 5,
+            "6": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 752,
+          "depth": {
+            "count": 752,
+            "min": 0,
+            "p10": 18.0,
+            "median": 57.0,
+            "p90": 124.89999999999998,
+            "max": 149
+          }
+        },
+        "equipment": {
+          "definition_count": 150,
+          "conductor_count": 19,
+          "explicit_summer_rating_count": 19,
+          "summer_rating_a": {
+            "count": 19,
+            "min": 90.0,
+            "p10": 112.0,
+            "median": 197.0,
+            "p90": 451.99999999999994,
+            "max": 605.0
+          },
+          "transformer_configuration_count": 78,
+          "transformer_config_rating_kva": {
+            "count": 78,
+            "min": 5.0,
+            "p10": 10.0,
+            "median": 50.0,
+            "p90": 247.49999999999977,
+            "max": 3000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R2-12.47-2",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R2-12.47-2.glm",
+      "source_files": [
+        {
+          "path": "R2-12.47-2.glm",
+          "sha256": "16f94d5566f79d646501acbc7bff551837982618b3e0af26ed3e284165a48e68"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 4,
+          "fuse": 51,
+          "line_configuration": 41,
+          "line_spacing": 7,
+          "load": 8,
+          "meter": 9,
+          "node": 254,
+          "overhead_line": 176,
+          "overhead_line_conductor": 12,
+          "recorder": 6,
+          "regulator": 2,
+          "regulator_configuration": 2,
+          "switch": 12,
+          "transformer": 200,
+          "transformer_configuration": 58,
+          "triplex_line": 192,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 192,
+          "triplex_node": 384,
+          "underground_line": 12,
+          "underground_line_conductor": 3
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "A": 35,
+          "C": 51,
+          "ABC": 57,
+          "B": 42,
+          "AC": 1,
+          "BC": 1,
+          "AB": 1
+        },
+        "line_count": 188,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 176,
+            "min": 0.003700272,
+            "p10": 0.028885895999999998,
+            "median": 0.08228685599999999,
+            "p90": 0.188058552,
+            "max": 0.49895759999999995
+          },
+          "underground_line": {
+            "count": 12,
+            "min": 0.00912876,
+            "p10": 0.012501372000000002,
+            "median": 0.12897611999999997,
+            "p90": 0.3936162816,
+            "max": 0.857484696
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 176,
+            "min": 0.003700272,
+            "p10": 0.028885895999999998,
+            "median": 0.08228685599999999,
+            "p90": 0.188058552,
+            "max": 0.49895759999999995
+          },
+          "underground_line": {
+            "count": 12,
+            "min": 0.00912876,
+            "p10": 0.012501372000000002,
+            "median": 0.12897611999999997,
+            "p90": 0.3936162816,
+            "max": 0.857484696
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 188
+        },
+        "overhead_fraction_by_count": 0.9361702127659575,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 201,
+          "nodes": 646,
+          "edges": 645,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 208,
+            "2": 314,
+            "3": 81,
+            "4": 20,
+            "5": 10,
+            "6": 10,
+            "7": 3
+          },
+          "source_count": 1,
+          "reachable_from_source": 646,
+          "depth": {
+            "count": 646,
+            "min": 0,
+            "p10": 11.0,
+            "median": 23.0,
+            "p90": 40.5,
+            "max": 46
+          }
+        },
+        "equipment": {
+          "definition_count": 124,
+          "conductor_count": 15,
+          "explicit_summer_rating_count": 15,
+          "summer_rating_a": {
+            "count": 15,
+            "min": 112.0,
+            "p10": 144.8,
+            "median": 270.0,
+            "p90": 610.4,
+            "max": 663.0
+          },
+          "transformer_configuration_count": 58,
+          "transformer_config_rating_kva": {
+            "count": 58,
+            "min": 5.0,
+            "p10": 8.5,
+            "median": 50.0,
+            "p90": 182.5000000000001,
+            "max": 525.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R2-12.47-3",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R2-12.47-3.glm",
+      "source_files": [
+        {
+          "path": "R2-12.47-3.glm",
+          "sha256": "518d5084991362c093765a75797d06796fae00d5b430efa7f4e135032b7ccd01"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 1,
+          "fuse": 41,
+          "line_configuration": 37,
+          "line_spacing": 15,
+          "load": 11,
+          "meter": 12,
+          "node": 832,
+          "overhead_line": 107,
+          "overhead_line_conductor": 8,
+          "recorder": 2,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 93,
+          "transformer": 496,
+          "transformer_configuration": 53,
+          "triplex_line": 485,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 485,
+          "triplex_node": 970,
+          "underground_line": 589,
+          "underground_line_conductor": 5
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 257,
+          "AC": 11,
+          "C": 180,
+          "BC": 6,
+          "A": 131,
+          "B": 110,
+          "AB": 1
+        },
+        "line_count": 696,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 107,
+            "min": 0.0021640799999999996,
+            "p10": 0.0204295248,
+            "median": 0.059639606399999996,
+            "p90": 0.10195560000000001,
+            "max": 0.29846686559999996
+          },
+          "underground_line": {
+            "count": 589,
+            "min": 0.0009147048,
+            "p10": 0.00803074848,
+            "median": 0.05507735999999999,
+            "p90": 0.11040361968000002,
+            "max": 0.5357768304
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 107,
+            "min": 0.0021640799999999996,
+            "p10": 0.0204295248,
+            "median": 0.059639606399999996,
+            "p90": 0.10195560000000001,
+            "max": 0.29846686559999996
+          },
+          "underground_line": {
+            "count": 589,
+            "min": 0.0009147048,
+            "p10": 0.00803074848,
+            "median": 0.05507735999999999,
+            "p90": 0.11040361968000002,
+            "max": 0.5357768304
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 696
+        },
+        "overhead_fraction_by_count": 0.15373563218390804,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 497,
+          "nodes": 1813,
+          "edges": 1812,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 570,
+            "2": 858,
+            "3": 270,
+            "4": 60,
+            "5": 43,
+            "6": 11,
+            "7": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 1813,
+          "depth": {
+            "count": 1813,
+            "min": 0,
+            "p10": 17.200000000000017,
+            "median": 40.0,
+            "p90": 50.0,
+            "max": 55
+          }
+        },
+        "equipment": {
+          "definition_count": 120,
+          "conductor_count": 13,
+          "explicit_summer_rating_count": 13,
+          "summer_rating_a": {
+            "count": 13,
+            "min": 112.0,
+            "p10": 113.6,
+            "median": 256.0,
+            "p90": 524.0,
+            "max": 605.0
+          },
+          "transformer_configuration_count": 53,
+          "transformer_config_rating_kva": {
+            "count": 53,
+            "min": 5.0,
+            "p10": 5.0,
+            "median": 37.5,
+            "p90": 160.0000000000003,
+            "max": 525.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R2-25.00-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R2-25.00-1.glm",
+      "source_files": [
+        {
+          "path": "R2-25.00-1.glm",
+          "sha256": "3f167aaf7d1bf2bcf6cf04a8be82bcd163165e4d2e1f12a4b55e6f0fbf2a95e4"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 5,
+          "fuse": 57,
+          "line_configuration": 33,
+          "line_spacing": 7,
+          "load": 72,
+          "meter": 73,
+          "node": 324,
+          "overhead_line": 146,
+          "overhead_line_conductor": 9,
+          "recorder": 6,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 39,
+          "transformer": 274,
+          "transformer_configuration": 116,
+          "triplex_line": 202,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 202,
+          "triplex_node": 404,
+          "underground_line": 81,
+          "underground_line_conductor": 3
+        },
+        "source_voltage_ll_kv": [
+          24.9
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 114,
+          "C": 52,
+          "B": 16,
+          "A": 45
+        },
+        "line_count": 227,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 146,
+            "min": 0.0006096,
+            "p10": 0.0196596,
+            "median": 0.0751332,
+            "p90": 0.29672279999999995,
+            "max": 0.6013704
+          },
+          "underground_line": {
+            "count": 81,
+            "min": 0.0018287999999999998,
+            "p10": 0.010667999999999999,
+            "median": 0.2121408,
+            "p90": 0.6958584,
+            "max": 0.8010143999999999
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 146,
+            "min": 0.0006096,
+            "p10": 0.0196596,
+            "median": 0.0751332,
+            "p90": 0.29672279999999995,
+            "max": 0.6013704
+          },
+          "underground_line": {
+            "count": 81,
+            "min": 0.0018287999999999998,
+            "p10": 0.010667999999999999,
+            "median": 0.2121408,
+            "p90": 0.6958584,
+            "max": 0.8010143999999999
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 227
+        },
+        "overhead_fraction_by_count": 0.6431718061674009,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 275,
+          "nodes": 800,
+          "edges": 800,
+          "components": 1,
+          "cycle_rank": 1,
+          "radial": false,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 306,
+            "2": 294,
+            "3": 141,
+            "4": 24,
+            "5": 24,
+            "6": 10,
+            "7": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 800,
+          "depth": {
+            "count": 800,
+            "min": 0,
+            "p10": 13.900000000000006,
+            "median": 33.0,
+            "p90": 45.0,
+            "max": 59
+          }
+        },
+        "equipment": {
+          "definition_count": 170,
+          "conductor_count": 12,
+          "explicit_summer_rating_count": 12,
+          "summer_rating_a": {
+            "count": 12,
+            "min": 84.0,
+            "p10": 105.7,
+            "median": 205.0,
+            "p90": 560.6,
+            "max": 878.0
+          },
+          "transformer_configuration_count": 116,
+          "transformer_config_rating_kva": {
+            "count": 116,
+            "min": 5.0,
+            "p10": 10.0,
+            "median": 75.0,
+            "p90": 500.0,
+            "max": 2250.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R2-35.00-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R2-35.00-1.glm",
+      "source_files": [
+        {
+          "path": "R2-35.00-1.glm",
+          "sha256": "4909870f8f83ca6cd8d8eae50515f16d14a1af59e02e7052ef11846437a25350"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 13,
+          "fuse": 116,
+          "line_configuration": 60,
+          "line_spacing": 13,
+          "load": 447,
+          "meter": 448,
+          "node": 1039,
+          "overhead_line": 682,
+          "overhead_line_conductor": 11,
+          "recloser": 5,
+          "recorder": 14,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 33,
+          "transformer": 610,
+          "transformer_configuration": 163,
+          "triplex_line": 163,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 163,
+          "triplex_node": 326,
+          "underground_line": 201,
+          "underground_line_conductor": 2
+        },
+        "source_voltage_ll_kv": [
+          34.5
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "C": 144,
+          "ABC": 378,
+          "B": 162,
+          "A": 157,
+          "BC": 8,
+          "AC": 15,
+          "AB": 19
+        },
+        "line_count": 883,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 682,
+            "min": 0.003048,
+            "p10": 0.02483089776,
+            "median": 0.13505840399999997,
+            "p90": 0.5240031074399999,
+            "max": 1.4402501039999998
+          },
+          "underground_line": {
+            "count": 201,
+            "min": 0.0036447984,
+            "p10": 0.011172748799999998,
+            "median": 0.1103470488,
+            "p90": 0.3447809208,
+            "max": 1.5759799823999998
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 682,
+            "min": 0.003048,
+            "p10": 0.02483089776,
+            "median": 0.13505840399999997,
+            "p90": 0.5240031074399999,
+            "max": 1.4402501039999998
+          },
+          "underground_line": {
+            "count": 201,
+            "min": 0.0036447984,
+            "p10": 0.011172748799999998,
+            "median": 0.1103470488,
+            "p90": 0.3447809208,
+            "max": 1.5759799823999998
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 883
+        },
+        "overhead_fraction_by_count": 0.7723669309173273,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 611,
+          "nodes": 1812,
+          "edges": 1811,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 656,
+            "2": 728,
+            "3": 246,
+            "4": 146,
+            "5": 30,
+            "6": 4,
+            "7": 2
+          },
+          "source_count": 1,
+          "reachable_from_source": 1812,
+          "depth": {
+            "count": 1812,
+            "min": 0,
+            "p10": 16.0,
+            "median": 38.0,
+            "p90": 69.0,
+            "max": 83
+          }
+        },
+        "equipment": {
+          "definition_count": 251,
+          "conductor_count": 13,
+          "explicit_summer_rating_count": 13,
+          "summer_rating_a": {
+            "count": 13,
+            "min": 32.2,
+            "p10": 89.60000000000001,
+            "median": 197.0,
+            "p90": 568.6000000000001,
+            "max": 891.0
+          },
+          "transformer_configuration_count": 163,
+          "transformer_config_rating_kva": {
+            "count": 163,
+            "min": 5.0,
+            "p10": 15.0,
+            "median": 60.0,
+            "p90": 185.00000000000014,
+            "max": 625.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R3-12.47-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R3-12.47-1.glm",
+      "source_files": [
+        {
+          "path": "R3-12.47-1.glm",
+          "sha256": "d8bc453b46386c3a8e8f7fa7dda43edf2dc650cbe28ca81cdefeba4ed7305bea"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 1,
+          "fuse": 61,
+          "line_configuration": 40,
+          "line_spacing": 7,
+          "load": 64,
+          "meter": 65,
+          "node": 634,
+          "overhead_line": 250,
+          "overhead_line_conductor": 7,
+          "recorder": 2,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 31,
+          "transformer": 472,
+          "transformer_configuration": 90,
+          "triplex_line": 408,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 408,
+          "triplex_node": 816,
+          "underground_line": 290,
+          "underground_line_conductor": 8
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 364,
+          "AB": 47,
+          "BC": 27,
+          "AC": 55,
+          "A": 29,
+          "B": 9,
+          "C": 9
+        },
+        "line_count": 540,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 250,
+            "min": 0.003048,
+            "p10": 0.0189738,
+            "median": 0.03899916,
+            "p90": 0.068144136,
+            "max": 0.17617439999999998
+          },
+          "underground_line": {
+            "count": 290,
+            "min": 0.003048,
+            "p10": 0.0158496,
+            "median": 0.05334,
+            "p90": 0.13972032,
+            "max": 0.3758184
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 250,
+            "min": 0.003048,
+            "p10": 0.0189738,
+            "median": 0.03899916,
+            "p90": 0.068144136,
+            "max": 0.17617439999999998
+          },
+          "underground_line": {
+            "count": 290,
+            "min": 0.003048,
+            "p10": 0.0158496,
+            "median": 0.05334,
+            "p90": 0.13972032,
+            "max": 0.3758184
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 540
+        },
+        "overhead_fraction_by_count": 0.46296296296296297,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 473,
+          "nodes": 1514,
+          "edges": 1513,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 491,
+            "2": 721,
+            "3": 159,
+            "4": 101,
+            "5": 40,
+            "6": 2
+          },
+          "source_count": 1,
+          "reachable_from_source": 1514,
+          "depth": {
+            "count": 1514,
+            "min": 0,
+            "p10": 23.0,
+            "median": 38.0,
+            "p90": 49.0,
+            "max": 57
+          }
+        },
+        "equipment": {
+          "definition_count": 154,
+          "conductor_count": 15,
+          "explicit_summer_rating_count": 15,
+          "summer_rating_a": {
+            "count": 15,
+            "min": 101.0,
+            "p10": 124.0,
+            "median": 300.0,
+            "p90": 729.8,
+            "max": 858.0
+          },
+          "transformer_configuration_count": 90,
+          "transformer_config_rating_kva": {
+            "count": 90,
+            "min": 5.0,
+            "p10": 10.0,
+            "median": 50.0,
+            "p90": 356.2500000000016,
+            "max": 9000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R3-12.47-2",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R3-12.47-2.glm",
+      "source_files": [
+        {
+          "path": "R3-12.47-2.glm",
+          "sha256": "47fccb177e53ac0af5f9126e4971def3943ab7dd033dba669841cfa8ee1700fa"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "fuse": 21,
+          "line_configuration": 27,
+          "line_spacing": 5,
+          "load": 62,
+          "meter": 63,
+          "node": 267,
+          "overhead_line": 88,
+          "overhead_line_conductor": 10,
+          "recloser": 3,
+          "recorder": 1,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 36,
+          "transformer": 62,
+          "transformer_configuration": 19,
+          "triplex_line_configuration": 1,
+          "underground_line": 117,
+          "underground_line_conductor": 4
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "B": 18,
+          "ABC": 170,
+          "A": 10,
+          "AB": 2,
+          "C": 5
+        },
+        "line_count": 205,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 88,
+            "min": 0.0028428696,
+            "p10": 0.0038099999999999996,
+            "median": 0.0127586232,
+            "p90": 0.13451601239999997,
+            "max": 0.3293504208
+          },
+          "underground_line": {
+            "count": 117,
+            "min": 0.0039889176,
+            "p10": 0.010012009439999999,
+            "median": 0.0646849608,
+            "p90": 0.22111386816,
+            "max": 0.29452976399999997
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 88,
+            "min": 0.0028428696,
+            "p10": 0.0038099999999999996,
+            "median": 0.0127586232,
+            "p90": 0.13451601239999997,
+            "max": 0.3293504208
+          },
+          "underground_line": {
+            "count": 117,
+            "min": 0.0039889176,
+            "p10": 0.010012009439999999,
+            "median": 0.0646849608,
+            "p90": 0.22111386816,
+            "max": 0.29452976399999997
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 205
+        },
+        "overhead_fraction_by_count": 0.4292682926829268,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 63,
+          "nodes": 329,
+          "edges": 328,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 82,
+            "2": 177,
+            "3": 60,
+            "4": 10
+          },
+          "source_count": 1,
+          "reachable_from_source": 329,
+          "depth": {
+            "count": 329,
+            "min": 0,
+            "p10": 17.0,
+            "median": 56.0,
+            "p90": 77.0,
+            "max": 82
+          }
+        },
+        "equipment": {
+          "definition_count": 67,
+          "conductor_count": 14,
+          "explicit_summer_rating_count": 14,
+          "summer_rating_a": {
+            "count": 14,
+            "min": 112.0,
+            "p10": 144.1,
+            "median": 261.0,
+            "p90": 645.6,
+            "max": 775.0
+          },
+          "transformer_configuration_count": 19,
+          "transformer_config_rating_kva": {
+            "count": 19,
+            "min": 5.0,
+            "p10": 9.0,
+            "median": 25.0,
+            "p90": 802.4999999999998,
+            "max": 1500.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R3-12.47-3",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R3-12.47-3.glm",
+      "source_files": [
+        {
+          "path": "R3-12.47-3.glm",
+          "sha256": "8ba156816d6c8919cfe636e853593404636f468b3eb914a8734cc28ef189e667"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 2,
+          "fuse": 140,
+          "line_configuration": 46,
+          "line_spacing": 8,
+          "load": 108,
+          "meter": 109,
+          "node": 2002,
+          "overhead_line": 1511,
+          "overhead_line_conductor": 6,
+          "recloser": 3,
+          "recorder": 4,
+          "regulator": 2,
+          "regulator_configuration": 2,
+          "switch": 18,
+          "transformer": 1733,
+          "transformer_configuration": 81,
+          "triplex_line": 1625,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 1625,
+          "triplex_node": 3250,
+          "underground_line": 327,
+          "underground_line_conductor": 8
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 667,
+          "AC": 316,
+          "BC": 413,
+          "AB": 336,
+          "B": 29,
+          "C": 38,
+          "A": 39
+        },
+        "line_count": 1838,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 1511,
+            "min": 0.003048,
+            "p10": 0.0298704,
+            "median": 0.06623303999999999,
+            "p90": 0.11250168,
+            "max": 0.28788359999999996
+          },
+          "underground_line": {
+            "count": 327,
+            "min": 0.003048,
+            "p10": 0.02334768,
+            "median": 0.0826008,
+            "p90": 0.164592,
+            "max": 0.333756
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 1511,
+            "min": 0.003048,
+            "p10": 0.0298704,
+            "median": 0.06623303999999999,
+            "p90": 0.11250168,
+            "max": 0.28788359999999996
+          },
+          "underground_line": {
+            "count": 327,
+            "min": 0.003048,
+            "p10": 0.02334768,
+            "median": 0.0826008,
+            "p90": 0.164592,
+            "max": 0.333756
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 1838
+        },
+        "overhead_fraction_by_count": 0.8220892274211099,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 1734,
+          "nodes": 5360,
+          "edges": 5359,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 1763,
+            "2": 2454,
+            "3": 687,
+            "4": 302,
+            "5": 148,
+            "6": 5,
+            "8": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 5360,
+          "depth": {
+            "count": 5360,
+            "min": 0,
+            "p10": 31.0,
+            "median": 74.0,
+            "p90": 122.0,
+            "max": 146
+          }
+        },
+        "equipment": {
+          "definition_count": 152,
+          "conductor_count": 14,
+          "explicit_summer_rating_count": 14,
+          "summer_rating_a": {
+            "count": 14,
+            "min": 101.0,
+            "p10": 121.0,
+            "median": 265.0,
+            "p90": 741.1000000000001,
+            "max": 858.0
+          },
+          "transformer_configuration_count": 81,
+          "transformer_config_rating_kva": {
+            "count": 81,
+            "min": 5.0,
+            "p10": 5.0,
+            "median": 30.0,
+            "p90": 112.5,
+            "max": 525.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R4-12.47-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R4-12.47-1.glm",
+      "source_files": [
+        {
+          "path": "R4-12.47-1.glm",
+          "sha256": "cafff58b565bafbec4c440eaa4128d7eabb0ab8ef90ffc4c375e140e374f619f"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 6,
+          "fuse": 79,
+          "line_configuration": 29,
+          "line_spacing": 13,
+          "load": 75,
+          "meter": 76,
+          "node": 572,
+          "overhead_line": 436,
+          "overhead_line_conductor": 5,
+          "recloser": 1,
+          "recorder": 7,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 7,
+          "transformer": 551,
+          "transformer_configuration": 86,
+          "triplex_line": 476,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 476,
+          "triplex_node": 952,
+          "underground_line": 47,
+          "underground_line_conductor": 1
+        },
+        "source_voltage_ll_kv": [
+          13.8
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "B": 119,
+          "ABC": 121,
+          "C": 98,
+          "A": 93,
+          "AC": 26,
+          "AB": 14,
+          "BC": 12
+        },
+        "line_count": 483,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 436,
+            "min": 0.0018287999999999998,
+            "p10": 0.0036575999999999996,
+            "median": 0.0623316,
+            "p90": 0.1872996,
+            "max": 1.1670791999999999
+          },
+          "underground_line": {
+            "count": 47,
+            "min": 0.0158496,
+            "p10": 0.04523232,
+            "median": 0.12100559999999999,
+            "p90": 0.28065984,
+            "max": 0.38374319999999995
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 436,
+            "min": 0.0018287999999999998,
+            "p10": 0.0036575999999999996,
+            "median": 0.0623316,
+            "p90": 0.1872996,
+            "max": 1.1670791999999999
+          },
+          "underground_line": {
+            "count": 47,
+            "min": 0.0158496,
+            "p10": 0.04523232,
+            "median": 0.12100559999999999,
+            "p90": 0.28065984,
+            "max": 0.38374319999999995
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 483
+        },
+        "overhead_fraction_by_count": 0.9026915113871635,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 552,
+          "nodes": 1599,
+          "edges": 1598,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 562,
+            "2": 712,
+            "3": 198,
+            "4": 59,
+            "5": 35,
+            "6": 26,
+            "7": 7
+          },
+          "source_count": 1,
+          "reachable_from_source": 1599,
+          "depth": {
+            "count": 1599,
+            "min": 0,
+            "p10": 15.0,
+            "median": 37.0,
+            "p90": 74.0,
+            "max": 86
+          }
+        },
+        "equipment": {
+          "definition_count": 136,
+          "conductor_count": 6,
+          "explicit_summer_rating_count": 6,
+          "summer_rating_a": {
+            "count": 6,
+            "min": 112.0,
+            "p10": 130.5,
+            "median": 295.0,
+            "p90": 445.5,
+            "max": 531.0
+          },
+          "transformer_configuration_count": 86,
+          "transformer_config_rating_kva": {
+            "count": 86,
+            "min": 5.0,
+            "p10": 5.0,
+            "median": 25.0,
+            "p90": 93.75,
+            "max": 525.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R4-12.47-2",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R4-12.47-2.glm",
+      "source_files": [
+        {
+          "path": "R4-12.47-2.glm",
+          "sha256": "30b5d72c2aef3ee1ca02fce1f32b61ca7654d2cfab6d7639f97b94bb6366107c"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "fuse": 28,
+          "line_configuration": 28,
+          "line_spacing": 15,
+          "load": 21,
+          "meter": 22,
+          "node": 273,
+          "overhead_line": 92,
+          "overhead_line_conductor": 6,
+          "recorder": 1,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 15,
+          "transformer": 197,
+          "transformer_configuration": 54,
+          "triplex_line": 176,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 176,
+          "triplex_node": 352,
+          "underground_line": 136,
+          "underground_line_conductor": 3
+        },
+        "source_voltage_ll_kv": [
+          12.5
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "C": 49,
+          "A": 62,
+          "AB": 3,
+          "B": 60,
+          "ABC": 50,
+          "BC": 1,
+          "AC": 3
+        },
+        "line_count": 228,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 92,
+            "min": 0.0048350424,
+            "p10": 0.01874181672,
+            "median": 0.06340998240000001,
+            "p90": 0.11263637112000001,
+            "max": 0.3797125248
+          },
+          "underground_line": {
+            "count": 136,
+            "min": 0.0023634192,
+            "p10": 0.015380055599999998,
+            "median": 0.0586296516,
+            "p90": 0.11608521359999999,
+            "max": 0.2454225216
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 92,
+            "min": 0.0048350424,
+            "p10": 0.01874181672,
+            "median": 0.06340998240000001,
+            "p90": 0.11263637112000001,
+            "max": 0.3797125248
+          },
+          "underground_line": {
+            "count": 136,
+            "min": 0.0023634192,
+            "p10": 0.015380055599999998,
+            "median": 0.0586296516,
+            "p90": 0.11608521359999999,
+            "max": 0.2454225216
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 228
+        },
+        "overhead_fraction_by_count": 0.40350877192982454,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 198,
+          "nodes": 646,
+          "edges": 645,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 216,
+            "2": 265,
+            "3": 135,
+            "4": 15,
+            "5": 12,
+            "6": 2,
+            "7": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 646,
+          "depth": {
+            "count": 646,
+            "min": 0,
+            "p10": 14.0,
+            "median": 25.0,
+            "p90": 35.0,
+            "max": 41
+          }
+        },
+        "equipment": {
+          "definition_count": 108,
+          "conductor_count": 9,
+          "explicit_summer_rating_count": 9,
+          "summer_rating_a": {
+            "count": 9,
+            "min": 149.0,
+            "p10": 187.4,
+            "median": 256.0,
+            "p90": 536.8,
+            "max": 564.0
+          },
+          "transformer_configuration_count": 54,
+          "transformer_config_rating_kva": {
+            "count": 54,
+            "min": 5.0,
+            "p10": 10.0,
+            "median": 27.5,
+            "p90": 75.0,
+            "max": 175.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R4-25.00-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R4-25.00-1.glm",
+      "source_files": [
+        {
+          "path": "R4-25.00-1.glm",
+          "sha256": "7c1a4d35b6a35496be915b504b1dc0bec69afdb13a5f611a27c0bbb64528782b"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "fuse": 28,
+          "line_configuration": 13,
+          "line_spacing": 8,
+          "load": 1,
+          "meter": 2,
+          "node": 231,
+          "overhead_line": 175,
+          "overhead_line_conductor": 5,
+          "recloser": 1,
+          "recorder": 1,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 3,
+          "transformer": 141,
+          "transformer_configuration": 19,
+          "triplex_line": 140,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 140,
+          "triplex_node": 280,
+          "underground_line": 22,
+          "underground_line_conductor": 1
+        },
+        "source_voltage_ll_kv": [
+          24.9
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "B": 31,
+          "C": 133,
+          "ABC": 25,
+          "A": 7,
+          "AC": 1
+        },
+        "line_count": 197,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 175,
+            "min": 0.0031476696,
+            "p10": 0.03032522256,
+            "median": 0.067959732,
+            "p90": 0.16798869119999998,
+            "max": 0.2410513848
+          },
+          "underground_line": {
+            "count": 22,
+            "min": 0.00210312,
+            "p10": 0.033296351999999994,
+            "median": 0.09215628,
+            "p90": 0.21158911200000008,
+            "max": 0.4860340799999999
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 175,
+            "min": 0.0031476696,
+            "p10": 0.03032522256,
+            "median": 0.067959732,
+            "p90": 0.16798869119999998,
+            "max": 0.2410513848
+          },
+          "underground_line": {
+            "count": 22,
+            "min": 0.00210312,
+            "p10": 0.033296351999999994,
+            "median": 0.09215628,
+            "p90": 0.21158911200000008,
+            "max": 0.4860340799999999
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 197
+        },
+        "overhead_fraction_by_count": 0.8883248730964467,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 142,
+          "nodes": 512,
+          "edges": 511,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 147,
+            "2": 263,
+            "3": 74,
+            "4": 19,
+            "5": 3,
+            "6": 6
+          },
+          "source_count": 1,
+          "reachable_from_source": 512,
+          "depth": {
+            "count": 512,
+            "min": 0,
+            "p10": 13.100000000000001,
+            "median": 28.0,
+            "p90": 43.0,
+            "max": 52
+          }
+        },
+        "equipment": {
+          "definition_count": 48,
+          "conductor_count": 6,
+          "explicit_summer_rating_count": 6,
+          "summer_rating_a": {
+            "count": 6,
+            "min": 149.0,
+            "p10": 176.5,
+            "median": 235.0,
+            "p90": 415.0,
+            "max": 530.0
+          },
+          "transformer_configuration_count": 19,
+          "transformer_config_rating_kva": {
+            "count": 19,
+            "min": 5.0,
+            "p10": 5.0,
+            "median": 15.0,
+            "p90": 27.499999999999993,
+            "max": 100.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R5-12.47-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R5-12.47-1.glm",
+      "source_files": [
+        {
+          "path": "R5-12.47-1.glm",
+          "sha256": "5073043b6ec85d7674b200270eaf2f04daef2232637742db77a7884aaf79a0c9"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 3,
+          "fuse": 51,
+          "line_configuration": 28,
+          "line_spacing": 18,
+          "load": 48,
+          "meter": 49,
+          "node": 266,
+          "overhead_line": 191,
+          "overhead_line_conductor": 5,
+          "recorder": 4,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 10,
+          "transformer": 233,
+          "transformer_configuration": 68,
+          "triplex_line": 185,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 185,
+          "triplex_node": 370,
+          "underground_line": 12,
+          "underground_line_conductor": 4
+        },
+        "source_voltage_ll_kv": [
+          13.8
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 87,
+          "C": 45,
+          "B": 37,
+          "BC": 6,
+          "A": 21,
+          "AC": 5,
+          "AB": 2
+        },
+        "line_count": 203,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 191,
+            "min": 0.0003048,
+            "p10": 0.001524,
+            "median": 0.0505968,
+            "p90": 0.138684,
+            "max": 0.275844
+          },
+          "underground_line": {
+            "count": 12,
+            "min": 0.007315199999999999,
+            "p10": 0.009936480000000001,
+            "median": 0.06096,
+            "p90": 0.11987783999999999,
+            "max": 0.1389888
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 191,
+            "min": 0.0003048,
+            "p10": 0.001524,
+            "median": 0.0505968,
+            "p90": 0.138684,
+            "max": 0.275844
+          },
+          "underground_line": {
+            "count": 12,
+            "min": 0.007315199999999999,
+            "p10": 0.009936480000000001,
+            "median": 0.06096,
+            "p90": 0.11987783999999999,
+            "max": 0.1389888
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 203
+        },
+        "overhead_fraction_by_count": 0.9408866995073891,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 234,
+          "nodes": 684,
+          "edges": 683,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 238,
+            "2": 302,
+            "3": 102,
+            "4": 15,
+            "5": 11,
+            "6": 9,
+            "7": 7
+          },
+          "source_count": 1,
+          "reachable_from_source": 684,
+          "depth": {
+            "count": 684,
+            "min": 0,
+            "p10": 13.0,
+            "median": 27.0,
+            "p90": 54.0,
+            "max": 65
+          }
+        },
+        "equipment": {
+          "definition_count": 125,
+          "conductor_count": 9,
+          "explicit_summer_rating_count": 9,
+          "summer_rating_a": {
+            "count": 9,
+            "min": 112.0,
+            "p10": 136.0,
+            "median": 256.0,
+            "p90": 798.2,
+            "max": 891.0
+          },
+          "transformer_configuration_count": 68,
+          "transformer_config_rating_kva": {
+            "count": 68,
+            "min": 5.0,
+            "p10": 5.0,
+            "median": 50.0,
+            "p90": 300.0,
+            "max": 2250.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R5-12.47-2",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R5-12.47-2.glm",
+      "source_files": [
+        {
+          "path": "R5-12.47-2.glm",
+          "sha256": "a60e75d2c8fa165e403580e47d237ae22fb0eb6009143a200cca8c0c5d25bcbe"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 1,
+          "fuse": 35,
+          "line_configuration": 29,
+          "line_spacing": 9,
+          "load": 46,
+          "meter": 47,
+          "node": 317,
+          "overhead_line": 180,
+          "overhead_line_conductor": 8,
+          "recorder": 2,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 23,
+          "transformer": 184,
+          "transformer_configuration": 49,
+          "triplex_line": 138,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 138,
+          "triplex_node": 276,
+          "underground_line": 77,
+          "underground_line_conductor": 4
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 193,
+          "C": 16,
+          "A": 18,
+          "AB": 8,
+          "AC": 8,
+          "B": 14
+        },
+        "line_count": 257,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 180,
+            "min": 0.001524,
+            "p10": 0.001524,
+            "median": 0.0304391568,
+            "p90": 0.06037133975999998,
+            "max": 0.2402369592
+          },
+          "underground_line": {
+            "count": 77,
+            "min": 0.001524,
+            "p10": 0.010009449120000001,
+            "median": 0.0892250184,
+            "p90": 0.17157289536,
+            "max": 0.24527499839999997
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 180,
+            "min": 0.001524,
+            "p10": 0.001524,
+            "median": 0.0304391568,
+            "p90": 0.06037133975999998,
+            "max": 0.2402369592
+          },
+          "underground_line": {
+            "count": 77,
+            "min": 0.001524,
+            "p10": 0.010009449120000001,
+            "median": 0.0892250184,
+            "p90": 0.17157289536,
+            "max": 0.24527499839999997
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 257
+        },
+        "overhead_fraction_by_count": 0.7003891050583657,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 185,
+          "nodes": 639,
+          "edges": 638,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 197,
+            "2": 321,
+            "3": 80,
+            "4": 12,
+            "5": 27,
+            "7": 2
+          },
+          "source_count": 1,
+          "reachable_from_source": 639,
+          "depth": {
+            "count": 639,
+            "min": 0,
+            "p10": 37.800000000000004,
+            "median": 62.0,
+            "p90": 70.0,
+            "max": 76
+          }
+        },
+        "equipment": {
+          "definition_count": 101,
+          "conductor_count": 12,
+          "explicit_summer_rating_count": 12,
+          "summer_rating_a": {
+            "count": 12,
+            "min": 90.0,
+            "p10": 113.1,
+            "median": 250.0,
+            "p90": 691.4000000000001,
+            "max": 891.0
+          },
+          "transformer_configuration_count": 49,
+          "transformer_config_rating_kva": {
+            "count": 49,
+            "min": 5.0,
+            "p10": 15.0,
+            "median": 50.0,
+            "p90": 180.00000000000043,
+            "max": 3000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R5-12.47-3",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R5-12.47-3.glm",
+      "source_files": [
+        {
+          "path": "R5-12.47-3.glm",
+          "sha256": "9ea0401c6efb43f923a64791c66e2ffd24b336d4378584dc1e78b158e7b48d39"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 13,
+          "fuse": 182,
+          "line_configuration": 57,
+          "line_spacing": 27,
+          "load": 182,
+          "meter": 183,
+          "node": 1472,
+          "overhead_line": 1174,
+          "overhead_line_conductor": 7,
+          "recloser": 20,
+          "recorder": 14,
+          "regulator": 4,
+          "regulator_configuration": 4,
+          "switch": 10,
+          "transformer": 1378,
+          "transformer_configuration": 95,
+          "triplex_line": 1196,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 1196,
+          "triplex_node": 2392,
+          "underground_line": 81,
+          "underground_line_conductor": 2
+        },
+        "source_voltage_ll_kv": [
+          13.8
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "B": 391,
+          "ABC": 199,
+          "C": 377,
+          "A": 245,
+          "AC": 24,
+          "AB": 17,
+          "BC": 2
+        },
+        "line_count": 1255,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 1174,
+            "min": 0.0006096,
+            "p10": 0.0051816,
+            "median": 0.08183879999999999,
+            "p90": 0.22652736000000007,
+            "max": 0.8354568
+          },
+          "underground_line": {
+            "count": 81,
+            "min": 0.0012192,
+            "p10": 0.0277368,
+            "median": 0.1414272,
+            "p90": 0.3343656,
+            "max": 0.9217152
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 1174,
+            "min": 0.0006096,
+            "p10": 0.0051816,
+            "median": 0.08183879999999999,
+            "p90": 0.22652736000000007,
+            "max": 0.8354568
+          },
+          "underground_line": {
+            "count": 81,
+            "min": 0.0012192,
+            "p10": 0.0277368,
+            "median": 0.1414272,
+            "p90": 0.3343656,
+            "max": 0.9217152
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 1255
+        },
+        "overhead_fraction_by_count": 0.9354581673306773,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 1379,
+          "nodes": 4046,
+          "edges": 4045,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 1386,
+            "2": 1859,
+            "3": 468,
+            "4": 176,
+            "5": 83,
+            "6": 59,
+            "7": 11,
+            "8": 4
+          },
+          "source_count": 1,
+          "reachable_from_source": 4046,
+          "depth": {
+            "count": 4046,
+            "min": 0,
+            "p10": 35.0,
+            "median": 81.0,
+            "p90": 125.0,
+            "max": 146
+          }
+        },
+        "equipment": {
+          "definition_count": 193,
+          "conductor_count": 9,
+          "explicit_summer_rating_count": 9,
+          "summer_rating_a": {
+            "count": 9,
+            "min": 112.0,
+            "p10": 136.0,
+            "median": 256.0,
+            "p90": 862.0,
+            "max": 878.0
+          },
+          "transformer_configuration_count": 95,
+          "transformer_config_rating_kva": {
+            "count": 95,
+            "min": 5.0,
+            "p10": 5.0,
+            "median": 25.0,
+            "p90": 100.0,
+            "max": 525.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R5-12.47-4",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R5-12.47-4.glm",
+      "source_files": [
+        {
+          "path": "R5-12.47-4.glm",
+          "sha256": "323f624d196bd6e78ae251d76474019a8685ddb9fe9539600ef5b6df144536da"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 3,
+          "fuse": 110,
+          "line_configuration": 26,
+          "line_spacing": 5,
+          "load": 32,
+          "meter": 33,
+          "node": 675,
+          "overhead_line": 225,
+          "overhead_line_conductor": 8,
+          "recorder": 4,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 29,
+          "transformer": 207,
+          "transformer_configuration": 55,
+          "triplex_line": 175,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 175,
+          "triplex_node": 350,
+          "underground_line": 309,
+          "underground_line_conductor": 3
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 225,
+          "A": 110,
+          "C": 114,
+          "BC": 1,
+          "B": 84
+        },
+        "line_count": 534,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 225,
+            "min": 0.0006089903999999999,
+            "p10": 0.00106661712,
+            "median": 0.0043302936,
+            "p90": 0.06980517407999999,
+            "max": 0.160958784
+          },
+          "underground_line": {
+            "count": 309,
+            "min": 0.0019936968,
+            "p10": 0.00578790816,
+            "median": 0.055266031199999996,
+            "p90": 0.12881110127999998,
+            "max": 0.6091665744
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 225,
+            "min": 0.0006089903999999999,
+            "p10": 0.00106661712,
+            "median": 0.0043302936,
+            "p90": 0.06980517407999999,
+            "max": 0.160958784
+          },
+          "underground_line": {
+            "count": 309,
+            "min": 0.0019936968,
+            "p10": 0.00578790816,
+            "median": 0.055266031199999996,
+            "p90": 0.12881110127999998,
+            "max": 0.6091665744
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 534
+        },
+        "overhead_fraction_by_count": 0.42134831460674155,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 208,
+          "nodes": 1057,
+          "edges": 1056,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 285,
+            "2": 533,
+            "3": 207,
+            "4": 21,
+            "5": 10,
+            "6": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 1057,
+          "depth": {
+            "count": 1057,
+            "min": 0,
+            "p10": 16.0,
+            "median": 85.0,
+            "p90": 104.0,
+            "max": 114
+          }
+        },
+        "equipment": {
+          "definition_count": 99,
+          "conductor_count": 11,
+          "explicit_summer_rating_count": 11,
+          "summer_rating_a": {
+            "count": 11,
+            "min": 112.0,
+            "p10": 149.0,
+            "median": 256.0,
+            "p90": 878.0,
+            "max": 891.0
+          },
+          "transformer_configuration_count": 55,
+          "transformer_config_rating_kva": {
+            "count": 55,
+            "min": 10.0,
+            "p10": 25.0,
+            "median": 125.0,
+            "p90": 322.50000000000006,
+            "max": 3000.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R5-12.47-5",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R5-12.47-5.glm",
+      "source_files": [
+        {
+          "path": "R5-12.47-5.glm",
+          "sha256": "00b8432882274ca3211edd678db88e421ac8e80c9715551a88ae9c45f683022a"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 3,
+          "fuse": 148,
+          "line_configuration": 41,
+          "line_spacing": 6,
+          "load": 28,
+          "meter": 29,
+          "node": 1100,
+          "overhead_line": 562,
+          "overhead_line_conductor": 8,
+          "recorder": 4,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 35,
+          "transformer": 380,
+          "transformer_configuration": 72,
+          "triplex_line": 352,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 352,
+          "triplex_node": 704,
+          "underground_line": 353,
+          "underground_line_conductor": 3
+        },
+        "source_voltage_ll_kv": [
+          12.4708
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 239,
+          "B": 218,
+          "C": 242,
+          "A": 186,
+          "AC": 26,
+          "BC": 4
+        },
+        "line_count": 915,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 562,
+            "min": 0.0006096,
+            "p10": 0.0029849368799999996,
+            "median": 0.014724583199999999,
+            "p90": 0.06944846664000001,
+            "max": 0.3563953248
+          },
+          "underground_line": {
+            "count": 353,
+            "min": 0.0019178015999999998,
+            "p10": 0.011699930880000002,
+            "median": 0.0853586304,
+            "p90": 0.17027499599999998,
+            "max": 0.37553280240000003
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 562,
+            "min": 0.0006096,
+            "p10": 0.0029849368799999996,
+            "median": 0.014724583199999999,
+            "p90": 0.06944846664000001,
+            "max": 0.3563953248
+          },
+          "underground_line": {
+            "count": 353,
+            "min": 0.0019178015999999998,
+            "p10": 0.011699930880000002,
+            "median": 0.0853586304,
+            "p90": 0.17027499599999998,
+            "max": 0.37553280240000003
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 915
+        },
+        "overhead_fraction_by_count": 0.614207650273224,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 381,
+          "nodes": 1832,
+          "edges": 1831,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 446,
+            "2": 1020,
+            "3": 306,
+            "4": 43,
+            "5": 16,
+            "6": 1
+          },
+          "source_count": 1,
+          "reachable_from_source": 1832,
+          "depth": {
+            "count": 1832,
+            "min": 0,
+            "p10": 37.10000000000002,
+            "median": 74.0,
+            "p90": 112.0,
+            "max": 127
+          }
+        },
+        "equipment": {
+          "definition_count": 132,
+          "conductor_count": 11,
+          "explicit_summer_rating_count": 11,
+          "summer_rating_a": {
+            "count": 11,
+            "min": 112.0,
+            "p10": 149.0,
+            "median": 256.0,
+            "p90": 878.0,
+            "max": 891.0
+          },
+          "transformer_configuration_count": 72,
+          "transformer_config_rating_kva": {
+            "count": 72,
+            "min": 5.0,
+            "p10": 10.500000000000004,
+            "median": 62.5,
+            "p90": 219.99999999999994,
+            "max": 1012.5
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R5-25.00-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R5-25.00-1.glm",
+      "source_files": [
+        {
+          "path": "R5-25.00-1.glm",
+          "sha256": "bff88352741f88f532738c336a61e221ad95495619a62497321ccc13e5571a90"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 4,
+          "fuse": 75,
+          "line_configuration": 34,
+          "line_spacing": 14,
+          "load": 14,
+          "meter": 15,
+          "node": 953,
+          "overhead_line": 484,
+          "overhead_line_conductor": 9,
+          "recorder": 5,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 32,
+          "transformer": 384,
+          "transformer_configuration": 55,
+          "triplex_line": 370,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 370,
+          "triplex_node": 740,
+          "underground_line": 360,
+          "underground_line_conductor": 6
+        },
+        "source_voltage_ll_kv": [
+          22.9
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 269,
+          "A": 203,
+          "AC": 1,
+          "C": 212,
+          "B": 144,
+          "BC": 5,
+          "AB": 10
+        },
+        "line_count": 844,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 484,
+            "min": 0.000600456,
+            "p10": 0.003048,
+            "median": 0.003048,
+            "p90": 0.05269519559999999,
+            "max": 0.2379719904
+          },
+          "underground_line": {
+            "count": 360,
+            "min": 0.0016501871999999999,
+            "p10": 0.0182800752,
+            "median": 0.060720427199999996,
+            "p90": 0.15370490976,
+            "max": 0.6280364375999999
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 484,
+            "min": 0.000600456,
+            "p10": 0.003048,
+            "median": 0.003048,
+            "p90": 0.05269519559999999,
+            "max": 0.2379719904
+          },
+          "underground_line": {
+            "count": 360,
+            "min": 0.0016501871999999999,
+            "p10": 0.0182800752,
+            "median": 0.060720427199999996,
+            "p90": 0.15370490976,
+            "max": 0.6280364375999999
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 844
+        },
+        "overhead_fraction_by_count": 0.5734597156398105,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 385,
+          "nodes": 1707,
+          "edges": 1706,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 436,
+            "2": 967,
+            "3": 231,
+            "4": 27,
+            "5": 38,
+            "6": 5,
+            "7": 3
+          },
+          "source_count": 1,
+          "reachable_from_source": 1707,
+          "depth": {
+            "count": 1707,
+            "min": 0,
+            "p10": 32.0,
+            "median": 53.0,
+            "p90": 71.0,
+            "max": 88
+          }
+        },
+        "equipment": {
+          "definition_count": 120,
+          "conductor_count": 15,
+          "explicit_summer_rating_count": 15,
+          "summer_rating_a": {
+            "count": 15,
+            "min": 101.0,
+            "p10": 164.0,
+            "median": 488.0,
+            "p90": 758.1999999999999,
+            "max": 891.0
+          },
+          "transformer_configuration_count": 55,
+          "transformer_config_rating_kva": {
+            "count": 55,
+            "min": 5.0,
+            "p10": 5.0,
+            "median": 50.0,
+            "p90": 205.00000000000006,
+            "max": 1500.0
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    },
+    {
+      "case_id": "R5-35.00-1",
+      "family": "pnnl_taxonomy",
+      "evidence_class": "statistical_representative",
+      "direct_opendss_export": false,
+      "source_url": "https://raw.githubusercontent.com/gridlab-d/Taxonomy_Feeders/9c88d1ab16bc91e9cf3f47d2adfdbd37d5210f16/R5-35.00-1.glm",
+      "source_files": [
+        {
+          "path": "R5-35.00-1.glm",
+          "sha256": "29c6d0c623294e178cfc57c9cdf32e0ab168268f8c2ac1695daa78d017c5ecf7"
+        }
+      ],
+      "statistics": {
+        "object_counts": {
+          "capacitor": 1,
+          "fuse": 36,
+          "line_configuration": 15,
+          "line_spacing": 6,
+          "load": 47,
+          "meter": 48,
+          "node": 339,
+          "overhead_line": 3,
+          "overhead_line_conductor": 1,
+          "recorder": 2,
+          "regulator": 1,
+          "regulator_configuration": 1,
+          "switch": 35,
+          "transformer": 239,
+          "transformer_configuration": 56,
+          "triplex_line": 192,
+          "triplex_line_configuration": 1,
+          "triplex_meter": 192,
+          "triplex_node": 384,
+          "underground_line": 263,
+          "underground_line_conductor": 4
+        },
+        "source_voltage_ll_kv": [
+          34.5
+        ],
+        "source_voltage_basis": "sqrt(3) times explicit SWING nominal_voltage; no filename inference",
+        "line_phase_counts": {
+          "ABC": 73,
+          "A": 68,
+          "B": 51,
+          "C": 74
+        },
+        "line_count": 266,
+        "line_length_km": {
+          "overhead_line": {
+            "count": 3,
+            "min": 0.0070104,
+            "p10": 0.00713232,
+            "median": 0.007619999999999999,
+            "p90": 0.00835152,
+            "max": 0.0085344
+          },
+          "underground_line": {
+            "count": 263,
+            "min": 0.0003048,
+            "p10": 0.0003048,
+            "median": 0.1207008,
+            "p90": 0.27224736000000005,
+            "max": 1.2868655999999998
+          }
+        },
+        "mv_line_length_km": {
+          "overhead_line": {
+            "count": 3,
+            "min": 0.0070104,
+            "p10": 0.00713232,
+            "median": 0.007619999999999999,
+            "p90": 0.00835152,
+            "max": 0.0085344
+          },
+          "underground_line": {
+            "count": 263,
+            "min": 0.0003048,
+            "p10": 0.0003048,
+            "median": 0.1207008,
+            "p90": 0.27224736000000005,
+            "max": 1.2868655999999998
+          }
+        },
+        "line_voltage_counts": {
+          "mv": 266
+        },
+        "overhead_fraction_by_count": 0.011278195488721804,
+        "topology": {
+          "scope": "link-endpoint multigraph with node parent aliases contracted; not phase connectivity or electrical verification",
+          "contracted_parent_attachments": 240,
+          "nodes": 770,
+          "edges": 769,
+          "components": 1,
+          "cycle_rank": 0,
+          "radial": true,
+          "open_link_count": 0,
+          "partially_open_link_count": 0,
+          "missing_endpoint_definitions": [],
+          "degree_counts": {
+            "1": 250,
+            "2": 299,
+            "3": 199,
+            "4": 19,
+            "5": 1,
+            "6": 2
+          },
+          "source_count": 1,
+          "reachable_from_source": 770,
+          "depth": {
+            "count": 770,
+            "min": 0,
+            "p10": 26.0,
+            "median": 47.0,
+            "p90": 59.0,
+            "max": 67
+          }
+        },
+        "equipment": {
+          "definition_count": 84,
+          "conductor_count": 5,
+          "explicit_summer_rating_count": 5,
+          "summer_rating_a": {
+            "count": 5,
+            "min": 112.0,
+            "p10": 124.0,
+            "median": 214.0,
+            "p90": 598.4000000000001,
+            "max": 714.0
+          },
+          "transformer_configuration_count": 56,
+          "transformer_config_rating_kva": {
+            "count": 56,
+            "min": 5.0,
+            "p10": 7.5,
+            "median": 100.0,
+            "p90": 300.0,
+            "max": 1012.5
+          },
+          "selectable_for_generation": false,
+          "boundary": "Raw definitions only; no verified GLM-to-DSS matrices or ampacity fallback"
+        }
+      }
+    }
+  ]
+}

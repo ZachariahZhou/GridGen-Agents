@@ -1,0 +1,502 @@
+{
+  "nexans_urd_4x50": {
+    "id": "nexans_urd_4x50",
+    "manufacturer": "Nexans",
+    "family": "Al XLPE URD",
+    "cores": 4,
+    "physical_cores": 4,
+    "earth_section_mm2": null,
+    "section_mm2": 50,
+    "role": "lv_main",
+    "construction": "cable",
+    "material": "aluminium",
+    "conductor_shape": "circular",
+    "voltage_u0_kv": 0.6,
+    "voltage_u_kv": 1.0,
+    "rac_ohm_km": 0.822,
+    "resistance_temperature_c": 90,
+    "x1_50hz_ohm_km": 0.0751,
+    "source_frequency_hz": 50,
+    "ratings_a": {
+      "buried_direct": 170,
+      "buried_duct": 128
+    },
+    "default_installation": "buried_duct",
+    "rating_conditions": {
+      "ambient_c": 30,
+      "soil_c": 15,
+      "soil_thermal_resistivity_k_m_w": 1.2,
+      "burial_depth_m": 0.5,
+      "conductor_c": 90,
+      "basis": "Single circuit; direct buried or single-way underground duct, according to selected column"
+    },
+    "source_definition": "Nexans Power Cable Catalogue 2019, Section 3; {'product': 'Section 3 p80, sheet171-04A', 'ampacity': 'Section 3 p81, sheet171-04B', 'resistance': 'Section 3 p138, table3.35, circular, 90C', 'reactance': 'Section 3 p141, table3.38, circular XLPE; mOhm/m = Ohm/km'}",
+    "source_fields": {
+      "product": "Section 3 p80, sheet171-04A",
+      "ampacity": "Section 3 p81, sheet171-04B",
+      "resistance": "Section 3 p138, table3.35, circular, 90C",
+      "reactance": "Section 3 p141, table3.38, circular XLPE; mOhm/m = Ohm/km"
+    },
+    "source_url": "https://www.nexans.co.nz/dam/jcr:c1f02375-378c-42f6-90c4-f7c7f10dcbdd/PowerCableCatalogue2019.pdf",
+    "source_path": "reference_data/lv_manufacturer/nexans_power_2019.pdf",
+    "source_sha256": "4fdf74da415033b140c1da29c6785c374a8e1e2ed6c9e80cda9ac87a01c9c565",
+    "source_pdf_pages": [
+      106,
+      107,
+      164,
+      167
+    ],
+    "source_accessed": "2026-09-24",
+    "evidence_class": "manufacturer_product_with_matching_handbook_tables_not_measured_primitive_matrix"
+  },
+  "nexans_urd_4x70": {
+    "id": "nexans_urd_4x70",
+    "manufacturer": "Nexans",
+    "family": "Al XLPE URD",
+    "cores": 4,
+    "physical_cores": 4,
+    "earth_section_mm2": null,
+    "section_mm2": 70,
+    "role": "lv_main",
+    "construction": "cable",
+    "material": "aluminium",
+    "conductor_shape": "shaped",
+    "voltage_u0_kv": 0.6,
+    "voltage_u_kv": 1.0,
+    "rac_ohm_km": 0.568,
+    "resistance_temperature_c": 90,
+    "x1_50hz_ohm_km": 0.0683,
+    "source_frequency_hz": 50,
+    "ratings_a": {
+      "buried_direct": 209,
+      "buried_duct": 161
+    },
+    "default_installation": "buried_duct",
+    "rating_conditions": {
+      "ambient_c": 30,
+      "soil_c": 15,
+      "soil_thermal_resistivity_k_m_w": 1.2,
+      "burial_depth_m": 0.5,
+      "conductor_c": 90,
+      "basis": "Single circuit; direct buried or single-way underground duct, according to selected column"
+    },
+    "source_definition": "Nexans Power Cable Catalogue 2019, Section 3; {'product': 'Section 3 p80, sheet171-04A', 'ampacity': 'Section 3 p81, sheet171-04B', 'resistance': 'Section 3 p138, table3.35, shaped, 90C', 'reactance': 'Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km'}",
+    "source_fields": {
+      "product": "Section 3 p80, sheet171-04A",
+      "ampacity": "Section 3 p81, sheet171-04B",
+      "resistance": "Section 3 p138, table3.35, shaped, 90C",
+      "reactance": "Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km"
+    },
+    "source_url": "https://www.nexans.co.nz/dam/jcr:c1f02375-378c-42f6-90c4-f7c7f10dcbdd/PowerCableCatalogue2019.pdf",
+    "source_path": "reference_data/lv_manufacturer/nexans_power_2019.pdf",
+    "source_sha256": "4fdf74da415033b140c1da29c6785c374a8e1e2ed6c9e80cda9ac87a01c9c565",
+    "source_pdf_pages": [
+      106,
+      107,
+      164,
+      167
+    ],
+    "source_accessed": "2026-09-24",
+    "evidence_class": "manufacturer_product_with_matching_handbook_tables_not_measured_primitive_matrix"
+  },
+  "nexans_urd_4x95": {
+    "id": "nexans_urd_4x95",
+    "manufacturer": "Nexans",
+    "family": "Al XLPE URD",
+    "cores": 4,
+    "physical_cores": 4,
+    "earth_section_mm2": null,
+    "section_mm2": 95,
+    "role": "lv_main",
+    "construction": "cable",
+    "material": "aluminium",
+    "conductor_shape": "shaped",
+    "voltage_u0_kv": 0.6,
+    "voltage_u_kv": 1.0,
+    "rac_ohm_km": 0.411,
+    "resistance_temperature_c": 90,
+    "x1_50hz_ohm_km": 0.0668,
+    "source_frequency_hz": 50,
+    "ratings_a": {
+      "buried_direct": 250,
+      "buried_duct": 194
+    },
+    "default_installation": "buried_duct",
+    "rating_conditions": {
+      "ambient_c": 30,
+      "soil_c": 15,
+      "soil_thermal_resistivity_k_m_w": 1.2,
+      "burial_depth_m": 0.5,
+      "conductor_c": 90,
+      "basis": "Single circuit; direct buried or single-way underground duct, according to selected column"
+    },
+    "source_definition": "Nexans Power Cable Catalogue 2019, Section 3; {'product': 'Section 3 p80, sheet171-04A', 'ampacity': 'Section 3 p81, sheet171-04B', 'resistance': 'Section 3 p138, table3.35, shaped, 90C', 'reactance': 'Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km'}",
+    "source_fields": {
+      "product": "Section 3 p80, sheet171-04A",
+      "ampacity": "Section 3 p81, sheet171-04B",
+      "resistance": "Section 3 p138, table3.35, shaped, 90C",
+      "reactance": "Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km"
+    },
+    "source_url": "https://www.nexans.co.nz/dam/jcr:c1f02375-378c-42f6-90c4-f7c7f10dcbdd/PowerCableCatalogue2019.pdf",
+    "source_path": "reference_data/lv_manufacturer/nexans_power_2019.pdf",
+    "source_sha256": "4fdf74da415033b140c1da29c6785c374a8e1e2ed6c9e80cda9ac87a01c9c565",
+    "source_pdf_pages": [
+      106,
+      107,
+      164,
+      167
+    ],
+    "source_accessed": "2026-09-24",
+    "evidence_class": "manufacturer_product_with_matching_handbook_tables_not_measured_primitive_matrix"
+  },
+  "nexans_urd_4x120": {
+    "id": "nexans_urd_4x120",
+    "manufacturer": "Nexans",
+    "family": "Al XLPE URD",
+    "cores": 4,
+    "physical_cores": 4,
+    "earth_section_mm2": null,
+    "section_mm2": 120,
+    "role": "lv_main",
+    "construction": "cable",
+    "material": "aluminium",
+    "conductor_shape": "shaped",
+    "voltage_u0_kv": 0.6,
+    "voltage_u_kv": 1.0,
+    "rac_ohm_km": 0.325,
+    "resistance_temperature_c": 90,
+    "x1_50hz_ohm_km": 0.0657,
+    "source_frequency_hz": 50,
+    "ratings_a": {
+      "buried_direct": 286,
+      "buried_duct": 225
+    },
+    "default_installation": "buried_duct",
+    "rating_conditions": {
+      "ambient_c": 30,
+      "soil_c": 15,
+      "soil_thermal_resistivity_k_m_w": 1.2,
+      "burial_depth_m": 0.5,
+      "conductor_c": 90,
+      "basis": "Single circuit; direct buried or single-way underground duct, according to selected column"
+    },
+    "source_definition": "Nexans Power Cable Catalogue 2019, Section 3; {'product': 'Section 3 p80, sheet171-04A', 'ampacity': 'Section 3 p81, sheet171-04B', 'resistance': 'Section 3 p138, table3.35, shaped, 90C', 'reactance': 'Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km'}",
+    "source_fields": {
+      "product": "Section 3 p80, sheet171-04A",
+      "ampacity": "Section 3 p81, sheet171-04B",
+      "resistance": "Section 3 p138, table3.35, shaped, 90C",
+      "reactance": "Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km"
+    },
+    "source_url": "https://www.nexans.co.nz/dam/jcr:c1f02375-378c-42f6-90c4-f7c7f10dcbdd/PowerCableCatalogue2019.pdf",
+    "source_path": "reference_data/lv_manufacturer/nexans_power_2019.pdf",
+    "source_sha256": "4fdf74da415033b140c1da29c6785c374a8e1e2ed6c9e80cda9ac87a01c9c565",
+    "source_pdf_pages": [
+      106,
+      107,
+      164,
+      167
+    ],
+    "source_accessed": "2026-09-24",
+    "evidence_class": "manufacturer_product_with_matching_handbook_tables_not_measured_primitive_matrix"
+  },
+  "nexans_urd_4x185": {
+    "id": "nexans_urd_4x185",
+    "manufacturer": "Nexans",
+    "family": "Al XLPE URD",
+    "cores": 4,
+    "physical_cores": 4,
+    "earth_section_mm2": null,
+    "section_mm2": 185,
+    "role": "lv_main",
+    "construction": "cable",
+    "material": "aluminium",
+    "conductor_shape": "shaped",
+    "voltage_u0_kv": 0.6,
+    "voltage_u_kv": 1.0,
+    "rac_ohm_km": 0.211,
+    "resistance_temperature_c": 90,
+    "x1_50hz_ohm_km": 0.0663,
+    "source_frequency_hz": 50,
+    "ratings_a": {
+      "buried_direct": 364,
+      "buried_duct": 291
+    },
+    "default_installation": "buried_duct",
+    "rating_conditions": {
+      "ambient_c": 30,
+      "soil_c": 15,
+      "soil_thermal_resistivity_k_m_w": 1.2,
+      "burial_depth_m": 0.5,
+      "conductor_c": 90,
+      "basis": "Single circuit; direct buried or single-way underground duct, according to selected column"
+    },
+    "source_definition": "Nexans Power Cable Catalogue 2019, Section 3; {'product': 'Section 3 p80, sheet171-04A', 'ampacity': 'Section 3 p81, sheet171-04B', 'resistance': 'Section 3 p138, table3.35, shaped, 90C', 'reactance': 'Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km'}",
+    "source_fields": {
+      "product": "Section 3 p80, sheet171-04A",
+      "ampacity": "Section 3 p81, sheet171-04B",
+      "resistance": "Section 3 p138, table3.35, shaped, 90C",
+      "reactance": "Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km"
+    },
+    "source_url": "https://www.nexans.co.nz/dam/jcr:c1f02375-378c-42f6-90c4-f7c7f10dcbdd/PowerCableCatalogue2019.pdf",
+    "source_path": "reference_data/lv_manufacturer/nexans_power_2019.pdf",
+    "source_sha256": "4fdf74da415033b140c1da29c6785c374a8e1e2ed6c9e80cda9ac87a01c9c565",
+    "source_pdf_pages": [
+      106,
+      107,
+      164,
+      167
+    ],
+    "source_accessed": "2026-09-24",
+    "evidence_class": "manufacturer_product_with_matching_handbook_tables_not_measured_primitive_matrix"
+  },
+  "nexans_urd_4x240": {
+    "id": "nexans_urd_4x240",
+    "manufacturer": "Nexans",
+    "family": "Al XLPE URD",
+    "cores": 4,
+    "physical_cores": 4,
+    "earth_section_mm2": null,
+    "section_mm2": 240,
+    "role": "lv_main",
+    "construction": "cable",
+    "material": "aluminium",
+    "conductor_shape": "shaped",
+    "voltage_u0_kv": 0.6,
+    "voltage_u_kv": 1.0,
+    "rac_ohm_km": 0.162,
+    "resistance_temperature_c": 90,
+    "x1_50hz_ohm_km": 0.0653,
+    "source_frequency_hz": 50,
+    "ratings_a": {
+      "buried_direct": 423,
+      "buried_duct": 345
+    },
+    "default_installation": "buried_duct",
+    "rating_conditions": {
+      "ambient_c": 30,
+      "soil_c": 15,
+      "soil_thermal_resistivity_k_m_w": 1.2,
+      "burial_depth_m": 0.5,
+      "conductor_c": 90,
+      "basis": "Single circuit; direct buried or single-way underground duct, according to selected column"
+    },
+    "source_definition": "Nexans Power Cable Catalogue 2019, Section 3; {'product': 'Section 3 p80, sheet171-04A', 'ampacity': 'Section 3 p81, sheet171-04B', 'resistance': 'Section 3 p138, table3.35, shaped, 90C', 'reactance': 'Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km'}",
+    "source_fields": {
+      "product": "Section 3 p80, sheet171-04A",
+      "ampacity": "Section 3 p81, sheet171-04B",
+      "resistance": "Section 3 p138, table3.35, shaped, 90C",
+      "reactance": "Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km"
+    },
+    "source_url": "https://www.nexans.co.nz/dam/jcr:c1f02375-378c-42f6-90c4-f7c7f10dcbdd/PowerCableCatalogue2019.pdf",
+    "source_path": "reference_data/lv_manufacturer/nexans_power_2019.pdf",
+    "source_sha256": "4fdf74da415033b140c1da29c6785c374a8e1e2ed6c9e80cda9ac87a01c9c565",
+    "source_pdf_pages": [
+      106,
+      107,
+      164,
+      167
+    ],
+    "source_accessed": "2026-09-24",
+    "evidence_class": "manufacturer_product_with_matching_handbook_tables_not_measured_primitive_matrix"
+  },
+  "nexans_urd_4x300": {
+    "id": "nexans_urd_4x300",
+    "manufacturer": "Nexans",
+    "family": "Al XLPE URD",
+    "cores": 4,
+    "physical_cores": 4,
+    "earth_section_mm2": null,
+    "section_mm2": 300,
+    "role": "lv_main",
+    "construction": "cable",
+    "material": "aluminium",
+    "conductor_shape": "shaped",
+    "voltage_u0_kv": 0.6,
+    "voltage_u_kv": 1.0,
+    "rac_ohm_km": 0.13,
+    "resistance_temperature_c": 90,
+    "x1_50hz_ohm_km": 0.0649,
+    "source_frequency_hz": 50,
+    "ratings_a": {
+      "buried_direct": 477,
+      "buried_duct": 391
+    },
+    "default_installation": "buried_duct",
+    "rating_conditions": {
+      "ambient_c": 30,
+      "soil_c": 15,
+      "soil_thermal_resistivity_k_m_w": 1.2,
+      "burial_depth_m": 0.5,
+      "conductor_c": 90,
+      "basis": "Single circuit; direct buried or single-way underground duct, according to selected column"
+    },
+    "source_definition": "Nexans Power Cable Catalogue 2019, Section 3; {'product': 'Section 3 p80, sheet171-04A', 'ampacity': 'Section 3 p81, sheet171-04B', 'resistance': 'Section 3 p138, table3.35, shaped, 90C', 'reactance': 'Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km'}",
+    "source_fields": {
+      "product": "Section 3 p80, sheet171-04A",
+      "ampacity": "Section 3 p81, sheet171-04B",
+      "resistance": "Section 3 p138, table3.35, shaped, 90C",
+      "reactance": "Section 3 p141, table3.38, shaped XLPE; mOhm/m = Ohm/km"
+    },
+    "source_url": "https://www.nexans.co.nz/dam/jcr:c1f02375-378c-42f6-90c4-f7c7f10dcbdd/PowerCableCatalogue2019.pdf",
+    "source_path": "reference_data/lv_manufacturer/nexans_power_2019.pdf",
+    "source_sha256": "4fdf74da415033b140c1da29c6785c374a8e1e2ed6c9e80cda9ac87a01c9c565",
+    "source_pdf_pages": [
+      106,
+      107,
+      164,
+      167
+    ],
+    "source_accessed": "2026-09-24",
+    "evidence_class": "manufacturer_product_with_matching_handbook_tables_not_measured_primitive_matrix"
+  },
+  "nexans_cempex_2x10": {
+    "id": "nexans_cempex_2x10",
+    "manufacturer": "Nexans",
+    "family": "Cu XLPE CEMPEX 2C+E",
+    "cores": 2,
+    "physical_cores": 3,
+    "earth_section_mm2": 4,
+    "section_mm2": 10,
+    "role": "service",
+    "construction": "cable",
+    "material": "copper",
+    "conductor_shape": "circular",
+    "voltage_u0_kv": 0.6,
+    "voltage_u_kv": 1.0,
+    "rac_ohm_km": 2.33,
+    "resistance_temperature_c": 90,
+    "x1_50hz_ohm_km": 0.084,
+    "source_frequency_hz": 50,
+    "ratings_a": {
+      "buried_direct": 80,
+      "buried_duct": 80
+    },
+    "default_installation": "buried_duct",
+    "rating_conditions": {
+      "ambient_c": 30,
+      "soil_c": 15,
+      "soil_thermal_resistivity_k_m_w": 1.2,
+      "burial_depth_m": 0.5,
+      "conductor_c": 90,
+      "basis": "Single circuit; direct buried or single-way underground duct, according to selected column"
+    },
+    "source_definition": "Nexans Power Cable Catalogue 2019, Section 3; {'product': 'Section 3 p60, sheet161-02A', 'ampacity': 'Section 3 p118, table3.15, two loaded copper XLPE conductors', 'resistance': 'Section 3 p137, table3.34, circular, 90C', 'reactance': 'Section 3 p141, table3.38, circular XLPE; mOhm/m = Ohm/km'}",
+    "source_fields": {
+      "product": "Section 3 p60, sheet161-02A",
+      "ampacity": "Section 3 p118, table3.15, two loaded copper XLPE conductors",
+      "resistance": "Section 3 p137, table3.34, circular, 90C",
+      "reactance": "Section 3 p141, table3.38, circular XLPE; mOhm/m = Ohm/km"
+    },
+    "source_url": "https://www.nexans.co.nz/dam/jcr:c1f02375-378c-42f6-90c4-f7c7f10dcbdd/PowerCableCatalogue2019.pdf",
+    "source_path": "reference_data/lv_manufacturer/nexans_power_2019.pdf",
+    "source_sha256": "4fdf74da415033b140c1da29c6785c374a8e1e2ed6c9e80cda9ac87a01c9c565",
+    "source_pdf_pages": [
+      86,
+      144,
+      163,
+      167
+    ],
+    "source_accessed": "2026-09-24",
+    "evidence_class": "manufacturer_product_with_matching_handbook_tables_not_measured_primitive_matrix"
+  },
+  "nexans_cempex_2x16": {
+    "id": "nexans_cempex_2x16",
+    "manufacturer": "Nexans",
+    "family": "Cu XLPE CEMPEX 2C+E",
+    "cores": 2,
+    "physical_cores": 3,
+    "earth_section_mm2": 6,
+    "section_mm2": 16,
+    "role": "service",
+    "construction": "cable",
+    "material": "copper",
+    "conductor_shape": "circular",
+    "voltage_u0_kv": 0.6,
+    "voltage_u_kv": 1.0,
+    "rac_ohm_km": 1.47,
+    "resistance_temperature_c": 90,
+    "x1_50hz_ohm_km": 0.0805,
+    "source_frequency_hz": 50,
+    "ratings_a": {
+      "buried_direct": 141,
+      "buried_duct": 105
+    },
+    "default_installation": "buried_duct",
+    "rating_conditions": {
+      "ambient_c": 30,
+      "soil_c": 15,
+      "soil_thermal_resistivity_k_m_w": 1.2,
+      "burial_depth_m": 0.5,
+      "conductor_c": 90,
+      "basis": "Single circuit; direct buried or single-way underground duct, according to selected column"
+    },
+    "source_definition": "Nexans Power Cable Catalogue 2019, Section 3; {'product': 'Section 3 p60, sheet161-02A', 'ampacity': 'Section 3 p118, table3.15, two loaded copper XLPE conductors', 'resistance': 'Section 3 p137, table3.34, circular, 90C', 'reactance': 'Section 3 p141, table3.38, circular XLPE; mOhm/m = Ohm/km'}",
+    "source_fields": {
+      "product": "Section 3 p60, sheet161-02A",
+      "ampacity": "Section 3 p118, table3.15, two loaded copper XLPE conductors",
+      "resistance": "Section 3 p137, table3.34, circular, 90C",
+      "reactance": "Section 3 p141, table3.38, circular XLPE; mOhm/m = Ohm/km"
+    },
+    "source_url": "https://www.nexans.co.nz/dam/jcr:c1f02375-378c-42f6-90c4-f7c7f10dcbdd/PowerCableCatalogue2019.pdf",
+    "source_path": "reference_data/lv_manufacturer/nexans_power_2019.pdf",
+    "source_sha256": "4fdf74da415033b140c1da29c6785c374a8e1e2ed6c9e80cda9ac87a01c9c565",
+    "source_pdf_pages": [
+      86,
+      144,
+      163,
+      167
+    ],
+    "source_accessed": "2026-09-24",
+    "evidence_class": "manufacturer_product_with_matching_handbook_tables_not_measured_primitive_matrix"
+  },
+  "nexans_cempex_2x25": {
+    "id": "nexans_cempex_2x25",
+    "manufacturer": "Nexans",
+    "family": "Cu XLPE CEMPEX 2C+E",
+    "cores": 2,
+    "physical_cores": 3,
+    "earth_section_mm2": 6,
+    "section_mm2": 25,
+    "role": "service",
+    "construction": "cable",
+    "material": "copper",
+    "conductor_shape": "circular",
+    "voltage_u0_kv": 0.6,
+    "voltage_u_kv": 1.0,
+    "rac_ohm_km": 0.927,
+    "resistance_temperature_c": 90,
+    "x1_50hz_ohm_km": 0.0808,
+    "source_frequency_hz": 50,
+    "ratings_a": {
+      "buried_direct": 182,
+      "buried_duct": 137
+    },
+    "default_installation": "buried_duct",
+    "rating_conditions": {
+      "ambient_c": 30,
+      "soil_c": 15,
+      "soil_thermal_resistivity_k_m_w": 1.2,
+      "burial_depth_m": 0.5,
+      "conductor_c": 90,
+      "basis": "Single circuit; direct buried or single-way underground duct, according to selected column"
+    },
+    "source_definition": "Nexans Power Cable Catalogue 2019, Section 3; {'product': 'Section 3 p60, sheet161-02A', 'ampacity': 'Section 3 p118, table3.15, two loaded copper XLPE conductors', 'resistance': 'Section 3 p137, table3.34, circular, 90C', 'reactance': 'Section 3 p141, table3.38, circular XLPE; mOhm/m = Ohm/km'}",
+    "source_fields": {
+      "product": "Section 3 p60, sheet161-02A",
+      "ampacity": "Section 3 p118, table3.15, two loaded copper XLPE conductors",
+      "resistance": "Section 3 p137, table3.34, circular, 90C",
+      "reactance": "Section 3 p141, table3.38, circular XLPE; mOhm/m = Ohm/km"
+    },
+    "source_url": "https://www.nexans.co.nz/dam/jcr:c1f02375-378c-42f6-90c4-f7c7f10dcbdd/PowerCableCatalogue2019.pdf",
+    "source_path": "reference_data/lv_manufacturer/nexans_power_2019.pdf",
+    "source_sha256": "4fdf74da415033b140c1da29c6785c374a8e1e2ed6c9e80cda9ac87a01c9c565",
+    "source_pdf_pages": [
+      86,
+      144,
+      163,
+      167
+    ],
+    "source_accessed": "2026-09-24",
+    "evidence_class": "manufacturer_product_with_matching_handbook_tables_not_measured_primitive_matrix"
+  }
+}

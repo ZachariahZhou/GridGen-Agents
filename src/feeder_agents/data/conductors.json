@@ -1,0 +1,5 @@
+{
+  "research_small": {"r1":0.32,"x1":0.35,"r0":0.65,"x0":1.05,"normamps":180},
+  "research_medium": {"r1":0.16,"x1":0.32,"r0":0.45,"x0":0.96,"normamps":320},
+  "research_large": {"r1":0.08,"x1":0.29,"r0":0.30,"x0":0.87,"normamps":520}
+}

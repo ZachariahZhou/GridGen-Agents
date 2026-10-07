@@ -1,0 +1,16 @@
+count: 1
+seed: 41
+n_buses: 37
+voltage_kv: 10
+total_kw_min: 480
+total_kw_max: 480
+pv_ratio: 0.15
+scenario:
+  kind: rural
+  layout: rural_villages
+  village_count: 3
+phase_design:
+  mode: unbalanced
+repair_policy:
+  strategy: heuristic
+  allow_rewire: false

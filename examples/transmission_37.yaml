@@ -1,0 +1,14 @@
+network_kind: transmission
+voltage_kv: 110
+n_buses: 37
+n_generators: 6
+total_mw: 300.0
+power_factor: 0.97
+topology: meshed
+extra_edges: 12
+mesh_style: local
+mesh_family: auto
+shunt_compensation: 0.7
+radius_km: 40
+count: 1
+seed: 41

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "ndrc-2024",
+    "title": "供电营业规则",
+    "publisher": "国家发展改革委",
+    "version": "2024-02-08 / effective 2024-06-01",
+    "url": "https://zfxxgk.ndrc.gov.cn/wap/iteminfo.jsp?id=20347",
+    "retrieved": "2026-09-22",
+    "access": "full_text_verified",
+    "locator": "第六条、第四十五条、第五十七条",
+    "summary": "规定供电额定频率、按用户类别及条件区分的高峰功率因数要求和正常状况受电端电压偏差。电压条款带有功率因数例外，不可无条件应用到所有模拟母线。"
+  },
+  {
+    "id": "dlt5729-2023",
+    "title": "DL/T 5729—2023 配电网规划设计技术导则",
+    "publisher": "全国标准信息公共服务平台 / 国家能源局",
+    "version": "2023 / effective 2024-06-28",
+    "url": "https://std.samr.gov.cn/hb/search/stdHBDetailedCNF?id=2E1288291AD60971E06397BE0A0ABFD2",
+    "retrieved": "2026-09-22",
+    "access": "metadata_only",
+    "locator": "基础信息、适用范围",
+    "summary": "确认新版替代2016版，适用于110 kV及以下公用交流配网规划。本项目未取得正文，不据此生成技术条款。"
+  },
+  {
+    "id": "pnnl-31580",
+    "title": "Distribution System Research Roadmap",
+    "publisher": "Pacific Northwest National Laboratory",
+    "version": "2022-02-01",
+    "url": "https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-31580.pdf",
+    "retrieved": "2026-09-22",
+    "access": "full_text_verified",
+    "locator": "Section 2.10, printed page 29 / PDF page 49",
+    "summary": "讨论辐射与网状拓扑、常开联络点及分布式资源对网络设计的影响。是研究背景，不是中国配网强制设计条款。"
+  },
+  {
+    "id": "nrel-75723",
+    "title": "Realistic Synthetic Distribution Grids: Summary of Validation Results",
+    "publisher": "NREL",
+    "version": "2019, NREL/PR-5D00-75723",
+    "url": "https://docs.nlr.gov/docs/fy20osti/75723.pdf",
+    "retrieved": "2026-09-22",
+    "access": "full_text_verified",
+    "locator": "Validation methodology; official publication abstract",
+    "summary": "SMART-DS结合统计、运行与专家验证。用于指导本项目评价框架；本项目尚未完成真实配网统计标定或专家验证。"
+  },
+  {
+    "id": "project-v1",
+    "title": "Feeder Agents research profile",
+    "publisher": "This project",
+    "version": "0.1.0",
+    "url": "docs/research/sources-and-rules.md",
+    "retrieved": "2026-09-22",
+    "access": "project_assumption",
+    "locator": "Prototype scope and explicit assumptions",
+    "summary": "三相平衡、单源树、中压聚合负荷、示例阻抗和载流量、同步峰值、恒功率等效光伏；不代表完整设计标准或真实地区统计分布。"
+  }
+]

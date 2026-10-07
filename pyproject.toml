@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "feeder-agents"
+version = "0.1.0"
+description = "LangChain and LangGraph agents for reproducible synthetic distribution and transmission cases"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "THIRD_PARTY.md", "third_party/MATPOWER_LICENSE.txt"]
+requires-python = ">=3.11"
+dependencies = [
+  "langchain>=1,<2", "langchain-openai>=1,<2", "langgraph>=1,<2",
+  "langgraph-checkpoint-sqlite>=3,<4", "opendssdirect.py>=0.9.4,<1",
+  "networkx>=3,<4", "plotly>=6,<7", "pydantic>=2,<3", "pyyaml>=6,<7",
+  "streamlit>=1.40,<2", "python-dotenv>=1,<2"
+]
+
+[project.optional-dependencies]
+transmission = ["pypower>=5.1.19,<6", "scipy>=1.14,<2"]
+dev = ["pytest>=8,<10"]
+plots = ["matplotlib>=3.9,<4"]
+
+[project.scripts]
+feeder-agents = "feeder_agents.cli:main"
+
+[project.urls]
+Repository = "https://github.com/ZachariahZhou/GridGen-Agents"
+Issues = "https://github.com/ZachariahZhou/GridGen-Agents/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+feeder_agents = ["data/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

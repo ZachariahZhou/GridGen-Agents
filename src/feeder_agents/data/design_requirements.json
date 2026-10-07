@@ -1,0 +1,669 @@
+[
+  {
+    "id": "S01",
+    "version": 1,
+    "title": "电压、频率、地域、相别及建模粒度与规则包兼容",
+    "stages": [
+      "需求编译"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：0.38/6/10/20/35 kV、50 Hz单电压平衡研究模型；66/110 kV仅规划登记",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "S02",
+    "version": 1,
+    "title": "用户明确给定的总节点数、负荷、PV、坐标及区间全部进入任务合同",
+    "stages": [
+      "需求编译",
+      "交付"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：常见字段和区间覆盖",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "S03",
+    "version": 1,
+    "title": "节点数缺省时依据场景与负荷规模推断，并展示假设",
+    "stages": [
+      "需求编译"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：已有默认/推断，未统计标定",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "S04",
+    "version": 1,
+    "title": "区分母线、连接点、负荷点、配变和实际用户数",
+    "stages": [
+      "数据建模"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：可选总节点与正负荷点分开；reference_conditioned支持零负荷连接节点，设备节点仍未扩展",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "S05",
+    "version": 1,
+    "title": "检查规则前提、单位、交集及模型能力，生成未支持项目清单",
+    "stages": [
+      "需求编译"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：类型和范围检查",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "G01",
+    "version": 1,
+    "title": "每个节点坐标具有单位与坐标系；无实际 GIS 时标为合成局部坐标",
+    "stages": [
+      "布局",
+      "交付"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：局部 km 坐标",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "G02",
+    "version": 1,
+    "title": "按居民区、村落、工业负荷等形成空间聚集与负荷中心",
+    "stages": [
+      "布局"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：城市/农村及村落研究布局",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "G03",
+    "version": 1,
+    "title": "在可行走廊、分区、禁入区及长度边界内优先选择短路径",
+    "stages": [
+      "候选边",
+      "拓扑"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：距离约束 MST，无 GIS 走廊",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "G04",
+    "version": 1,
+    "title": "区分欧氏距离、实际路径长度、等值电气线段和杆塔档距",
+    "stages": [
+      "布局",
+      "导出"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展：当前要求长度等于端点直线距离",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "G05",
+    "version": 1,
+    "title": "同时记录源点直线覆盖半径、最大供电路径长度和总线路长度",
+    "stages": [
+      "布局",
+      "校验"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：有长度；供电半径条款口径尚未编译",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "G06",
+    "version": 1,
+    "title": "供电分区、跨区连接及空间交叉需明确解释；几何相交不自动构成电气连接",
+    "stages": [
+      "布局",
+      "拓扑"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "T01",
+    "version": 1,
+    "title": "运行图中负荷可达、标识唯一、无非法自环或重复设备",
+    "stages": [
+      "生成",
+      "校验"
+    ],
+    "coverage": "implemented",
+    "implementation_note": "已有单源树检查",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "T02",
+    "version": 1,
+    "title": "径向运行时运行图为树；物理建设图可含处于断开状态的联络线",
+    "stages": [
+      "拓扑",
+      "工况"
+    ],
+    "coverage": "partial",
+    "implementation_note": "已支持带电树+独立常开联络；DSS逐相两端断开与近零电流验证。尚不支持切换策略/恢复/N-1。",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "T03",
+    "version": 1,
+    "title": "主干、支线、接入段有明确角色；分支数、深度、长度与场景相适应",
+    "stages": [
+      "拓扑"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：村落主干/经验子节点数",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "T04",
+    "version": 1,
+    "title": "分段开关、分支开关及联络位置依赖负荷分布和运行需求",
+    "stages": [
+      "设备布置"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "T05",
+    "version": 1,
+    "title": "重要负荷所需的供电路径独立性、备用供电或应急电源显式建模",
+    "stages": [
+      "拓扑",
+      "校验"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展；单源模型不能承诺",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "L01",
+    "version": 1,
+    "title": "总负荷、功率因数、PV 容量及分母定义符合任务合同",
+    "stages": [
+      "负荷分配",
+      "校验"
+    ],
+    "coverage": "implemented",
+    "implementation_note": "已有基本检查",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "L02",
+    "version": 1,
+    "title": "零负荷连接节点与负荷接入节点分开，负荷占位率按场景采样",
+    "stages": [
+      "负荷布点"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：reference_conditioned按显式参考占位率与拓扑条件采样；单例迁移，非场景总体标定",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "L03",
+    "version": 1,
+    "title": "分配负荷类型、容量、空间位置及主干/支线位置之间的条件关系",
+    "stages": [
+      "联合采样"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：按参考子节点数和相对深度分组采样正负荷位置及权重；空间和设备联合分布仍未标定",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "L04",
+    "version": 1,
+    "title": "区分装机容量、同时峰值、需求系数、同时系数、规划年负荷",
+    "stages": [
+      "需求",
+      "选型"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：仅同步峰值研究模型",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "L05",
+    "version": 1,
+    "title": "负荷时序及 PV 时序有相关性、季节和工况来源",
+    "stages": [
+      "工况构建"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展：当前为用户指定倍率快照",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "L06",
+    "version": 1,
+    "title": "不平衡研究必须具备相别与各相负荷，不能用平衡模型声称验证",
+    "stages": [
+      "数据",
+      "校验"
+    ],
+    "coverage": "partial",
+    "implementation_note": "6/10/20kV支持显式相别、逐相P/Q/PV、末端缺相、DSS逐相电压/电流和ABC节点VUF；等效接地回路，无显式中性线/配变；research.unbalance为研究阈值",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "E01",
+    "version": 1,
+    "title": "导线材料、截面、阻抗、额定电流及适用条件来自一致目录",
+    "stages": [
+      "选型",
+      "导出"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：示例阻抗和载流量",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "E02",
+    "version": 1,
+    "title": "导线初选考虑各设计工况的下游视在功率，最终以潮流电流复核",
+    "stages": [
+      "初选",
+      "验证"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：负荷及满 PV 端点估算",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "E03",
+    "version": 1,
+    "title": "热约束、压降、短路耐受及适用机械条件共同约束导线选择",
+    "stages": [
+      "选型",
+      "验证"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：仅电流和电压检查",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "E04",
+    "version": 1,
+    "title": "配变位置靠近服务负荷，容量、阻抗、接线组别及分接头明确",
+    "stages": [
+      "设备布点",
+      "选型"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "E05",
+    "version": 1,
+    "title": "无功补偿和调压设备有容量、位置、控制模式及动作边界",
+    "stages": [
+      "选型",
+      "工况"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "E06",
+    "version": 1,
+    "title": "开关额定电流、开断能力与预期运行/故障条件匹配",
+    "stages": [
+      "选型",
+      "校验"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "O01",
+    "version": 1,
+    "title": "潮流收敛，结果完整有限，功率平衡且实际负荷/PV 与请求一致",
+    "stages": [
+      "仿真",
+      "验收"
+    ],
+    "coverage": "implemented",
+    "implementation_note": "已有",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "O02",
+    "version": 1,
+    "title": "受电点标准电压检查和全网研究电压目标分开，并保留适用前提",
+    "stages": [
+      "仿真",
+      "验收"
+    ],
+    "coverage": "implemented",
+    "implementation_note": "已有受限映射",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "O03",
+    "version": 1,
+    "title": "载流量按各相、各工况及额定条件检查，裕度与热限值分开",
+    "stages": [
+      "仿真",
+      "验收"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：最大相电流/示例额定值",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "O04",
+    "version": 1,
+    "title": "用户峰值功率因数按用户类别、容量、特殊约定及计量边界判断",
+    "stages": [
+      "仿真",
+      "验收"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：无 PV 的非农业高压用户研究映射",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "O05",
+    "version": 1,
+    "title": "PV 接入点、容量分母、逆变器 kVA、无功能力及控制模式一致",
+    "stages": [
+      "建模",
+      "仿真"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：恒功率、单位 PF 等效发电机",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "O06",
+    "version": 1,
+    "title": "反向潮流允许性及接入约束按项目明确，不把反送自动认定为故障",
+    "stages": [
+      "工况",
+      "验收"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展接入规则",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "O07",
+    "version": 1,
+    "title": "短路电流水平、保护灵敏性/选择性、接地及绝缘配合单独校验",
+    "stages": [
+      "专项仿真"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "O08",
+    "version": 1,
+    "title": "谐波、电压不平衡、闪变及动态性能使用对应模型和计算方法",
+    "stages": [
+      "专项仿真"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展；快照潮流不足",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "R01",
+    "version": 1,
+    "title": "正常、峰荷低 PV、轻载高 PV 工况按研究目的选择并记录",
+    "stages": [
+      "实验规划"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：已有显式配对工况",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "R02",
+    "version": 1,
+    "title": "转供或 N−1 要求必须有邻馈线、备用容量及允许操作序列",
+    "stages": [
+      "规划",
+      "事故仿真"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待扩展，不对所有馈线一律强制",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "R03",
+    "version": 1,
+    "title": "跨工况比较冻结网络与设备，仅改变明确授权的工况变量",
+    "stages": [
+      "研究执行"
+    ],
+    "coverage": "implemented",
+    "implementation_note": "已有网络指纹和负荷变换检查",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "R04",
+    "version": 1,
+    "title": "反向设计对同一候选馈线同时检查全部工况目标和保护约束",
+    "stages": [
+      "目标搜索"
+    ],
+    "coverage": "implemented",
+    "implementation_note": "已有种子及统一缩放搜索",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "R05",
+    "version": 1,
+    "title": "未找到目标解与数学不可行证明分开；保留最近候选及差距",
+    "stages": [
+      "搜索",
+      "交付"
+    ],
+    "coverage": "implemented",
+    "implementation_note": "已有 target_unmet",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "C01",
+    "version": 1,
+    "title": "统计参考按场景/粒度选择，记录单位、独立馈线数、合成或实际派生来源",
+    "stages": [
+      "标定",
+      "采样"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：J1/K1 与 M1 留出",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "C02",
+    "version": 1,
+    "title": "验证长度、分支、负荷占位及设备—负荷的联合关系",
+    "stages": [
+      "统计验证"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：边际分布，缺联合关系",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "C03",
+    "version": 1,
+    "title": "逆向修改后重新评价统计偏离，超过显式界限拒绝或标为非典型样本",
+    "stages": [
+      "目标搜索",
+      "验收"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：已记录长度距离，未约束",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "C04",
+    "version": 1,
+    "title": "批量输出评价重复率、场景覆盖和馈线级分布，避免只评估成功样本",
+    "stages": [
+      "批次验收"
+    ],
+    "coverage": "unsupported",
+    "implementation_note": "待形成统一统计验收",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "A01",
+    "version": 1,
+    "title": "修复只用有前提的允许动作，保留需求、保护规则和已冻结参数",
+    "stages": [
+      "修复"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：升级/可选重接及回滚",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "A02",
+    "version": 1,
+    "title": "每次修复和搜索均记录触发规则、修改对象、预测及实际结果",
+    "stages": [
+      "修复",
+      "搜索"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：已有轨迹和候选结果",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "A03",
+    "version": 1,
+    "title": "冻结规则、目录、参考分布、模型及求解器版本；记忆不自动修改规则",
+    "stages": [
+      "全流程"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：已有快照、哈希和记忆过滤",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  },
+  {
+    "id": "A04",
+    "version": 1,
+    "title": "模型、地理图、电气图、统计和约束报告对应同一最终网络",
+    "stages": [
+      "导出",
+      "交付"
+    ],
+    "coverage": "partial",
+    "implementation_note": "部分：已有最终模型及可视化，尚无独立完整单线图",
+    "origin": "project_requirement",
+    "source": "docs/architecture/feeder-design-rule-system.md",
+    "enforcement": "inventory_only"
+  }
+]

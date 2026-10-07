@@ -1,0 +1,117 @@
+[
+  {
+    "id": "cn.frequency",
+    "version": "1",
+    "source_id": "ndrc-2024",
+    "locator": "第六条",
+    "kind": "sourced_clause",
+    "category": "validity",
+    "validator": "frequency",
+    "parameters": {
+      "hz": 50
+    },
+    "scope": "China AC supply nominal frequency"
+  },
+  {
+    "id": "cn.power_factor",
+    "version": "1",
+    "source_id": "ndrc-2024",
+    "locator": "第四十五条",
+    "kind": "sourced_clause",
+    "category": "operational",
+    "validator": "power_factor",
+    "parameters": {
+      "large_user_kva": 100,
+      "large_user_min_pf": 0.9,
+      "other_user_min_pf": 0.85
+    },
+    "scope": "Modelled non-agricultural HV users at coincident peak; no special PF agreement; contract capacity is an explicit research approximation"
+  },
+  {
+    "id": "cn.voltage",
+    "version": "2",
+    "source_id": "ndrc-2024",
+    "locator": "第五十七条",
+    "kind": "sourced_clause",
+    "category": "operational",
+    "validator": "voltage",
+    "parameters": {
+      "min_pu": 0.93,
+      "max_pu": 1.07
+    },
+    "scope": "6/10/20 kV three-phase modelled user receiving points, normal service, PF prerequisites met, no special agreement; no 35 kV sourced voltage handler"
+  },
+  {
+    "id": "research.voltage",
+    "version": "2",
+    "source_id": "project-v1",
+    "locator": "Research acceptance profile",
+    "kind": "project_assumption",
+    "category": "operational",
+    "validator": "voltage",
+    "parameters": {
+      "min_pu": 0.93,
+      "max_pu": 1.07
+    },
+    "scope": "All modeled buses including source and zero-load junctions; research band, not regulatory certification"
+  },
+  {
+    "id": "model.radial_connected",
+    "version": "1",
+    "source_id": "project-v1",
+    "locator": "Prototype topology",
+    "kind": "project_assumption",
+    "category": "validity",
+    "validator": "topology",
+    "parameters": {},
+    "scope": "Single-source tree, all loads connected"
+  },
+  {
+    "id": "model.demand",
+    "version": "1",
+    "source_id": "project-v1",
+    "locator": "ExperimentSpec",
+    "kind": "project_assumption",
+    "category": "validity",
+    "validator": "demand",
+    "parameters": {},
+    "scope": "Load count, coincident total kW, PV ratio and segment lengths satisfy requested bounds"
+  },
+  {
+    "id": "model.solver",
+    "version": "1",
+    "source_id": "project-v1",
+    "locator": "Simulation acceptance",
+    "kind": "project_assumption",
+    "category": "validity",
+    "validator": "solver",
+    "parameters": {},
+    "scope": "Converged with complete finite bus/line/power results"
+  },
+  {
+    "id": "research.ampacity",
+    "version": "1",
+    "source_id": "project-v1",
+    "locator": "Synthetic conductor catalogue",
+    "kind": "project_assumption",
+    "category": "operational",
+    "validator": "ampacity",
+    "parameters": {
+      "max_loading_ratio": 1.0
+    },
+    "scope": "Maximum terminal phase current divided by illustrative conductor rating"
+  },
+  {
+    "id": "research.unbalance",
+    "version": "1",
+    "source_id": "project-v1",
+    "locator": "Explicit research phase_design threshold",
+    "kind": "project_assumption",
+    "category": "operational",
+    "validator": "voltage_unbalance",
+    "parameters": {
+      "max_vuf_percent": 2
+    },
+    "scope": "Negative/positive-sequence voltage ratio at ABC buses only; not statutory compliance; excluded missing-phase buses disclosed"
+  }
+]

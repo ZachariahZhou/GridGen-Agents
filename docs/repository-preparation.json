@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-07",
+  "repository": "https://github.com/ZachariahZhou/GridGen-Agents",
+  "default_branch": "main",
+  "remote_base_commit": "c91c8c200f877b9abbce9998189f4807ef1051bf",
+  "upstream_license": "Apache-2.0",
+  "upstream_license_unchanged": true,
+  "wheel_build_passed": true,
+  "wheel_sha256": "a46fad38e49b746c0751ac5f25d7cfac5dd31501ff66408f56c6d952074229cf",
+  "wheel_license_expression": "Apache-2.0",
+  "wheel_repository_url_checked": true,
+  "wheel_license_and_third_party_notices_present": true,
+  "wheel_runtime_byte_identical_to_source": true,
+  "runtime_regressions_rerun": true,
+  "reason": "Final curated checkout passed all 159 selected tests. Runtime and test assertions remain unchanged from the curated M87 snapshot.",
+  "prior_runtime_checks": "verification-summary.json",
+  "record_scope": "Prepublication checks; commit and publication status are recorded in Git history."
+}

@@ -1,0 +1,36 @@
+# Local credentials (only the blank template is distributable)
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key
+
+# Environments, caches, build products
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+
+# Runtime models, memories, logs and original data
+workspace/
+outputs/
+logs/
+*.log
+*.sqlite*
+/reference_data/
+/data/
+
+# Local editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

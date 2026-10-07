@@ -1,0 +1,5061 @@
+{
+  "profile_id": "epri_large_joint_equipment_v1",
+  "catalog": {
+    "epri_ckt5_34e780eefcb9": {
+      "r1": 1.074579539,
+      "r0": 1.074579539,
+      "x1": 0.78717589,
+      "x0": 0.78717589,
+      "c1": 7.030736489,
+      "c0": 7.030736489,
+      "rmatrix": [
+        1.074579539
+      ],
+      "xmatrix": [
+        0.78717589
+      ],
+      "cmatrix": [
+        7.030736489
+      ],
+      "normamps": 163.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "1ph-al_#2_7strnonenoneacsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 11",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 268,
+      "role_counts": {
+        "terminal": 118,
+        "backbone": 150
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "1ph-al_#2_7strnonenoneacsr_1/0_6/1",
+        "1ph-noneal_#2_7strnoneacsr_1/0_6/1",
+        "1ph-nonenoneal_#2_7stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_#2_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_e3dd5239ae3f": {
+      "r1": 0.723152899,
+      "r0": 0.723152899,
+      "x1": 0.770067278,
+      "x0": 0.770067278,
+      "c1": 7.242474458,
+      "c0": 7.242474458,
+      "rmatrix": [
+        0.723152899
+      ],
+      "xmatrix": [
+        0.770067278
+      ],
+      "cmatrix": [
+        7.242474458
+      ],
+      "normamps": 218.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "1ph-nonenoneal_1/0_7stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 7",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 179,
+      "role_counts": {
+        "backbone": 121,
+        "terminal": 58
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "1ph-nonenoneal_1/0_7stracsr_1/0_6/1",
+        "1ph-al_1/0_7strnonenoneacsr_1/0_6/1",
+        "1ph-noneal_1/0_7strnoneacsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_1/0_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_8ebd897ed57a": {
+      "r1": 0.560042,
+      "r0": 0.560042,
+      "x1": 0.244945,
+      "x0": 0.244945,
+      "c1": 68.881991459,
+      "c0": 68.881991459,
+      "rmatrix": [
+        0.560042
+      ],
+      "xmatrix": [
+        0.244945
+      ],
+      "cmatrix": [
+        68.881991459
+      ],
+      "normamps": 150.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "cable",
+      "source_feeder": "Ckt5",
+      "source_linecode": "ug_1/0al",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "27e26f60a4b22f4557424f601b94a81a1971496622519d65c66611139af082e3",
+      "source_file": "reference_data/epri_large/ckt5/LineCodes_ckt5.dss",
+      "source_locator": "line 3",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 37,
+      "role_counts": {
+        "terminal": 37
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "ug_1/0al"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 3,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_8c8797b29bf4": {
+      "r1": 0.2966205829999999,
+      "r0": 0.68234185,
+      "x1": 0.44491163566666686,
+      "x0": 1.3489998276666666,
+      "c1": 10.058537081,
+      "c0": 5.092058001,
+      "rmatrix": [
+        0.421182706,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.433217604,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.421182706
+      ],
+      "xmatrix": [
+        0.753415271,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.731992557,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.753415271
+      ],
+      "cmatrix": [
+        8.186435311,
+        -1.968523991,
+        -1.029431098,
+        -1.968523991,
+        8.836261541,
+        -1.968523991,
+        -1.029431098,
+        -1.968523991,
+        8.186435311
+      ],
+      "normamps": 338.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_horiz_lg_1c-al_4/0_7stral_4/0_7stral_4/0_7stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 19",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 50,
+      "role_counts": {
+        "backbone": 42,
+        "terminal": 8
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_horiz_lg_1c-al_4/0_7stral_4/0_7stral_4/0_7stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_4/0_7str",
+        "al_4/0_7str",
+        "al_4/0_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_87931ae6de3c": {
+      "r1": 0.5876147599999999,
+      "r0": 0.973336027,
+      "x1": 0.4885150236666666,
+      "x0": 1.3926032156666666,
+      "c1": 9.096904133333332,
+      "c0": 4.8348141753333325,
+      "rmatrix": [
+        0.712176883,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.724211781,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.712176883
+      ],
+      "xmatrix": [
+        0.797018659,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.775595945,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.797018659
+      ],
+      "cmatrix": [
+        7.500985242,
+        -1.678116369,
+        -0.90585722,
+        -1.678116369,
+        8.026651958,
+        -1.678116369,
+        -0.90585722,
+        -1.678116369,
+        7.500985242
+      ],
+      "normamps": 224.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_horiz_lg_1c-cu_#2_7strcu_#2_7strcu_#2_7stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 55",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 24,
+      "role_counts": {
+        "backbone": 21,
+        "terminal": 3
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_horiz_lg_1c-cu_#2_7strcu_#2_7strcu_#2_7stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "cu_#2_7str",
+        "cu_#2_7str",
+        "cu_#2_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_74c4e01ac394": {
+      "r1": 0.11587959600000004,
+      "r0": 0.465100533,
+      "x1": 0.40725920433333346,
+      "x0": 1.3645880123333334,
+      "c1": 11.013644497333331,
+      "c0": 4.966820732333333,
+      "rmatrix": [
+        0.249356442,
+        0.123607395,
+        0.117069179,
+        0.123607395,
+        0.229177372,
+        0.108544363,
+        0.117069179,
+        0.108544363,
+        0.218325911
+      ],
+      "xmatrix": [
+        0.695471927,
+        0.326066888,
+        0.282769592,
+        0.326066888,
+        0.731770909,
+        0.348492328,
+        0.282769592,
+        0.348492328,
+        0.751863585
+      ],
+      "cmatrix": [
+        9.304334938,
+        -2.33172197,
+        -1.209757315,
+        -2.33172197,
+        9.223969482,
+        -2.50534448,
+        -1.209757315,
+        -2.50534448,
+        8.465805307
+      ],
+      "normamps": 619.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_vert_1c-al_556_19stral_556_19stral_556_19stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 69",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 12,
+      "role_counts": {
+        "backbone": 9,
+        "terminal": 3
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_vert_1c-al_556_19stral_556_19stral_556_19stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_556_19str",
+        "al_556_19str",
+        "al_556_19str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_b7301acc02f6": {
+      "r1": 0.5930952489999999,
+      "r0": 0.978816516,
+      "x1": 0.47140641166666675,
+      "x0": 1.3754946036666666,
+      "c1": 9.456797456333334,
+      "c0": 4.934070387333334,
+      "rmatrix": [
+        0.717657372,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.72969227,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.717657372
+      ],
+      "xmatrix": [
+        0.779910047,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.758487333,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.779910047
+      ],
+      "cmatrix": [
+        7.759041892,
+        -1.785198119,
+        -0.952330831,
+        -1.785198119,
+        8.329581516,
+        -1.785198119,
+        -0.952330831,
+        -1.785198119,
+        7.759041892
+      ],
+      "normamps": 218.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_horiz_lg_1c-al_1/0_7stral_1/0_7stral_1/0_7stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 87",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 24,
+      "role_counts": {
+        "backbone": 21,
+        "terminal": 3
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_horiz_lg_1c-al_1/0_7stral_1/0_7stral_1/0_7stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_1/0_7str",
+        "al_1/0_7str",
+        "al_1/0_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_7a4cc1e53e75": {
+      "r1": 1.586258994,
+      "r0": 1.586258994,
+      "x1": 0.826405913,
+      "x0": 0.826405913,
+      "c1": 6.543517622,
+      "c0": 6.543517622,
+      "rmatrix": [
+        1.586258994
+      ],
+      "xmatrix": [
+        0.826405913
+      ],
+      "cmatrix": [
+        6.543517622
+      ],
+      "normamps": 125.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "1ph-nonenonecu_#6_1stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 47",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 122,
+      "role_counts": {
+        "backbone": 85,
+        "terminal": 37
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "1ph-nonenonecu_#6_1stracsr_1/0_6/1",
+        "1ph-cu_#6_1strnonenoneacsr_1/0_6/1",
+        "1ph-nonecu_#6_1strnoneacsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "cu_#6_1str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_2952a324444e": {
+      "r1": 0.11510605100000004,
+      "r0": 0.500827318,
+      "x1": 0.4042725346666668,
+      "x0": 1.3083607266666668,
+      "c1": 11.054848725666666,
+      "c0": 5.333715947666667,
+      "rmatrix": [
+        0.239668174,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.251703072,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.239668174
+      ],
+      "xmatrix": [
+        0.71277617,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.691353456,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.71277617
+      ],
+      "cmatrix": [
+        8.88353013,
+        -2.283151918,
+        -1.154828942,
+        -2.283151918,
+        9.676353139,
+        -2.283151918,
+        -1.154828942,
+        -2.283151918,
+        8.88353013
+      ],
+      "normamps": 619.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_horiz_lg_1c-al_556_19stral_556_19stral_556_19stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 93",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 9,
+      "role_counts": {
+        "terminal": 3,
+        "backbone": 6
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_horiz_lg_1c-al_556_19stral_556_19stral_556_19stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_556_19str",
+        "al_556_19str",
+        "al_556_19str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_b4d58648351d": {
+      "r1": 0.812677672,
+      "r0": 0.812677672,
+      "x1": 0.839437954,
+      "x0": 0.839437954,
+      "c1": 7.317128434,
+      "c0": 7.317128434,
+      "rmatrix": [
+        0.812677672
+      ],
+      "xmatrix": [
+        0.839437954
+      ],
+      "cmatrix": [
+        7.317128434
+      ],
+      "normamps": 271.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "1ph-noneacsr_1/0_6/1noneacsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 109",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 10,
+      "role_counts": {
+        "terminal": 5,
+        "backbone": 5
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "1ph-noneacsr_1/0_6/1noneacsr_1/0_6/1",
+        "1ph-nonenoneacsr_1/0_6/1acsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "acsr_1/0_6/1"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_74db8da2ee72": {
+      "r1": 0.18858197399999999,
+      "r0": 0.537802911,
+      "x1": 0.4262075893333332,
+      "x0": 1.3835363973333337,
+      "c1": 10.488262151333332,
+      "c0": 4.856573732333333,
+      "rmatrix": [
+        0.32205882,
+        0.123607395,
+        0.117069179,
+        0.123607395,
+        0.30187975,
+        0.108544363,
+        0.117069179,
+        0.108544363,
+        0.291028289
+      ],
+      "xmatrix": [
+        0.714420312,
+        0.326066888,
+        0.282769592,
+        0.326066888,
+        0.750719294,
+        0.348492328,
+        0.282769592,
+        0.348492328,
+        0.77081197
+      ],
+      "cmatrix": [
+        8.901713336,
+        -2.161060418,
+        -1.141984416,
+        -2.161060418,
+        8.808372299,
+        -2.328643585,
+        -1.141984416,
+        -2.328643585,
+        8.1230124
+      ],
+      "normamps": 453.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_vert_1c-al_336_19stral_336_19stral_336_19stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 113",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 9,
+      "role_counts": {
+        "backbone": 8,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_vert_1c-al_336_19stral_336_19stral_336_19stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_336_19str",
+        "al_336_19str",
+        "al_336_19str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_6ea9338ebe37": {
+      "r1": 0.592939307,
+      "r0": 0.964855361,
+      "x1": 0.5064616559999999,
+      "x0": 1.330791444,
+      "c1": 8.711712217999999,
+      "c0": 4.689096932,
+      "rmatrix": [
+        0.716911325,
+        0.123972018,
+        0.123972018,
+        0.716911325
+      ],
+      "xmatrix": [
+        0.781238252,
+        0.274776596,
+        0.274776596,
+        0.781238252
+      ],
+      "cmatrix": [
+        7.370840456,
+        -1.340871762,
+        -1.340871762,
+        7.370840456
+      ],
+      "normamps": 218.0,
+      "basefreq": 60.0,
+      "nphases": 2,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "2ph_vert_1c-al_1/0_7strnoneal_1/0_7stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 135",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 7,
+      "role_counts": {
+        "backbone": 4,
+        "terminal": 3
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "2ph_vert_1c-al_1/0_7strnoneal_1/0_7stracsr_1/0_6/1",
+        "2ph_horiz_lg_1c-al_1/0_7stral_1/0_7strnoneacsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_1/0_7str",
+        "al_1/0_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_69306e924f42": {
+      "r1": 0.2973941276666666,
+      "r0": 0.6466150646666667,
+      "x1": 0.447898306,
+      "x0": 1.405227114,
+      "c1": 10.024386112666667,
+      "c0": 4.7542556776666665,
+      "rmatrix": [
+        0.430870974,
+        0.123607395,
+        0.117069179,
+        0.123607395,
+        0.410691904,
+        0.108544363,
+        0.117069179,
+        0.108544363,
+        0.399840442
+      ],
+      "xmatrix": [
+        0.736111029,
+        0.326066888,
+        0.282769592,
+        0.326066888,
+        0.772410011,
+        0.348492328,
+        0.282769592,
+        0.348492328,
+        0.792502686
+      ],
+      "cmatrix": [
+        8.544175564,
+        -2.013556645,
+        -1.081323124,
+        -2.013556645,
+        8.441512418,
+        -2.175250666,
+        -1.081323124,
+        -2.175250666,
+        7.817339921
+      ],
+      "normamps": 338.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_vert_1c-al_4/0_7stral_4/0_7stral_4/0_7stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 75",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 12,
+      "role_counts": {
+        "terminal": 3,
+        "backbone": 9
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_vert_1c-al_4/0_7stral_4/0_7stral_4/0_7stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_4/0_7str",
+        "al_4/0_7str",
+        "al_4/0_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_359138f7eebe": {
+      "r1": 0.588388305,
+      "r0": 0.9376092419999998,
+      "x1": 0.4915016933333332,
+      "x0": 1.4488305013333334,
+      "c1": 9.068843593666667,
+      "c0": 4.527188105666666,
+      "rmatrix": [
+        0.721865151,
+        0.123607395,
+        0.117069179,
+        0.123607395,
+        0.701686081,
+        0.108544363,
+        0.117069179,
+        0.108544363,
+        0.69083462
+      ],
+      "xmatrix": [
+        0.779714416,
+        0.326066888,
+        0.282769592,
+        0.326066888,
+        0.816013398,
+        0.348492328,
+        0.282769592,
+        0.348492328,
+        0.836106074
+      ],
+      "cmatrix": [
+        7.80121737,
+        -1.719625283,
+        -0.954389651,
+        -1.719625283,
+        7.685473943,
+        -1.867640554,
+        -0.954389651,
+        -1.867640554,
+        7.17818398
+      ],
+      "normamps": 224.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_vert_1c-cu_#2_7strcu_#2_7strcu_#2_7stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 119",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 8,
+      "role_counts": {
+        "terminal": 3,
+        "backbone": 5
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_vert_1c-cu_#2_7strcu_#2_7strcu_#2_7stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "cu_#2_7str",
+        "cu_#2_7str",
+        "cu_#2_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_70c96266ad7e": {
+      "r1": 0.18780842899999992,
+      "r0": 0.573529696,
+      "x1": 0.4232209196666667,
+      "x0": 1.3273091116666667,
+      "c1": 10.525622794333337,
+      "c0": 5.208286438333335,
+      "rmatrix": [
+        0.312370552,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.32440545,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.312370552
+      ],
+      "xmatrix": [
+        0.731724555,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.710301841,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.731724555
+      ],
+      "cmatrix": [
+        8.514828659,
+        -2.114359678,
+        -1.088617,
+        -2.114359678,
+        9.229874709,
+        -2.114359678,
+        -1.088617,
+        -2.114359678,
+        8.514828659
+      ],
+      "normamps": 453.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_horiz_lg_1c-al_336_19stral_336_19stral_336_19stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 81",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 23,
+      "role_counts": {
+        "backbone": 22,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_horiz_lg_1c-al_336_19stral_336_19stral_336_19stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_336_19str",
+        "al_336_19str",
+        "al_336_19str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_afa839bc7fe0": {
+      "r1": 0.9445218890000003,
+      "r0": 1.3302431559999999,
+      "x1": 0.4885150236666666,
+      "x0": 1.3926032156666666,
+      "c1": 9.096904133333332,
+      "c0": 4.8348141753333325,
+      "rmatrix": [
+        1.069084012,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        1.08111891,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        1.069084012
+      ],
+      "xmatrix": [
+        0.797018659,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.775595945,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.797018659
+      ],
+      "cmatrix": [
+        7.500985242,
+        -1.678116369,
+        -0.90585722,
+        -1.678116369,
+        8.026651958,
+        -1.678116369,
+        -0.90585722,
+        -1.678116369,
+        7.500985242
+      ],
+      "normamps": 163.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_horiz_lg_1c-al_#2_7stral_#2_7stral_#2_7stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 99",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 1,
+      "role_counts": {
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_horiz_lg_1c-al_#2_7stral_#2_7stral_#2_7stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_#2_7str",
+        "al_#2_7str",
+        "al_#2_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_db017b3e87dd": {
+      "r1": 0.9443659470000001,
+      "r0": 1.3162820009999998,
+      "x1": 0.5235702689999999,
+      "x0": 1.347900057,
+      "c1": 8.407158635,
+      "c0": 4.620126898999999,
+      "rmatrix": [
+        1.068337965,
+        0.123972018,
+        0.123972018,
+        1.068337965
+      ],
+      "xmatrix": [
+        0.798346865,
+        0.274776596,
+        0.274776596,
+        0.798346865
+      ],
+      "cmatrix": [
+        7.144814723,
+        -1.262343912,
+        -1.262343912,
+        7.144814723
+      ],
+      "normamps": 163.0,
+      "basefreq": 60.0,
+      "nphases": 2,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "2ph_vert_1c-al_#2_7strnoneal_#2_7stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 125",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 3,
+      "role_counts": {
+        "terminal": 1,
+        "backbone": 2
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "2ph_vert_1c-al_#2_7strnoneal_#2_7stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_#2_7str",
+        "al_#2_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_1bbc7ee84b8b": {
+      "r1": 0.9452954339999998,
+      "r0": 1.294516371,
+      "x1": 0.4915016933333332,
+      "x0": 1.4488305013333334,
+      "c1": 9.068843593666667,
+      "c0": 4.527188105666666,
+      "rmatrix": [
+        1.07877228,
+        0.123607395,
+        0.117069179,
+        0.123607395,
+        1.05859321,
+        0.108544363,
+        0.117069179,
+        0.108544363,
+        1.047741749
+      ],
+      "xmatrix": [
+        0.779714416,
+        0.326066888,
+        0.282769592,
+        0.326066888,
+        0.816013398,
+        0.348492328,
+        0.282769592,
+        0.348492328,
+        0.836106074
+      ],
+      "cmatrix": [
+        7.80121737,
+        -1.719625283,
+        -0.954389651,
+        -1.719625283,
+        7.685473943,
+        -1.867640554,
+        -0.954389651,
+        -1.867640554,
+        7.17818398
+      ],
+      "normamps": 163.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_vert_1c-al_#2_7stral_#2_7stral_#2_7stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 162",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 1,
+      "role_counts": {
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_vert_1c-al_#2_7stral_#2_7stral_#2_7stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_#2_7str",
+        "al_#2_7str",
+        "al_#2_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_de5184ca19aa": {
+      "r1": 0.5938687940000001,
+      "r0": 0.943089731,
+      "x1": 0.4743930813333332,
+      "x0": 1.4317218893333337,
+      "c1": 9.426537340333333,
+      "c0": 4.614906507333334,
+      "rmatrix": [
+        0.72734564,
+        0.123607395,
+        0.117069179,
+        0.123607395,
+        0.70716657,
+        0.108544363,
+        0.117069179,
+        0.108544363,
+        0.696315109
+      ],
+      "xmatrix": [
+        0.762605804,
+        0.326066888,
+        0.282769592,
+        0.326066888,
+        0.798904786,
+        0.348492328,
+        0.282769592,
+        0.348492328,
+        0.818997462
+      ],
+      "cmatrix": [
+        8.080389567,
+        -1.828043084,
+        -1.002174236,
+        -1.828043084,
+        7.968595057,
+        -1.981413513,
+        -1.002174236,
+        -1.981413513,
+        7.418996564
+      ],
+      "normamps": 218.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_vert_1c-al_1/0_7stral_1/0_7stral_1/0_7stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 140",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 1,
+      "role_counts": {
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_vert_1c-al_1/0_7stral_1/0_7stral_1/0_7stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "al_1/0_7str",
+        "al_1/0_7str",
+        "al_1/0_7str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_fb3393d5f04b": {
+      "r1": 1.456045402,
+      "r0": 1.8279614559999997,
+      "x1": 0.5628002919999999,
+      "x0": 1.38713008,
+      "c1": 7.719823401,
+      "c0": 4.4463347429999995,
+      "rmatrix": [
+        1.58001742,
+        0.123972018,
+        0.123972018,
+        1.58001742
+      ],
+      "xmatrix": [
+        0.837576888,
+        0.274776596,
+        0.274776596,
+        0.837576888
+      ],
+      "cmatrix": [
+        6.628660515,
+        -1.091162886,
+        -1.091162886,
+        6.628660515
+      ],
+      "normamps": 125.0,
+      "basefreq": 60.0,
+      "nphases": 2,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "2ph_horiz_lg_1c-nonecu_#6_1strcu_#6_1stracsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 157",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "2ph_horiz_lg_1c-nonecu_#6_1strcu_#6_1stracsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "cu_#6_1str",
+        "cu_#6_1str"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt5_2775a130135e": {
+      "r1": 0.6826200229999999,
+      "r0": 1.06834129,
+      "x1": 0.5407770876666669,
+      "x0": 1.4448652796666666,
+      "c1": 9.585307980000001,
+      "c0": 4.968628006000001,
+      "rmatrix": [
+        0.807182146,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.819217044,
+        0.130501601,
+        0.124718065,
+        0.130501601,
+        0.807182146
+      ],
+      "xmatrix": [
+        0.849280723,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.827858009,
+        0.315319874,
+        0.273448444,
+        0.315319874,
+        0.849280723
+      ],
+      "cmatrix": [
+        7.85073974,
+        -1.823906824,
+        -0.968866326,
+        -1.823906824,
+        8.437764486,
+        -1.823906824,
+        -0.968866326,
+        -1.823906824,
+        7.85073974
+      ],
+      "normamps": 271.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt5",
+      "source_linecode": "3ph_horiz_lg_1c-acsr_1/0_6/1acsr_1/0_6/1acsr_1/0_6/1acsr_1/0_6/1",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+      "source_file": "reference_data/epri_large/ckt5/LineGeometry_ckt5.dss",
+      "source_locator": "line 151",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt5",
+      "observation_count": 1,
+      "role_counts": {
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "3ph_horiz_lg_1c-acsr_1/0_6/1acsr_1/0_6/1acsr_1/0_6/1acsr_1/0_6/1"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "acsr_1/0_6/1",
+        "acsr_1/0_6/1",
+        "acsr_1/0_6/1"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_89cae2ff1e0a": {
+      "r1": 0.18641069999999998,
+      "r0": 0.45981299999999997,
+      "x1": 0.3976761,
+      "x0": 1.1868150000000002,
+      "c1": 0.001869407,
+      "c0": 0.001869407,
+      "rmatrix": [
+        0.2775448,
+        0.0911341,
+        0.0911341,
+        0.0911341,
+        0.2775448,
+        0.0911341,
+        0.0911341,
+        0.0911341,
+        0.2775448
+      ],
+      "xmatrix": [
+        0.6607224,
+        0.2630463,
+        0.2630463,
+        0.2630463,
+        0.6607224,
+        0.2630463,
+        0.2630463,
+        0.2630463,
+        0.6607224
+      ],
+      "cmatrix": [
+        0.001869407,
+        0.0,
+        0.0,
+        0.0,
+        0.001869407,
+        0.0,
+        0.0,
+        0.0,
+        0.001869407
+      ],
+      "normamps": 500.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "99",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 161",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 38,
+      "role_counts": {
+        "backbone": 35,
+        "terminal": 3
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "99",
+        "104",
+        "98"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 3,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_b09937dc87b8": {
+      "r1": 0.09941902,
+      "r0": 0.379035001,
+      "x1": 0.3666076,
+      "x0": 1.211668999,
+      "c1": 0.0018382500000000003,
+      "c0": 0.0018382500000000003,
+      "rmatrix": [
+        0.192624347,
+        0.093205327,
+        0.093205327,
+        0.093205327,
+        0.192624347,
+        0.093205327,
+        0.093205327,
+        0.093205327,
+        0.192624347
+      ],
+      "xmatrix": [
+        0.648294733,
+        0.281687133,
+        0.281687133,
+        0.281687133,
+        0.648294733,
+        0.281687133,
+        0.281687133,
+        0.281687133,
+        0.648294733
+      ],
+      "cmatrix": [
+        0.00183825,
+        0.0,
+        0.0,
+        0.0,
+        0.00183825,
+        0.0,
+        0.0,
+        0.0,
+        0.00183825
+      ],
+      "normamps": 637.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "45",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 138",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 38,
+      "role_counts": {
+        "terminal": 8,
+        "backbone": 30
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "45"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 3,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_228aa3889c4e": {
+      "r1": 1.0501129999999999,
+      "r0": 1.466429999,
+      "x1": 0.5219497999999999,
+      "x0": 1.6155589999999997,
+      "c1": 0.000560822,
+      "c0": 0.000560822,
+      "rmatrix": [
+        1.188885333,
+        0.138772333,
+        0.138772333,
+        0.138772333,
+        1.188885333,
+        0.138772333,
+        0.138772333,
+        0.138772333,
+        1.188885333
+      ],
+      "xmatrix": [
+        0.8864862,
+        0.3645364,
+        0.3645364,
+        0.3645364,
+        0.8864862,
+        0.3645364,
+        0.3645364,
+        0.3645364,
+        0.8864862
+      ],
+      "cmatrix": [
+        0.000560822,
+        0.0,
+        0.0,
+        0.0,
+        0.000560822,
+        0.0,
+        0.0,
+        0.0,
+        0.000560822
+      ],
+      "normamps": 160.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "40",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 127",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 62,
+      "role_counts": {
+        "terminal": 7,
+        "backbone": 55
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "40"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 3,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_1bc92ae84d94": {
+      "r1": 0.6489452,
+      "r0": 1.109578001,
+      "x1": 0.5068878999999998,
+      "x0": 1.6469749989999998,
+      "c1": 0.0,
+      "c0": 0.0,
+      "rmatrix": [
+        0.802489467,
+        0.153544267,
+        0.153544267,
+        0.153544267,
+        0.802489467,
+        0.153544267,
+        0.153544267,
+        0.153544267,
+        0.802489467
+      ],
+      "xmatrix": [
+        0.886916933,
+        0.380029033,
+        0.380029033,
+        0.380029033,
+        0.886916933,
+        0.380029033,
+        0.380029033,
+        0.380029033,
+        0.886916933
+      ],
+      "cmatrix": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "normamps": 214.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "186",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 53",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 30,
+      "role_counts": {
+        "terminal": 20,
+        "backbone": 10
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "186"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 3,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_b8382bd2bfe2": {
+      "r1": 0.1864107,
+      "r0": 0.1864107,
+      "x1": 0.3976761,
+      "x0": 0.3976761,
+      "c1": 0.001869407,
+      "c0": 0.001869407,
+      "rmatrix": [
+        0.1864107
+      ],
+      "xmatrix": [
+        0.3976761
+      ],
+      "cmatrix": [
+        0.001869407
+      ],
+      "normamps": 500.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "251",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 157",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 7,
+      "role_counts": {
+        "backbone": 7
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "251"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 1,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_81fc819cb3d1": {
+      "r1": 1.050113,
+      "r0": 1.050113,
+      "x1": 0.5219498,
+      "x0": 0.5219498,
+      "c1": 0.000560822,
+      "c0": 0.000560822,
+      "rmatrix": [
+        1.050113
+      ],
+      "xmatrix": [
+        0.5219498
+      ],
+      "cmatrix": [
+        0.000560822
+      ],
+      "normamps": 160.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "62",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 179",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 17,
+      "role_counts": {
+        "backbone": 11,
+        "terminal": 6
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "62"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 1,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_5af68dfa8278": {
+      "r1": 0.5965140999999999,
+      "r0": 1.0190449990000001,
+      "x1": 0.46602669999999996,
+      "x0": 1.559635999,
+      "c1": 0.000591979,
+      "c0": 0.000591979,
+      "rmatrix": [
+        0.737357733,
+        0.140843633,
+        0.140843633,
+        0.140843633,
+        0.737357733,
+        0.140843633,
+        0.140843633,
+        0.140843633,
+        0.737357733
+      ],
+      "xmatrix": [
+        0.830563133,
+        0.364536433,
+        0.364536433,
+        0.364536433,
+        0.830563133,
+        0.364536433,
+        0.364536433,
+        0.364536433,
+        0.830563133
+      ],
+      "cmatrix": [
+        0.000591979,
+        0.0,
+        0.0,
+        0.0,
+        0.000591979,
+        0.0,
+        0.0,
+        0.0,
+        0.000591979
+      ],
+      "normamps": 225.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "109",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 118",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 5,
+      "role_counts": {
+        "backbone": 5
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "109"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 3,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_c5fa9ec2cec4": {
+      "r1": 0.6988163,
+      "r0": 0.6988163,
+      "x1": 0.1870072,
+      "x0": 0.1870072,
+      "c1": 0.0,
+      "c0": 0.0,
+      "rmatrix": [
+        0.6988163
+      ],
+      "xmatrix": [
+        0.1870072
+      ],
+      "cmatrix": [
+        0.0
+      ],
+      "normamps": 213.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "181",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 58",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 63,
+      "role_counts": {
+        "backbone": 41,
+        "terminal": 22
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "181"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 1,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_9d5b8b96ebf9": {
+      "r1": 0.9320533000000001,
+      "r0": 1.354584001,
+      "x1": 0.49088140000000013,
+      "x0": 1.5844909989999998,
+      "c1": 0.000654292,
+      "c0": 0.000654292,
+      "rmatrix": [
+        1.072896867,
+        0.140843567,
+        0.140843567,
+        0.140843567,
+        1.072896867,
+        0.140843567,
+        0.140843567,
+        0.140843567,
+        1.072896867
+      ],
+      "xmatrix": [
+        0.855417933,
+        0.364536533,
+        0.364536533,
+        0.364536533,
+        0.855417933,
+        0.364536533,
+        0.364536533,
+        0.364536533,
+        0.855417933
+      ],
+      "cmatrix": [
+        0.000654292,
+        0.0,
+        0.0,
+        0.0,
+        0.000654292,
+        0.0,
+        0.0,
+        0.0,
+        0.000654292
+      ],
+      "normamps": 355.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "110",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 110",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 7,
+      "role_counts": {
+        "backbone": 6,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "110"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 3,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_8a0ee0242c9b": {
+      "r1": 0.18641069999999998,
+      "r0": 0.45981299999999997,
+      "x1": 0.3976761,
+      "x0": 1.1868150000000002,
+      "c1": 0.001869407,
+      "c0": 0.001869407,
+      "rmatrix": [
+        0.2775448,
+        0.0911341,
+        0.0911341,
+        0.2775448
+      ],
+      "xmatrix": [
+        0.6607224,
+        0.2630463,
+        0.2630463,
+        0.6607224
+      ],
+      "cmatrix": [
+        0.001869407,
+        0.0,
+        0.0,
+        0.001869407
+      ],
+      "normamps": 500.0,
+      "basefreq": 60.0,
+      "nphases": 2,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "250",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 158",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "250"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 2,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_3277a59fdc81": {
+      "r1": 0.09186317,
+      "r0": 0.19422749899999997,
+      "x1": 0.1302513,
+      "x0": 0.060365991,
+      "c1": 0.0,
+      "c0": 0.0,
+      "rmatrix": [
+        0.125984613,
+        0.034121443,
+        0.034121443,
+        0.034121443,
+        0.125984613,
+        0.034121443,
+        0.034121443,
+        0.034121443,
+        0.125984613
+      ],
+      "xmatrix": [
+        0.106956197,
+        -0.023295103,
+        -0.023295103,
+        -0.023295103,
+        0.106956197,
+        -0.023295103,
+        -0.023295103,
+        -0.023295103,
+        0.106956197
+      ],
+      "cmatrix": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "normamps": 519.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "141",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 18",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 4,
+      "role_counts": {
+        "terminal": 3,
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "141"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 3,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_4b8e2877df04": {
+      "r1": 0.05643272000000005,
+      "r0": 0.8398918999999998,
+      "x1": 0.1026874,
+      "x0": 0.05019418,
+      "c1": 0.0,
+      "c0": 0.0,
+      "rmatrix": [
+        0.31758578,
+        0.26115306,
+        0.26115306,
+        0.26115306,
+        0.31758578,
+        0.26115306,
+        0.26115306,
+        0.26115306,
+        0.31758578
+      ],
+      "xmatrix": [
+        0.08518966,
+        -0.01749774,
+        -0.01749774,
+        -0.01749774,
+        0.08518966,
+        -0.01749774,
+        -0.01749774,
+        -0.01749774,
+        0.08518966
+      ],
+      "cmatrix": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "normamps": 634.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "144",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 66",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 2,
+      "role_counts": {
+        "terminal": 2
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "144"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 3,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_7b45de6af142": {
+      "r1": 0.6988163000000002,
+      "r0": 1.525585001,
+      "x1": 0.18700720000000004,
+      "x0": 0.43635009999999996,
+      "c1": 0.0,
+      "c0": 0.0,
+      "rmatrix": [
+        0.974405867,
+        0.275589567,
+        0.275589567,
+        0.275589567,
+        0.974405867,
+        0.275589567,
+        0.275589567,
+        0.275589567,
+        0.974405867
+      ],
+      "xmatrix": [
+        0.2701215,
+        0.0831143,
+        0.0831143,
+        0.0831143,
+        0.2701215,
+        0.0831143,
+        0.0831143,
+        0.0831143,
+        0.2701215
+      ],
+      "cmatrix": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "normamps": 213.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "185",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 68",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 3,
+      "role_counts": {
+        "terminal": 3
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "185"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 3,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt7_3882be9d4ed0": {
+      "r1": 0.07545904,
+      "r0": 0.308397799,
+      "x1": 0.12467149999999999,
+      "x0": 0.095144,
+      "c1": 0.0,
+      "c0": 0.0,
+      "rmatrix": [
+        0.153105293,
+        0.077646253,
+        0.077646253,
+        0.077646253,
+        0.153105293,
+        0.077646253,
+        0.077646253,
+        0.077646253,
+        0.153105293
+      ],
+      "xmatrix": [
+        0.114829,
+        -0.0098425,
+        -0.0098425,
+        -0.0098425,
+        0.114829,
+        -0.0098425,
+        -0.0098425,
+        -0.0098425,
+        0.114829
+      ],
+      "cmatrix": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "normamps": 606.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "unknown",
+      "source_feeder": "Ckt7",
+      "source_linecode": "147",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+      "source_file": "reference_data/epri_large/ckt7/LineCodes_ckt7.dss",
+      "source_locator": "line 63",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt7",
+      "observation_count": 1,
+      "role_counts": {
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_aliases": [
+        "147"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": 3,
+      "selectable": false,
+      "selection_blocker": "unknown_construction",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_0a294a563392": {
+      "r1": 0.987980196,
+      "r0": 0.987980196,
+      "x1": 0.35418158,
+      "x0": 0.35418158,
+      "c1": 114.953670564,
+      "c0": 114.953670564,
+      "rmatrix": [
+        0.987980196
+      ],
+      "xmatrix": [
+        0.35418158
+      ],
+      "cmatrix": [
+        114.953670564
+      ],
+      "normamps": 200.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "cable",
+      "source_feeder": "Ckt24",
+      "source_linecode": "ug_1/0_al_xlpe_35kv_1_phase",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "29dc4b140d1d505ca2a97c9c8dfa62f2be72ff75f3458c0a6c367d45fc46f987",
+      "source_file": "reference_data/epri_large/ckt24/Linecodes_ckt24.dss",
+      "source_locator": "line 7",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 642,
+      "role_counts": {
+        "terminal": 98,
+        "backbone": 544
+      },
+      "observed_voltage_kv": [
+        13.2,
+        34.5
+      ],
+      "source_aliases": [
+        "ug_1/0_al_xlpe_35kv_1_phase"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": 35.0,
+      "voltage_class_basis": "explicit kV suffix in source LineCode name; not independently certified",
+      "source_declared_phases": 1,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_58550f34a866": {
+      "r1": 0.610248648,
+      "r0": 1.117101129,
+      "x1": 0.297885349,
+      "x0": 0.11942754400000001,
+      "c1": 114.953670564,
+      "c0": 114.953670564,
+      "rmatrix": [
+        0.779199475,
+        0.168950827,
+        0.168950827,
+        0.168950827,
+        0.779199475,
+        0.168950827,
+        0.168950827,
+        0.168950827,
+        0.779199475
+      ],
+      "xmatrix": [
+        0.238399414,
+        -0.059485935,
+        -0.059485935,
+        -0.059485935,
+        0.238399414,
+        -0.059485935,
+        -0.059485935,
+        -0.059485935,
+        0.238399414
+      ],
+      "cmatrix": [
+        114.953670564,
+        0.0,
+        0.0,
+        0.0,
+        114.953670564,
+        0.0,
+        0.0,
+        0.0,
+        114.953670564
+      ],
+      "normamps": 200.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "cable",
+      "source_feeder": "Ckt24",
+      "source_linecode": "ug_1/0_al_xlpe_35kv",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "29dc4b140d1d505ca2a97c9c8dfa62f2be72ff75f3458c0a6c367d45fc46f987",
+      "source_file": "reference_data/epri_large/ckt24/Linecodes_ckt24.dss",
+      "source_locator": "line 9",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 109,
+      "role_counts": {
+        "backbone": 70,
+        "terminal": 39
+      },
+      "observed_voltage_kv": [
+        13.2,
+        34.5
+      ],
+      "source_aliases": [
+        "ug_1/0_al_xlpe_35kv"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": 35.0,
+      "voltage_class_basis": "explicit kV suffix in source LineCode name; not independently certified",
+      "source_declared_phases": 3,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_dc02d7f524d2": {
+      "r1": 0.643125647,
+      "r0": 0.643125647,
+      "x1": 0.755903396,
+      "x0": 0.755903396,
+      "c1": 7.197784861,
+      "c0": 7.197784861,
+      "rmatrix": [
+        0.643125647
+      ],
+      "xmatrix": [
+        0.755903396
+      ],
+      "cmatrix": [
+        7.197784861
+      ],
+      "normamps": 268.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_1/0_aaac_6201_oh_1/0_aaac_6201_cn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 1",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 113,
+      "role_counts": {
+        "terminal": 34,
+        "backbone": 79
+      },
+      "observed_voltage_kv": [
+        13.2,
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_1/0_aaac_6201_oh_1/0_aaac_6201_cn",
+        "oh3p_fr8_n56_oh_1/0_aaac_6201_oh_1/0_aaac_6201_an",
+        "oh3p_fr8_n56_oh_1/0_aaac_6201_oh_1/0_aaac_6201_bn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_6201"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_baa0d4a7e582": {
+      "r1": 0.12088865366666668,
+      "r0": 0.2970555336666667,
+      "x1": 0.39351301866666677,
+      "x0": 1.1377780276666667,
+      "c1": 11.376635359333335,
+      "c0": 5.178195455333333,
+      "rmatrix": [
+        0.178978356,
+        0.059029123,
+        0.058108634,
+        0.059029123,
+        0.180876129,
+        0.059029123,
+        0.058108634,
+        0.059029123,
+        0.178978356
+      ],
+      "xmatrix": [
+        0.6465718,
+        0.263061174,
+        0.218142661,
+        0.263061174,
+        0.631660465,
+        0.263061174,
+        0.218142661,
+        0.263061174,
+        0.6465718
+      ],
+      "cmatrix": [
+        9.087259965,
+        -2.48847073,
+        -1.221498444,
+        -2.48847073,
+        9.756946244,
+        -2.48847073,
+        -1.221498444,
+        -2.48847073,
+        9.087259965
+      ],
+      "normamps": 650.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_477_aac_oh_336_aac_abcn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 5",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 106,
+      "role_counts": {
+        "backbone": 105,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_477_aac_oh_336_aac_abcn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_477_aac",
+        "oh_477_aac",
+        "oh_477_aac"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_d170f58b2fce": {
+      "r1": 0.666881415,
+      "r0": 0.666881415,
+      "x1": 0.705074274,
+      "x0": 0.705074274,
+      "c1": 7.778664723,
+      "c0": 7.778664723,
+      "rmatrix": [
+        0.666881415
+      ],
+      "xmatrix": [
+        0.705074274
+      ],
+      "cmatrix": [
+        7.778664723
+      ],
+      "normamps": 268.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_armlpin_n30_oh_1/0_aaac_6201_oh_1/0_aaac_6201_an",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 27",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 6,
+      "role_counts": {
+        "terminal": 3,
+        "backbone": 3
+      },
+      "observed_voltage_kv": [
+        13.2,
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_armlpin_n30_oh_1/0_aaac_6201_oh_1/0_aaac_6201_an",
+        "oh3p_armlpin_n30_oh_1/0_aaac_6201_oh_1/0_aaac_6201_cn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_6201"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_eb58a22a46c0": {
+      "r1": 0.987980196,
+      "r0": 0.987980196,
+      "x1": 0.35418158,
+      "x0": 0.35418158,
+      "c1": 114.953670564,
+      "c0": 114.953670564,
+      "rmatrix": [
+        0.987980196,
+        0.0,
+        0.0,
+        0.987980196
+      ],
+      "xmatrix": [
+        0.35418158,
+        0.0,
+        0.0,
+        0.35418158
+      ],
+      "cmatrix": [
+        114.953670564,
+        0.0,
+        0.0,
+        114.953670564
+      ],
+      "normamps": 200.0,
+      "basefreq": 60.0,
+      "nphases": 2,
+      "construction": "cable",
+      "source_feeder": "Ckt24",
+      "source_linecode": "ug_1/0_al_xlpe_35kv_1_phase",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "29dc4b140d1d505ca2a97c9c8dfa62f2be72ff75f3458c0a6c367d45fc46f987",
+      "source_file": "reference_data/epri_large/ckt24/Linecodes_ckt24.dss",
+      "source_locator": "line 7",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 14,
+      "role_counts": {
+        "backbone": 12,
+        "terminal": 2
+      },
+      "observed_voltage_kv": [
+        13.2,
+        34.5
+      ],
+      "source_aliases": [
+        "ug_1/0_al_xlpe_35kv_1_phase"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": 35.0,
+      "voltage_class_basis": "explicit kV suffix in source LineCode name; not independently certified",
+      "source_declared_phases": 1,
+      "selectable": false,
+      "selection_blocker": "phase_count_exceeds_source_definition",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_42903b22fd2d": {
+      "r1": 0.77875598,
+      "r0": 0.77875598,
+      "x1": 0.72276654,
+      "x0": 0.72276654,
+      "c1": 7.778664723,
+      "c0": 7.778664723,
+      "rmatrix": [
+        0.77875598
+      ],
+      "xmatrix": [
+        0.72276654
+      ],
+      "cmatrix": [
+        7.778664723
+      ],
+      "normamps": 261.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_armlpin_n30_oh_1/0_aaac_5005_oh_1/0_aaac_5005_bn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 35",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 13,
+      "role_counts": {
+        "terminal": 4,
+        "backbone": 9
+      },
+      "observed_voltage_kv": [
+        13.2,
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_armlpin_n30_oh_1/0_aaac_5005_oh_1/0_aaac_5005_bn",
+        "oh3p_armlpin_n30_oh_1/0_aaac_5005_oh_1/0_aaac_5005_cn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_e3d51b7d1d54": {
+      "r1": 0.17002648833333334,
+      "r0": 0.5576980213333333,
+      "x1": 0.406684127,
+      "x0": 1.3415772020000003,
+      "c1": 10.981177483666666,
+      "c0": 5.027898233666667,
+      "rmatrix": [
+        0.297330017,
+        0.130166103,
+        0.127339327,
+        0.130166103,
+        0.303090964,
+        0.130166103,
+        0.127339327,
+        0.130166103,
+        0.297330017
+      ],
+      "xmatrix": [
+        0.721796923,
+        0.327335613,
+        0.280221849,
+        0.327335613,
+        0.71135161,
+        0.327335613,
+        0.280221849,
+        0.327335613,
+        0.721796923
+      ],
+      "cmatrix": [
+        8.792004036,
+        -2.379742424,
+        -1.193794402,
+        -2.379742424,
+        9.406245129,
+        -2.379742424,
+        -1.193794402,
+        -2.379742424,
+        8.792004036
+      ],
+      "normamps": 521.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_336_aac_oh_1/0_aaac_5005_abcn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 55",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 1,
+      "role_counts": {
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_336_aac_oh_1/0_aaac_5005_abcn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_336_aac",
+        "oh_336_aac",
+        "oh_336_aac"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_c47539fc2094": {
+      "r1": 0.6253914745,
+      "r0": 1.0158897835,
+      "x1": 0.43685936150000004,
+      "x0": 1.4188662005000001,
+      "c1": 10.163487385,
+      "c0": 3.367930146999999,
+      "rmatrix": [
+        0.752677104,
+        0.130166103,
+        0.130166103,
+        0.758438051
+      ],
+      "xmatrix": [
+        0.769417631,
+        0.327335613,
+        0.327335613,
+        0.758972318
+      ],
+      "cmatrix": [
+        7.842901652,
+        -2.265185746,
+        -2.265185746,
+        7.953701626
+      ],
+      "normamps": 261.0,
+      "basefreq": 60.0,
+      "nphases": 2,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_bcn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 69",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 8,
+      "role_counts": {
+        "terminal": 3,
+        "backbone": 5
+      },
+      "observed_voltage_kv": [
+        13.2,
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_bcn",
+        "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_acn",
+        "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_abn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_5005",
+        "oh_1/0_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_5efacc69e020": {
+      "r1": 0.671486763,
+      "r0": 0.671486763,
+      "x1": 0.701389092,
+      "x0": 0.701389092,
+      "c1": 7.255204487,
+      "c0": 7.255204487,
+      "rmatrix": [
+        0.671486763
+      ],
+      "xmatrix": [
+        0.701389092
+      ],
+      "cmatrix": [
+        7.255204487
+      ],
+      "normamps": 261.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_477_aac_bn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 74",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 2,
+      "role_counts": {
+        "backbone": 1,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_477_aac_bn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_d2ded7e4c77a": {
+      "r1": 0.1208853563333333,
+      "r0": 0.26047751733333335,
+      "x1": 0.3935101776666666,
+      "x0": 1.1194649396666665,
+      "c1": 11.376656106,
+      "c0": 5.201177064,
+      "rmatrix": [
+        0.167018709,
+        0.046721587,
+        0.046148987,
+        0.046721587,
+        0.168210812,
+        0.046721587,
+        0.046148987,
+        0.046721587,
+        0.167018709
+      ],
+      "xmatrix": [
+        0.640622449,
+        0.256880726,
+        0.21219331,
+        0.256880726,
+        0.625240397,
+        0.256880726,
+        0.21219331,
+        0.256880726,
+        0.640622449
+      ],
+      "cmatrix": [
+        9.094467076,
+        -2.480593855,
+        -1.214291332,
+        -2.480593855,
+        9.765555124,
+        -2.480593855,
+        -1.214291332,
+        -2.480593855,
+        9.094467076
+      ],
+      "normamps": 650.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_477_aac_oh_477_aac_abcn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 11",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 39,
+      "role_counts": {
+        "backbone": 35,
+        "terminal": 4
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_477_aac_oh_477_aac_abcn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_477_aac",
+        "oh_477_aac",
+        "oh_477_aac"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_7903fe01efbb": {
+      "r1": 1.136049233,
+      "r0": 1.136049233,
+      "x1": 0.833296129,
+      "x0": 0.833296129,
+      "c1": 6.974395641,
+      "c0": 6.974395641,
+      "rmatrix": [
+        1.136049233
+      ],
+      "xmatrix": [
+        0.833296129
+      ],
+      "cmatrix": [
+        6.974395641
+      ],
+      "normamps": 195.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_#2_aaac_5005_oh_#2_aaac_5005_cn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 105",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 91,
+      "role_counts": {
+        "backbone": 74,
+        "terminal": 17
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_#2_aaac_5005_oh_#2_aaac_5005_cn",
+        "oh3p_fr8_n56_oh_#2_aaac_5005_oh_#2_aaac_5005_bn",
+        "oh3p_fr8_n56_oh_#2_aaac_5005_oh_#2_aaac_5005_an"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_#2_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_afc1eefc6c00": {
+      "r1": 0.17001516166666664,
+      "r0": 0.40996746966666664,
+      "x1": 0.406664747,
+      "x0": 1.190987899,
+      "c1": 10.981211826333334,
+      "c0": 5.066089333333332,
+      "rmatrix": [
+        0.248963404,
+        0.080489797,
+        0.078972714,
+        0.080489797,
+        0.252070985,
+        0.080489797,
+        0.078972714,
+        0.080489797,
+        0.248963404
+      ],
+      "xmatrix": [
+        0.672746864,
+        0.276575681,
+        0.23117179,
+        0.276575681,
+        0.658823665,
+        0.276575681,
+        0.23117179,
+        0.276575681,
+        0.672746864
+      ],
+      "cmatrix": [
+        8.803982357,
+        -2.366653206,
+        -1.181816081,
+        -2.366653206,
+        9.420548272,
+        -2.366653206,
+        -1.181816081,
+        -2.366653206,
+        8.803982357
+      ],
+      "normamps": 521.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_336_aac_oh_4/0_aac_abcn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 91",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 27,
+      "role_counts": {
+        "backbone": 26,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_336_aac_oh_4/0_aac_abcn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_336_aac",
+        "oh_336_aac",
+        "oh_336_aac"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_07ae7cfb04bd": {
+      "r1": 0.248963404,
+      "r0": 0.248963404,
+      "x1": 0.672746864,
+      "x0": 0.672746864,
+      "c1": 7.825050804,
+      "c0": 7.825050804,
+      "rmatrix": [
+        0.248963404
+      ],
+      "xmatrix": [
+        0.672746864
+      ],
+      "cmatrix": [
+        7.825050804
+      ],
+      "normamps": 521.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_336_aac_oh_4/0_aac_bn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 115",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 6,
+      "role_counts": {
+        "backbone": 5,
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        13.2,
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_336_aac_oh_4/0_aac_bn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_336_aac"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_0508b1eab2f8": {
+      "r1": 0.9936800523333336,
+      "r0": 1.4271270093333335,
+      "x1": 0.47199403366666653,
+      "x0": 1.5484865466666666,
+      "c1": 9.434366370666666,
+      "c0": 4.658277068666667,
+      "rmatrix": [
+        1.136049233,
+        0.145520469,
+        0.142406019,
+        0.145520469,
+        1.142388648,
+        0.145520469,
+        0.142406019,
+        0.145520469,
+        1.136049233
+      ],
+      "xmatrix": [
+        0.833296129,
+        0.375032781,
+        0.326426951,
+        0.375032781,
+        0.825882356,
+        0.375032781,
+        0.326426951,
+        0.375032781,
+        0.833296129
+      ],
+      "cmatrix": [
+        7.697826792,
+        -1.88775722,
+        -1.000574862,
+        -1.88775722,
+        8.131356226,
+        -1.88775722,
+        -1.000574862,
+        -1.88775722,
+        7.697826792
+      ],
+      "normamps": 195.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_#2_aaac_5005_oh_#2_aaac_5005_abcn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 119",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 6,
+      "role_counts": {
+        "backbone": 6
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_#2_aaac_5005_oh_#2_aaac_5005_abcn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_#2_aaac_5005",
+        "oh_#2_aaac_5005",
+        "oh_#2_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_92c6d81d6eda": {
+      "r1": 0.9936984715000001,
+      "r0": 1.4302598785000002,
+      "x1": 0.45455646149999995,
+      "x0": 1.5796548045,
+      "c1": 9.751224395500001,
+      "c0": 3.3518323464999984,
+      "rmatrix": [
+        1.136049233,
+        0.145520469,
+        0.145520469,
+        1.142388648
+      ],
+      "xmatrix": [
+        0.833296129,
+        0.375032781,
+        0.375032781,
+        0.825882356
+      ],
+      "cmatrix": [
+        7.567770599,
+        -2.133130683,
+        -2.133130683,
+        7.668416826
+      ],
+      "normamps": 195.0,
+      "basefreq": 60.0,
+      "nphases": 2,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_#2_aaac_5005_oh_#2_aaac_5005_acn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 129",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 4,
+      "role_counts": {
+        "backbone": 4
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_#2_aaac_5005_oh_#2_aaac_5005_acn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_#2_aaac_5005",
+        "oh_#2_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_49039774b6bf": {
+      "r1": 0.167018709,
+      "r0": 0.167018709,
+      "x1": 0.640622449,
+      "x0": 0.640622449,
+      "c1": 8.062462383,
+      "c0": 8.062462383,
+      "rmatrix": [
+        0.167018709
+      ],
+      "xmatrix": [
+        0.640622449
+      ],
+      "cmatrix": [
+        8.062462383
+      ],
+      "normamps": 650.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_477_aac_oh_477_aac_an",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 134",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 14,
+      "role_counts": {
+        "backbone": 10,
+        "terminal": 4
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_477_aac_oh_477_aac_an",
+        "oh3p_fr8_n56_oh_477_aac_oh_477_aac_bn",
+        "oh3p_fr8_n56_oh_477_aac_oh_477_aac_cn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_477_aac"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_505e12b9ca7a": {
+      "r1": 0.6253735753333332,
+      "r0": 1.0130451083333334,
+      "x1": 0.454304835,
+      "x0": 1.38919791,
+      "c1": 9.822257772,
+      "c0": 4.771433711000002,
+      "rmatrix": [
+        0.752677104,
+        0.130166103,
+        0.127339327,
+        0.130166103,
+        0.758438051,
+        0.130166103,
+        0.127339327,
+        0.130166103,
+        0.752677104
+      ],
+      "xmatrix": [
+        0.769417631,
+        0.327335613,
+        0.280221849,
+        0.327335613,
+        0.758972318,
+        0.327335613,
+        0.280221849,
+        0.327335613,
+        0.769417631
+      ],
+      "cmatrix": [
+        7.979767553,
+        -2.002880194,
+        -1.045063673,
+        -2.002880194,
+        8.456414149,
+        -2.002880194,
+        -1.045063673,
+        -2.002880194,
+        7.979767553
+      ],
+      "normamps": 261.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_abcn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 17",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 11,
+      "role_counts": {
+        "backbone": 11
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_abcn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_5005",
+        "oh_1/0_aaac_5005",
+        "oh_1/0_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_bd48b359d9fd": {
+      "r1": 0.752677104,
+      "r0": 0.752677104,
+      "x1": 0.769417631,
+      "x0": 0.769417631,
+      "c1": 7.197784861,
+      "c0": 7.197784861,
+      "rmatrix": [
+        0.752677104
+      ],
+      "xmatrix": [
+        0.769417631
+      ],
+      "cmatrix": [
+        7.197784861
+      ],
+      "normamps": 261.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_cn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 78",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 24,
+      "role_counts": {
+        "backbone": 17,
+        "terminal": 7
+      },
+      "observed_voltage_kv": [
+        13.2,
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_cn",
+        "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_an",
+        "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_bn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_1852d504626e": {
+      "r1": 0.5258661096666667,
+      "r0": 0.8828812286666666,
+      "x1": 0.4542997596666667,
+      "x0": 1.3477334416666666,
+      "c1": 9.822257772,
+      "c0": 4.771433711000002,
+      "rmatrix": [
+        0.643125647,
+        0.119860934,
+        0.117293251,
+        0.119860934,
+        0.648362154,
+        0.119860934,
+        0.117293251,
+        0.119860934,
+        0.643125647
+      ],
+      "xmatrix": [
+        0.755903396,
+        0.313363034,
+        0.266707614,
+        0.313363034,
+        0.744526169,
+        0.313363034,
+        0.266707614,
+        0.313363034,
+        0.755903396
+      ],
+      "cmatrix": [
+        7.979767553,
+        -2.002880194,
+        -1.045063673,
+        -2.002880194,
+        8.456414149,
+        -2.002880194,
+        -1.045063673,
+        -2.002880194,
+        7.979767553
+      ],
+      "normamps": 268.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_1/0_aaac_6201_oh_1/0_aaac_6201_abcn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 109",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 3,
+      "role_counts": {
+        "terminal": 1,
+        "backbone": 2
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_1/0_aaac_6201_oh_1/0_aaac_6201_abcn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_6201",
+        "oh_1/0_aaac_6201",
+        "oh_1/0_aaac_6201"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_dede45b14385": {
+      "r1": 0.12089317349999998,
+      "r0": 0.26105793450000003,
+      "x1": 0.37605069700000004,
+      "x0": 1.146692875,
+      "c1": 11.822445744500001,
+      "c0": 3.3870390695,
+      "rmatrix": [
+        0.167018709,
+        0.046721587,
+        0.046721587,
+        0.168210812
+      ],
+      "xmatrix": [
+        0.640622449,
+        0.256880726,
+        0.256880726,
+        0.625240397
+      ],
+      "cmatrix": [
+        8.932335153,
+        -2.811802225,
+        -2.811802225,
+        9.088951886
+      ],
+      "normamps": 650.0,
+      "basefreq": 60.0,
+      "nphases": 2,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_477_aac_oh_477_aac_acn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 146",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_477_aac_oh_477_aac_acn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_477_aac",
+        "oh_477_aac"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_7228da0bcf54": {
+      "r1": 1.072615928,
+      "r0": 1.072615928,
+      "x1": 0.738040968,
+      "x0": 0.738040968,
+      "c1": 7.011829613,
+      "c0": 7.011829613,
+      "rmatrix": [
+        1.072615928
+      ],
+      "xmatrix": [
+        0.738040968
+      ],
+      "cmatrix": [
+        7.011829613
+      ],
+      "normamps": 195.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_#2_aaac_5005_oh_4/0_aac_cn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 151",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_#2_aaac_5005_oh_4/0_aac_cn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_#2_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_87e268916462": {
+      "r1": 0.16862213399999992,
+      "r0": 0.44553822200000004,
+      "x1": 0.40247666,
+      "x0": 1.2441088780000003,
+      "c1": 11.039832061,
+      "c0": 5.087298249,
+      "rmatrix": [
+        0.259687121,
+        0.092912153,
+        0.091091782,
+        0.092912153,
+        0.263408248,
+        0.092912153,
+        0.091091782,
+        0.092912153,
+        0.259687121
+      ],
+      "xmatrix": [
+        0.687237038,
+        0.295887646,
+        0.249856926,
+        0.295887646,
+        0.674588122,
+        0.295887646,
+        0.249856926,
+        0.295887646,
+        0.687237038
+      ],
+      "cmatrix": [
+        8.847464142,
+        -2.383084093,
+        -1.186365626,
+        -2.383084093,
+        9.472034087,
+        -2.383084093,
+        -1.186365626,
+        -2.383084093,
+        8.847464142
+      ],
+      "normamps": 526.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_336_acsr_18/1_oh_4/0_acsr_6/1_abcn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 160",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_336_acsr_18/1_oh_4/0_acsr_6/1_abcn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_336_acsr_18/1",
+        "oh_336_acsr_18/1",
+        "oh_336_acsr_18/1"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_4421e6849dde": {
+      "r1": 0.178978356,
+      "r0": 0.178978356,
+      "x1": 0.6465718,
+      "x0": 0.6465718,
+      "c1": 8.044972899,
+      "c0": 8.044972899,
+      "rmatrix": [
+        0.178978356
+      ],
+      "xmatrix": [
+        0.6465718
+      ],
+      "cmatrix": [
+        8.044972899
+      ],
+      "normamps": 650.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_477_aac_oh_336_aac_cn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 172",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_477_aac_oh_336_aac_cn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_477_aac"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_76809ec319fe": {
+      "r1": 0.750618375,
+      "r0": 0.750618375,
+      "x1": 0.778403886,
+      "x0": 0.778403886,
+      "c1": 7.227393208,
+      "c0": 7.227393208,
+      "rmatrix": [
+        0.750618375
+      ],
+      "xmatrix": [
+        0.778403886
+      ],
+      "cmatrix": [
+        7.227393208
+      ],
+      "normamps": 261.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh1p_vert_n56_oh_1/0_aaac_5005_oh_1/0_acsr_6/1_an",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 176",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 1,
+      "role_counts": {
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh1p_vert_n56_oh_1/0_aaac_5005_oh_1/0_acsr_6/1_an"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_06a614c31197": {
+      "r1": 0.754886536,
+      "r0": 0.754886536,
+      "x1": 0.765401895,
+      "x0": 0.765401895,
+      "c1": 7.221610582,
+      "c0": 7.221610582,
+      "rmatrix": [
+        0.754886536
+      ],
+      "xmatrix": [
+        0.765401895
+      ],
+      "cmatrix": [
+        7.221610582
+      ],
+      "normamps": 261.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh1p_vert_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_an",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 31",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 2,
+      "role_counts": {
+        "backbone": 2
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh1p_vert_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_an"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_76859e87c7f3": {
+      "r1": 0.6824793373333333,
+      "r0": 0.8220714983333333,
+      "x1": 0.5228029266666668,
+      "x0": 1.2487576886666665,
+      "c1": 9.961117986666665,
+      "c0": 4.885503257666667,
+      "rmatrix": [
+        0.72861269,
+        0.046721587,
+        0.046148987,
+        0.046721587,
+        0.729804793,
+        0.046721587,
+        0.046148987,
+        0.046721587,
+        0.72861269
+      ],
+      "xmatrix": [
+        0.769915198,
+        0.256880726,
+        0.21219331,
+        0.256880726,
+        0.754533146,
+        0.256880726,
+        0.21219331,
+        0.256880726,
+        0.769915198
+      ],
+      "cmatrix": [
+        8.10354897,
+        -2.019058994,
+        -1.037496741,
+        -2.019058994,
+        8.600641291,
+        -2.019058994,
+        -1.037496741,
+        -2.019058994,
+        8.10354897
+      ],
+      "normamps": 242.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_1/0_acsr_6/1_oh_477_aac_abcn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 180",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_1/0_acsr_6/1_oh_477_aac_abcn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_acsr_6/1",
+        "oh_1/0_acsr_6/1",
+        "oh_1/0_acsr_6/1"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_c3943d4e3d31": {
+      "r1": 0.16565755999999998,
+      "r0": 0.447822218,
+      "x1": 0.21785274,
+      "x0": 0.07903841699999999,
+      "c1": 215.223097113,
+      "c0": 215.223097113,
+      "rmatrix": [
+        0.259712446,
+        0.094054886,
+        0.094054886,
+        0.094054886,
+        0.259712446,
+        0.094054886,
+        0.094054886,
+        0.094054886,
+        0.259712446
+      ],
+      "xmatrix": [
+        0.171581299,
+        -0.046271441,
+        -0.046271441,
+        -0.046271441,
+        0.171581299,
+        -0.046271441,
+        -0.046271441,
+        -0.046271441,
+        0.171581299
+      ],
+      "cmatrix": [
+        215.223097113,
+        0.0,
+        0.0,
+        0.0,
+        215.223097113,
+        0.0,
+        0.0,
+        0.0,
+        215.223097113
+      ],
+      "normamps": 508.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "cable",
+      "source_feeder": "Ckt24",
+      "source_linecode": "ug_600_al_xlpe_35kv",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "29dc4b140d1d505ca2a97c9c8dfa62f2be72ff75f3458c0a6c367d45fc46f987",
+      "source_file": "reference_data/epri_large/ckt24/Linecodes_ckt24.dss",
+      "source_locator": "line 5",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 4,
+      "role_counts": {
+        "backbone": 2,
+        "terminal": 2
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "ug_600_al_xlpe_35kv"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": 35.0,
+      "voltage_class_basis": "explicit kV suffix in source LineCode name; not independently certified",
+      "source_declared_phases": 3,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_c0cb754b7b70": {
+      "r1": 0.263260348,
+      "r0": 0.263260348,
+      "x1": 0.610487492,
+      "x0": 0.610487492,
+      "c1": 8.545490157,
+      "c0": 8.545490157,
+      "rmatrix": [
+        0.263260348
+      ],
+      "xmatrix": [
+        0.610487492
+      ],
+      "cmatrix": [
+        8.545490157
+      ],
+      "normamps": 521.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_armlpin_n30_oh_336_aac_oh_4/0_aac_cn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 222",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 4,
+      "role_counts": {
+        "terminal": 2,
+        "backbone": 2
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_aliases": [
+        "oh3p_armlpin_n30_oh_336_aac_oh_4/0_aac_cn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_336_aac"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_b6b4c4053ac6": {
+      "r1": 0.750294314,
+      "r0": 0.750294314,
+      "x1": 0.773766147,
+      "x0": 0.773766147,
+      "c1": 7.15808255,
+      "c0": 7.15808255,
+      "rmatrix": [
+        0.750294314
+      ],
+      "xmatrix": [
+        0.773766147
+      ],
+      "cmatrix": [
+        7.15808255
+      ],
+      "normamps": 261.0,
+      "basefreq": 60.0,
+      "nphases": 1,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr10_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_cn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 226",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 2,
+      "role_counts": {
+        "backbone": 2
+      },
+      "observed_voltage_kv": [
+        13.2
+      ],
+      "source_aliases": [
+        "oh3p_fr10_n56_oh_1/0_aaac_5005_oh_1/0_aaac_5005_cn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_d51628a49237": {
+      "r1": 0.6253534103333334,
+      "r0": 0.7649455713333333,
+      "x1": 0.45427682066666664,
+      "x0": 1.1802315826666665,
+      "c1": 9.822329427,
+      "c0": 4.852038117999999,
+      "rmatrix": [
+        0.671486763,
+        0.046721587,
+        0.046148987,
+        0.046721587,
+        0.672678866,
+        0.046721587,
+        0.046148987,
+        0.046721587,
+        0.671486763
+      ],
+      "xmatrix": [
+        0.701389092,
+        0.256880726,
+        0.21219331,
+        0.256880726,
+        0.68600704,
+        0.256880726,
+        0.21219331,
+        0.256880726,
+        0.701389092
+      ],
+      "cmatrix": [
+        8.005057398,
+        -1.97525874,
+        -1.019773829,
+        -1.97525874,
+        8.486582176,
+        -1.97525874,
+        -1.019773829,
+        -1.97525874,
+        8.005057398
+      ],
+      "normamps": 261.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "overhead",
+      "source_feeder": "Ckt24",
+      "source_linecode": "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_477_aac_abcn",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+      "source_file": "reference_data/epri_large/ckt24/Linegeometry_ckt24.dss",
+      "source_locator": "line 234",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 1,
+      "role_counts": {
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "oh3p_fr8_n56_oh_1/0_aaac_5005_oh_477_aac_abcn"
+      ],
+      "rating_basis": "explicit phase WireData.normamps; engine rating equals phase minimum",
+      "phase_wire_names": [
+        "oh_1/0_aaac_5005",
+        "oh_1/0_aaac_5005",
+        "oh_1/0_aaac_5005"
+      ],
+      "source_voltage_class_kv": null,
+      "voltage_class_basis": "unknown",
+      "source_declared_phases": null,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_ebed891d6073": {
+      "r1": 0.987980196,
+      "r0": 0.987980196,
+      "x1": 0.35418157999999994,
+      "x0": 0.35418157999999994,
+      "c1": 114.953670564,
+      "c0": 114.953670564,
+      "rmatrix": [
+        0.987980196,
+        0.0,
+        0.0,
+        0.0,
+        0.987980196,
+        0.0,
+        0.0,
+        0.0,
+        0.987980196
+      ],
+      "xmatrix": [
+        0.35418158,
+        0.0,
+        0.0,
+        0.0,
+        0.35418158,
+        0.0,
+        0.0,
+        0.0,
+        0.35418158
+      ],
+      "cmatrix": [
+        114.953670564,
+        0.0,
+        0.0,
+        0.0,
+        114.953670564,
+        0.0,
+        0.0,
+        0.0,
+        114.953670564
+      ],
+      "normamps": 200.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "cable",
+      "source_feeder": "Ckt24",
+      "source_linecode": "ug_1/0_al_xlpe_35kv_1_phase",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "29dc4b140d1d505ca2a97c9c8dfa62f2be72ff75f3458c0a6c367d45fc46f987",
+      "source_file": "reference_data/epri_large/ckt24/Linecodes_ckt24.dss",
+      "source_locator": "line 7",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 7,
+      "role_counts": {
+        "backbone": 7
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "ug_1/0_al_xlpe_35kv_1_phase"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": 35.0,
+      "voltage_class_basis": "explicit kV suffix in source LineCode name; not independently certified",
+      "source_declared_phases": 1,
+      "selectable": false,
+      "selection_blocker": "phase_count_exceeds_source_definition",
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "epri_ckt24_ec9a65fa90cf": {
+      "r1": 0.130550088,
+      "r0": 0.337590969,
+      "x1": 0.189331802,
+      "x0": 0.067915871,
+      "c1": 287.073490814,
+      "c0": 287.073490814,
+      "rmatrix": [
+        0.199563715,
+        0.069013627,
+        0.069013627,
+        0.069013627,
+        0.199563715,
+        0.069013627,
+        0.069013627,
+        0.069013627,
+        0.199563715
+      ],
+      "xmatrix": [
+        0.148859825,
+        -0.040471977,
+        -0.040471977,
+        -0.040471977,
+        0.148859825,
+        -0.040471977,
+        -0.040471977,
+        -0.040471977,
+        0.148859825
+      ],
+      "cmatrix": [
+        287.073490814,
+        0.0,
+        0.0,
+        0.0,
+        287.073490814,
+        0.0,
+        0.0,
+        0.0,
+        287.073490814
+      ],
+      "normamps": 640.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "cable",
+      "source_feeder": "Ckt24",
+      "source_linecode": "ug_1000_al_xlpe_35kv",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "29dc4b140d1d505ca2a97c9c8dfa62f2be72ff75f3458c0a6c367d45fc46f987",
+      "source_file": "reference_data/epri_large/ckt24/Linecodes_ckt24.dss",
+      "source_locator": "line 6",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 1,
+      "role_counts": {
+        "terminal": 1
+      },
+      "observed_voltage_kv": [
+        34.5
+      ],
+      "source_aliases": [
+        "ug_1000_al_xlpe_35kv"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": 35.0,
+      "voltage_class_basis": "explicit kV suffix in source LineCode name; not independently certified",
+      "source_declared_phases": 3,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    }
+  },
+  "training_feeders": [
+    "Ckt5",
+    "Ckt24"
+  ],
+  "inventory_only_feeders": [
+    "Ckt7"
+  ],
+  "heldout_feeders": [],
+  "provenance": {
+    "repository": "https://github.com/tshort/OpenDSS",
+    "commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+    "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/",
+    "files": {
+      "Readme.pdf": {
+        "sha256": "23f39406e6361c86a03e2f3244a70e982a92bad2a01f88fcaa9e2fc2446598c1",
+        "git_blob": "2a465002a8de501599805f08c35439770b76dabb",
+        "source_path": "Distrib/EPRITestCircuits/Readme.pdf",
+        "bytes": 129638
+      },
+      "ckt24/Allocated_Loads_ckt24.dss": {
+        "sha256": "1d39430b1c00ea297449303aa670efc4973b81aadb11368c13cb41c2c97f337d",
+        "git_blob": "3fdbaf012fe0836755eba7c15ff4a07c7acb33da",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/Allocated_Loads_ckt24.dss",
+        "bytes": 739979
+      },
+      "ckt24/AllocationFactors_Base.Txt": {
+        "sha256": "0facd26da9f19514557ffae56f3ab5142d27efe0dcbb2bcf0746691d5d677105",
+        "git_blob": "34d436fbb78952589c50793134e76446913bab88",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/AllocationFactors_Base.Txt",
+        "bytes": 156888
+      },
+      "ckt24/AnnualSimulation.dss": {
+        "sha256": "4d739df7ba3fcce1dc8617edaf0907f02dbdb84a236d2ceae6176a3560807031",
+        "git_blob": "9aecab86591abf1d52d8c61da09f7fef453baa22",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/AnnualSimulation.dss",
+        "bytes": 1130
+      },
+      "ckt24/LS_PhaseA.txt": {
+        "sha256": "140596ea763530c600e7b7fb623a6559c1cae5b9cfdcc3563e0cd6dbe80a23da",
+        "git_blob": "d6ddf5464535f3fdc608b5379ee56c36f6e3ba27",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/LS_PhaseA.txt",
+        "bytes": 112894
+      },
+      "ckt24/LS_PhaseB.txt": {
+        "sha256": "beaba094c7a083f7c4ce928c3a33e2b84d923ef3818ac18bd8d3abfb1c43aea3",
+        "git_blob": "07781151a64622d0491502b5829289d2a98fdeb3",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/LS_PhaseB.txt",
+        "bytes": 112944
+      },
+      "ckt24/LS_PhaseC.txt": {
+        "sha256": "d6b57395a3e0da7689bae17573ed50f0213b53f03aeafef0f7f3aba562fa8794",
+        "git_blob": "784cef8b1e1972784bf287aee78e72a19d6b09fb",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/LS_PhaseC.txt",
+        "bytes": 112848
+      },
+      "ckt24/LS_ThreePhase.txt": {
+        "sha256": "c723679c352d1a0a08582527ea135a50602a624d4f04dff64918d88ced151b6a",
+        "git_blob": "24eb0905fa4f0adde1703e0a1425cd92025f951d",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/LS_ThreePhase.txt",
+        "bytes": 112906
+      },
+      "ckt24/Linecodes_ckt24.dss": {
+        "sha256": "29dc4b140d1d505ca2a97c9c8dfa62f2be72ff75f3458c0a6c367d45fc46f987",
+        "git_blob": "8c81f1d814970c940f86cb786bcc9e4cf4251f3e",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/Linecodes_ckt24.dss",
+        "bytes": 693
+      },
+      "ckt24/Linegeometry_ckt24.dss": {
+        "sha256": "099a052657522fed6d122e69c68769efe49d7af7c56ae368061665bc1a86c59e",
+        "git_blob": "3f495ce482e491967e626bdc276447e7db7f2c8d",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/Linegeometry_ckt24.dss",
+        "bytes": 11914
+      },
+      "ckt24/Monitors_ckt24.dss": {
+        "sha256": "b92081a9a20290ab6e6d2ad3f549f87f232e109f3a45df5ffd3ebbfabbb82f29",
+        "git_blob": "97a58baa302a390bab56709f4e86fb17a56ce205",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/Monitors_ckt24.dss",
+        "bytes": 445
+      },
+      "ckt24/Other_Bus_Load.txt": {
+        "sha256": "7bf5ef25519ae0f27dd9e9a394a42b393e5951ca4cbafb671d86e1add478ffef",
+        "git_blob": "2df9f60e96477e02977bec3fca3c549f25a3c2d0",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/Other_Bus_Load.txt",
+        "bytes": 112915
+      },
+      "ckt24/Other_Load_ckt24.dss": {
+        "sha256": "4d395e121c573e803e7900c3568bc9a577852f38cb9e8525fa52a91c0b76aba2",
+        "git_blob": "0685c61f1cf3e5d8158de827539414e7f08c44ff",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/Other_Load_ckt24.dss",
+        "bytes": 267
+      },
+      "ckt24/REG_subxfmr_regulator.CSV": {
+        "sha256": "793f08cdae17b2f880084515fee869cd69c3f5a7e5efefd660095ac93be0b8cd",
+        "git_blob": "9e2c759f490f2cdd3ab3927e017eb7d991aa650f",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/REG_subxfmr_regulator.CSV",
+        "bytes": 251
+      },
+      "ckt24/Run_Ckt24.dss": {
+        "sha256": "27c4e99f714c65576005e2574fd3873a18ee902fc1364c087bcb4f34db932f4c",
+        "git_blob": "d9e933a1ac1154b2342304de207602b00ef84a3e",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/Run_Ckt24.dss",
+        "bytes": 840
+      },
+      "ckt24/TriplexLineCodes_ckt24.dss": {
+        "sha256": "51b0295f8bae52e2bc92daa8abf23a0c318c2aa8b7df5facdfa4a0854fe07c47",
+        "git_blob": "e3951490dc0d10edf444c8ffa764958b48585d41",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/TriplexLineCodes_ckt24.dss",
+        "bytes": 4136
+      },
+      "ckt24/Wiredata_ckt24.dss": {
+        "sha256": "03717fa7b082f767a3a69e7bbad4b8aa1da8b9d9ec3f9d9418e8ca03aedf8ef5",
+        "git_blob": "ebc95647f56dc024e43c18a994fbf6b835799810",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/Wiredata_ckt24.dss",
+        "bytes": 1475
+      },
+      "ckt24/buscoords_ckt24.dss": {
+        "sha256": "a28c32c908d9597a6541104d6ff063fc0a1a20707bd3bea3d284a2fb0081d06e",
+        "git_blob": "067322bafe7a7db031c673b90d8a1b40e37e2335",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/buscoords_ckt24.dss",
+        "bytes": 44582
+      },
+      "ckt24/capacitors_ckt24.dss": {
+        "sha256": "3fb302ba85a5efa14350136e47f85135be487e9d38414a838704727a7469dcb1",
+        "git_blob": "e0d48125da001dc44efaf9bdb30a08d498417ec4",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/capacitors_ckt24.dss",
+        "bytes": 282
+      },
+      "ckt24/lines_ckt24.dss": {
+        "sha256": "98e4112b7a50ad555370c13c847f6b790550292b2a07c439bf346655945cffa2",
+        "git_blob": "75870c0ac18194154deeac167de2e5fa347087ba",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/lines_ckt24.dss",
+        "bytes": 181738
+      },
+      "ckt24/master_ckt24.dss": {
+        "sha256": "cbae506d6131b90d0c4d5feb04e4174da9a2f6803285784084a24c6107d5ef4b",
+        "git_blob": "3507eadb0d0464b70e4c14b0451f7ad53530bdd4",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/master_ckt24.dss",
+        "bytes": 1673
+      },
+      "ckt24/sec_serv_ckt24.dss": {
+        "sha256": "8a49b1052aaa56a177fc781081a87892031867a083d1ed4bb47eba88fafeac72",
+        "git_blob": "31d5d1ef087df97271f1c9810bc72ae0e3342bab",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/sec_serv_ckt24.dss",
+        "bytes": 582203
+      },
+      "ckt24/stepxfmrs_ckt24.dss": {
+        "sha256": "313f8a165a802ea24262f3decbc6d38a33ea45ff4774dea3f0a89d1f9730193e",
+        "git_blob": "3cd6cef021303229f5a9de5de3629f8ecd18b02c",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/stepxfmrs_ckt24.dss",
+        "bytes": 5003
+      },
+      "ckt24/substation_ckt24.dss": {
+        "sha256": "36ff38a775f537a7d5863e768f9de3bd2d5f6d3554241ed5f11f57f50f602305",
+        "git_blob": "4cc2a231dc64c57083d5d51b5e3bcfaa5a12a394",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/substation_ckt24.dss",
+        "bytes": 855
+      },
+      "ckt24/transformers_ckt24.dss": {
+        "sha256": "52f9e9ae30f61372217fb96eedbf2b308b7a74129c90bca83047d04dbd3d5913",
+        "git_blob": "2a2ab51515688674a625c40908246586c6426786",
+        "source_path": "Distrib/EPRITestCircuits/ckt24/transformers_ckt24.dss",
+        "bytes": 164043
+      },
+      "ckt5/Buscoords_ckt5.dss": {
+        "sha256": "efb1330719f7048fdd5de53a4a4908f5869759a53e2eb9b05c115ececbbde89d",
+        "git_blob": "eab09985814e5482ef6bb82a102d8ccebc616a05",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/Buscoords_ckt5.dss",
+        "bytes": 31110
+      },
+      "ckt5/Capacitors_ckt5.dss": {
+        "sha256": "bbc3ec04fa4c292f2198fa4e61a06625d04755307624925aab3011187aa80e55",
+        "git_blob": "f2b3902bc941c7977b68975f62de0aed3560bcf9",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/Capacitors_ckt5.dss",
+        "bytes": 1532
+      },
+      "ckt5/Generators_ckt5.dss": {
+        "sha256": "9024f36ee01deadcde965038e4c275c0f61a8f9a9f4e2f5e20e0dc43ae0a94c6",
+        "git_blob": "8519ebdab0da7d4660f5a9000056522630f61a4b",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/Generators_ckt5.dss",
+        "bytes": 27
+      },
+      "ckt5/LineCodes_ckt5.dss": {
+        "sha256": "27e26f60a4b22f4557424f601b94a81a1971496622519d65c66611139af082e3",
+        "git_blob": "f41e832331cecfcfb03b911e45847a8c48f5c3b8",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/LineCodes_ckt5.dss",
+        "bytes": 392
+      },
+      "ckt5/LineGeometry_ckt5.dss": {
+        "sha256": "e69e0db6af0acc2314a45b68c025e416c4db6c0f65debf0acc28d28593f11726",
+        "git_blob": "a9c37048ef90e40548df85739d07e8aab0506e1b",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/LineGeometry_ckt5.dss",
+        "bytes": 8252
+      },
+      "ckt5/Lines_ckt5.dss": {
+        "sha256": "c84a1af20854d1f2c7defd09baddb62fcde68a2a9476513654719f84dc7027d8",
+        "git_blob": "0fc510e2501bdfd2f5476cbe7c9bb1bb1c9353b1",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/Lines_ckt5.dss",
+        "bytes": 248411
+      },
+      "ckt5/Loads_ckt5.dss": {
+        "sha256": "3bd21b205acf26213a97dc612c219024128e2f4c5b92f1940ba1f399d1839159",
+        "git_blob": "50063202a5d55f4ced732eea8c19665844417f9c",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/Loads_ckt5.dss",
+        "bytes": 476017
+      },
+      "ckt5/Loadshapes_ckt5.dss": {
+        "sha256": "ae32c21dc5659b8336e0efb1805e07179bda66f185929e699f9701102f0be387",
+        "git_blob": "f38816ca72b2200b95455901a500711b1c135524",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/Loadshapes_ckt5.dss",
+        "bytes": 262974
+      },
+      "ckt5/Master_ckt5.dss": {
+        "sha256": "33b3b2adbc82f95858c46375bcc244238b85a9a928681a3bd373016743ceec12",
+        "git_blob": "ebb8acdd5f76e315bcdc5f01a80fc35ce437811a",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/Master_ckt5.dss",
+        "bytes": 622
+      },
+      "ckt5/Monitors_ckt5.dss": {
+        "sha256": "b21c207e7b68567fd7ad2fa53fa65e432e0d833b358f2a17894a0055b74d163c",
+        "git_blob": "26de9707bfeb925cbafd5526a2b4ddce73b041a4",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/Monitors_ckt5.dss",
+        "bytes": 437
+      },
+      "ckt5/Regulators_ckt5.dss": {
+        "sha256": "cca5076e5b6a072b518f7af5e6f4b357a3e91a9daebcc0904e356427682b1423",
+        "git_blob": "9bb9525504a6d335720af6054ffb4cbf99fd4881",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/Regulators_ckt5.dss",
+        "bytes": 28
+      },
+      "ckt5/RunVplot_ckt5.dss": {
+        "sha256": "b282b3ceb28730ac621e4a07609532d9aff7dcfb1ed0f07392882bb2ec7599a5",
+        "git_blob": "e823103777f3e2026820c122676ce1e193fd0a4e",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/RunVplot_ckt5.dss",
+        "bytes": 273
+      },
+      "ckt5/Run_ckt5.dss": {
+        "sha256": "7f4a1b4fa3144fb67801e63f4e36177a5df6f1bd5ad1b29d540c1f9b8592219b",
+        "git_blob": "94ec49deb5e23538adb11b960c41caad4c55a47c",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/Run_ckt5.dss",
+        "bytes": 2251
+      },
+      "ckt5/Transformers_ckt5.dss": {
+        "sha256": "f4a0d2c6c2630de37db767d4f0fe7bfd769e1253274b552466bdf53607fadc7d",
+        "git_blob": "3061cc4b11c7f2c1c4feacaf7ebad7207c209ab9",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/Transformers_ckt5.dss",
+        "bytes": 510
+      },
+      "ckt5/WireData_ckt5.dss": {
+        "sha256": "5a49e0e80cb1253cf47d6e01d6b328a93a3e3d593b0f8642b968d04070442142",
+        "git_blob": "12104fd3a921bc1f4838650dcf402a7666583f76",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/WireData_ckt5.dss",
+        "bytes": 1229
+      },
+      "ckt5/XFR_Loads_ckt5.dss": {
+        "sha256": "f4de7a03ac21dc1d498aad3b828d59cbf940669ab0f3bd7e0675f275aa7e0df5",
+        "git_blob": "c57ed64a0cdab27837fd5cfbad2bfb378e4f3e17",
+        "source_path": "Distrib/EPRITestCircuits/ckt5/XFR_Loads_ckt5.dss",
+        "bytes": 112018
+      },
+      "ckt7/AllocationFactors.dss": {
+        "sha256": "c7d572f533f84897b6cf7901aa989cf1ba5a3c94f49c1fb39afb2cd282bd9503",
+        "git_blob": "8580633051fa6ddea34d8c044dba40f075c5c89b",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/AllocationFactors.dss",
+        "bytes": 37268
+      },
+      "ckt7/BusCoords_ckt7.dss": {
+        "sha256": "45b72ad8562995fad79d185a167f12afbd49751a9611ef8e9b942dc8eb407d9a",
+        "git_blob": "0a851055997a68bf9424238b6ab542bff29d287d",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/BusCoords_ckt7.dss",
+        "bytes": 6912
+      },
+      "ckt7/Capacitors_ckt7.dss": {
+        "sha256": "fd7878dd6868acf4fd1c3de3334d1da6a283ca257110ed193d116ee021301b95",
+        "git_blob": "7d2541e2a72cba006a7063203f577531e6873a71",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/Capacitors_ckt7.dss",
+        "bytes": 391
+      },
+      "ckt7/LineCodes_ckt7.dss": {
+        "sha256": "6d955368b259b8500ac16305d3c74136cee71e7e8d2f1a770989b12a8a4ad9f8",
+        "git_blob": "6c585bc0e795e987e71bbaa139a5fbf6342a19ee",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/LineCodes_ckt7.dss",
+        "bytes": 29094
+      },
+      "ckt7/LineGeometry_ckt7.dss": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/LineGeometry_ckt7.dss",
+        "bytes": 0
+      },
+      "ckt7/Lines_ckt7.dss": {
+        "sha256": "1b5773e1852b2b8401e3216ac9244ed439f692c68bda8b09ca8d998322376260",
+        "git_blob": "5460c0a713edf9c173efac25e64f405ac53fe621",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/Lines_ckt7.dss",
+        "bytes": 31579
+      },
+      "ckt7/Load_XFMR_ckt7.dss": {
+        "sha256": "2786c9d323178e306d6174a00277bccfc24d56606d86977ca78e5f2cb3cdf758",
+        "git_blob": "08eb70721b82458884a8e59df4ba775576f77e01",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/Load_XFMR_ckt7.dss",
+        "bytes": 28435
+      },
+      "ckt7/Loads_ckt7.dss": {
+        "sha256": "bb9133372f66943efb94db6dfbf6c1703e8287afd4f02f2a2e33f81741b6985c",
+        "git_blob": "4ea9e24d33cf1ce0e61bc945be35cead502f5078",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/Loads_ckt7.dss",
+        "bytes": 143596
+      },
+      "ckt7/Loadshapes_ckt7.dss": {
+        "sha256": "cdc313c9470fa3a3317fa88d355499fafb94e023775903de49bf69976a28c20f",
+        "git_blob": "7f181c971e666b1e3fe0a335ce9bbcf56116f1cd",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/Loadshapes_ckt7.dss",
+        "bytes": 2916486
+      },
+      "ckt7/Master_ckt7.dss": {
+        "sha256": "407d6ba7f0d62cf32ecc684f68e6f5933a69154bbf3383296b27d871b27a2bb8",
+        "git_blob": "18c9ca13a08bb2cdfd530f638f7ca94f86eb90ce",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/Master_ckt7.dss",
+        "bytes": 747
+      },
+      "ckt7/Monitors_ckt7.dss": {
+        "sha256": "a61227b8a59be2352cdf080914438009f80a0217898c7d091210841be03005e9",
+        "git_blob": "f1e31d38912843461020ef24a4b32dec245ce617",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/Monitors_ckt7.dss",
+        "bytes": 199
+      },
+      "ckt7/RunDSS_ckt7.dss": {
+        "sha256": "96ec156017386eec1bfd605bdd9d72128338efd5626b8718fa6bbebe5b996a8e",
+        "git_blob": "1de03ee3563c5c194f6ea7d31fceb3870075f0eb",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/RunDSS_ckt7.dss",
+        "bytes": 1832
+      },
+      "ckt7/Services_ckt7.dss": {
+        "sha256": "07c5bcd1c722efd2c3b32d13384b776f136e51b18dcd6762a69630e051191c67",
+        "git_blob": "412ce3916a3a47d0ea531ca5fe806e724675796b",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/Services_ckt7.dss",
+        "bytes": 98084
+      },
+      "ckt7/Substation_ckt7.dss": {
+        "sha256": "f4e399c950fac4217f6660a3168e7cc3d2e7147b9f01b7d5e60afff7b2bbd353",
+        "git_blob": "e6e497471440ca7d8f71b70f23d425c77337fa29",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/Substation_ckt7.dss",
+        "bytes": 4152
+      },
+      "ckt7/Transformers_ckt7.dss": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "source_path": "Distrib/EPRITestCircuits/ckt7/Transformers_ckt7.dss",
+        "bytes": 0
+      },
+      "License.txt": {
+        "sha256": "72e6cb08d3397a969f7763d87ae46bea03f2246a4a996524d0df19285a422560",
+        "git_blob": "8c5a969ec0f78902c1817923aee93704b03d25d1",
+        "source_path": "License.txt",
+        "bytes": 1675
+      },
+      "README.md": {
+        "sha256": "e41dab64d4f3fde304f29da3649291affd6eb94910bf4443c4d1a9f5378db818",
+        "git_blob": "54b66974f5ed82eced091f495c0dbfb12224453d",
+        "source_path": "README.md",
+        "bytes": 1138
+      }
+    }
+  },
+  "source_evidence": "reference_data/epri_large/Readme.pdf explicitly describes3 actual distribution circuit models.",
+  "scope": "Three additional published actual-circuit models, not3 independent utilities; Ckt7 construction unknown and inventory-only. Electrical aliases deduplicated within each circuit.",
+  "counts": {
+    "Ckt5": {
+      "snapshot_converged": true,
+      "buses": 2998,
+      "source_lines": 2429,
+      "included_segments": 802,
+      "equipment_tuples": 21,
+      "selectable_segments": 802,
+      "selectable_equipment_tuples": 21,
+      "excluded": {
+        "switch_disabled_open": 78,
+        "missing_auditable_equipment_definition": 1,
+        "artificial_busbar": 169,
+        "not_mv": 1379
+      }
+    },
+    "Ckt7": {
+      "snapshot_converged": true,
+      "buses": 1255,
+      "source_lines": 1159,
+      "included_segments": 278,
+      "equipment_tuples": 14,
+      "selectable_segments": 0,
+      "selectable_equipment_tuples": 0,
+      "excluded": {
+        "missing_physical_length": 3,
+        "switch_disabled_open": 11,
+        "not_mv": 867
+      }
+    },
+    "Ckt24": {
+      "snapshot_converged": true,
+      "buses": 6058,
+      "source_lines": 5222,
+      "included_segments": 1266,
+      "equipment_tuples": 33,
+      "selectable_segments": 1245,
+      "selectable_equipment_tuples": 31,
+      "excluded": {
+        "artificial_busbar": 64,
+        "not_mv": 3891,
+        "missing_physical_length": 1
+      }
+    }
+  }
+}

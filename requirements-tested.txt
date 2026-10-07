@@ -1,0 +1,17 @@
+# Direct dependencies used for the local M87 release checks.
+# Not a complete transitive or cross-platform lock.
+langchain==1.4.2
+langchain-openai==1.6.3
+langgraph==1.2.12
+langgraph-checkpoint-sqlite==3.1.1
+matplotlib==3.11.2
+networkx==3.7
+opendssdirect.py==0.9.4
+plotly==6.9.0
+pydantic==2.13.5
+pypower==5.1.21
+pytest==9.1.1
+python-dotenv==1.2.3
+pyyaml==6.0.3
+scipy==1.18.1
+streamlit==1.64.0
