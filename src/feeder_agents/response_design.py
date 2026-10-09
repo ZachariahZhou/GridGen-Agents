@@ -77,7 +77,7 @@ def _distribution_options(model, spec, probes, assessment):
     return conductor_options(model, spec, probes, assessment)
 
 
-def propose_response_actions(model, spec, probes, assessment, search, original=None, audit=None):
+def propose_response_actions(model, spec, probes, assessment, search, original=None, audit=None, *, remaining_rounds=None):
     if model['kind'] == 'distribution':
         actions = _distribution_options(model, spec, probes, assessment) if 'replace_conductor' in search.allowed_actions else []
         if not assessment['base_accepted'] and 'replace_conductor' in search.allowed_actions:
@@ -115,10 +115,14 @@ def propose_response_actions(model, spec, probes, assessment, search, original=N
                     actions.append(dict(kind='parallel_line', index=i, value=e['circuits']+1,
                         proxy_effect=impact.get(i, 0), diagnosis='Add a complete parallel circuit; retain the fixed charging compensation fraction; verify AC transfer response'))
             from .response_transmission import rank_parallel_actions
-            actions = rank_parallel_actions(model, probes, assessment, actions)
+            actions = rank_parallel_actions(model, probes, assessment, actions,
+                lookahead=min(2, search.max_rounds if remaining_rounds is None else remaining_rounds))
+    if model['kind'] == 'distribution':
+        from .response_distribution import rank_distribution_actions
+        actions = rank_distribution_actions(model, probes, assessment, actions, preserve_diversity=True)
     unique = {}
     for action in actions:
-        key = digest({k: v for k, v in action.items() if k not in ('diagnosis', 'proxy_effect', 'dc_predicted_deficit', 'dc_response_ratios')})[:16]
+        key = digest({k: v for k, v in action.items() if k not in ('diagnosis', 'proxy_effect', 'dc_predicted_deficit', 'dc_response_ratios', 'dc_lookahead_deficit', 'dc_lookahead_action', 'proxy_predicted_deficits', 'proxy_response_estimates')})[:16]
         unique.setdefault(key, dict(action, action_id=key))
     elementary=list(unique.values())
     if search.max_joint_actions>1:
@@ -140,6 +144,7 @@ def propose_response_actions(model, spec, probes, assessment, search, original=N
         actions=[a for row in zip_longest(elementary,joint,compensation) for a in row if a is not None]
     else:actions=elementary
     if model['kind']=='distribution' and original is not None:
+        actions = rank_distribution_actions(model, probes, assessment, actions)
         # Cheap structural/permission screening precedes the preview budget.
         from types import SimpleNamespace
         contract=SimpleNamespace(search=search,base_spec=spec)
@@ -196,7 +201,13 @@ class ResponseDecision(StrictModel):
 
 def _choose(options, plan, root, model):
     if plan.search.selector == 'heuristic':
-        return min(options, key=lambda x: (sum(x['assessment']['deficits']),len(x['action'].get('actions',[x['action']])),x['action']['action_id'])), dict(selector='heuristic')
+        def priority(option):
+            actual = sum(option['assessment']['deficits'])
+            future = option['action'].get('dc_lookahead_deficit', actual)
+            return (not option['assessment']['target_met'], future, actual,
+                    len(option['action'].get('actions', [option['action']])), option['action']['action_id'])
+        return min(options, key=priority), dict(selector='heuristic',
+            policy='AC-verified completion first; bounded DC lookahead for transfer corridors; measured deficit otherwise')
     from .structured_planning import StructuredPlanner
     if model is None:
         from .agent import configured_model
@@ -294,7 +305,8 @@ def run_response_design(plan, workspace, design_id, *, model=None,task_context=N
         for round_index in range(1, plan.search.max_rounds+1):
             if current['target_met'] or not current['valid']: break
             proposal_audit=[]
-            options = propose_response_actions(current_model, plan.base_spec, probes, current, plan.search, original_model,proposal_audit)
+            options = propose_response_actions(current_model, plan.base_spec, probes, current, plan.search, original_model,proposal_audit,
+                remaining_rounds=plan.search.max_rounds-round_index+1)
             atomic_json(root/f'proposals/round_{round_index:02d}.json',dict(screened=proposal_audit,ac_preview_count=len(options)))
             eligible = []
             for action in options:

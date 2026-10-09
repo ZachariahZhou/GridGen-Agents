@@ -1,4 +1,5 @@
 """Physical-unit transmission equipment and explicit voltage-layer topology."""
+import copy
 import math
 import numpy as np
 import networkx as nx
@@ -44,6 +45,79 @@ def dc_flows(case):
     return case['baseMVA']*sus*(incidence@theta)
 
 
+def initialize_voltage_dispatch(case,meta,spec):
+    """Resolve isolated nominal-dispatch Q violations before freezing a model.
+
+    Equal voltage setpoints do not imply equal reactive sharing. A generator
+    on a strongly coupled corridor can exceed Qmax while nearby units retain
+    ample reserve. Use only the already permitted local voltage control, never
+    enlarge installed P/Q capability or alter the requested injections.
+    """
+    from .transmission import validate_case
+    baseline=case['gen'][:,5].copy()
+    lower=max(.95,spec.voltage_min_pu);upper=min(1.05,spec.voltage_max_pu)
+    evidence=dict(policy='bounded_local_voltage_initialization_v1',
+        basis='Existing permitted local voltage control; engineering search bounds, not a manufacturer capability claim.',
+        nominal_setpoints_pu=baseline.tolist(),max_setpoint_change_pu=.01,
+        voltage_bounds_pu=[lower,upper],candidate_steps_pu=[.0001,.0005,.001],
+        max_rounds=6,max_evaluations=19,evaluations=0,
+        evaluation_unit='validate_case, including all requested validation conditions',
+        reserve_fraction_of_q_range=.05,trials=[],accepted_actions=[])
+    meta['voltage_initialization']=evidence
+    if 'voltage_setpoint' not in spec.allowed_repairs:
+        evidence.update(status='not_permitted',final_setpoints_pu=baseline.tolist())
+        return
+    checked,solved=validate_case(case,spec,meta);evidence['evaluations']=1
+    evidence.update(initial_checks=checked['checks'],
+        initial_q_mvar=[float(q) if math.isfinite(q) else None for q in solved['gen'][:,2]],
+        q_limits_mvar=case['gen'][:,[4,3]].tolist())
+    if checked['checks']['generator_q_limits']:
+        evidence['status']='not_needed'
+    elif not all(value for key,value in checked['checks'].items() if key!='generator_q_limits'):
+        evidence['status']='other_constraints_failed'
+    else:
+        qmin=case['gen'][:,4];qmax=case['gen'][:,3];span=qmax-qmin
+        # Five percent at each end of the declared range is a modest operating
+        # reserve, not a new acceptance limit. Final validation keeps Qmin/Qmax.
+        inner_min=qmin+.05*span;inner_max=qmax-.05*span
+        scale=np.maximum(span,1.)
+        def deficits(result,reserve=False):
+            q=result['gen'][:,2]
+            lo,hi=(inner_min,inner_max) if reserve else (qmin,qmax)
+            return np.maximum(lo-q,0.)/scale+np.maximum(q-hi,0.)/scale
+        for _ in range(evidence['max_rounds']):
+            excess=deficits(solved,True);score=float(excess.sum())
+            if score<1e-9:break
+            index=int(np.argmax(excess));direction=-1 if solved['gen'][index,2]>inner_max[index] else 1
+            best=None
+            for step in evidence['candidate_steps_pu']:
+                value=round(float(case['gen'][index,5])+direction*step,7)
+                if not lower<=value<=upper or abs(value-baseline[index])>.01000001:continue
+                trial=copy.deepcopy(case);trial['gen'][index,5]=value
+                after,result=validate_case(trial,spec,meta);evidence['evaluations']+=1
+                finite=after['checks']['converged'] and after['checks']['finite']
+                trial_score=float(deficits(result,True).sum()) if finite else None
+                safe=finite and all(v for k,v in after['checks'].items() if k!='generator_q_limits')
+                safe=safe and bool(np.all(deficits(result)<=deficits(solved)+1e-9))
+                improves=safe and trial_score<score-1e-9
+                action=dict(kind='voltage_setpoint',index=index,value=value)
+                evidence['trials'].append(dict(action=action,checks=after['checks'],
+                    reserve_deficit=trial_score,eligible=bool(improves),
+                    q_mvar=result['gen'][:,2].tolist() if finite else None))
+                if improves and (best is None or trial_score<best[0]-1e-9):
+                    best=(trial_score,trial,after,result,action)
+                if improves and trial_score<1e-9:break
+            if best is None:break
+            _,trial,checked,solved,action=best
+            case['gen'][:,5]=trial['gen'][:,5]
+            evidence['accepted_actions'].append(action)
+        evidence.update(status='repaired' if checked['accepted'] else 'bounded_search_exhausted',
+            reserve_reached=bool(np.all(deficits(solved,True)<1e-9)))
+    evidence.update(final_checks=checked['checks'],
+        final_q_mvar=[float(q) if math.isfinite(q) else None for q in solved['gen'][:,2]],
+        final_setpoints_pu=case['gen'][:,5].tolist())
+
+
 def generate(spec,seed):
     rng=np.random.default_rng(seed);n=spec.n_buses
     from .transmission_topology import build_topology
@@ -71,7 +145,8 @@ def generate(spec,seed):
             'Each voltage layer uses the recorded spatial mesh policy or an explicitly requested ring; two transformer links connect adjacent layers. No empirical topology-distribution match is claimed.',
             'Generator Pmax=1.6 times allocated demand and Q limits=+/-0.9 times demand are engineering assumptions, not manufacturer capability curves.',
             'Complete voltage-compatible overhead-line R/X/C/rating tuples are drawn using declared engineering weights, not fitted real-grid frequencies; 110/220 kV use published standard types and 330/500/750 kV use engineering families.',
-            'Up to four equivalent line circuits are initially sized by lossless DC screening after equipment selection; AC limits remain authoritative.'])
+            'Up to four equivalent line circuits are initially sized by lossless DC screening after equipment selection; AC limits remain authoritative.',
+            'Isolated nominal-dispatch reactive violations may use permitted bounded local voltage initialization before reference freezing; limits and all other model inputs remain fixed, and all AC trials are recorded.'])
     case=dict(version='2',baseMVA=100.,bus=bus,gen=gen,branch=np.zeros((0,13)));refresh(case,meta)
     # Independent stream: adding equipment choices must not change topology,
     # bus locations, load allocation or generator placement for a fixed seed.
@@ -89,6 +164,7 @@ def generate(spec,seed):
         if e['kind']=='line':e['circuits']=min(4,max(1,math.ceil(abs(flow)/spec.power_factor/(.8*row[5]))))
     refresh(case,meta)
     meta['topology_design']['verified_edges']=sorted([sorted(map(int,e[:2])) for e in case['branch'] if e[10]>0])
+    initialize_voltage_dispatch(case,meta,spec)
     return case,meta
 
 

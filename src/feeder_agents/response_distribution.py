@@ -1,5 +1,6 @@
 """Catalogue path moves and explicitly permitted, bounded spatial scaling."""
 import math
+from itertools import zip_longest
 
 import networkx as nx
 
@@ -103,3 +104,113 @@ def catalogue_diagnosis(model, spec, probes, assessment):
             path_component_ohm=current, catalogue_path_component_range_ohm=[smallest, largest],
             scope='Path-impedance proxy range; not an AC response envelope or infeasibility proof'))
     return evidence
+
+
+def rank_distribution_actions(model, probes, assessment, actions, *, preserve_diversity=False):
+    """Rank previews by a calibrated radial-path proxy, never by an AC bound.
+
+    Voltage response at a monitored port depends on the source path shared
+    with each injection port. Estimate the change to that shared impedance
+    under the complete proposal, then score every original target together.
+    Exact circuit solves and the original-reference contract remain mandatory.
+    Before joint construction, preserve every family and target port so the
+    easier goal cannot fill the entire pool of elementary moves to be paired.
+    """
+    if not actions or model['kind'] != 'distribution':
+        return actions
+    feeder = model['feeder']
+    catalogue = data('conductors.json')
+    initial = {line.id: (line.bus1, line.bus2, line.length_km, line.conductor)
+               for line in feeder.lines}
+    graph = nx.Graph((line.bus1, line.bus2) for line in feeder.lines)
+    tree = nx.bfs_tree(graph, feeder.source_bus)
+    subtree_lines = {}
+    for child in tree:
+        descendants = nx.descendants(tree, child) | {child}
+        subtree_lines[child] = {line.id for line in feeder.lines
+                                if line.bus1 in descendants or line.bus2 in descendants}
+
+    def path_components(lines):
+        paths_graph = nx.Graph()
+        paths_graph.add_edges_from((a, b, dict(line_id=key))
+                                  for key, (a, b, _, _) in lines.items())
+        paths = nx.single_source_shortest_path(paths_graph, feeder.source_bus)
+        edge_paths = {bus: {paths_graph[a][b]['line_id'] for a, b in zip(path, path[1:])}
+                      for bus, path in paths.items()}
+        values = {}
+        for probe in probes:
+            component = 'r1' if probe['kind'] == 'voltage_p' else 'x1'
+            injection_ports = probe.get('injection_ports') or [(bus, 1) for bus in probe['injection_buses']]
+            monitor_ports = probe.get('monitor_ports') or [(bus, 1) for bus in probe['monitor_buses']]
+            monitored = []
+            for bus, phase in monitor_ports:
+                shared = sum(sum(lines[key][2] * catalogue[lines[key][3]][component]
+                                 for key in edge_paths[bus] & edge_paths[injection])
+                             for injection, injection_phase in injection_ports if injection_phase == phase)
+                monitored.append(shared / len(injection_ports))
+            values[probe['id']] = (max(monitored) if probe.get('aggregation') == 'max_abs'
+                                   else sum(monitored) / len(monitored))
+        return values
+
+    reference = path_components(initial)
+    ranked = []
+    fallback = {}
+    for ordinal, action in enumerate(actions):
+        lines = dict(initial)
+        supported = True
+        for move in action.get('actions', [action]):
+            kind = move['kind']
+            if kind == 'replace_conductor':
+                for replacement in move.get('replacements') or [move]:
+                    key = replacement['line_id']
+                    a, b, length, _ = lines[key]
+                    lines[key] = (a, b, length, replacement['conductor'])
+            elif kind in {'scale_layout', 'scale_subtree'}:
+                changed = lines if kind == 'scale_layout' else subtree_lines[move['child_bus']]
+                for key in changed:
+                    a, b, length, conductor = lines[key]
+                    lines[key] = (a, b, length * move['factor'], conductor)
+            else:
+                # Reconnection and load redistribution change the operating
+                # point beyond this fixed-topology proxy; retain fallback order.
+                supported = False
+                break
+        if not supported:
+            fallback.setdefault(kind, []).append(action)
+            continue
+        predicted = path_components(lines)
+        deficits = []
+        responses = {}
+        worsening = 0.
+        centering = 0.
+        for row in assessment['targets']:
+            target = row['target']; key = target['probe_id']; observed = row['observed']
+            if observed is None or reference[key] <= 1e-12:
+                estimate = observed
+            else:
+                estimate = observed * predicted[key] / reference[key]
+            responses[key] = estimate
+            lower, upper = target['lower'], target['upper']
+            scale = max(lower or 0, upper or 0, 1e-9)
+            deficit = (max((lower or 0) - estimate,
+                           estimate - (upper if upper is not None else math.inf), 0.) / scale
+                       if estimate is not None else 1e12)
+            deficits.append(deficit)
+            worsening += max(0., deficit - row['deficit'] - 1e-9)
+            if estimate is not None and lower is not None and upper is not None:
+                centering += abs(estimate - (lower + upper) / 2) / scale
+        proposal = dict(action, proxy_predicted_deficits=deficits,
+                        proxy_response_estimates=responses)
+        ranked.append(((worsening, sum(deficits), centering,
+                        len(action.get('actions', [action])), ordinal), proposal))
+    ordered = [action for _, action in sorted(ranked, key=lambda item: item[0])]
+    if preserve_diversity:
+        families = {}
+        for action in ordered:
+            families.setdefault((action['kind'], action.get('probe_id')), []).append(action)
+        ordered = [action for group in zip_longest(*families.values())
+                   for action in group if action is not None]
+    # A proxy that cannot estimate an authorized family must not starve that
+    # family of AC previews. Keep its original order and interleave families.
+    return [action for group in zip_longest(ordered, *fallback.values())
+            for action in group if action is not None]

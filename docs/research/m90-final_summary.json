@@ -1,0 +1,23 @@
+{
+  "snapshot": "M90-response-fix-v1",
+  "date": "2026-10-10",
+  "structured": 20,
+  "structured_passed": 20,
+  "known_failures": 8,
+  "repaired_known_failures": 8,
+  "additional_controls": 12,
+  "passed_controls": 12,
+  "live_model": "qwen3.7-plus",
+  "live_valid": 6,
+  "live_valid_passed": 6,
+  "live_boundary": 2,
+  "live_boundary_correct": 2,
+  "live_llm_calls": 7,
+  "flash_model": "qwen3.8-flash",
+  "flash_provider_failures": 7,
+  "flash_local_boundary_stop": 1,
+  "unit_tests_passed": 253,
+  "old_bundle_modified": false,
+  "runtime_hash": "63083dbf465d18016c625dcd73e21e092972d1fdb4a655cf8ecfdaa15080f713",
+  "interpretation": "Targeted repair evidence, not a complete rerun or population-level 100% guarantee. Voltage initialization changes the pre-search reference operating point in isolated-Q cases; references are frozen before search."
+}

@@ -103,6 +103,9 @@ def test_local_q_violation_has_a_fine_repair_that_passes_fresh_ac(tmp_path):
     spec = TransmissionSpec(n_buses=237, n_generators=36, total_mw=6500,
         voltage_layers=[{'kv': 500, 'buses': 97}, {'kv': 220, 'buses': 140}], radial_bus_count=15)
     case, meta = generate_case(spec, 43)
+    # Recreate the nominal operating point to exercise the feedback repair;
+    # generation now initializes permitted local voltage controls itself.
+    case['gen'][:, 5] = 1.
     before, _ = validate_case(case, spec, meta)
     assert before['converged'] and not before['checks']['generator_q_limits']
 

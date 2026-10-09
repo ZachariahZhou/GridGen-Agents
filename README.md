@@ -4,7 +4,7 @@
 
 [Repository](https://github.com/ZachariahZhou/GridGen-Agents) | [Architecture](docs/architecture.md) | [Usage](docs/usage.md) | [Verification](docs/verification.md)
 
-This repository packages **M89-task-v1**, adding three complete research-task workflows to the electrical-response generator, with Python package version **0.1.0**. The Python package and CLI retain the name `feeder-agents`. Original code is licensed under [Apache-2.0](LICENSE); reference data and dependencies retain their own terms, documented in [THIRD_PARTY.md](THIRD_PARTY.md).
+This snapshot is **M90-response-fix-v1**, building on the three research-task workflows in M89-task-v1, with Python package version **0.1.0**. It adds bounded transmission voltage initialization, short-horizon corridor selection and coupled-target candidate ranking. The [repair evidence and manuscript addendum](docs/research/m90-response-reliability.md) records the targeted experiments and their scope. The Python package and CLI retain the name `feeder-agents`. Original code is licensed under [Apache-2.0](LICENSE); reference data and dependencies retain their own terms, documented in [THIRD_PARTY.md](THIRD_PARTY.md).
 
 ## Capabilities
 

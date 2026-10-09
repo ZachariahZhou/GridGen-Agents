@@ -1,0 +1,360 @@
+{
+  "runtime_hash": "63083dbf465d18016c625dcd73e21e092972d1fdb4a655cf8ecfdaa15080f713",
+  "full_system_failures": 8,
+  "full_system_failures_fixed": 8,
+  "unresolved_full_system_failures": [],
+  "categories": {
+    "comparison_selector": 17,
+    "full_system_task": 5,
+    "restricted_design_space": 15,
+    "full_system_language_task": 3,
+    "finite_stress": 9,
+    "historical_budget_diagnostic": 1
+  },
+  "caveat": "Historical comparator and stress failures are preserved, not converted into successful generation results. Provider free-quota rejection remains an external service condition.",
+  "records": [
+    {
+      "id": "r_voltage_control_25_1110_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_voltage_control_53_1101_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_voltage_control_53_1103_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_voltage_control_53_1106_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_voltage_control_53_1107_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_voltage_control_53_1108_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_static_pv_impact_43_1105_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_transmission_transfer_139_1103_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_transmission_transfer_139_1104_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_transmission_transfer_139_1105_directed",
+      "category": "full_system_task",
+      "status": "fixed_verified",
+      "note": "Same requested targets, ports, and search permissions pass with the final runtime.",
+      "result_hash": "c7275d39c93c7dfb8179c6ce55d9b8dde81e7ec1f47deca646164ce8512dd70f",
+      "source_hash": "63083dbf465d18016c625dcd73e21e092972d1fdb4a655cf8ecfdaa15080f713",
+      "response_ratios": [
+        0.978657860595428
+      ]
+    },
+    {
+      "id": "r_transmission_transfer_139_1105_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_transmission_transfer_139_1106_directed",
+      "category": "full_system_task",
+      "status": "fixed_verified",
+      "note": "Same requested targets, ports, and search permissions pass with the final runtime.",
+      "result_hash": "950210a1a4a1291b2fc573904546b3dcfb5cf94ed0387019b60280c20200fc7b",
+      "source_hash": "63083dbf465d18016c625dcd73e21e092972d1fdb4a655cf8ecfdaa15080f713",
+      "response_ratios": [
+        0.9083455576292454
+      ]
+    },
+    {
+      "id": "r_transmission_transfer_139_1106_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_transmission_transfer_139_1107_directed",
+      "category": "full_system_task",
+      "status": "fixed_verified",
+      "note": "Same requested targets, ports, and search permissions pass with the final runtime.",
+      "result_hash": "fb6b70459a98782d96937c0f6aa3def97d67166f7c9ed188e493e03c03fa7b14",
+      "source_hash": "63083dbf465d18016c625dcd73e21e092972d1fdb4a655cf8ecfdaa15080f713",
+      "response_ratios": [
+        0.9603902501287344
+      ]
+    },
+    {
+      "id": "r_transmission_transfer_139_1107_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_transmission_transfer_139_1110_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_transmission_transfer_237_1101_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_transmission_transfer_237_1105_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_transmission_transfer_237_1107_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "r_transmission_transfer_237_1110_uniform_verified",
+      "category": "comparison_selector",
+      "status": "retained_comparator_failure",
+      "note": "The prescribed uniform selector is a comparison method, not the released default selector."
+    },
+    {
+      "id": "c_large_change_1201_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_selective_1201_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_opposed_1201_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_large_change_1207_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_selective_1207_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_opposed_1207_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_large_change_1213_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_selective_1213_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_opposed_1213_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_large_change_1217_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_selective_1217_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_opposed_1217_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_opposed_1217_expanded",
+      "category": "full_system_task",
+      "status": "fixed_verified",
+      "note": "Same requested targets, ports, and search permissions pass with the final runtime.",
+      "result_hash": "d1d3f4875fd6188e0d46ab80059ced12c5234abf10a09124c2163c19a0b067f4",
+      "source_hash": "63083dbf465d18016c625dcd73e21e092972d1fdb4a655cf8ecfdaa15080f713",
+      "response_ratios": [
+        1.2422042955161965,
+        0.7901730841903529
+      ]
+    },
+    {
+      "id": "c_large_change_1223_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_selective_1223_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_opposed_1223_restricted",
+      "category": "restricted_design_space",
+      "status": "retained_restricted_search_failure",
+      "note": "This experiment intentionally restricts the action space. Its historical bounded-search result is retained; no physical infeasibility is claimed."
+    },
+    {
+      "id": "c_opposed_1223_expanded",
+      "category": "full_system_task",
+      "status": "fixed_verified",
+      "note": "Same requested targets, ports, and search permissions pass with the final runtime.",
+      "result_hash": "d24e612cc7ce488af97ede24a4f03fcf262a5dfaa356fe6f7ec1ea673cbab80a",
+      "source_hash": "63083dbf465d18016c625dcd73e21e092972d1fdb4a655cf8ecfdaa15080f713",
+      "response_ratios": [
+        1.1850153634727911,
+        0.8162097424943789
+      ]
+    },
+    {
+      "id": "nl_transfer_exact_1",
+      "category": "full_system_language_task",
+      "status": "fixed_verified",
+      "note": "Saved exact plan and a fresh live qwen3.7-plus request both pass.",
+      "result_hash": "fdaa016cffd9a0c7d9255687bad6e38be163d88ebf2c4c88624fd932373658cc",
+      "source_hash": "63083dbf465d18016c625dcd73e21e092972d1fdb4a655cf8ecfdaa15080f713",
+      "response_ratios": [
+        0.9755513377171022
+      ]
+    },
+    {
+      "id": "nl_transfer_bounded_2",
+      "category": "full_system_language_task",
+      "status": "fixed_verified",
+      "note": "Saved exact plan and a fresh live qwen3.7-plus request both pass.",
+      "result_hash": "616e8267c30d41ee5558dfdc414555eaa6a38901bc1e571cbae125a8e45c094d",
+      "source_hash": "63083dbf465d18016c625dcd73e21e092972d1fdb4a655cf8ecfdaa15080f713",
+      "response_ratios": [
+        0.9592812292460083
+      ]
+    },
+    {
+      "id": "nl_transfer_omitted_size_1",
+      "category": "full_system_language_task",
+      "status": "fixed_verified",
+      "note": "Saved exact plan and a fresh live qwen3.7-plus request both pass.",
+      "result_hash": "2514c00914407135dcb606dbd7bab17407bc3efb9f9f38770210bf85fb1a38ef",
+      "source_hash": "63083dbf465d18016c625dcd73e21e092972d1fdb4a655cf8ecfdaa15080f713",
+      "response_ratios": [
+        0.9755513377171022
+      ]
+    },
+    {
+      "id": "stress_voltage_control_25_1101_20",
+      "category": "finite_stress",
+      "status": "retained_stress_failure",
+      "note": "External intervention was deliberately increased on an already fixed model; not a failure of the original requested task."
+    },
+    {
+      "id": "stress_voltage_control_25_1102_20",
+      "category": "finite_stress",
+      "status": "retained_stress_failure",
+      "note": "External intervention was deliberately increased on an already fixed model; not a failure of the original requested task."
+    },
+    {
+      "id": "stress_voltage_control_25_1103_20",
+      "category": "finite_stress",
+      "status": "retained_stress_failure",
+      "note": "External intervention was deliberately increased on an already fixed model; not a failure of the original requested task."
+    },
+    {
+      "id": "stress_transmission_transfer_139_1101_1000",
+      "category": "finite_stress",
+      "status": "retained_stress_failure",
+      "note": "External intervention was deliberately increased on an already fixed model; not a failure of the original requested task."
+    },
+    {
+      "id": "stress_transmission_transfer_139_1101_5000",
+      "category": "finite_stress",
+      "status": "retained_stress_failure",
+      "note": "External intervention was deliberately increased on an already fixed model; not a failure of the original requested task."
+    },
+    {
+      "id": "stress_transmission_transfer_139_1102_1000",
+      "category": "finite_stress",
+      "status": "retained_stress_failure",
+      "note": "External intervention was deliberately increased on an already fixed model; not a failure of the original requested task."
+    },
+    {
+      "id": "stress_transmission_transfer_139_1102_5000",
+      "category": "finite_stress",
+      "status": "retained_stress_failure",
+      "note": "External intervention was deliberately increased on an already fixed model; not a failure of the original requested task."
+    },
+    {
+      "id": "stress_transmission_transfer_139_1103_1000",
+      "category": "finite_stress",
+      "status": "retained_stress_failure",
+      "note": "External intervention was deliberately increased on an already fixed model; not a failure of the original requested task."
+    },
+    {
+      "id": "stress_transmission_transfer_139_1103_5000",
+      "category": "finite_stress",
+      "status": "retained_stress_failure",
+      "note": "External intervention was deliberately increased on an already fixed model; not a failure of the original requested task."
+    },
+    {
+      "id": "transfer_139_1105_round8",
+      "category": "historical_budget_diagnostic",
+      "status": "superseded_by_verified_fix",
+      "note": "Historical increased-budget attempt is retained. The original task now passes with its original four-round budget.",
+      "resolved_by": "r_transmission_transfer_139_1105_directed"
+    }
+  ]
+}

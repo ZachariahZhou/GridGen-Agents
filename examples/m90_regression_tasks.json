@@ -1,0 +1,2120 @@
+{
+  "jobs": [
+    {
+      "id": "m90_r_voltage_control_25_1101_directed",
+      "kind": "research_task",
+      "plan": {
+        "task": "voltage_control",
+        "research_question": "Generate a rural feeder for comparing voltage control algorithms with a measurable reactive-power voltage response.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "document_rules": [],
+          "repair_policy": {
+            "strategy": "none",
+            "allow_rewire": false,
+            "preview_limit": 2,
+            "max_candidates": 8
+          },
+          "scenario": {
+            "load_placement": "all_nodes",
+            "reference_case_id": null,
+            "kind": "rural",
+            "layout": "spatial_mst",
+            "engineering_profile": "rural",
+            "topology": null,
+            "tie_count": 0,
+            "load_shape": "heterogeneous",
+            "load_concentration": 2.0,
+            "calibration_profile": null,
+            "empirical_weight": 0.7,
+            "village_count": null,
+            "trunk_fraction": 0.3,
+            "aspect_ratio": null,
+            "positions_km": null
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "load_phase_weights": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "pv_phase_weights": null,
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0,
+            "max_vuf_percent": 2.0
+          },
+          "equipment_design": {
+            "mode": "auto",
+            "reference_feeders": [
+              "J1",
+              "K1",
+              "Ckt5",
+              "Ckt24"
+            ],
+            "source_weighting": "equal_feeder",
+            "loading_margin": 0.8,
+            "capacity_band": 2.0,
+            "conditioning": "length_voltage",
+            "length_bandwidth": 0.65,
+            "voltage_drop_budget_pu": 0.05,
+            "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+          },
+          "count": 1,
+          "n_buses": 25,
+          "n_loads_min": 24,
+          "n_loads_max": 24,
+          "total_kw_min": 360.0,
+          "total_kw_max": 360.0,
+          "voltage_kv": 10.0,
+          "frequency_hz": 50,
+          "power_factor": 0.95,
+          "pv_ratio": 0.0,
+          "segment_km_min": 0.05,
+          "segment_km_max": 0.25,
+          "seed": 1101,
+          "mode": "normal",
+          "load_semantics": "aggregated",
+          "special_pf_agreement": false,
+          "max_repairs": 2
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.02,
+        "transfer_mw": 1.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Use the declared fresh-synthesis protocol defaults for missing response targets and design freedoms.",
+          "Reactive support is an external test injection, not a fabricated installed controller."
+        ]
+      }
+    },
+    {
+      "id": "m90_r_transmission_transfer_139_1105_directed",
+      "kind": "research_task",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Generate a transmission model for a balanced interarea transfer study, reducing peak monitored-branch response and verifying a finite transfer.",
+        "base_spec": {
+          "network_kind": "transmission",
+          "voltage_layers": null,
+          "allow_topology_changes": false,
+          "connectivity": "connected",
+          "radial_bus_count": null,
+          "mesh_style": "local",
+          "mesh_family": "auto",
+          "load_pattern": "dispersed",
+          "generator_buses": null,
+          "generator_weights": null,
+          "targets": [],
+          "document_rules": [],
+          "validation_conditions": [],
+          "allowed_repairs": [
+            "shunt_step",
+            "voltage_setpoint",
+            "parallel_line",
+            "upgrade_transformer",
+            "transformer_tap",
+            "redispatch",
+            "relocate_corridor"
+          ],
+          "n_buses": 139,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200.0,
+          "power_factor": 0.97,
+          "topology": "meshed",
+          "extra_edges": 46,
+          "shunt_compensation": 0.7,
+          "radius_km": 40.0,
+          "generator_types": [
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic"
+          ],
+          "voltage_min_pu": 0.95,
+          "voltage_max_pu": 1.05,
+          "count": 1,
+          "seed": 1105
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.01,
+        "transfer_mw": 10.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Automatically select a distant pair of non-reference buses before measuring any response.",
+          "Finite active transfer holds reactive demand fixed; the slack generator balances incremental losses.",
+          "The standard response interval is a research protocol, not a maximum transfer-capacity claim."
+        ]
+      }
+    },
+    {
+      "id": "m90_r_static_pv_impact_43_1101_directed",
+      "kind": "research_task",
+      "plan": {
+        "task": "static_pv_impact",
+        "research_question": "Generate an urban feeder to investigate the static voltage effect of existing PV, with an identical-network PV-off contrast.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "document_rules": [],
+          "repair_policy": {
+            "strategy": "none",
+            "allow_rewire": false,
+            "preview_limit": 2,
+            "max_candidates": 8
+          },
+          "scenario": {
+            "load_placement": "all_nodes",
+            "reference_case_id": null,
+            "kind": "urban",
+            "layout": "spatial_mst",
+            "engineering_profile": "urban",
+            "topology": null,
+            "tie_count": 0,
+            "load_shape": "heterogeneous",
+            "load_concentration": 2.0,
+            "calibration_profile": null,
+            "empirical_weight": 0.7,
+            "village_count": null,
+            "trunk_fraction": 0.3,
+            "aspect_ratio": null,
+            "positions_km": null
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "load_phase_weights": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "pv_phase_weights": null,
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0,
+            "max_vuf_percent": 2.0
+          },
+          "equipment_design": {
+            "mode": "auto",
+            "reference_feeders": [
+              "J1",
+              "K1",
+              "Ckt5",
+              "Ckt24"
+            ],
+            "source_weighting": "equal_feeder",
+            "loading_margin": 0.8,
+            "capacity_band": 2.0,
+            "conditioning": "length_voltage",
+            "length_bandwidth": 0.65,
+            "voltage_drop_budget_pu": 0.05,
+            "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+          },
+          "count": 1,
+          "n_buses": 43,
+          "n_loads_min": 42,
+          "n_loads_max": 42,
+          "total_kw_min": 360.0,
+          "total_kw_max": 360.0,
+          "voltage_kv": 10.0,
+          "frequency_hz": 50,
+          "power_factor": 0.95,
+          "pv_ratio": 0.6,
+          "segment_km_min": 0.05,
+          "segment_km_max": 0.25,
+          "seed": 1101,
+          "mode": "normal",
+          "load_semantics": "aggregated",
+          "special_pf_agreement": false,
+          "max_repairs": 2
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.01,
+        "transfer_mw": 1.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Existing PV is a static unity-power-factor injection; no time-series product.",
+          "Use declared fresh-synthesis task defaults; response ports must actually contain PV."
+        ]
+      }
+    },
+    {
+      "id": "m90_unseen_r_transmission_transfer_139_1409_directed",
+      "kind": "research_task",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Generate a transmission model for a balanced interarea transfer study, reducing peak monitored-branch response and verifying a finite transfer.",
+        "base_spec": {
+          "network_kind": "transmission",
+          "voltage_layers": null,
+          "allow_topology_changes": false,
+          "connectivity": "connected",
+          "radial_bus_count": null,
+          "mesh_style": "local",
+          "mesh_family": "auto",
+          "load_pattern": "dispersed",
+          "generator_buses": null,
+          "generator_weights": null,
+          "targets": [],
+          "document_rules": [],
+          "validation_conditions": [],
+          "allowed_repairs": [
+            "shunt_step",
+            "voltage_setpoint",
+            "parallel_line",
+            "upgrade_transformer",
+            "transformer_tap",
+            "redispatch",
+            "relocate_corridor"
+          ],
+          "n_buses": 139,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200.0,
+          "power_factor": 0.97,
+          "topology": "meshed",
+          "extra_edges": 46,
+          "shunt_compensation": 0.7,
+          "radius_km": 40.0,
+          "generator_types": [
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic"
+          ],
+          "voltage_min_pu": 0.95,
+          "voltage_max_pu": 1.05,
+          "count": 1,
+          "seed": 1409
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.01,
+        "transfer_mw": 10.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Automatically select a distant pair of non-reference buses before measuring any response.",
+          "Finite active transfer holds reactive demand fixed; the slack generator balances incremental losses.",
+          "The standard response interval is a research protocol, not a maximum transfer-capacity claim."
+        ]
+      }
+    },
+    {
+      "id": "m90_r_transmission_transfer_237_1101_directed",
+      "kind": "research_task",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Generate a transmission model for a balanced interarea transfer study, reducing peak monitored-branch response and verifying a finite transfer.",
+        "base_spec": {
+          "network_kind": "transmission",
+          "voltage_layers": null,
+          "allow_topology_changes": false,
+          "connectivity": "connected",
+          "radial_bus_count": null,
+          "mesh_style": "local",
+          "mesh_family": "auto",
+          "load_pattern": "dispersed",
+          "generator_buses": null,
+          "generator_weights": null,
+          "targets": [],
+          "document_rules": [],
+          "validation_conditions": [],
+          "allowed_repairs": [
+            "shunt_step",
+            "voltage_setpoint",
+            "parallel_line",
+            "upgrade_transformer",
+            "transformer_tap",
+            "redispatch",
+            "relocate_corridor"
+          ],
+          "n_buses": 237,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200.0,
+          "power_factor": 0.97,
+          "topology": "meshed",
+          "extra_edges": 79,
+          "shunt_compensation": 0.7,
+          "radius_km": 40.0,
+          "generator_types": [
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic"
+          ],
+          "voltage_min_pu": 0.95,
+          "voltage_max_pu": 1.05,
+          "count": 1,
+          "seed": 1101
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.01,
+        "transfer_mw": 10.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Automatically select a distant pair of non-reference buses before measuring any response.",
+          "Finite active transfer holds reactive demand fixed; the slack generator balances incremental losses.",
+          "The standard response interval is a research protocol, not a maximum transfer-capacity claim."
+        ]
+      }
+    },
+    {
+      "id": "m90_unseen_r_voltage_control_25_1409_directed",
+      "kind": "research_task",
+      "plan": {
+        "task": "voltage_control",
+        "research_question": "Generate a rural feeder for comparing voltage control algorithms with a measurable reactive-power voltage response.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "document_rules": [],
+          "repair_policy": {
+            "strategy": "none",
+            "allow_rewire": false,
+            "preview_limit": 2,
+            "max_candidates": 8
+          },
+          "scenario": {
+            "load_placement": "all_nodes",
+            "reference_case_id": null,
+            "kind": "rural",
+            "layout": "spatial_mst",
+            "engineering_profile": "rural",
+            "topology": null,
+            "tie_count": 0,
+            "load_shape": "heterogeneous",
+            "load_concentration": 2.0,
+            "calibration_profile": null,
+            "empirical_weight": 0.7,
+            "village_count": null,
+            "trunk_fraction": 0.3,
+            "aspect_ratio": null,
+            "positions_km": null
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "load_phase_weights": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "pv_phase_weights": null,
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0,
+            "max_vuf_percent": 2.0
+          },
+          "equipment_design": {
+            "mode": "auto",
+            "reference_feeders": [
+              "J1",
+              "K1",
+              "Ckt5",
+              "Ckt24"
+            ],
+            "source_weighting": "equal_feeder",
+            "loading_margin": 0.8,
+            "capacity_band": 2.0,
+            "conditioning": "length_voltage",
+            "length_bandwidth": 0.65,
+            "voltage_drop_budget_pu": 0.05,
+            "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+          },
+          "count": 1,
+          "n_buses": 25,
+          "n_loads_min": 24,
+          "n_loads_max": 24,
+          "total_kw_min": 360.0,
+          "total_kw_max": 360.0,
+          "voltage_kv": 10.0,
+          "frequency_hz": 50,
+          "power_factor": 0.95,
+          "pv_ratio": 0.0,
+          "segment_km_min": 0.05,
+          "segment_km_max": 0.25,
+          "seed": 1409,
+          "mode": "normal",
+          "load_semantics": "aggregated",
+          "special_pf_agreement": false,
+          "max_repairs": 2
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.02,
+        "transfer_mw": 1.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Use the declared fresh-synthesis protocol defaults for missing response targets and design freedoms.",
+          "Reactive support is an external test injection, not a fabricated installed controller."
+        ]
+      }
+    },
+    {
+      "id": "m90_unseen_r_transmission_transfer_237_1423_directed",
+      "kind": "research_task",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Generate a transmission model for a balanced interarea transfer study, reducing peak monitored-branch response and verifying a finite transfer.",
+        "base_spec": {
+          "network_kind": "transmission",
+          "voltage_layers": null,
+          "allow_topology_changes": false,
+          "connectivity": "connected",
+          "radial_bus_count": null,
+          "mesh_style": "local",
+          "mesh_family": "auto",
+          "load_pattern": "dispersed",
+          "generator_buses": null,
+          "generator_weights": null,
+          "targets": [],
+          "document_rules": [],
+          "validation_conditions": [],
+          "allowed_repairs": [
+            "shunt_step",
+            "voltage_setpoint",
+            "parallel_line",
+            "upgrade_transformer",
+            "transformer_tap",
+            "redispatch",
+            "relocate_corridor"
+          ],
+          "n_buses": 237,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200.0,
+          "power_factor": 0.97,
+          "topology": "meshed",
+          "extra_edges": 79,
+          "shunt_compensation": 0.7,
+          "radius_km": 40.0,
+          "generator_types": [
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic"
+          ],
+          "voltage_min_pu": 0.95,
+          "voltage_max_pu": 1.05,
+          "count": 1,
+          "seed": 1423
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.01,
+        "transfer_mw": 10.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Automatically select a distant pair of non-reference buses before measuring any response.",
+          "Finite active transfer holds reactive demand fixed; the slack generator balances incremental losses.",
+          "The standard response interval is a research protocol, not a maximum transfer-capacity claim."
+        ]
+      }
+    },
+    {
+      "id": "m90_unseen_r_static_pv_impact_43_1423_directed",
+      "kind": "research_task",
+      "plan": {
+        "task": "static_pv_impact",
+        "research_question": "Generate an urban feeder to investigate the static voltage effect of existing PV, with an identical-network PV-off contrast.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "document_rules": [],
+          "repair_policy": {
+            "strategy": "none",
+            "allow_rewire": false,
+            "preview_limit": 2,
+            "max_candidates": 8
+          },
+          "scenario": {
+            "load_placement": "all_nodes",
+            "reference_case_id": null,
+            "kind": "urban",
+            "layout": "spatial_mst",
+            "engineering_profile": "urban",
+            "topology": null,
+            "tie_count": 0,
+            "load_shape": "heterogeneous",
+            "load_concentration": 2.0,
+            "calibration_profile": null,
+            "empirical_weight": 0.7,
+            "village_count": null,
+            "trunk_fraction": 0.3,
+            "aspect_ratio": null,
+            "positions_km": null
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "load_phase_weights": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "pv_phase_weights": null,
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0,
+            "max_vuf_percent": 2.0
+          },
+          "equipment_design": {
+            "mode": "auto",
+            "reference_feeders": [
+              "J1",
+              "K1",
+              "Ckt5",
+              "Ckt24"
+            ],
+            "source_weighting": "equal_feeder",
+            "loading_margin": 0.8,
+            "capacity_band": 2.0,
+            "conditioning": "length_voltage",
+            "length_bandwidth": 0.65,
+            "voltage_drop_budget_pu": 0.05,
+            "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+          },
+          "count": 1,
+          "n_buses": 43,
+          "n_loads_min": 42,
+          "n_loads_max": 42,
+          "total_kw_min": 360.0,
+          "total_kw_max": 360.0,
+          "voltage_kv": 10.0,
+          "frequency_hz": 50,
+          "power_factor": 0.95,
+          "pv_ratio": 0.6,
+          "segment_km_min": 0.05,
+          "segment_km_max": 0.25,
+          "seed": 1423,
+          "mode": "normal",
+          "load_semantics": "aggregated",
+          "special_pf_agreement": false,
+          "max_repairs": 2
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.01,
+        "transfer_mw": 1.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Existing PV is a static unity-power-factor injection; no time-series product.",
+          "Use declared fresh-synthesis task defaults; response ports must actually contain PV."
+        ]
+      }
+    },
+    {
+      "id": "r_transmission_transfer_139_1106_directed",
+      "kind": "research_task",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Generate a transmission model for a balanced interarea transfer study, reducing peak monitored-branch response and verifying a finite transfer.",
+        "base_spec": {
+          "network_kind": "transmission",
+          "voltage_layers": null,
+          "allow_topology_changes": false,
+          "connectivity": "connected",
+          "radial_bus_count": null,
+          "mesh_style": "local",
+          "mesh_family": "auto",
+          "load_pattern": "dispersed",
+          "generator_buses": null,
+          "generator_weights": null,
+          "targets": [],
+          "document_rules": [],
+          "validation_conditions": [],
+          "allowed_repairs": [
+            "shunt_step",
+            "voltage_setpoint",
+            "parallel_line",
+            "upgrade_transformer",
+            "transformer_tap",
+            "redispatch",
+            "relocate_corridor"
+          ],
+          "n_buses": 139,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200.0,
+          "power_factor": 0.97,
+          "topology": "meshed",
+          "extra_edges": 46,
+          "shunt_compensation": 0.7,
+          "radius_km": 40.0,
+          "generator_types": [
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic"
+          ],
+          "voltage_min_pu": 0.95,
+          "voltage_max_pu": 1.05,
+          "count": 1,
+          "seed": 1106
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.01,
+        "transfer_mw": 10.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Automatically select a distant pair of non-reference buses before measuring any response.",
+          "Finite active transfer holds reactive demand fixed; the slack generator balances incremental losses.",
+          "The standard response interval is a research protocol, not a maximum transfer-capacity claim."
+        ]
+      }
+    },
+    {
+      "id": "r_transmission_transfer_139_1107_directed",
+      "kind": "research_task",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Generate a transmission model for a balanced interarea transfer study, reducing peak monitored-branch response and verifying a finite transfer.",
+        "base_spec": {
+          "network_kind": "transmission",
+          "voltage_layers": null,
+          "allow_topology_changes": false,
+          "connectivity": "connected",
+          "radial_bus_count": null,
+          "mesh_style": "local",
+          "mesh_family": "auto",
+          "load_pattern": "dispersed",
+          "generator_buses": null,
+          "generator_weights": null,
+          "targets": [],
+          "document_rules": [],
+          "validation_conditions": [],
+          "allowed_repairs": [
+            "shunt_step",
+            "voltage_setpoint",
+            "parallel_line",
+            "upgrade_transformer",
+            "transformer_tap",
+            "redispatch",
+            "relocate_corridor"
+          ],
+          "n_buses": 139,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200.0,
+          "power_factor": 0.97,
+          "topology": "meshed",
+          "extra_edges": 46,
+          "shunt_compensation": 0.7,
+          "radius_km": 40.0,
+          "generator_types": [
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic"
+          ],
+          "voltage_min_pu": 0.95,
+          "voltage_max_pu": 1.05,
+          "count": 1,
+          "seed": 1107
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.01,
+        "transfer_mw": 10.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Automatically select a distant pair of non-reference buses before measuring any response.",
+          "Finite active transfer holds reactive demand fixed; the slack generator balances incremental losses.",
+          "The standard response interval is a research protocol, not a maximum transfer-capacity claim."
+        ]
+      }
+    },
+    {
+      "id": "nl_transfer_exact_1",
+      "kind": "research_task",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Interarea power transfer study with peak branch MW/MW sensitivity and finite balanced P transfer at fixed Q on a 220 kV transmission model.",
+        "base_spec": {
+          "network_kind": "transmission",
+          "voltage_layers": null,
+          "allow_topology_changes": false,
+          "connectivity": "connected",
+          "radial_bus_count": null,
+          "mesh_style": "local",
+          "mesh_family": "auto",
+          "load_pattern": "dispersed",
+          "generator_buses": null,
+          "generator_weights": null,
+          "targets": [],
+          "document_rules": [],
+          "validation_conditions": [],
+          "allowed_repairs": [
+            "shunt_step",
+            "voltage_setpoint",
+            "parallel_line",
+            "upgrade_transformer",
+            "transformer_tap",
+            "redispatch",
+            "relocate_corridor"
+          ],
+          "n_buses": 139,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200.0,
+          "power_factor": 0.97,
+          "topology": "meshed",
+          "extra_edges": 46,
+          "shunt_compensation": 0.7,
+          "radius_km": 40.0,
+          "generator_types": [
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic"
+          ],
+          "voltage_min_pu": 0.95,
+          "voltage_max_pu": 1.05,
+          "count": 1,
+          "seed": 1301
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.01,
+        "transfer_mw": 10.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Use disclosed response and search protocol defaults.",
+          "Response reference: baseline_ratio with interval [0.50, 0.98] per standard transmission_transfer protocol.",
+          "Search: compatible conductor selection and generated uniform geometry scaling up to 75%, or legal transmission parallel circuits; 4 rounds, 12 previews.",
+          "Finite transfer of 10 MW at fixed reactive demand."
+        ]
+      }
+    },
+    {
+      "id": "nl_transfer_bounded_2",
+      "kind": "research_task",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Transmission power transfer research: peak branch MW/MW sensitivity with finite balanced P transfer at fixed Q on a 220 kV network with 237 buses, 12 generators and 1200 MW total load.",
+        "base_spec": {
+          "network_kind": "transmission",
+          "voltage_layers": null,
+          "allow_topology_changes": false,
+          "connectivity": "connected",
+          "radial_bus_count": null,
+          "mesh_style": "local",
+          "mesh_family": "auto",
+          "load_pattern": "dispersed",
+          "generator_buses": null,
+          "generator_weights": null,
+          "targets": [],
+          "document_rules": [],
+          "validation_conditions": [],
+          "allowed_repairs": [
+            "shunt_step",
+            "voltage_setpoint",
+            "parallel_line",
+            "upgrade_transformer",
+            "transformer_tap",
+            "redispatch",
+            "relocate_corridor"
+          ],
+          "n_buses": 237,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200.0,
+          "power_factor": 0.97,
+          "topology": "meshed",
+          "extra_edges": 79,
+          "shunt_compensation": 0.7,
+          "radius_km": 40.0,
+          "generator_types": [
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic"
+          ],
+          "voltage_min_pu": 0.95,
+          "voltage_max_pu": 1.05,
+          "count": 1,
+          "seed": 1302
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": 0.5,
+        "response_upper": 0.98,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.01,
+        "transfer_mw": 10.0,
+        "preserve_geometry": true,
+        "preserve_equipment": false,
+        "search": {
+          "allowed_actions": [
+            "parallel_line"
+          ],
+          "max_layout_scale_change": null,
+          "max_branch_length_change": null,
+          "max_node_displacement_km": null,
+          "max_rewired_lines": null,
+          "max_rewire_length_ratio": null,
+          "max_node_degree": null,
+          "max_load_redistribution_fraction": null,
+          "max_load_bus_change": null,
+          "max_joint_actions": 1,
+          "max_rounds": 4,
+          "candidates_per_round": 12,
+          "selector": "heuristic"
+        },
+        "assumptions": [
+          "Use disclosed response protocol defaults for transmission_transfer task.",
+          "Response ratio [0.50, 0.98] relative to original baseline is a research assumption.",
+          "Transfer budget of 10 MW at fixed reactive demand.",
+          "Preserve coordinates, bus count and total load as specified.",
+          "Only legal parallel circuits allowed per search constraints."
+        ]
+      }
+    },
+    {
+      "id": "nl_transfer_omitted_size_1",
+      "kind": "research_task",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Static balanced transfer experiment at fixed reactive demand for interarea transfer study",
+        "base_spec": {
+          "network_kind": "transmission",
+          "voltage_layers": null,
+          "allow_topology_changes": false,
+          "connectivity": "connected",
+          "radial_bus_count": null,
+          "mesh_style": "local",
+          "mesh_family": "auto",
+          "load_pattern": "dispersed",
+          "generator_buses": null,
+          "generator_weights": null,
+          "targets": [],
+          "document_rules": [],
+          "validation_conditions": [],
+          "allowed_repairs": [
+            "shunt_step",
+            "voltage_setpoint",
+            "parallel_line",
+            "upgrade_transformer",
+            "transformer_tap",
+            "redispatch",
+            "relocate_corridor"
+          ],
+          "n_buses": 139,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200.0,
+          "power_factor": 0.97,
+          "topology": "meshed",
+          "extra_edges": 46,
+          "shunt_compensation": 0.7,
+          "radius_km": 40.0,
+          "generator_types": [
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic",
+            "generic"
+          ],
+          "voltage_min_pu": 0.95,
+          "voltage_max_pu": 1.05,
+          "count": 1,
+          "seed": 1301
+        },
+        "response_reference": "baseline_ratio",
+        "response_lower": null,
+        "response_upper": null,
+        "injection_buses": [],
+        "withdrawal_buses": [],
+        "monitor_buses": [],
+        "monitor_branches": [],
+        "phases": null,
+        "probe_step": null,
+        "support_mvar": 0.01,
+        "transfer_mw": 1.0,
+        "preserve_geometry": false,
+        "preserve_equipment": false,
+        "search": null,
+        "assumptions": [
+          "Use disclosed response and search protocol defaults.",
+          "Default transmission parameters: 139 buses, 12 generators, 220 kV, 1200 MW total generation.",
+          "Transfer sensitivity measured as peak branch MW/MW with balanced P transfer at fixed Q.",
+          "Response reference baseline_ratio with default interval [0.50, 0.98] omitted per protocol."
+        ]
+      }
+    },
+    {
+      "id": "c_opposed_1201_expanded",
+      "kind": "response_design",
+      "plan": {
+        "research_question": "opposed: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "document_rules": [],
+          "repair_policy": {
+            "strategy": "none",
+            "allow_rewire": false,
+            "preview_limit": 2,
+            "max_candidates": 8
+          },
+          "scenario": {
+            "load_placement": "all_nodes",
+            "reference_case_id": null,
+            "kind": "urban",
+            "layout": "spatial_mst",
+            "engineering_profile": "urban",
+            "topology": null,
+            "tie_count": 0,
+            "load_shape": "heterogeneous",
+            "load_concentration": 2,
+            "calibration_profile": null,
+            "empirical_weight": 0.7,
+            "village_count": null,
+            "trunk_fraction": 0.3,
+            "aspect_ratio": null,
+            "positions_km": null
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "load_phase_weights": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "pv_phase_weights": null,
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0,
+            "max_vuf_percent": 2
+          },
+          "equipment_design": {
+            "mode": "auto",
+            "reference_feeders": [
+              "J1",
+              "K1",
+              "Ckt5",
+              "Ckt24"
+            ],
+            "source_weighting": "equal_feeder",
+            "loading_margin": 0.8,
+            "capacity_band": 2,
+            "conditioning": "length_voltage",
+            "length_bandwidth": 0.65,
+            "voltage_drop_budget_pu": 0.05,
+            "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+          },
+          "count": 1,
+          "n_buses": 25,
+          "n_loads_min": 24,
+          "n_loads_max": 24,
+          "total_kw_min": 360.0,
+          "total_kw_max": 360.0,
+          "voltage_kv": 10.0,
+          "frequency_hz": 50,
+          "power_factor": 0.95,
+          "pv_ratio": 0,
+          "segment_km_min": 0.05,
+          "segment_km_max": 0.25,
+          "seed": 1201,
+          "mode": "normal",
+          "load_semantics": "aggregated",
+          "special_pf_agreement": false,
+          "max_repairs": 2
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b20"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b9"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_rewired_lines": null,
+          "max_rewire_length_ratio": null,
+          "max_node_degree": null,
+          "max_load_redistribution_fraction": null,
+          "max_load_bus_change": null,
+          "max_joint_actions": 2,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "selector": "heuristic"
+        },
+        "verification_step_factor": 0.5,
+        "verification_relative_tolerance": 0.03,
+        "assumptions": []
+      }
+    },
+    {
+      "id": "c_opposed_1207_expanded",
+      "kind": "response_design",
+      "plan": {
+        "research_question": "opposed: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "document_rules": [],
+          "repair_policy": {
+            "strategy": "none",
+            "allow_rewire": false,
+            "preview_limit": 2,
+            "max_candidates": 8
+          },
+          "scenario": {
+            "load_placement": "all_nodes",
+            "reference_case_id": null,
+            "kind": "urban",
+            "layout": "spatial_mst",
+            "engineering_profile": "urban",
+            "topology": null,
+            "tie_count": 0,
+            "load_shape": "heterogeneous",
+            "load_concentration": 2,
+            "calibration_profile": null,
+            "empirical_weight": 0.7,
+            "village_count": null,
+            "trunk_fraction": 0.3,
+            "aspect_ratio": null,
+            "positions_km": null
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "load_phase_weights": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "pv_phase_weights": null,
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0,
+            "max_vuf_percent": 2
+          },
+          "equipment_design": {
+            "mode": "auto",
+            "reference_feeders": [
+              "J1",
+              "K1",
+              "Ckt5",
+              "Ckt24"
+            ],
+            "source_weighting": "equal_feeder",
+            "loading_margin": 0.8,
+            "capacity_band": 2,
+            "conditioning": "length_voltage",
+            "length_bandwidth": 0.65,
+            "voltage_drop_budget_pu": 0.05,
+            "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+          },
+          "count": 1,
+          "n_buses": 25,
+          "n_loads_min": 24,
+          "n_loads_max": 24,
+          "total_kw_min": 360.0,
+          "total_kw_max": 360.0,
+          "voltage_kv": 10.0,
+          "frequency_hz": 50,
+          "power_factor": 0.95,
+          "pv_ratio": 0,
+          "segment_km_min": 0.05,
+          "segment_km_max": 0.25,
+          "seed": 1207,
+          "mode": "normal",
+          "load_semantics": "aggregated",
+          "special_pf_agreement": false,
+          "max_repairs": 2
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b4"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b9"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_rewired_lines": null,
+          "max_rewire_length_ratio": null,
+          "max_node_degree": null,
+          "max_load_redistribution_fraction": null,
+          "max_load_bus_change": null,
+          "max_joint_actions": 2,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "selector": "heuristic"
+        },
+        "verification_step_factor": 0.5,
+        "verification_relative_tolerance": 0.03,
+        "assumptions": []
+      }
+    },
+    {
+      "id": "c_opposed_1213_expanded",
+      "kind": "response_design",
+      "plan": {
+        "research_question": "opposed: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "document_rules": [],
+          "repair_policy": {
+            "strategy": "none",
+            "allow_rewire": false,
+            "preview_limit": 2,
+            "max_candidates": 8
+          },
+          "scenario": {
+            "load_placement": "all_nodes",
+            "reference_case_id": null,
+            "kind": "urban",
+            "layout": "spatial_mst",
+            "engineering_profile": "urban",
+            "topology": null,
+            "tie_count": 0,
+            "load_shape": "heterogeneous",
+            "load_concentration": 2,
+            "calibration_profile": null,
+            "empirical_weight": 0.7,
+            "village_count": null,
+            "trunk_fraction": 0.3,
+            "aspect_ratio": null,
+            "positions_km": null
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "load_phase_weights": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "pv_phase_weights": null,
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0,
+            "max_vuf_percent": 2
+          },
+          "equipment_design": {
+            "mode": "auto",
+            "reference_feeders": [
+              "J1",
+              "K1",
+              "Ckt5",
+              "Ckt24"
+            ],
+            "source_weighting": "equal_feeder",
+            "loading_margin": 0.8,
+            "capacity_band": 2,
+            "conditioning": "length_voltage",
+            "length_bandwidth": 0.65,
+            "voltage_drop_budget_pu": 0.05,
+            "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+          },
+          "count": 1,
+          "n_buses": 25,
+          "n_loads_min": 24,
+          "n_loads_max": 24,
+          "total_kw_min": 360.0,
+          "total_kw_max": 360.0,
+          "voltage_kv": 10.0,
+          "frequency_hz": 50,
+          "power_factor": 0.95,
+          "pv_ratio": 0,
+          "segment_km_min": 0.05,
+          "segment_km_max": 0.25,
+          "seed": 1213,
+          "mode": "normal",
+          "load_semantics": "aggregated",
+          "special_pf_agreement": false,
+          "max_repairs": 2
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b2"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b9"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_rewired_lines": null,
+          "max_rewire_length_ratio": null,
+          "max_node_degree": null,
+          "max_load_redistribution_fraction": null,
+          "max_load_bus_change": null,
+          "max_joint_actions": 2,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "selector": "heuristic"
+        },
+        "verification_step_factor": 0.5,
+        "verification_relative_tolerance": 0.03,
+        "assumptions": []
+      }
+    },
+    {
+      "id": "c_opposed_1217_expanded",
+      "kind": "response_design",
+      "plan": {
+        "research_question": "opposed: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "document_rules": [],
+          "repair_policy": {
+            "strategy": "none",
+            "allow_rewire": false,
+            "preview_limit": 2,
+            "max_candidates": 8
+          },
+          "scenario": {
+            "load_placement": "all_nodes",
+            "reference_case_id": null,
+            "kind": "urban",
+            "layout": "spatial_mst",
+            "engineering_profile": "urban",
+            "topology": null,
+            "tie_count": 0,
+            "load_shape": "heterogeneous",
+            "load_concentration": 2,
+            "calibration_profile": null,
+            "empirical_weight": 0.7,
+            "village_count": null,
+            "trunk_fraction": 0.3,
+            "aspect_ratio": null,
+            "positions_km": null
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "load_phase_weights": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "pv_phase_weights": null,
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0,
+            "max_vuf_percent": 2
+          },
+          "equipment_design": {
+            "mode": "auto",
+            "reference_feeders": [
+              "J1",
+              "K1",
+              "Ckt5",
+              "Ckt24"
+            ],
+            "source_weighting": "equal_feeder",
+            "loading_margin": 0.8,
+            "capacity_band": 2,
+            "conditioning": "length_voltage",
+            "length_bandwidth": 0.65,
+            "voltage_drop_budget_pu": 0.05,
+            "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+          },
+          "count": 1,
+          "n_buses": 25,
+          "n_loads_min": 24,
+          "n_loads_max": 24,
+          "total_kw_min": 360.0,
+          "total_kw_max": 360.0,
+          "voltage_kv": 10.0,
+          "frequency_hz": 50,
+          "power_factor": 0.95,
+          "pv_ratio": 0,
+          "segment_km_min": 0.05,
+          "segment_km_max": 0.25,
+          "seed": 1217,
+          "mode": "normal",
+          "load_semantics": "aggregated",
+          "special_pf_agreement": false,
+          "max_repairs": 2
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b10"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b20"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_rewired_lines": null,
+          "max_rewire_length_ratio": null,
+          "max_node_degree": null,
+          "max_load_redistribution_fraction": null,
+          "max_load_bus_change": null,
+          "max_joint_actions": 2,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "selector": "heuristic"
+        },
+        "verification_step_factor": 0.5,
+        "verification_relative_tolerance": 0.03,
+        "assumptions": []
+      }
+    },
+    {
+      "id": "c_opposed_1223_expanded",
+      "kind": "response_design",
+      "plan": {
+        "research_question": "opposed: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "document_rules": [],
+          "repair_policy": {
+            "strategy": "none",
+            "allow_rewire": false,
+            "preview_limit": 2,
+            "max_candidates": 8
+          },
+          "scenario": {
+            "load_placement": "all_nodes",
+            "reference_case_id": null,
+            "kind": "urban",
+            "layout": "spatial_mst",
+            "engineering_profile": "urban",
+            "topology": null,
+            "tie_count": 0,
+            "load_shape": "heterogeneous",
+            "load_concentration": 2,
+            "calibration_profile": null,
+            "empirical_weight": 0.7,
+            "village_count": null,
+            "trunk_fraction": 0.3,
+            "aspect_ratio": null,
+            "positions_km": null
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "load_phase_weights": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "pv_phase_weights": null,
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0,
+            "max_vuf_percent": 2
+          },
+          "equipment_design": {
+            "mode": "auto",
+            "reference_feeders": [
+              "J1",
+              "K1",
+              "Ckt5",
+              "Ckt24"
+            ],
+            "source_weighting": "equal_feeder",
+            "loading_margin": 0.8,
+            "capacity_band": 2,
+            "conditioning": "length_voltage",
+            "length_bandwidth": 0.65,
+            "voltage_drop_budget_pu": 0.05,
+            "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+          },
+          "count": 1,
+          "n_buses": 25,
+          "n_loads_min": 24,
+          "n_loads_max": 24,
+          "total_kw_min": 360.0,
+          "total_kw_max": 360.0,
+          "voltage_kv": 10.0,
+          "frequency_hz": 50,
+          "power_factor": 0.95,
+          "pv_ratio": 0,
+          "segment_km_min": 0.05,
+          "segment_km_max": 0.25,
+          "seed": 1223,
+          "mode": "normal",
+          "load_semantics": "aggregated",
+          "special_pf_agreement": false,
+          "max_repairs": 2
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b24"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b3"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_rewired_lines": null,
+          "max_rewire_length_ratio": null,
+          "max_node_degree": null,
+          "max_load_redistribution_fraction": null,
+          "max_load_bus_change": null,
+          "max_joint_actions": 2,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "selector": "heuristic"
+        },
+        "verification_step_factor": 0.5,
+        "verification_relative_tolerance": 0.03,
+        "assumptions": []
+      }
+    },
+    {
+      "id": "c_opposed_1231_expanded",
+      "kind": "response_design",
+      "plan": {
+        "research_question": "opposed: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "document_rules": [],
+          "repair_policy": {
+            "strategy": "none",
+            "allow_rewire": false,
+            "preview_limit": 2,
+            "max_candidates": 8
+          },
+          "scenario": {
+            "load_placement": "all_nodes",
+            "reference_case_id": null,
+            "kind": "urban",
+            "layout": "spatial_mst",
+            "engineering_profile": "urban",
+            "topology": null,
+            "tie_count": 0,
+            "load_shape": "heterogeneous",
+            "load_concentration": 2,
+            "calibration_profile": null,
+            "empirical_weight": 0.7,
+            "village_count": null,
+            "trunk_fraction": 0.3,
+            "aspect_ratio": null,
+            "positions_km": null
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "load_phase_weights": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "pv_phase_weights": null,
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0,
+            "max_vuf_percent": 2
+          },
+          "equipment_design": {
+            "mode": "auto",
+            "reference_feeders": [
+              "J1",
+              "K1",
+              "Ckt5",
+              "Ckt24"
+            ],
+            "source_weighting": "equal_feeder",
+            "loading_margin": 0.8,
+            "capacity_band": 2,
+            "conditioning": "length_voltage",
+            "length_bandwidth": 0.65,
+            "voltage_drop_budget_pu": 0.05,
+            "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+          },
+          "count": 1,
+          "n_buses": 25,
+          "n_loads_min": 24,
+          "n_loads_max": 24,
+          "total_kw_min": 360.0,
+          "total_kw_max": 360.0,
+          "voltage_kv": 10.0,
+          "frequency_hz": 50,
+          "power_factor": 0.95,
+          "pv_ratio": 0,
+          "segment_km_min": 0.05,
+          "segment_km_max": 0.25,
+          "seed": 1231,
+          "mode": "normal",
+          "load_semantics": "aggregated",
+          "special_pf_agreement": false,
+          "max_repairs": 2
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b24"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b9"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_rewired_lines": null,
+          "max_rewire_length_ratio": null,
+          "max_node_degree": null,
+          "max_load_redistribution_fraction": null,
+          "max_load_bus_change": null,
+          "max_joint_actions": 2,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "selector": "heuristic"
+        },
+        "verification_step_factor": 0.5,
+        "verification_relative_tolerance": 0.03,
+        "assumptions": []
+      }
+    },
+    {
+      "id": "c_opposed_1237_expanded",
+      "kind": "response_design",
+      "plan": {
+        "research_question": "opposed: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "document_rules": [],
+          "repair_policy": {
+            "strategy": "none",
+            "allow_rewire": false,
+            "preview_limit": 2,
+            "max_candidates": 8
+          },
+          "scenario": {
+            "load_placement": "all_nodes",
+            "reference_case_id": null,
+            "kind": "urban",
+            "layout": "spatial_mst",
+            "engineering_profile": "urban",
+            "topology": null,
+            "tie_count": 0,
+            "load_shape": "heterogeneous",
+            "load_concentration": 2,
+            "calibration_profile": null,
+            "empirical_weight": 0.7,
+            "village_count": null,
+            "trunk_fraction": 0.3,
+            "aspect_ratio": null,
+            "positions_km": null
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "load_phase_weights": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "pv_phase_weights": null,
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0,
+            "max_vuf_percent": 2
+          },
+          "equipment_design": {
+            "mode": "auto",
+            "reference_feeders": [
+              "J1",
+              "K1",
+              "Ckt5",
+              "Ckt24"
+            ],
+            "source_weighting": "equal_feeder",
+            "loading_margin": 0.8,
+            "capacity_band": 2,
+            "conditioning": "length_voltage",
+            "length_bandwidth": 0.65,
+            "voltage_drop_budget_pu": 0.05,
+            "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+          },
+          "count": 1,
+          "n_buses": 25,
+          "n_loads_min": 24,
+          "n_loads_max": 24,
+          "total_kw_min": 360.0,
+          "total_kw_max": 360.0,
+          "voltage_kv": 10.0,
+          "frequency_hz": 50,
+          "power_factor": 0.95,
+          "pv_ratio": 0,
+          "segment_km_min": 0.05,
+          "segment_km_max": 0.25,
+          "seed": 1237,
+          "mode": "normal",
+          "load_semantics": "aggregated",
+          "special_pf_agreement": false,
+          "max_repairs": 2
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b4"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "injection_buses": [
+              "b5"
+            ],
+            "withdrawal_buses": [],
+            "monitor_buses": [],
+            "monitor_branches": [],
+            "phases": null,
+            "step_mw": 0.01,
+            "aggregation": "mean_abs"
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_rewired_lines": null,
+          "max_rewire_length_ratio": null,
+          "max_node_degree": null,
+          "max_load_redistribution_fraction": null,
+          "max_load_bus_change": null,
+          "max_joint_actions": 2,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "selector": "heuristic"
+        },
+        "verification_step_factor": 0.5,
+        "verification_relative_tolerance": 0.03,
+        "assumptions": []
+      }
+    }
+  ],
+  "scope": "Targeted repair evidence, not a complete rerun or population-level 100% guarantee. Voltage initialization changes the pre-search reference operating point in isolated-Q cases; references are frozen before search."
+}
