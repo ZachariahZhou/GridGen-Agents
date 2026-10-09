@@ -120,6 +120,19 @@ with design_tab:
                     view=sample_views[view_sample]
                     st.caption(f'Current view: {selected_design.parent.relative_to(workspace)} / {view_sample}')
                     components.html(display_saved_network(view,view_context='design_sample'),height=850,scrolling=True)
+                if designed.get('verified_family') in ('electrical_response','research_task'):
+                    st.json({k:outcome[k] for k in ('target_met','verification_passed','protected_contract_preserved','accepted_steps','stop_reason')})
+                    if outcome.get('diagnosis'):
+                        with st.expander('Response diagnosis and adjustment evidence',expanded=not outcome['target_met']):
+                            st.write(outcome['diagnosis']['summary'])
+                            st.json(outcome['diagnosis'])
+                    st.dataframe(outcome['selected']['targets'])
+                    if outcome.get('task_validation'):
+                        with st.expander('Research-task suitability',expanded=True):
+                            st.json(outcome['task_validation'])
+                    response_view=output_path/'selected'/'visualization.html'
+                    if response_view.is_file():
+                        components.html(display_saved_network(response_view,view_context='electrical_response'),height=850,scrolling=True)
                 winner=outcome.get('winner')
                 if isinstance(winner,dict) and isinstance(winner.get('conditions'),list) and winner['conditions']:
                     condition=st.selectbox('Select inverse-design condition',winner['conditions'],format_func=lambda c:c['name'],key=f'design_condition:{selected_design}')

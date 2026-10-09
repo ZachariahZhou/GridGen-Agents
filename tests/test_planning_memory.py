@@ -14,10 +14,10 @@ def make_run(root, memory, users=12, failed=False):
     wrong=proposal(users+3);fixed=proposal(users)
     for value in (wrong,fixed):
         item=value['ledger']['requirements'][0]
-        item.update(evidence=f'{users}个用户',expected_value=users)
+        item.update(evidence=f'{users}\u4e2a\u7528\u6237',expected_value=users)
         value['distribution_spec']['total_kw']=24
     if failed:fixed['distribution_spec']['total_kw']=48
-    result=adaptive_plan(f'{users}个用户',root,Model([wrong,fixed]),memory=memory)
+    result=adaptive_plan(f'{users}\u4e2a\u7528\u6237',root,Model([wrong,fixed]),memory=memory)
     return result,json.loads((root/'failure_analysis/attempt_01.json').read_text())
 
 
@@ -57,7 +57,7 @@ def test_idempotence_invalidation_and_source_tampering(tmp_path):
     hints=memory.retrieve(bundle)
     assert hints[0]['observations']==1
     key=hints[0]['examples'][0]['episode_id']
-    memory.invalidate(key,'人工复核发现不适用')
+    memory.invalidate(key,'\u4eba\u5de5\u590d\u6838\u53d1\u73b0\u4e0d\u9002\u7528')
     assert not memory.retrieve(bundle)
     other=store(tmp_path/'other.sqlite')
     other.ingest_run(tmp_path/'run')
@@ -115,7 +115,7 @@ def test_identical_repair_new_directory_can_gain_delivery_evidence(tmp_path):
     memory=store(tmp_path/'memory.sqlite')
     make_run(tmp_path/'first',memory)
     brief,bundle=make_run(tmp_path/'second',memory)
-    result=execute_delivery(brief,tmp_path/'delivery','model','12个用户',None,feedback=False,recovery=False,memory=False)
+    result=execute_delivery(brief,tmp_path/'delivery','model','12\u4e2a\u7528\u6237',None,feedback=False,recovery=False,memory=False)
     assert memory.verify_delivery(tmp_path/'second',brief,result['output'])==1
     hints=memory.retrieve(bundle)
     assert hints[0]['delivery_successes']==hints[0]['observations']==1
@@ -134,10 +134,10 @@ def test_other_generation_manifest_cannot_promote_planning_experience(tmp_path):
     memory=store(tmp_path/'memory.sqlite')
     wrong=proposal(15);fixed=proposal()
     for p in (wrong,fixed):p['distribution_spec'].update(count=2,total_kw=24)
-    brief=adaptive_plan('12个用户',tmp_path/'planner',Model([wrong,fixed]),memory=memory)
+    brief=adaptive_plan('12\u4e2a\u7528\u6237',tmp_path/'planner',Model([wrong,fixed]),memory=memory)
     other=copy.deepcopy(brief)
     other['plan']['spec'].update(count=1,scene='rural',seed=43)
-    result=execute_delivery(other,tmp_path/'delivery','different','12个用户',None,feedback=False,recovery=False,memory=False)
+    result=execute_delivery(other,tmp_path/'delivery','different','12\u4e2a\u7528\u6237',None,feedback=False,recovery=False,memory=False)
     with pytest.raises(ValueError,match='manifest'):
         memory.verify_delivery(tmp_path/'planner',brief,result['output'])
 
@@ -159,7 +159,7 @@ def test_memory_is_advisory_and_reaches_diagnostic_model(tmp_path):
     # Retrieved advice cannot legalize a corrupt correction.
     wrong=proposal(15);wrong['distribution_spec']['total_kw']=24
     changed=proposal();changed['distribution_spec']['total_kw']=99
-    result=adaptive_plan('12个用户',tmp_path/'query',ObservingModel([wrong,changed]),memory=memory)
+    result=adaptive_plan('12\u4e2a\u7528\u6237',tmp_path/'query',ObservingModel([wrong,changed]),memory=memory)
     assert result['status']=='planning_failed'
 
 
@@ -175,7 +175,7 @@ def test_memory_errors_do_not_break_planning(tmp_path):
 
 
 def test_no_memory_by_default_in_low_level_planner(tmp_path):
-    assert adaptive_plan('12个用户',tmp_path,Model([proposal()]))['status']=='ready'
+    assert adaptive_plan('12\u4e2a\u7528\u6237',tmp_path,Model([proposal()]))['status']=='ready'
     assert not list(tmp_path.rglob('*.sqlite'))
 
 
@@ -183,7 +183,7 @@ def test_delivery_promotes_only_matching_verified_model(tmp_path):
     from feeder_agents.delivery import execute_delivery
     memory=store(tmp_path/'memory.sqlite')
     brief,bundle=make_run(tmp_path/'planner',memory)
-    result=execute_delivery(brief,tmp_path/'delivery','model','12个用户',None,
+    result=execute_delivery(brief,tmp_path/'delivery','model','12\u4e2a\u7528\u6237',None,
                             feedback=False,recovery=False,memory=False)
     assert not memory.retrieve(bundle)[0]['delivery_successes']
     promoted=memory.verify_delivery(tmp_path/'planner',brief,result['output'])
@@ -209,15 +209,15 @@ def test_schema_invalid_partial_ledger_cannot_train_downgraded_requirement(tmp_p
 
 def test_public_designs_share_project_memory_and_can_disable_it(tmp_path):
     from feeder_agents.design import design_from_request
-    first=design_from_request('12个用户',tmp_path,'first',execute=False,
+    first=design_from_request('12\u4e2a\u7528\u6237',tmp_path,'first',execute=False,
         model=Model([proposal(15),proposal()]),planning_mode='adaptive')
     assert first['planning_memory']['recorded_episodes']==1
-    second=design_from_request('12个用户',tmp_path,'second',execute=False,
+    second=design_from_request('12\u4e2a\u7528\u6237',tmp_path,'second',execute=False,
         model=Model([proposal(15),proposal()]),planning_mode='adaptive')
     episode=json.loads((tmp_path/'designs/second/failure_analysis/attempt_01.json').read_text())
     assert episode['experience_memory'][0]['observations']==1
     disabled=tmp_path/'disabled'
-    design_from_request('12个用户',disabled,'off',execute=False,model=Model([proposal()]),
+    design_from_request('12\u4e2a\u7528\u6237',disabled,'off',execute=False,model=Model([proposal()]),
                         planning_mode='adaptive',planning_memory_mode='off')
     assert not (disabled/'planning_experiences.sqlite').exists()
 
@@ -226,7 +226,7 @@ def test_delivery_entrypoint_promotes_its_planning_memory(tmp_path):
     from feeder_agents.delivery import execute_delivery
     memory=store(tmp_path/'memory.sqlite')
     brief,bundle=make_run(tmp_path/'planner',memory)
-    result=execute_delivery(brief,tmp_path/'delivery','model','12个用户',None,feedback=False,recovery=False)
+    result=execute_delivery(brief,tmp_path/'delivery','model','12\u4e2a\u7528\u6237',None,feedback=False,recovery=False)
     assert result['planning_memory']['promoted_episodes']==1
     assert memory.retrieve(bundle)[0]['delivery_successes']==1
 
@@ -237,18 +237,18 @@ def test_diagnostic_cannot_cite_a_nonretrieved_memory(tmp_path):
     _,bundle=make_run(tmp_path/'train',memory)
     bundle['experience_memory']=memory.retrieve(bundle)
     key=bundle['experience_memory'][0]['examples'][0]['episode_id']
-    supported=Model([],diagnosis=dict(action_id='align_spec',evidence_ids=['F1'],reason='依据当前事实',
-                                     expected_change='改用户数',memory_episode_ids=[key]))
+    supported=Model([],diagnosis=dict(action_id='align_spec',evidence_ids=['F1'],reason='\u4f9d\u636e\u5f53\u524d\u4e8b\u5b9e',
+                                     expected_change='\u6539\u7528\u6237\u6570',memory_episode_ids=[key]))
     assert diagnose_failure(bundle,supported,tmp_path/'valid_diagnosis')['memory_episode_ids']==[key]
-    model=Model([],diagnosis=dict(action_id='align_spec',evidence_ids=['F1'],reason='依据当前事实',
-                                 expected_change='改用户数',memory_episode_ids=['invented-episode']))
+    model=Model([],diagnosis=dict(action_id='align_spec',evidence_ids=['F1'],reason='\u4f9d\u636e\u5f53\u524d\u4e8b\u5b9e',
+                                 expected_change='\u6539\u7528\u6237\u6570',memory_episode_ids=['invented-episode']))
     with pytest.raises(ValueError,match='memory'):diagnose_failure(bundle,model,tmp_path/'diagnosis')
 
 
 def test_second_diagnosis_receives_short_term_failed_adjustment(tmp_path):
     # Two distinct deterministic errors: first repair representation, then count.
     wrong=proposal(15);wrong['distribution_spec']['deliverables']=['opendss']
-    result=adaptive_plan('12个用户',tmp_path,Model([wrong,proposal(15),proposal()]))
+    result=adaptive_plan('12\u4e2a\u7528\u6237',tmp_path,Model([wrong,proposal(15),proposal()]))
     assert result['status']=='ready'
     second=json.loads((tmp_path/'failure_analysis/attempt_02.json').read_text())
     trajectory=second['trajectory_memory']

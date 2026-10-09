@@ -320,21 +320,21 @@ def run_hierarchy_inverse(plan,workspace,design_id):
         verification=evaluate_candidate(plan,current,root,assessment['candidate_id'],verification=True) if plan.verification_conditions else None
         verification_passed=verification['target_met'] if verification else None
         status='target_met' if assessment['target_met'] else 'target_unmet'
-        report=(f'多电压跨工况反向设计 `{design_id}`：{status}。验证{count}个候选、每个{len(plan.conditions)}个工况，接受{accepted_steps}次局部修改。\n\n'
-            '固定节点、拓扑、地理位置、基准负荷、合同及用户相别；配变/中低压导线只用有来源的整套升级，光伏仅在同相用户间转移容量份额。'
-            '同一候选各工况网络/设备固定；PV比例按未缩放负荷计算。逐电压层级边界、线路及配变容量、VUF均为保护约束。\n\n'
-            '测量位置驱动候选建议；每次修改重新仿真全部工况，任何约束缺额增大或模型无效均回退。'
-            '这是有界局部搜索，不是因果证明、全局优化或不可行性证明；低压采用所选目录及明确记录的电气等值，无显式中性线。\n\n'
-            f'选中模型：{assessment["candidate_id"]}。完整接受/拒绝轨迹见trace.json；模型及图见index.html。')
-        report+=f'\n\n搜索停止原因：{stop_reason}；授权动作回放核验：{replay_verified}；独立于搜索的验证工况结果：{verification_passed}（None表示未配置）。验证结果不会反馈到本次搜索。'
+        report=(f'Multi-voltage inverse design across conditions `{design_id}`: {status}. Evaluated {count} candidates with {len(plan.conditions)} conditions each; accepted {accepted_steps} local edits.\n\n'
+            'Bus identities, topology, coordinates, base demand, contracts and customer phases remain fixed. Transformer and MV/LV conductor upgrades use complete sourced equipment tuples; PV capacity shares move only between customers on the same phase. '
+            'Network and equipment are fixed across the conditions of each candidate; PV ratios use unscaled demand. Voltage-tier limits, line and transformer ratings, and VUF remain protected constraints.\n\n'
+            'Measured violation locations guide proposals. Every edit reruns all conditions; increased deficits or invalid models trigger rollback. '
+            'This is bounded local search, not a causal proof, global optimization or infeasibility certificate. LV models use the selected catalogue and recorded electrical equivalents, without an explicit neutral conductor.\n\n'
+            f'Selected model: {assessment["candidate_id"]}. See trace.json for accepted/rejected edits and index.html for models and views.')
+        report+=f'\n\nStop reason: {stop_reason}; authorized-action replay verified: {replay_verified}; independent verification conditions passed: {verification_passed} (None means not configured). Verification results do not feed back into this search.'
         output=dict(design_id=design_id,status=status,target_met=assessment['target_met'],directory=str(root),
             baseline=baseline,winner=assessment,stop_reason=stop_reason,authorization_replay_verified=replay_verified,
             verification=verification,verification_passed=verification_passed,
             all_requested_conditions_met=bool(assessment['target_met'] and (verification_passed is not False)),
             accepted_steps=accepted_steps,evaluated_candidates=count,trace=trace,verified_report=report)
         atomic_json(root/'trace.json',trace);atomic_json(root/'search.json',output);(root/'report.md').write_text(report)
-        links=''.join(f'<li>{html.escape(c["name"])}: target={c["target_met"]} · <a href="{c["relative_path"]}/visualization.html">视图</a> · <a href="{c["relative_path"]}/opendss/Master.dss">OpenDSS</a></li>' for c in assessment['conditions']+(verification['conditions'] if verification else []))
-        (root/'index.html').write_text(f'<meta charset="utf-8"><h1>{html.escape(design_id)}: {status}</h1><p>搜索目标：{assessment["target_met"]}；搜索后验证：{verification_passed}；全部请求工况：{output["all_requested_conditions_met"]}</p><ul>{links}</ul><p><a href="report.md">报告</a> · <a href="trace.json">修改依据与回退记录</a> · <a href="dataset.zip">下载模型包</a></p>')
+        links=''.join(f'<li>{html.escape(c["name"])}: target={c["target_met"]} · <a href="{c["relative_path"]}/visualization.html">View</a> · <a href="{c["relative_path"]}/opendss/Master.dss">OpenDSS</a></li>' for c in assessment['conditions']+(verification['conditions'] if verification else []))
+        (root/'index.html').write_text(f'<meta charset="utf-8"><h1>{html.escape(design_id)}: {status}</h1><p>Search target: {assessment["target_met"]}; post-search verification: {verification_passed}; all requested conditions: {output["all_requested_conditions_met"]}</p><ul>{links}</ul><p><a href="report.md">Report</a> · <a href="trace.json">Edit evidence and rollback history</a> · <a href="dataset.zip">Download model package</a></p>')
         atomic_json(root/'progress.json',dict(status=status,evaluated_candidates=count,accepted_steps=accepted_steps))
         with zipfile.ZipFile(root/'dataset.zip','w',zipfile.ZIP_DEFLATED) as archive:
             files=[root/n for n in ('manifest.json','plan.json','baseline.json','search.json','trace.json','report.md','index.html')]

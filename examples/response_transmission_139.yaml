@@ -1,0 +1,27 @@
+research_question: Generate a feasible transmission model with reduced peak branch transfer sensitivity.
+base_spec:
+  network_kind: transmission
+  n_buses: 139
+  n_generators: 12
+  voltage_kv: 220
+  total_mw: 1200
+  seed: 41
+probes:
+  - id: area_transfer
+    kind: transfer_p
+    injection_buses: ['70']
+    withdrawal_buses: ['120']
+    step_mw: 0.5
+    aggregation: max_abs
+targets:
+  - probe_id: area_transfer
+    reference: baseline_ratio
+    lower: 0.5
+    upper: 0.98
+search:
+  allowed_actions: [parallel_line]
+  max_rounds: 4
+  candidates_per_round: 8
+assumptions:
+  - Branch power uses the fixed from-terminal orientation.
+  - Parallel circuits retain complete equipment tuples and the original charging compensation fraction.

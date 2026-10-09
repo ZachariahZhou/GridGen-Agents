@@ -1,0 +1,98 @@
+{
+  "scope": "Three distinct requests, two separately retained failed-request retests. Mixed source versions; not a same-version success-rate estimate. Candidate selection is heuristic; Qwen compiles the request.",
+  "attempts": [
+    {
+      "id": "voltage_control",
+      "request": "\u4e3a\u7535\u538b\u63a7\u5236\u7814\u7a76\u751f\u6210\u4e00\u676110kV\u519c\u6751\u9988\u7ebf\uff0c\u603b\u8d1f\u8377\u4e3a360kW\u3002\u91c7\u7528\u4e09\u76f8\u4e0d\u5e73\u8861\u8d1f\u8377\uff0c\u4f46\u5355\u76f8\u548c\u4e24\u76f8\u652f\u8def\u6570\u91cf\u90fd\u4e3a0\u3002\u8282\u70b9\u6570\u548c\u54cd\u5e94\u533a\u95f4\u4f7f\u7528\u9ed8\u8ba4\u79d1\u7814\u4efb\u52a1\u534f\u8bae\uff0c\u4e0d\u989d\u5916\u89c4\u5b9a\u3002\u65e0\u529f\u652f\u6491\u9884\u7b97\u4e3a20kvar\uff0c\u91c7\u7528\u9ed8\u8ba4\u5019\u9009\u641c\u7d22\uff0c\u4e0d\u8981\u6c42LLM\u9009\u62e9\u5019\u9009\u3002\u5176\u4f59\u91c7\u7528\u6709\u8bf4\u660e\u7684\u7814\u7a76\u9ed8\u8ba4\u503c\uff0c\u8f93\u51faOpenDSS\u6a21\u578b\u548c\u9002\u7528\u6027\u8bc1\u636e\u3002",
+      "status": "needs_clarification",
+      "model": "qwen3.7-plus",
+      "issues": [
+        "Custom response interval has no recognized numerical source; clarify its definition instead of inventing it."
+      ],
+      "result_sha256": "51cdee2677203a714ad19f60f9c9c4938f77991a4795eb1a9d767ead6339f7bf",
+      "model_call_count": 1,
+      "model_call_statuses": [
+        "valid"
+      ]
+    },
+    {
+      "id": "static_pv_impact",
+      "request": "\u4e3a\u7814\u7a76\u9759\u6001\u5149\u4f0f\u63a5\u5165\u5f71\u54cd\u751f\u621025\u4e2a\u8282\u70b9\u768410kV\u57ce\u5e02\u9988\u7ebf\uff0c\u603b\u8d1f\u8377\u4e3a360kW\uff0c\u5149\u4f0f\u6bd4\u4f8b60%\u3002\u91c7\u7528\u4e09\u76f8\u4e0d\u5e73\u8861\u8d1f\u8377\uff0c\u4f46\u5355\u76f8\u548c\u4e24\u76f8\u652f\u8def\u6570\u91cf\u90fd\u4e3a0\u3002\u4f7f\u7528\u9ed8\u8ba4\u79d1\u7814\u4efb\u52a1\u534f\u8bae\u548c\u9ed8\u8ba4\u5019\u9009\u641c\u7d22\uff0c\u4e0d\u6307\u5b9a\u54cd\u5e94\u6570\u503c\u533a\u95f4\uff1b\u81ea\u52a8\u9009\u62e9\u5b9e\u9645\u5149\u4f0f\u8282\u70b9\uff0c\u5e76\u5b8c\u6210\u540c\u4e00\u7f51\u7edc\u7684\u5149\u4f0f\u5173\u95ed\u548c\u5f00\u542f\u5bf9\u7167\u3002\u8f93\u51faOpenDSS\u6a21\u578b\uff0c\u4e0d\u751f\u6210\u65f6\u5e8f\u6570\u636e\u3002",
+      "status": "completed",
+      "model": "qwen3.7-plus",
+      "issues": [],
+      "result_sha256": "8d16f1adedee4b8995c60b6ddf8e8f9993c2cefe8923d312ffb9557367597576",
+      "model_call_count": 1,
+      "model_call_statuses": [
+        "valid"
+      ],
+      "task": "static_pv_impact",
+      "target_met": true,
+      "verification_passed": true,
+      "task_experiment_passed": true,
+      "n_buses": 25,
+      "response_ratio": 1.1374823994299126,
+      "accepted_steps": 1,
+      "source_hash": "bdf1c45cef4bdc5792142087ebfc069c708b87c397b0d01232054e582ee5a7f2",
+      "result_hash": "c49a05280cd60035cea10f99b079c92a94d28b609328cca56e7e78df602512b2"
+    },
+    {
+      "id": "transmission_transfer",
+      "request": "\u4e3a\u7814\u7a76\u8f93\u7535\u529f\u7387\u8f6c\u79fb\u751f\u6210139\u4e2a\u8282\u70b9\u7684220kV\u8f93\u7535\u7f51\uff0c12\u53f0\u53d1\u7535\u673a\uff0c\u603b\u8d1f\u8377\u4e3a1200MW\u3002\u6709\u9650\u6709\u529f\u8f6c\u79fb\u9884\u7b97\u4e3a10MW\uff0c\u4fdd\u6301\u65e0\u529f\u8d1f\u8377\u4e0d\u53d8\u3002\u4f7f\u7528\u9ed8\u8ba4\u79d1\u7814\u4efb\u52a1\u534f\u8bae\u548c\u9ed8\u8ba4\u5019\u9009\u641c\u7d22\uff0c\u4e0d\u6307\u5b9a\u54cd\u5e94\u6570\u503c\u533a\u95f4\uff1b\u81ea\u52a8\u9009\u62e9\u4e24\u4e2a\u76f8\u8ddd\u8f83\u8fdc\u7684\u975e\u53c2\u8003\u8282\u70b9\uff0c\u8f93\u51faMATPOWER\u6a21\u578b\u548c\u8f6c\u79fb\u8bd5\u9a8c\u8bc1\u636e\u3002",
+      "status": "completed",
+      "model": "qwen3.7-plus",
+      "issues": [],
+      "result_sha256": "f8d41a1b5153a9f9c445b6ee67aeea997b7831503a534e2c3d79dbbabea26e4d",
+      "model_call_count": 2,
+      "model_call_statuses": [
+        "invalid",
+        "valid"
+      ],
+      "task": "transmission_transfer",
+      "target_met": true,
+      "verification_passed": true,
+      "task_experiment_passed": true,
+      "n_buses": 139,
+      "response_ratio": 0.9764884416956431,
+      "accepted_steps": 1,
+      "source_hash": "bdf1c45cef4bdc5792142087ebfc069c708b87c397b0d01232054e582ee5a7f2",
+      "result_hash": "04d10bd93e099944a6d80d7901e6ce8fd5f2b8b622c2dd726f4b6135b469c8d6"
+    },
+    {
+      "id": "voltage_control_corrected",
+      "request": "\u4e3a\u7535\u538b\u63a7\u5236\u7814\u7a76\u751f\u6210\u4e00\u676110kV\u519c\u6751\u9988\u7ebf\uff0c\u603b\u8d1f\u8377\u4e3a360kW\u3002\u91c7\u7528\u4e09\u76f8\u4e0d\u5e73\u8861\u8d1f\u8377\uff0c\u4f46\u5355\u76f8\u548c\u4e24\u76f8\u652f\u8def\u6570\u91cf\u90fd\u4e3a0\u3002\u8282\u70b9\u6570\u548c\u54cd\u5e94\u533a\u95f4\u4f7f\u7528\u9ed8\u8ba4\u79d1\u7814\u4efb\u52a1\u534f\u8bae\uff0c\u4e0d\u989d\u5916\u89c4\u5b9a\u3002\u65e0\u529f\u652f\u6491\u9884\u7b97\u4e3a20kvar\uff0c\u91c7\u7528\u9ed8\u8ba4\u5019\u9009\u641c\u7d22\uff0c\u4e0d\u8981\u6c42LLM\u9009\u62e9\u5019\u9009\u3002\u5176\u4f59\u91c7\u7528\u6709\u8bf4\u660e\u7684\u7814\u7a76\u9ed8\u8ba4\u503c\uff0c\u8f93\u51faOpenDSS\u6a21\u578b\u548c\u9002\u7528\u6027\u8bc1\u636e\u3002",
+      "status": "planning_failed",
+      "model": "qwen3.7-plus",
+      "issues": [
+        "1 validation error for ResearchBrief\nplan.base_spec.distribution.scenario.phase_design\n  Extra inputs are not permitted [type=extra_forbidden, input_value={'mode': 'unbalanced', 'l...'two_phase_laterals': 0}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"
+      ],
+      "result_sha256": "bd8310e3527e9181c4b5813d6840d067a676b62b4538d8789540dbee74da2b1e",
+      "model_call_count": 2,
+      "model_call_statuses": [
+        "invalid",
+        "invalid"
+      ]
+    },
+    {
+      "id": "voltage_control_final",
+      "request": "\u4e3a\u7535\u538b\u63a7\u5236\u7814\u7a76\u751f\u6210\u4e00\u676110kV\u519c\u6751\u9988\u7ebf\uff0c\u603b\u8d1f\u8377\u4e3a360kW\u3002\u91c7\u7528\u4e09\u76f8\u4e0d\u5e73\u8861\u8d1f\u8377\uff0c\u4f46\u5355\u76f8\u548c\u4e24\u76f8\u652f\u8def\u6570\u91cf\u90fd\u4e3a0\u3002\u8282\u70b9\u6570\u548c\u54cd\u5e94\u533a\u95f4\u4f7f\u7528\u9ed8\u8ba4\u79d1\u7814\u4efb\u52a1\u534f\u8bae\uff0c\u4e0d\u989d\u5916\u89c4\u5b9a\u3002\u65e0\u529f\u652f\u6491\u9884\u7b97\u4e3a20kvar\uff0c\u91c7\u7528\u9ed8\u8ba4\u5019\u9009\u641c\u7d22\uff0c\u4e0d\u8981\u6c42LLM\u9009\u62e9\u5019\u9009\u3002\u5176\u4f59\u91c7\u7528\u6709\u8bf4\u660e\u7684\u7814\u7a76\u9ed8\u8ba4\u503c\uff0c\u8f93\u51faOpenDSS\u6a21\u578b\u548c\u9002\u7528\u6027\u8bc1\u636e\u3002",
+      "status": "completed",
+      "model": "qwen3.7-plus",
+      "issues": [],
+      "result_sha256": "1784c99c1f005a4600a6533c20efba1b18f01be550bf269f60718cbc5d869b7e",
+      "model_call_count": 1,
+      "model_call_statuses": [
+        "valid"
+      ],
+      "task": "voltage_control",
+      "target_met": true,
+      "verification_passed": true,
+      "task_experiment_passed": true,
+      "n_buses": 37,
+      "response_ratio": 1.1326787366066684,
+      "accepted_steps": 1,
+      "source_hash": "0a7f4a2a84e16efd5cf41db4c34b0274926822a9dd9fc47b8e70ad3cec5747ef",
+      "result_hash": "b66be927e1c8e6a470e97a2121ea53f3a7765acf2fe7f65dfd19c00fb0a96a16"
+    }
+  ]
+}

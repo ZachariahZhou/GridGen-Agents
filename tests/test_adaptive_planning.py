@@ -39,14 +39,14 @@ class Model:
 
 def proposal(users=12):
     return dict(status='ready', family='hierarchical', distribution_spec=dict(users=users),
-                ledger=dict(network_kind='distribution', model_family='hierarchical', summary='用户要求',
-                            requirements=[dict(id='r1', segment_ids=[0], evidence='12个用户', meaning='用户数',
+                ledger=dict(network_kind='distribution', model_family='hierarchical', summary='\u7528\u6237\u8981\u6c42',
+                            requirements=[dict(id='r1', segment_ids=[0], evidence='12\u4e2a\u7528\u6237', meaning='\u7528\u6237\u6570',
                                                priority='hard', disposition='supported', target_field='hierarchy.users', expected_value=12)]))
 
 
 def test_clear_request_one_call_and_ledger_preserved(tmp_path):
     model = Model([proposal()])
-    result = adaptive_plan('生成12个用户', tmp_path, model)
+    result = adaptive_plan('\u751f\u621012\u4e2a\u7528\u6237', tmp_path, model)
     assert result['status'] == 'ready'
     assert result['plan']['spec']['users'] == 12
     assert result['requirement_ledger']['requirements'][0]['expected_value'] == 12
@@ -58,13 +58,13 @@ def test_village_count_is_not_transformer_count():
     from feeder_agents.adaptive_planning import AdaptiveProposal, _compile
     value = proposal()
     item = value['ledger']['requirements'][0]
-    item.update(evidence='聚集成3个村落', meaning='空间分群', target_field='hierarchy.transformer_count', expected_value=3)
+    item.update(evidence='\u805a\u96c6\u62103\u4e2a\u6751\u843d', meaning='\u7a7a\u95f4\u5206\u7fa4', target_field='hierarchy.transformer_count', expected_value=3)
     with pytest.raises(ValueError, match='spatial-layout'):
-        _compile(AdaptiveProposal.model_validate(value), '聚集成3个村落')
+        _compile(AdaptiveProposal.model_validate(value), '\u805a\u96c6\u62103\u4e2a\u6751\u843d')
 
 
 def test_village_specialized_route_keeps_original_request(tmp_path):
-    text = '生成一条10kv的农村配电网，30多个节点，聚集成3个村落'
+    text = '\u751f\u6210\u4e00\u676110kv\u7684\u519c\u6751\u914d\u7535\u7f51\uff0c30\u591a\u4e2a\u8282\u70b9\uff0c\u805a\u96c6\u62103\u4e2a\u6751\u843d'
     model = Model([dict(status='specialized', family='specialized', issues=['Use rural_villages spatial generator'])])
     result = adaptive_plan(text, tmp_path, model)
     assert result['status'] == 'specialized'
@@ -74,7 +74,7 @@ def test_village_specialized_route_keeps_original_request(tmp_path):
 
 def test_mismatch_upgrades_with_bounded_correction(tmp_path):
     model = Model([proposal(15), proposal()])
-    result = adaptive_plan('生成12个用户', tmp_path, model)
+    result = adaptive_plan('\u751f\u621012\u4e2a\u7528\u6237', tmp_path, model)
     assert result['status'] == 'ready'
     assert model.calls == 4  # two proposals, diagnosis, independent revalidation
     assert result['adaptive_trace']['route'] == 'focused'
@@ -83,7 +83,7 @@ def test_mismatch_upgrades_with_bounded_correction(tmp_path):
 
 def test_repeated_failure_stops_without_relaxing_requirement(tmp_path):
     model = Model([proposal(15)] * 3)
-    result = adaptive_plan('生成12个用户', tmp_path, model)
+    result = adaptive_plan('\u751f\u621012\u4e2a\u7528\u6237', tmp_path, model)
     assert result['status'] == 'planning_failed'
     assert model.calls == 3  # repeated evidence stops before a second diagnosis
     assert result['adaptive_trace']['stop_reason'] == 'repeated_failure'
@@ -92,7 +92,7 @@ def test_repeated_failure_stops_without_relaxing_requirement(tmp_path):
 def test_transport_failure_not_retried_as_design_problem(tmp_path):
     model = Model([TimeoutError('offline')])
     with pytest.raises(TimeoutError):
-        adaptive_plan('生成12个用户', tmp_path, model)
+        adaptive_plan('\u751f\u621012\u4e2a\u7528\u6237', tmp_path, model)
     assert model.calls == 1
     trace = json.loads((tmp_path/'adaptive_trace.json').read_text())
     assert trace['stop_reason'] == 'transport_error'
@@ -100,43 +100,43 @@ def test_transport_failure_not_retried_as_design_problem(tmp_path):
 
 def test_explicit_scope_guard_needs_no_model(tmp_path):
     model = Model([])
-    result = adaptive_plan('生成8760小时时序数据', tmp_path, model)
+    result = adaptive_plan('\u751f\u62108760\u5c0f\u65f6\u65f6\u5e8f\u6570\u636e', tmp_path, model)
     assert result['status'] == 'unsupported'
     assert model.calls == 0
 
 
 def test_uncertainty_gets_focused_review(tmp_path):
     uncertain = proposal()
-    uncertain['uncertainties'] = ['敷设条件尚待结合目录选择']
+    uncertain['uncertainties'] = ['\u6577\u8bbe\u6761\u4ef6\u5c1a\u5f85\u7ed3\u5408\u76ee\u5f55\u9009\u62e9']
     model = Model([uncertain, proposal()])
-    result = adaptive_plan('生成12个用户', tmp_path, model)
+    result = adaptive_plan('\u751f\u621012\u4e2a\u7528\u6237', tmp_path, model)
     assert result['status'] == 'ready'
     assert model.calls == 4
 
 
 def test_omitted_clause_not_silently_accepted(tmp_path):
     model = Model([proposal(), proposal()])
-    result = adaptive_plan('生成12个用户；无光伏', tmp_path, model)
+    result = adaptive_plan('\u751f\u621012\u4e2a\u7528\u6237\uff1b\u65e0\u5149\u4f0f', tmp_path, model)
     assert result['status'] == 'planning_failed'
 
 
 def test_frontdoor_adaptive_draft_and_cache_mode(tmp_path):
     from feeder_agents.design import design_from_request
     model = Model([proposal()])
-    result = design_from_request('生成12个用户', tmp_path, 'new', execute=False, model=model, planning_mode='adaptive')
+    result = design_from_request('\u751f\u621012\u4e2a\u7528\u6237', tmp_path, 'new', execute=False, model=model, planning_mode='adaptive')
     assert result['status'] == 'draft'
     assert result['adaptive_trace']['route'] == 'direct'
-    result = design_from_request('生成12个用户', tmp_path, 'new', execute=False, model=model, planning_mode='adaptive')
+    result = design_from_request('\u751f\u621012\u4e2a\u7528\u6237', tmp_path, 'new', execute=False, model=model, planning_mode='adaptive')
     assert model.calls == 1
     with pytest.raises(ValueError, match='new design_id'):
-        design_from_request('生成12个用户', tmp_path, 'new', execute=False, model=model)
+        design_from_request('\u751f\u621012\u4e2a\u7528\u6237', tmp_path, 'new', execute=False, model=model)
 
 
 def test_correction_cannot_erase_previous_hard_requirement(tmp_path):
     downgraded = proposal(15)
     downgraded['ledger']['requirements'][0]['priority'] = 'preference'
     model = Model([proposal(15), downgraded, downgraded])
-    result = adaptive_plan('生成12个用户', tmp_path, model)
+    result = adaptive_plan('\u751f\u621012\u4e2a\u7528\u6237', tmp_path, model)
     assert result['status'] == 'planning_failed'
 
 
@@ -145,14 +145,14 @@ def test_provider_json_string_objects_are_decoded_without_extra_analysis(tmp_pat
     response['ledger'] = json.dumps(response['ledger'])
     response['distribution_spec'] = json.dumps(response['distribution_spec'])
     model = Model([response, response])
-    result = adaptive_plan('生成12个用户', tmp_path, model)
+    result = adaptive_plan('\u751f\u621012\u4e2a\u7528\u6237', tmp_path, model)
     assert result['status'] == 'ready'
     assert model.calls == 1
 
 
 def test_only_explicit_default_boilerplate_can_be_completed_without_llm(tmp_path):
     model = Model([proposal()])
-    result = adaptive_plan('生成12个用户。其他默认。', tmp_path, model)
+    result = adaptive_plan('\u751f\u621012\u4e2a\u7528\u6237\u3002\u5176\u4ed6\u9ed8\u8ba4\u3002', tmp_path, model)
     assert result['status'] == 'ready'
     assert model.calls == 1
     assert result['requirement_ledger']['requirements'][-1]['priority'] == 'preference'
@@ -162,7 +162,7 @@ def test_hierarchical_spec_alias_is_representation_only(tmp_path):
     response = proposal()
     response['hierarchical_spec'] = response.pop('distribution_spec')
     model = Model([response, response])
-    assert adaptive_plan('生成12个用户', tmp_path, model)['status'] == 'ready'
+    assert adaptive_plan('\u751f\u621012\u4e2a\u7528\u6237', tmp_path, model)['status'] == 'ready'
 
 
 def test_bare_hierarchy_voltage_gets_model_stage_semantics(tmp_path):
@@ -170,7 +170,7 @@ def test_bare_hierarchy_voltage_gets_model_stage_semantics(tmp_path):
     r = response['ledger']['requirements'][0]
     r.update(evidence='10kV', target_field='voltage_kv', expected_value=10)
     model = Model([response])
-    result = adaptive_plan('生成10kV馈线', tmp_path, model)
+    result = adaptive_plan('\u751f\u621010kV\u9988\u7ebf', tmp_path, model)
     assert result['requirement_ledger']['requirements'][0]['target_field'] == 'hierarchy.voltage_kv'
 
 
@@ -196,21 +196,21 @@ def test_voltage_layer_requirement_does_not_depend_on_array_order():
     from feeder_agents.requirements import RequirementLedger
     from feeder_agents.requirement_contract import audit_ledger
     layers = [dict(kv=110, buses=6), dict(kv=220, buses=4)]
-    ledger = RequirementLedger(network_kind='transmission', model_family='transmission', summary='层级', requirements=[dict(
-        id='layers', segment_ids=[0], evidence='双电压', meaning='层级', priority='hard', disposition='supported',
+    ledger = RequirementLedger(network_kind='transmission', model_family='transmission', summary='\u5c42\u7ea7', requirements=[dict(
+        id='layers', segment_ids=[0], evidence='\u53cc\u7535\u538b', meaning='\u5c42\u7ea7', priority='hard', disposition='supported',
         target_field='transmission.voltage_layers', expected_value=layers)])
     assert audit_ledger(ledger, dict(voltage_layers=list(reversed(layers))))['all_satisfied']
 
 
 def test_explicit_simultaneous_conflict_needs_no_model(tmp_path):
     model = Model([])
-    result = adaptive_plan('同一模型同一工况总负荷必须同时严格等于100MW和160MW。', tmp_path, model)
+    result = adaptive_plan('\u540c\u4e00\u6a21\u578b\u540c\u4e00\u5de5\u51b5\u603b\u8d1f\u8377\u5fc5\u987b\u540c\u65f6\u4e25\u683c\u7b49\u4e8e100MW\u548c160MW\u3002', tmp_path, model)
     assert result['status'] == 'needs_clarification'
     assert model.calls == 0
 
 
 def test_interlayer_transformer_prose_maps_to_physical_existence(tmp_path):
-    request = '层间显式变压器'
+    request = '\u5c42\u95f4\u663e\u5f0f\u53d8\u538b\u5668'
     response = dict(status='ready', family='transmission', transmission_spec=dict(n_buses=10,
         voltage_layers=[dict(kv=110,buses=6),dict(kv=220,buses=4)]), ledger=dict(
         network_kind='transmission', model_family='transmission', summary=request, requirements=[dict(

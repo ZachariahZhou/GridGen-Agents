@@ -1,0 +1,37 @@
+{
+  "initial": {
+    "attempts": 18,
+    "target_met": 12,
+    "base_accepted": 18
+  },
+  "failed_case_retest": {
+    "attempts": 6,
+    "recovered": 3
+  },
+  "reconciled": {
+    "tasks": 18,
+    "target_met": 15,
+    "qualification": "Mixed-version regression reconciliation, not a new independent full-suite success rate."
+  },
+  "llm_check": {
+    "model": "qwen3.7-plus",
+    "exact_buses": 37,
+    "target_met": true,
+    "response_ratio": 1.069571670145555,
+    "accepted_steps": 2,
+    "llm_selections": 2
+  },
+  "evidence_hashes": {
+    "initial": "9f1af239146e07059ee0b46402d33f2b9d9064baa6f7b516e45e28b85dc92ce7",
+    "retest": "ee0ee7c439edfe1f575cd28cf5727dced8bdf712e9dd565b3ad99ba151f20476"
+  },
+  "tests": {
+    "passed": 173,
+    "scope": "Complete curated release suite"
+  },
+  "remaining": [
+    "urban_25_41_increase",
+    "urban_25_42_increase",
+    "urban_25_43_increase"
+  ]
+}

@@ -16,6 +16,8 @@ Original GridGen-Agents code uses the root [Apache License 2.0](LICENSE), retain
 
 Only runtime catalogs are included. Raw downloads, complete reports and extraction intermediates are excluded. A record's `source_path` identifies provenance; it is not a dependency on the original research machine.
 
+Public explanatory text is presented in English. Unicode escapes in retained source identifiers or evidence preserve the original decoded values; they do not alter attribution or third-party distribution terms.
+
 ## Python dependencies
 
 LangChain, LangGraph, OpenDSSDirect.py, NetworkX, Pydantic, Streamlit, PYPOWER, SciPy and Matplotlib are installed through the package manager. Their code and virtual environments are not vendored here. Dependency ranges are listed in `pyproject.toml`; each project retains its own terms.

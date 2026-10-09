@@ -18,7 +18,7 @@ class ScriptedModel(BaseChatModel):
 
     def _generate(self, messages, stop=None, run_manager=None, **kwargs):
         if any(getattr(m, 'type', '') == 'tool' for m in messages):
-            message = AIMessage(content='已生成，结果以工具返回的验证报告为准。')
+            message = AIMessage(content='\u5df2\u751f\u6210\uff0c\u7ed3\u679c\u4ee5\u5de5\u5177\u8fd4\u56de\u7684\u9a8c\u8bc1\u62a5\u544a\u4e3a\u51c6\u3002')
         else:
             message = AIMessage(content='', tool_calls=[{
                 'name': 'generate_cases', 'id': 'call_test', 'type': 'tool_call',
@@ -62,7 +62,7 @@ def test_natural_design_error_is_recorded_with_support_id(tmp_path, monkeypatch)
         raise TypeError("unexpected keyword argument 'planning_mode'")
     monkeypatch.setattr(design, 'design_from_request', broken)
     app = AppTest.from_file(Path(__file__).resolve().parents[1] / 'app.py').run(timeout=20)
-    next(w for w in app.text_area if w.label == 'Design request').set_value('生成一条10kv的农村配电网，30多个节点，聚集成3个村落')
+    next(w for w in app.text_area if w.label == 'Design request').set_value('\u751f\u6210\u4e00\u676110kv\u7684\u519c\u6751\u914d\u7535\u7f51\uff0c30\u591a\u4e2a\u8282\u70b9\uff0c\u805a\u96c6\u62103\u4e2a\u6751\u843d')
     next(b for b in app.button if b.label == 'Generate from request').click().run(timeout=20)
     assert not app.exception
     records = list((tmp_path / 'workspace/ui_errors').glob('*.json'))
@@ -140,7 +140,7 @@ def test_new_design_selects_its_own_view_and_allows_sample_switch(tmp_path, monk
     monkeypatch.setattr(design,'design_from_request',lambda request,project_root,design_id,**kwargs:saved(project_root,design_id))
     app=AppTest.from_file(entrypoint).run(timeout=20)
     next(w for w in app.text_input if w.label=='Design ID').set_value('a_new')
-    next(w for w in app.text_area if w.label=='Design request').set_value('生成新案例')
+    next(w for w in app.text_area if w.label=='Design request').set_value('\u751f\u6210\u65b0\u6848\u4f8b')
     next(b for b in app.button if b.label=='Generate from request').click().run(timeout=20)
     assert not app.exception
     selected=next(w for w in app.selectbox if w.label=='Select design')

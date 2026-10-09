@@ -1,0 +1,4 @@
+case_id,seed,previous_ratio,catalogue_ratio,expanded_ratio,catalogue_steps,expanded_steps,catalogue_target_met,expanded_target_met,layout_scale,layout_permission,expanded_base_accepted,expanded_verification_passed,contract_preserved,baseline_identical,original_baseline_sha256,diagnosis_code
+urban_25_41_increase,41,1.0334058909197394,1.048887953590911,1.0871298434881838,1,1,False,True,1.09,0.15,True,True,True,True,904d17c41f70c7a9d1ead4032bdf0954b9ebcc7df70dcf4e8aba4496fd269197,catalogue_direction_exhausted
+urban_25_42_increase,42,1.0189707275066078,1.0315242484743117,1.0885955197987067,1,1,False,True,1.09,0.15,True,True,True,True,3c47d9d8a853dfbeeab6157a29211aa037d9b96ae231191b16f2f85da24d02ea,catalogue_direction_exhausted
+urban_25_43_increase,43,1.0198999038499892,1.0337082557632271,1.0884652257508345,1,1,False,True,1.09,0.15,True,True,True,True,ccbc14249d70debb1606cc7041beacc6d83fa26730bdb8a4759d65922b55b20f,catalogue_direction_exhausted

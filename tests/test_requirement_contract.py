@@ -4,7 +4,7 @@ from feeder_agents.hierarchy import HierarchicalSpec,generate_hierarchy
 
 
 def ledger(field,value,**kw):
-    return RequirementLedger(network_kind='distribution',summary='研究馈线',requirements=[dict(id='r',segment_ids=[0],evidence='三相不平衡',meaning='模型要求',priority='hard',disposition='supported',target_field=field,expected_value=value,**kw)])
+    return RequirementLedger(network_kind='distribution',summary='\u7814\u7a76\u9988\u7ebf',requirements=[dict(id='r',segment_ids=[0],evidence='\u4e09\u76f8\u4e0d\u5e73\u8861',meaning='\u6a21\u578b\u8981\u6c42',priority='hard',disposition='supported',target_field=field,expected_value=value,**kw)])
 
 
 def brief(**values):
@@ -51,20 +51,20 @@ def test_paper_and_live_comparators_handle_numeric_roundoff_identically():
 def test_capability_mapping_does_not_erase_real_unsupported_requirement():
     from feeder_agents.requirements import validate_ledger
     r=ledger('phase_design.mode','unbalanced');r.model_family='hierarchical'
-    r.requirements[0].disposition='unsupported';r.requirements[0].reason='没有phase_design字段'
-    with pytest.raises(ValueError,match='内建'):validate_ledger('三相不平衡',r)
-    r.requirements[0].target_field='neutral_displacement';r.requirements[0].reason='不支持中性线位移'
-    validate_ledger('三相不平衡',r)
+    r.requirements[0].disposition='unsupported';r.requirements[0].reason='\u6ca1\u6709phase_design\u5b57\u6bb5'
+    with pytest.raises(ValueError,match='built-in'):validate_ledger('\u4e09\u76f8\u4e0d\u5e73\u8861',r)
+    r.requirements[0].target_field='neutral_displacement';r.requirements[0].reason='\u4e0d\u652f\u6301\u4e2d\u6027\u7ebf\u4f4d\u79fb'
+    validate_ledger('\u4e09\u76f8\u4e0d\u5e73\u8861',r)
 
 
 def test_legacy_phase_assignment_compiles_to_builtin_capability(tmp_path):
     from feeder_agents.schemas import DesignIntent
     from feeder_agents.design import compile_intent
-    intent=DesignIntent(summary='层级馈线',task='hierarchical',assignments=[dict(field='phase_design.mode',value='unbalanced',origin='user',evidence='三相不平衡',reason='用户要求')])
-    result=compile_intent('三相不平衡',intent,tmp_path)
+    intent=DesignIntent(summary='\u5c42\u7ea7\u9988\u7ebf',task='hierarchical',assignments=[dict(field='phase_design.mode',value='unbalanced',origin='user',evidence='\u4e09\u76f8\u4e0d\u5e73\u8861',reason='\u7528\u6237\u8981\u6c42')])
+    result=compile_intent('\u4e09\u76f8\u4e0d\u5e73\u8861',intent,tmp_path)
     check_ledger_plan(ledger('phase_design.mode','unbalanced'),result)
     intent.assignments[0].value='balanced'
-    with pytest.raises(ValueError):compile_intent('三相不平衡',intent,tmp_path)
+    with pytest.raises(ValueError):compile_intent('\u4e09\u76f8\u4e0d\u5e73\u8861',intent,tmp_path)
 
 
 
@@ -84,7 +84,7 @@ def _saved_actual_hierarchy(root,spec):
     (folder/'validation.json').write_text(json.dumps(checked))
     (root/'manifest.json').write_text(json.dumps(dict(spec=spec.model_dump())))
     return f,dict(directory=str(root),attempted=1,accepted=1,failed_or_unaccepted=0,
-        samples=[dict(sample_id=folder.name,seed=seed,accepted=True)],verified_report='电气通过')
+        samples=[dict(sample_id=folder.name,seed=seed,accepted=True)],verified_report='\u7535\u6c14\u901a\u8fc7')
 
 
 def test_delivery_audit_reads_final_artifact_not_planner_assertion(tmp_path):
@@ -103,10 +103,10 @@ def test_natural_language_delivery_exposes_requirement_failure(tmp_path,monkeypa
     from feeder_agents.design import design_from_request
     f,output=_saved_actual_hierarchy(tmp_path/'generated',HierarchicalSpec(users=12,total_kw=48))
     plan=brief(users=12,total_kw=48)
-    plan.update(intent={'summary':'研究馈线','assumptions':[]},parameter_evidence=[],interpreter_model='test',requirement_ledger=ledger('hierarchy.total_kw',60).model_dump())
+    plan.update(intent={'summary':'\u7814\u7a76\u9988\u7ebf','assumptions':[]},parameter_evidence=[],interpreter_model='test',requirement_ledger=ledger('hierarchy.total_kw',60).model_dump())
     monkeypatch.setattr('feeder_agents.design.interpret_request',lambda *a,**kw:plan)
     monkeypatch.setattr('feeder_agents.hierarchy_workflow.run_hierarchy',lambda *a,**kw:dict(experiment_id='test',**output))
-    result=design_from_request('科研馈线',tmp_path,'delivery')
+    result=design_from_request('\u79d1\u7814\u9988\u7ebf',tmp_path,'delivery')
     assert result['outcome']['accepted']==1
     assert result['outcome']['requirement_accepted']==0
     assert result['requirement_acceptance']['samples'][0]['failed']==1

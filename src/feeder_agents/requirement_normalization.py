@@ -19,25 +19,25 @@ def _reference(ledger, field, exclude):
 
 
 def _preservation_fields(text, family):
-    if not re.search(r'保持|不变|不得改变|不能改变|不要降低|不得降低|不要减少',text) or re.search(r'\d',text):return []
-    if '或' in text and not re.search(r'不要降低|不得降低|不要减少',text):return []
+    if not re.search('\u4fdd\u6301|\u4e0d\u53d8|\u4e0d\u5f97\u6539\u53d8|\u4e0d\u80fd\u6539\u53d8|\u4e0d\u8981\u964d\u4f4e|\u4e0d\u5f97\u964d\u4f4e|\u4e0d\u8981\u51cf\u5c11',text) or re.search(r'\d',text):return []
+    if '\u6216' in text and not re.search('\u4e0d\u8981\u964d\u4f4e|\u4e0d\u5f97\u964d\u4f4e|\u4e0d\u8981\u51cf\u5c11',text):return []
     names={
-        '总有功负荷':'load','总负荷':'load','负荷':'load','负荷总量':'load',
-        '光伏装机容量':'pv_ratio','光伏容量':'pv_ratio','光伏配置':'pv_ratio','光伏':'pv_ratio',
-        '总母线数':'n_buses','母线总数':'n_buses','母线数量':'n_buses','母线数':'n_buses','节点数':'n_buses',
-        '发电机类型':'generator_types','机组类型':'generator_types','各电压层数量':'voltage_layers',
-        '配变数':'transformers','配变数量':'transformers','用户数量':'users','用户数':'users',
+        '\u603b\u6709\u529f\u8d1f\u8377':'load','\u603b\u8d1f\u8377':'load','\u8d1f\u8377':'load','\u8d1f\u8377\u603b\u91cf':'load',
+        '\u5149\u4f0f\u88c5\u673a\u5bb9\u91cf':'pv_ratio','\u5149\u4f0f\u5bb9\u91cf':'pv_ratio','\u5149\u4f0f\u914d\u7f6e':'pv_ratio','\u5149\u4f0f':'pv_ratio',
+        '\u603b\u6bcd\u7ebf\u6570':'n_buses','\u6bcd\u7ebf\u603b\u6570':'n_buses','\u6bcd\u7ebf\u6570\u91cf':'n_buses','\u6bcd\u7ebf\u6570':'n_buses','\u8282\u70b9\u6570':'n_buses',
+        '\u53d1\u7535\u673a\u7c7b\u578b':'generator_types','\u673a\u7ec4\u7c7b\u578b':'generator_types','\u5404\u7535\u538b\u5c42\u6570\u91cf':'voltage_layers',
+        '\u914d\u53d8\u6570':'transformers','\u914d\u53d8\u6570\u91cf':'transformers','\u7528\u6237\u6570\u91cf':'users','\u7528\u6237\u6570':'users',
     }
     pattern='|'.join(re.escape(n) for n in sorted(names,key=len,reverse=True))
     matches=list(re.finditer(pattern,text))
     if not matches:return []
     # Whole noun phrases must be separated by list connectors. Adjacent nouns
-    # such as 光伏用户数量 describe a different, unbound quantity.
-    modifier=r'(?:不得改变|不能改变|不要降低|不得降低|不要减少|保持|不变|指定值|指定|已给定|已明确|现有|的|\s)*'
+    # such as the number of PV customers describe a different, unbound quantity.
+    modifier='(?:\u4e0d\u5f97\u6539\u53d8|\u4e0d\u80fd\u6539\u53d8|\u4e0d\u8981\u964d\u4f4e|\u4e0d\u5f97\u964d\u4f4e|\u4e0d\u8981\u51cf\u5c11|\u4fdd\u6301|\u4e0d\u53d8|\u6307\u5b9a\u503c|\u6307\u5b9a|\u5df2\u7ed9\u5b9a|\u5df2\u660e\u786e|\u73b0\u6709|\u7684|\\s)*'
     if not re.fullmatch(modifier,text[:matches[0].start()]):return []
     if not re.fullmatch(modifier,text[matches[-1].end():]):return []
     for left,right in zip(matches,matches[1:]):
-        if not re.fullmatch(r'\s*(?:和|与|及|或|、|，|,)\s*(?:指定|已给定|已明确|现有)?',text[left.end():right.start()]):return []
+        if not re.fullmatch('\\s*(?:\u548c|\u4e0e|\u53ca|\u6216|\u3001|\uff0c|,)\\s*(?:\u6307\u5b9a|\u5df2\u7ed9\u5b9a|\u5df2\u660e\u786e|\u73b0\u6709)?',text[left.end():right.start()]):return []
     fields=[names[m.group()] for m in matches]
     return list(dict.fromkeys(('total_kw' if family=='hierarchical' else 'total_mw') if f=='load' else f for f in fields))
 
@@ -49,19 +49,19 @@ def _active_clause(request, evidence):
     clauses=[part for part in re.split(r'[。；;\n]',request) if evidence in part]
     if len(clauses)!=1:return None
     clause=clauses[0]
-    if re.search(r'原来|此前|先前|之前|原先|旧方案|改为|现在以|不要|不需|不能|不得|不可|不应|不允许|禁止|并非|至少|至多|不超过|不少于|以上|以下|约|大概|可选|或者|或是|范围',clause):return None
-    if any(c in clause for c in '“”"「」') and re.search(r'引用|示例|例如|只是|旧方案',clause):return None
+    if re.search('\u539f\u6765|\u6b64\u524d|\u5148\u524d|\u4e4b\u524d|\u539f\u5148|\u65e7\u65b9\u6848|\u6539\u4e3a|\u73b0\u5728\u4ee5|\u4e0d\u8981|\u4e0d\u9700|\u4e0d\u80fd|\u4e0d\u5f97|\u4e0d\u53ef|\u4e0d\u5e94|\u4e0d\u5141\u8bb8|\u7981\u6b62|\u5e76\u975e|\u81f3\u5c11|\u81f3\u591a|\u4e0d\u8d85\u8fc7|\u4e0d\u5c11\u4e8e|\u4ee5\u4e0a|\u4ee5\u4e0b|\u7ea6|\u5927\u6982|\u53ef\u9009|\u6216\u8005|\u6216\u662f|\u8303\u56f4',clause):return None
+    if any(c in clause for c in '“”"「」') and re.search('\u5f15\u7528|\u793a\u4f8b|\u4f8b\u5982|\u53ea\u662f|\u65e7\u65b9\u6848',clause):return None
     return clause
 
 
 def _bus_interval(evidence):
     from .source_review import _counting_range
-    band_pattern=r'(?<![\d零一二两三四五六七八九十百千])([\d零一二两三四五六七八九十百千]+)多(?:个)?(?:母线|节点)'
-    typed_pattern=r'(?<!\d)(\d+)\s*(?:到|至|[-~～])\s*(\d+)\s*个?(?:母线|节点)'
+    band_pattern='(?<![\\d\u96f6\u4e00\u4e8c\u4e24\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343])([\\d\u96f6\u4e00\u4e8c\u4e24\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343]+)\u591a(?:\u4e2a)?(?:\u6bcd\u7ebf|\u8282\u70b9)'
+    typed_pattern='(?<!\\d)(\\d+)\\s*(?:\u5230|\u81f3|[-~\uff5e])\\s*(\\d+)\\s*\u4e2a?(?:\u6bcd\u7ebf|\u8282\u70b9)'
     bands=list(re.finditer(band_pattern,evidence));typed=list(re.finditer(typed_pattern,evidence))
     if len(bands)+len(typed)!=1:return None
     match=(bands or typed)[0]
-    if re.search(r'至少|至多|不超过|不少于|以上|以下|约|大概|左右|范围|可选|或者|或是',evidence):return None
+    if re.search('\u81f3\u5c11|\u81f3\u591a|\u4e0d\u8d85\u8fc7|\u4e0d\u5c11\u4e8e|\u4ee5\u4e0a|\u4ee5\u4e0b|\u7ea6|\u5927\u6982|\u5de6\u53f3|\u8303\u56f4|\u53ef\u9009|\u6216\u8005|\u6216\u662f',evidence):return None
     if bands:return _counting_range(match[1])
     return (int(match[1]),int(match[2])) if 0<int(match[1])<=int(match[2]) else None
 
@@ -83,13 +83,13 @@ def _village_bindings(item, family):
     bindings=[];villages=[]
     for part in re.split(r'[，,]',item.evidence):
         part=part.strip()
-        village=re.fullmatch(r'(?:主干连接)?\s*(\d+)\s*个村落',part)
-        phase=re.fullmatch(r'采用单电压(平衡(?:等值)?|三相不平衡)模型',part)
+        village=re.fullmatch('(?:\u4e3b\u5e72\u8fde\u63a5)?\\s*(\\d+)\\s*\u4e2a\u6751\u843d',part)
+        phase=re.fullmatch('\u91c7\u7528\u5355\u7535\u538b(\u5e73\u8861(?:\u7b49\u503c)?|\u4e09\u76f8\u4e0d\u5e73\u8861)\u6a21\u578b',part)
         if village:
             count=int(village[1]);villages.append(count)
             bindings.append(('scenario.village_count',count))
-        elif phase:bindings.append(('capability.phase_model','unbalanced' if phase[1]=='三相不平衡' else 'balanced'))
-        elif part=='保持径向运行':bindings.append(('operating_topology','radial'))
+        elif phase:bindings.append(('capability.phase_model','unbalanced' if phase[1]=='\u4e09\u76f8\u4e0d\u5e73\u8861' else 'balanced'))
+        elif part=='\u4fdd\u6301\u5f84\u5411\u8fd0\u884c':bindings.append(('operating_topology','radial'))
         else:return None
     if len(villages)!=1:return None
     if field.endswith('.branch_count') and item.expected_value!=villages[0]:return None
@@ -106,7 +106,7 @@ def _source_numeric_normalizations(ledger,request):
             interval=_bus_interval(item.evidence)
             if interval is None:
                 from .source_review import exact_bus_counts, _integer_count
-                match=re.fullmatch(r'([\d零一二两三四五六七八九十百千]+)\s*(?:个)?(?:母线|节点)',item.evidence)
+                match=re.fullmatch('([\\d\u96f6\u4e00\u4e8c\u4e24\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343]+)\\s*(?:\u4e2a)?(?:\u6bcd\u7ebf|\u8282\u70b9)',item.evidence)
                 exact=_integer_count(match[1]) if match else None
                 if exact is None or exact_bus_counts(request)!={exact}:continue
                 bounds=[r for r in ledger.requirements if r.priority=='hard' and r.disposition=='supported'
@@ -127,12 +127,12 @@ def _source_numeric_normalizations(ledger,request):
                     changes.append(dict(kind='source_exact_count',before=None,after=new.model_dump()))
                 continue
             lo,hi=interval
-            source_span=(re.search(r'[\d零一二两三四五六七八九十百千]+多(?:个)?(?:母线|节点)',item.evidence)
-                or re.search(r'\d+\s*(?:到|至|[-~～])\s*\d+\s*个?(?:母线|节点)',item.evidence))
+            source_span=(re.search('[\\d\u96f6\u4e00\u4e8c\u4e24\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343]+\u591a(?:\u4e2a)?(?:\u6bcd\u7ebf|\u8282\u70b9)',item.evidence)
+                or re.search('\\d+\\s*(?:\u5230|\u81f3|[-~\uff5e])\\s*\\d+\\s*\u4e2a?(?:\u6bcd\u7ebf|\u8282\u70b9)',item.evidence))
             if source_span is None:continue
             remainder=request.replace(source_span.group(0),'',1)
             from .source_review import _integer_count
-            other_mentions=list(re.finditer(r'(?<![\d零一二两三四五六七八九十百千])([\d零一二两三四五六七八九十百千]+)(多)?\s*(?:个)?(?:母线|节点)',remainder))
+            other_mentions=list(re.finditer('(?<![\\d\u96f6\u4e00\u4e8c\u4e24\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343])([\\d\u96f6\u4e00\u4e8c\u4e24\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343]+)(\u591a)?\\s*(?:\u4e2a)?(?:\u6bcd\u7ebf|\u8282\u70b9)',remainder))
             def independently_fixed(match):
                 count=_integer_count(match[1])
                 return (not match[2] and count is not None and lo<=count<=hi and
@@ -195,7 +195,7 @@ def _closed_source_context(item, request, ledger, allowed_atoms=()):
     clause=_active_clause(request,item.evidence)
     if clause is None:return False
     def without_connector(text):
-        return re.sub(r'^(?:并且|同时|并|且)', '', text.strip()).strip()
+        return re.sub('^(?:\u5e76\u4e14|\u540c\u65f6|\u5e76|\u4e14)', '', text.strip()).strip()
     for part in re.split(r'[，,]',clause):
         atom=without_connector(part)
         if atom==item.evidence or atom in allowed_atoms:continue
@@ -211,17 +211,17 @@ def _normalize_decision_requirement(item,request,ledger):
     clause=_active_clause(request,item.evidence)
     if clause is None or not _closed_source_context(item,request,ledger):return False
     remainder=request.replace(item.evidence,'',1)
-    extra_criterion=re.search(r'(?:必须|应当|需要|要求|不得|禁止)\s*(?:比较|考虑|分析|解释|说明)[^。；;]*?(?:环境|成本|可靠性|景观|走廊|维护|土壤|施工)',remainder)
+    extra_criterion=re.search('(?:\u5fc5\u987b|\u5e94\u5f53|\u9700\u8981|\u8981\u6c42|\u4e0d\u5f97|\u7981\u6b62)\\s*(?:\u6bd4\u8f83|\u8003\u8651|\u5206\u6790|\u89e3\u91ca|\u8bf4\u660e)[^\u3002\uff1b;]*?(?:\u73af\u5883|\u6210\u672c|\u53ef\u9760\u6027|\u666f\u89c2|\u8d70\u5eca|\u7ef4\u62a4|\u571f\u58e4|\u65bd\u5de5)',remainder)
     if extra_criterion:return False
-    if re.search(r'必须|应当|需要|要求|不得|禁止',clause.replace(item.evidence,'',1)):return False
+    if re.search('\u5fc5\u987b|\u5e94\u5f53|\u9700\u8981|\u8981\u6c42|\u4e0d\u5f97|\u7981\u6b62',clause.replace(item.evidence,'',1)):return False
     # Any other mention of a construction method needs its own hard binding;
-    # this is intentionally independent of verbs such as 采用, 选用 or 为.
+    # this is intentionally independent of verbs such as adopt, select or be.
     for atom in re.split(r'[，,。；;\n]',remainder):
-        if not re.search(r'排管|直埋|架空|buried_duct|buried_direct|aerial_bundle',atom):continue
+        if not re.search('\u6392\u7ba1|\u76f4\u57cb|\u67b6\u7a7a|buried_duct|buried_direct|aerial_bundle',atom):continue
         if not any(r.id!=item.id and r.priority=='hard' and r.disposition=='supported'
                    and canonical(r.target_field or '')=='installations' and r.expected_value is not None
                    and r.evidence.strip()==atom.strip() for r in ledger.requirements):return False
-    if not re.fullmatch(r'敷设方式和设备合理选择并解释|敷设方式合理选择并解释|敷设方式合理选择并说明',item.evidence):return False
+    if not re.fullmatch('\u6577\u8bbe\u65b9\u5f0f\u548c\u8bbe\u5907\u5408\u7406\u9009\u62e9\u5e76\u89e3\u91ca|\u6577\u8bbe\u65b9\u5f0f\u5408\u7406\u9009\u62e9\u5e76\u89e3\u91ca|\u6577\u8bbe\u65b9\u5f0f\u5408\u7406\u9009\u62e9\u5e76\u8bf4\u660e',item.evidence):return False
     item.target_field='hierarchy.lv_installation_decision' if item.target_field.startswith('hierarchy.') else 'lv_installation_decision'
     item.expected_value=True;item.operator='eq'
     return True
@@ -229,9 +229,9 @@ def _normalize_decision_requirement(item,request,ledger):
 def reference_context_only(request, evidence):
     """Recognize only a closed historical count and its explicit disclaimer."""
     if not evidence or evidence not in request:return False
-    pattern=(r'(?:参考(?:文献|资料)(?:中)?的)?(?:旧方案|原方案)(?:有|为)'
-             r'\s*\d+\s*个?(?:母线|节点)[，,]\s*'
-             r'(?:该数字|这个数字|该数量)不是本次要求')
+    pattern=('(?:\u53c2\u8003(?:\u6587\u732e|\u8d44\u6599)(?:\u4e2d)?\u7684)?(?:\u65e7\u65b9\u6848|\u539f\u65b9\u6848)(?:\u6709|\u4e3a)'
+             '\\s*\\d+\\s*\u4e2a?(?:\u6bcd\u7ebf|\u8282\u70b9)[\uff0c,]\\s*'
+             '(?:\u8be5\u6570\u5b57|\u8fd9\u4e2a\u6570\u5b57|\u8be5\u6570\u91cf)\u4e0d\u662f\u672c\u6b21\u8981\u6c42')
     spans=[]
     for segment in re.finditer(r'[^。；;\n]+',request):
         if re.fullmatch(pattern,segment.group().strip()):spans.append(segment.span())
@@ -270,7 +270,7 @@ def normalize_ledger(ledger, family, request):
     if len(conflicts)>=2:
         for item in ledger.requirements:
             if (item.priority=='hard' and item.disposition=='unsupported' and item.evidence in request and
-                re.fullmatch(r'(?:这|上述|以上)两条(?:要求|约束)?(?:都|均)?(?:不能|不可|不得)修改',item.evidence)):
+                re.fullmatch('(?:\u8fd9|\u4e0a\u8ff0|\u4ee5\u4e0a)\u4e24\u6761(?:\u8981\u6c42|\u7ea6\u675f)?(?:\u90fd|\u5747)?(?:\u4e0d\u80fd|\u4e0d\u53ef|\u4e0d\u5f97)\u4fee\u6539',item.evidence)):
                 old=item.model_dump();item.disposition='clarify'
                 changes.append(dict(kind='preservation_of_conflicting_requirements',before=old,after=item.model_dump()))
     changes.extend(_source_numeric_normalizations(ledger,request))
@@ -283,12 +283,12 @@ def normalize_ledger(ledger, family, request):
             old=item.model_dump()
         if (family=='transmission' and canonical(item.target_field or '')=='voltage_layers'
                 and isinstance(item.expected_value,str) and item.operator in ('eq','contains')
-                and _closed_source_context(item,request,ledger,('合理分配各层母线',))
-                and re.fullmatch(r'(?:显式(?:设置|配置|建立|采用)?)?层间(?:显式)?变压器',item.evidence)):
+                and _closed_source_context(item,request,ledger,('\u5408\u7406\u5206\u914d\u5404\u5c42\u6bcd\u7ebf',))
+                and re.fullmatch('(?:\u663e\u5f0f(?:\u8bbe\u7f6e|\u914d\u7f6e|\u5efa\u7acb|\u91c7\u7528)?)?\u5c42\u95f4(?:\u663e\u5f0f)?\u53d8\u538b\u5668',item.evidence)):
             item.target_field='transmission.transformer_count';item.expected_value=1;item.operator='ge'
         if (family=='transmission' and canonical(item.target_field or '')=='voltage_layers'
                 and _nonnumeric_label(item.expected_value) and item.operator in ('eq','contains')
-                and item.evidence=='电压层之间有显式变压器'):
+                and item.evidence=='\u7535\u538b\u5c42\u4e4b\u95f4\u6709\u663e\u5f0f\u53d8\u538b\u5668'):
             clause=_active_clause(request,item.evidence)
             from .source_intent import source_atoms
             matches=[atom for atom in source_atoms(request) if atom['text']==item.evidence]
@@ -300,16 +300,16 @@ def normalize_ledger(ledger, family, request):
         if canonical(item.target_field or '')=='deliverables':
             def format_name(value):
                 if not isinstance(value,str):return value
-                match=re.fullmatch(r'\s*(opendss|matpower|json|csv)(?:[ _]*model|模型|格式)?\s*',value,re.I)
+                match=re.fullmatch('\\s*(opendss|matpower|json|csv)(?:[ _]*model|\u6a21\u578b|\u683c\u5f0f)?\\s*',value,re.I)
                 return match.group(1).lower() if match else value
             item.expected_value=([format_name(v) for v in item.expected_value] if isinstance(item.expected_value,list)
                                  else format_name(item.expected_value))
-        phase=re.fullmatch(r'(?:生成|设计|一个|一条|城市|农村|科研|研究|用|的)*三相不平衡(?:科研|研究|用|的|配电网|配电模型|馈线|模型|系统)*',item.evidence)
+        phase=re.fullmatch('(?:\u751f\u6210|\u8bbe\u8ba1|\u4e00\u4e2a|\u4e00\u6761|\u57ce\u5e02|\u519c\u6751|\u79d1\u7814|\u7814\u7a76|\u7528|\u7684)*\u4e09\u76f8\u4e0d\u5e73\u8861(?:\u79d1\u7814|\u7814\u7a76|\u7528|\u7684|\u914d\u7535\u7f51|\u914d\u7535\u6a21\u578b|\u9988\u7ebf|\u6a21\u578b|\u7cfb\u7edf)*',item.evidence)
         if phase and canonical(item.target_field or '') in ('','phase_weights','phase_model'):
             item.target_field='capability.phase_model';item.expected_value='unbalanced';item.operator='eq'
         # A complete historical-frequency correction clause. The source supplies
         # the current value; the tool's fixed frequency is checked independently.
-        frequency=re.fullmatch(r'(?:参考资料|参考数据|旧资料)(?:里|中)?(?:有|采用|使用)?\s*\d+(?:\.\d+)?\s*Hz[，,、 ]*(?:但)?(?:这次|此次|本次)(?:生成|采用|使用|用|为)\s*(\d+(?:\.\d+)?)\s*Hz',item.evidence,re.I)
+        frequency=re.fullmatch('(?:\u53c2\u8003\u8d44\u6599|\u53c2\u8003\u6570\u636e|\u65e7\u8d44\u6599)(?:\u91cc|\u4e2d)?(?:\u6709|\u91c7\u7528|\u4f7f\u7528)?\\s*\\d+(?:\\.\\d+)?\\s*Hz[\uff0c,\u3001 ]*(?:\u4f46)?(?:\u8fd9\u6b21|\u6b64\u6b21|\u672c\u6b21)(?:\u751f\u6210|\u91c7\u7528|\u4f7f\u7528|\u7528|\u4e3a)\\s*(\\d+(?:\\.\\d+)?)\\s*Hz',item.evidence,re.I)
         if frequency and canonical(item.target_field or '') in ('','frequency_hz'):
             item.target_field='capability.frequency_hz';item.expected_value=float(frequency.group(1));item.operator='eq'
         if item.model_dump()!=old:changes.append(dict(kind='semantic_alias',before=old,after=item.model_dump()))
@@ -348,7 +348,7 @@ def normalize_ledger(ledger, family, request):
             identifier=_new_requirement_id(item.id,'binding_'+str(i),used)
             used.add(identifier)
             replacements.append(item.model_copy(update=dict(id=identifier,target_field=target,expected_value=value,operator=op,
-                reason='保持已由原文明示的约束；引用台账项：'+', '.join(refs))))
+                reason='Preserve constraints explicitly stated in the source; referenced ledger entries: '+', '.join(refs))))
         result.extend(replacements)
         changes.append(dict(kind='preservation_references',before=item.model_dump(),after=[r.model_dump() for r in replacements]))
     ledger.requirements=result

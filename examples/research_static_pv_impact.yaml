@@ -1,0 +1,23 @@
+task: static_pv_impact
+research_question: Generate an urban feeder to investigate the static voltage effect of existing PV, with an identical-network PV-off contrast.
+base_spec:
+  network_kind: distribution
+  n_buses: 25
+  voltage_kv: 10
+  total_kw_min: 360
+  total_kw_max: 360
+  pv_ratio: 0.6
+  seed: 42
+  scenario:
+    kind: urban
+    engineering_profile: urban
+    layout: spatial_mst
+  phase_design:
+    mode: unbalanced
+    single_phase_laterals: 0
+    two_phase_laterals: 0
+  repair_policy:
+    strategy: none
+assumptions:
+  - Existing PV is a static unity-power-factor injection; no time-series product.
+  - Use declared fresh-synthesis task defaults; response ports must actually contain PV.

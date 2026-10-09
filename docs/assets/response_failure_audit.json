@@ -1,0 +1,131 @@
+{
+  "purpose": "Distinguish short budget from permitted catalogue limitations",
+  "long_rounds": [
+    {
+      "id": "urban_25_41_increase",
+      "target_met": false,
+      "ratio": 1.048887953590911,
+      "steps": 6,
+      "stop": "no_verified_improving_action",
+      "seconds": 0.1022233099793084
+    },
+    {
+      "id": "urban_25_42_increase",
+      "target_met": false,
+      "ratio": 1.0315242484743117,
+      "steps": 7,
+      "stop": "no_verified_improving_action",
+      "seconds": 3.0055702480021864
+    },
+    {
+      "id": "urban_25_43_increase",
+      "target_met": false,
+      "ratio": 1.0337082557632271,
+      "steps": 7,
+      "stop": "no_verified_improving_action",
+      "seconds": 2.68682727398118
+    }
+  ],
+  "unrestricted_single_conductor_audit": [
+    {
+      "seed": 41,
+      "tested": 32,
+      "best": [
+        {
+          "action": {
+            "kind": "replace_conductor",
+            "line_id": "l24",
+            "conductor": "epri_j1_e38b9e239a23"
+          },
+          "ratio": 1.0415633094290868,
+          "accepted": true
+        },
+        {
+          "action": {
+            "kind": "replace_conductor",
+            "line_id": "l1",
+            "conductor": "epri_j1_e38b9e239a23"
+          },
+          "ratio": 1.0411975474628359,
+          "accepted": true
+        },
+        {
+          "action": {
+            "kind": "replace_conductor",
+            "line_id": "l3",
+            "conductor": "epri_j1_e38b9e239a23"
+          },
+          "ratio": 1.0410947818052672,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "tested": 56,
+      "best": [
+        {
+          "action": {
+            "kind": "replace_conductor",
+            "line_id": "l9",
+            "conductor": "epri_j1_e38b9e239a23"
+          },
+          "ratio": 1.0274373305862963,
+          "accepted": true
+        },
+        {
+          "action": {
+            "kind": "replace_conductor",
+            "line_id": "l13",
+            "conductor": "epri_j1_e38b9e239a23"
+          },
+          "ratio": 1.0273791947718136,
+          "accepted": true
+        },
+        {
+          "action": {
+            "kind": "replace_conductor",
+            "line_id": "l5",
+            "conductor": "epri_j1_e38b9e239a23"
+          },
+          "ratio": 1.0273320972911366,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "seed": 43,
+      "tested": 52,
+      "best": [
+        {
+          "action": {
+            "kind": "replace_conductor",
+            "line_id": "l4",
+            "conductor": "epri_j1_e38b9e239a23"
+          },
+          "ratio": 1.0293838636642083,
+          "accepted": true
+        },
+        {
+          "action": {
+            "kind": "replace_conductor",
+            "line_id": "l12",
+            "conductor": "epri_j1_e38b9e239a23"
+          },
+          "ratio": 1.0292123247576008,
+          "accepted": true
+        },
+        {
+          "action": {
+            "kind": "replace_conductor",
+            "line_id": "l1",
+            "conductor": "epri_j1_e38b9e239a23"
+          },
+          "ratio": 1.0289825392468002,
+          "accepted": true
+        }
+      ]
+    }
+  ],
+  "limitation": "Only enumerated compatible single-line replacements on probed paths; no global AC infeasibility proof."
+}

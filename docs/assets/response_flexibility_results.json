@@ -1,0 +1,1074 @@
+{
+  "rows": [
+    {
+      "case_id": "large_change_41_restricted",
+      "task": "large_change",
+      "policy": "restricted",
+      "seed": 41,
+      "target_met": false,
+      "base_accepted": true,
+      "verification_passed": false,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.2014759434912377
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.3,
+          "upper": 1.5
+        }
+      ],
+      "steps": 2,
+      "candidate_count": 19,
+      "stop_reason": "no_verified_improving_action",
+      "committed_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.15,
+          "original_scale": 1.15,
+          "probe_id": "a",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "962f7d9fde078a42"
+        },
+        {
+          "kind": "replace_conductor",
+          "probe_id": "a",
+          "replacements": [
+            {
+              "line_id": "l6",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l9",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l20",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l14",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l3",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l1",
+              "conductor": "epri_ckt24_58550f34a866"
+            }
+          ],
+          "proxy_effect": 0.039375288758795465,
+          "diagnosis": "a: coordinate 6 compatible whole-tuple replacements on the fixed path; r1 is a ranking proxy, not an AC bound",
+          "action_id": "62603a7ed1c825f4"
+        }
+      ],
+      "baseline_sha256": "aca00671f2818fb948049b2a4b4955a416e12793f02464e9f7af87d500b19278",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "d201ffe9f212c95e4e82e5232550c6dadd7e5907121ed2ac05c0056803c8c9c2",
+      "seconds": 2.768
+    },
+    {
+      "case_id": "large_change_41_expanded",
+      "task": "large_change",
+      "policy": "expanded",
+      "seed": 41,
+      "target_met": true,
+      "base_accepted": true,
+      "verification_passed": true,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.3293738580672512
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.3,
+          "upper": 1.5
+        }
+      ],
+      "steps": 1,
+      "candidate_count": 12,
+      "stop_reason": "targets_met",
+      "committed_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.34,
+          "original_scale": 1.34,
+          "probe_id": "a",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "6814b04ecd2698ce"
+        }
+      ],
+      "baseline_sha256": "aca00671f2818fb948049b2a4b4955a416e12793f02464e9f7af87d500b19278",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "fde6d0fb73b1b89fa7b2e184dc738f41531c43b061c32107444d665c193a7ea3",
+      "seconds": 1.819
+    },
+    {
+      "case_id": "selective_41_restricted",
+      "task": "selective",
+      "policy": "restricted",
+      "seed": 41,
+      "target_met": false,
+      "base_accepted": true,
+      "verification_passed": false,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.0518212169462038,
+        "b": 1.000001079428702
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.99,
+          "upper": 1.01
+        }
+      ],
+      "steps": 1,
+      "candidate_count": 6,
+      "stop_reason": "no_verified_improving_action",
+      "committed_actions": [
+        {
+          "kind": "replace_conductor",
+          "line_id": "l2",
+          "conductor": "epri_ckt24_58550f34a866",
+          "probe_id": "a",
+          "proxy_effect": 0.005390592585376726,
+          "diagnosis": "a: change r1 on the fixed path; catalogue ratio 1.068; AC verification required",
+          "action_id": "af7142e5f6f8c947"
+        }
+      ],
+      "baseline_sha256": "aca00671f2818fb948049b2a4b4955a416e12793f02464e9f7af87d500b19278",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "036be7144068f711582de91ae916d36bf1f0ce9c065f8b9c25c0fb5babdc0d94",
+      "seconds": 1.431
+    },
+    {
+      "case_id": "selective_41_expanded",
+      "task": "selective",
+      "policy": "expanded",
+      "seed": 41,
+      "target_met": true,
+      "base_accepted": true,
+      "verification_passed": true,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.1893261940242394,
+        "b": 0.9999996216548178
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.99,
+          "upper": 1.01
+        }
+      ],
+      "steps": 1,
+      "candidate_count": 16,
+      "stop_reason": "targets_met",
+      "committed_actions": [
+        {
+          "kind": "scale_subtree",
+          "child_bus": "b5",
+          "factor": 1.2469999999999999,
+          "probe_id": "a",
+          "proxy_effect": 0.2469999999999999,
+          "diagnosis": "Scale the selected downstream subtree about its parent, preserving connectivity; original geometry budgets and all AC targets must pass",
+          "action_id": "3168ada8833c8323"
+        }
+      ],
+      "baseline_sha256": "aca00671f2818fb948049b2a4b4955a416e12793f02464e9f7af87d500b19278",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "ff89272d6a520b9c8790c34c98564e7eb0d75fe0782998c323fe238890f82173",
+      "seconds": 3.246
+    },
+    {
+      "case_id": "opposed_41_restricted",
+      "task": "opposed",
+      "policy": "restricted",
+      "seed": 41,
+      "target_met": false,
+      "base_accepted": true,
+      "verification_passed": false,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.0518218417160572,
+        "b": 0.7926352166840263
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.65,
+          "upper": 0.85
+        }
+      ],
+      "steps": 3,
+      "candidate_count": 38,
+      "stop_reason": "no_verified_improving_action",
+      "committed_actions": [
+        {
+          "kind": "replace_conductor",
+          "line_id": "l6",
+          "conductor": "epri_ckt24_ec9a65fa90cf",
+          "probe_id": "b",
+          "proxy_effect": 0.06759904430568264,
+          "diagnosis": "b: change r1 on the fixed path; catalogue ratio 0.2284; AC verification required",
+          "action_id": "cc64a8c74c00f8cf"
+        },
+        {
+          "kind": "replace_conductor",
+          "line_id": "l18",
+          "conductor": "epri_ckt24_c3943d4e3d31",
+          "probe_id": "b",
+          "proxy_effect": 0.05900154901847088,
+          "diagnosis": "b: change r1 on the fixed path; catalogue ratio 0.2898; AC verification required",
+          "action_id": "c772d43290423fa7"
+        },
+        {
+          "kind": "replace_conductor",
+          "line_id": "l2",
+          "conductor": "epri_ckt24_58550f34a866",
+          "probe_id": "a",
+          "proxy_effect": 0.005390592585376726,
+          "diagnosis": "a: change r1 on the fixed path; catalogue ratio 1.068; AC verification required",
+          "action_id": "af7142e5f6f8c947"
+        }
+      ],
+      "baseline_sha256": "aca00671f2818fb948049b2a4b4955a416e12793f02464e9f7af87d500b19278",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "0dbd769a6882760e29a6da73de57c25ba9d688b67ee1db8bde225a8e07b7c2e5",
+      "seconds": 7.081
+    },
+    {
+      "case_id": "opposed_41_expanded",
+      "task": "opposed",
+      "policy": "expanded",
+      "seed": 41,
+      "target_met": true,
+      "base_accepted": true,
+      "verification_passed": true,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.1721254348947399,
+        "b": 0.6791156460543297
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.65,
+          "upper": 0.85
+        }
+      ],
+      "steps": 2,
+      "candidate_count": 32,
+      "stop_reason": "targets_met",
+      "committed_actions": [
+        {
+          "kind": "compound",
+          "actions": [
+            {
+              "kind": "scale_layout",
+              "factor": 1.19,
+              "original_scale": 1.19,
+              "probe_id": "a",
+              "proxy_effect": 0.0,
+              "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+              "action_id": "327f0d86c4434e2c"
+            },
+            {
+              "kind": "replace_conductor",
+              "probe_id": "b",
+              "replacements": [
+                {
+                  "line_id": "l4",
+                  "conductor": "epri_ckt24_ec9a65fa90cf"
+                },
+                {
+                  "line_id": "l6",
+                  "conductor": "epri_ckt24_ec9a65fa90cf"
+                },
+                {
+                  "line_id": "l9",
+                  "conductor": "epri_ckt24_ec9a65fa90cf"
+                },
+                {
+                  "line_id": "l18",
+                  "conductor": "epri_ckt24_ec9a65fa90cf"
+                }
+              ],
+              "proxy_effect": 0.26754434770389707,
+              "diagnosis": "b: coordinate 4 compatible whole-tuple replacements on the fixed path; r1 is a ranking proxy, not an AC bound",
+              "action_id": "d285f517d52b912b"
+            }
+          ],
+          "diagnosis": "Joint preview of two permitted moves; validate every target and the combined original-reference budget",
+          "action_id": "96a925234c259707"
+        },
+        {
+          "kind": "scale_layout",
+          "factor": 1.0290458514484602,
+          "original_scale": 1.2245645632236675,
+          "probe_id": "a",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "287aed07078b6f04"
+        }
+      ],
+      "baseline_sha256": "aca00671f2818fb948049b2a4b4955a416e12793f02464e9f7af87d500b19278",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "9ecad9e98f1dc3497ef6f581037a2bdf5a272a6cb3b72dc46c341f724ae0ae50",
+      "seconds": 5.817
+    },
+    {
+      "case_id": "large_change_42_restricted",
+      "task": "large_change",
+      "policy": "restricted",
+      "seed": 42,
+      "target_met": false,
+      "base_accepted": true,
+      "verification_passed": false,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.1839622336414644
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.3,
+          "upper": 1.5
+        }
+      ],
+      "steps": 2,
+      "candidate_count": 21,
+      "stop_reason": "no_verified_improving_action",
+      "committed_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.15,
+          "original_scale": 1.15,
+          "probe_id": "a",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "962f7d9fde078a42"
+        },
+        {
+          "kind": "replace_conductor",
+          "probe_id": "a",
+          "replacements": [
+            {
+              "line_id": "l1",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l21",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l15",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l24",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l6",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l5",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l9",
+              "conductor": "epri_ckt24_58550f34a866"
+            }
+          ],
+          "proxy_effect": 0.04373368967750694,
+          "diagnosis": "a: coordinate 7 compatible whole-tuple replacements on the fixed path; r1 is a ranking proxy, not an AC bound",
+          "action_id": "a71d24f296ea2b34"
+        }
+      ],
+      "baseline_sha256": "0bffac6df17a120074720cae93b5f2651a51b78f86639d3a6c5ff2d0c19fa868",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "483116934927c3c6be0abba762790f2804e7220da7b6467b23d450b69c47c245",
+      "seconds": 3.007
+    },
+    {
+      "case_id": "large_change_42_expanded",
+      "task": "large_change",
+      "policy": "expanded",
+      "seed": 42,
+      "target_met": true,
+      "base_accepted": true,
+      "verification_passed": true,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.3350509038734604
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.3,
+          "upper": 1.5
+        }
+      ],
+      "steps": 1,
+      "candidate_count": 13,
+      "stop_reason": "targets_met",
+      "committed_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.34,
+          "original_scale": 1.34,
+          "probe_id": "a",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "6814b04ecd2698ce"
+        }
+      ],
+      "baseline_sha256": "0bffac6df17a120074720cae93b5f2651a51b78f86639d3a6c5ff2d0c19fa868",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "7c2e9d85f271de7a6370533e3663f86be0bc71bb616e4564e93c1b4769c107d3",
+      "seconds": 1.624
+    },
+    {
+      "case_id": "selective_42_restricted",
+      "task": "selective",
+      "policy": "restricted",
+      "seed": 42,
+      "target_met": false,
+      "base_accepted": true,
+      "verification_passed": false,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.0737045654225648,
+        "b": 1.0000004621207539
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.99,
+          "upper": 1.01
+        }
+      ],
+      "steps": 1,
+      "candidate_count": 7,
+      "stop_reason": "no_verified_improving_action",
+      "committed_actions": [
+        {
+          "kind": "replace_conductor",
+          "line_id": "l2",
+          "conductor": "epri_ckt24_58550f34a866",
+          "probe_id": "a",
+          "proxy_effect": 0.008245061874193448,
+          "diagnosis": "a: change r1 on the fixed path; catalogue ratio 1.094; AC verification required",
+          "action_id": "af7142e5f6f8c947"
+        }
+      ],
+      "baseline_sha256": "0bffac6df17a120074720cae93b5f2651a51b78f86639d3a6c5ff2d0c19fa868",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "f47434c6d4ef4e02cbf63a393a857abf9d74b93df34c2b0d4a38ba01929c669a",
+      "seconds": 2.172
+    },
+    {
+      "case_id": "selective_42_expanded",
+      "task": "selective",
+      "policy": "expanded",
+      "seed": 42,
+      "target_met": true,
+      "base_accepted": true,
+      "verification_passed": true,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.1933748723262825,
+        "b": 0.9999997557133304
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.99,
+          "upper": 1.01
+        }
+      ],
+      "steps": 1,
+      "candidate_count": 16,
+      "stop_reason": "targets_met",
+      "committed_actions": [
+        {
+          "kind": "scale_subtree",
+          "child_bus": "b1",
+          "factor": 1.2469999999999999,
+          "probe_id": "a",
+          "proxy_effect": 0.2469999999999999,
+          "diagnosis": "Scale the selected downstream subtree about its parent, preserving connectivity; original geometry budgets and all AC targets must pass",
+          "action_id": "88bb3d6a0df40d0f"
+        }
+      ],
+      "baseline_sha256": "0bffac6df17a120074720cae93b5f2651a51b78f86639d3a6c5ff2d0c19fa868",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "a996e975b466289bc1c58d87714de6447087ea3ac916acbb83dbe87b4acb0ce4",
+      "seconds": 2.739
+    },
+    {
+      "case_id": "opposed_42_restricted",
+      "task": "opposed",
+      "policy": "restricted",
+      "seed": 42,
+      "target_met": false,
+      "base_accepted": true,
+      "verification_passed": false,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.0737054891050988,
+        "b": 0.7892403095470962
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.65,
+          "upper": 0.85
+        }
+      ],
+      "steps": 4,
+      "candidate_count": 52,
+      "stop_reason": "search_exhausted",
+      "committed_actions": [
+        {
+          "kind": "replace_conductor",
+          "line_id": "l16",
+          "conductor": "epri_ckt24_ec9a65fa90cf",
+          "probe_id": "b",
+          "proxy_effect": 0.07103245843250597,
+          "diagnosis": "b: change r1 on the fixed path; catalogue ratio 0.2284; AC verification required",
+          "action_id": "962f65d11371f698"
+        },
+        {
+          "kind": "replace_conductor",
+          "line_id": "l1",
+          "conductor": "epri_ckt24_ec9a65fa90cf",
+          "probe_id": "b",
+          "proxy_effect": 0.06839057810259001,
+          "diagnosis": "b: change r1 on the fixed path; catalogue ratio 0.2284; AC verification required",
+          "action_id": "3ce591c66e330754"
+        },
+        {
+          "kind": "replace_conductor",
+          "line_id": "l10",
+          "conductor": "epri_ckt24_c3943d4e3d31",
+          "probe_id": "b",
+          "proxy_effect": 0.06297338830638421,
+          "diagnosis": "b: change r1 on the fixed path; catalogue ratio 0.2898; AC verification required",
+          "action_id": "d117badda9c49867"
+        },
+        {
+          "kind": "replace_conductor",
+          "line_id": "l2",
+          "conductor": "epri_ckt24_58550f34a866",
+          "probe_id": "a",
+          "proxy_effect": 0.008245061874193448,
+          "diagnosis": "a: change r1 on the fixed path; catalogue ratio 1.094; AC verification required",
+          "action_id": "af7142e5f6f8c947"
+        }
+      ],
+      "baseline_sha256": "0bffac6df17a120074720cae93b5f2651a51b78f86639d3a6c5ff2d0c19fa868",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "1ffc4a4cae3f7c6dee2e1d0479c4bfc9e5cc248b45050f7bfe2959b6f6383b7b",
+      "seconds": 8.721
+    },
+    {
+      "case_id": "opposed_42_expanded",
+      "task": "opposed",
+      "policy": "expanded",
+      "seed": 42,
+      "target_met": true,
+      "base_accepted": true,
+      "verification_passed": true,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.1822030383230446,
+        "b": 0.8325810354135363
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.65,
+          "upper": 0.85
+        }
+      ],
+      "steps": 2,
+      "candidate_count": 32,
+      "stop_reason": "targets_met",
+      "committed_actions": [
+        {
+          "kind": "compound",
+          "actions": [
+            {
+              "kind": "scale_layout",
+              "factor": 1.19,
+              "original_scale": 1.19,
+              "probe_id": "a",
+              "proxy_effect": 0.0,
+              "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+              "action_id": "327f0d86c4434e2c"
+            },
+            {
+              "kind": "replace_conductor",
+              "probe_id": "b",
+              "replacements": [
+                {
+                  "line_id": "l4",
+                  "conductor": "epri_ckt24_ec9a65fa90cf"
+                },
+                {
+                  "line_id": "l12",
+                  "conductor": "epri_ckt24_ec9a65fa90cf"
+                },
+                {
+                  "line_id": "l16",
+                  "conductor": "epri_ckt24_ec9a65fa90cf"
+                },
+                {
+                  "line_id": "l8",
+                  "conductor": "epri_ckt24_ec9a65fa90cf"
+                }
+              ],
+              "proxy_effect": 0.28507343095688653,
+              "diagnosis": "b: coordinate 4 compatible whole-tuple replacements on the fixed path; r1 is a ranking proxy, not an AC bound",
+              "action_id": "97acce3c64f7c7d8"
+            }
+          ],
+          "diagnosis": "Joint preview of two permitted moves; validate every target and the combined original-reference budget",
+          "action_id": "d27b07baaa7b7ac7"
+        },
+        {
+          "kind": "scale_subtree",
+          "child_bus": "b1",
+          "factor": 1.0359134238985985,
+          "probe_id": "a",
+          "proxy_effect": 0.03591342389859853,
+          "diagnosis": "Scale the selected downstream subtree about its parent, preserving connectivity; original geometry budgets and all AC targets must pass",
+          "action_id": "42091251a5a0772d"
+        }
+      ],
+      "baseline_sha256": "0bffac6df17a120074720cae93b5f2651a51b78f86639d3a6c5ff2d0c19fa868",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "7f2df7f3ae9ea23723e18b1296377c2b3937a454efe006feb1b5f23787cd04ac",
+      "seconds": 5.891
+    },
+    {
+      "case_id": "large_change_43_restricted",
+      "task": "large_change",
+      "policy": "restricted",
+      "seed": 43,
+      "target_met": false,
+      "base_accepted": true,
+      "verification_passed": false,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.1862640057304765
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.3,
+          "upper": 1.5
+        }
+      ],
+      "steps": 2,
+      "candidate_count": 21,
+      "stop_reason": "no_verified_improving_action",
+      "committed_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.15,
+          "original_scale": 1.15,
+          "probe_id": "a",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "962f7d9fde078a42"
+        },
+        {
+          "kind": "replace_conductor",
+          "probe_id": "a",
+          "replacements": [
+            {
+              "line_id": "l6",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l22",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l14",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l2",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l17",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l1",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l4",
+              "conductor": "epri_ckt24_58550f34a866"
+            }
+          ],
+          "proxy_effect": 0.043158066241559566,
+          "diagnosis": "a: coordinate 7 compatible whole-tuple replacements on the fixed path; r1 is a ranking proxy, not an AC bound",
+          "action_id": "6d044bb0acbac1a0"
+        }
+      ],
+      "baseline_sha256": "a274c5b708a121e0467c85ed6e8d92e3a667bbcce493c268e819f6b7b8fc6392",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "c8d472e35ff857ee4b98ad6da815f6bb4f471c65c59fd1d3ef7d31240c29bacd",
+      "seconds": 2.226
+    },
+    {
+      "case_id": "large_change_43_expanded",
+      "task": "large_change",
+      "policy": "expanded",
+      "seed": 43,
+      "target_met": true,
+      "base_accepted": true,
+      "verification_passed": true,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.334574764360407
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.3,
+          "upper": 1.5
+        }
+      ],
+      "steps": 1,
+      "candidate_count": 13,
+      "stop_reason": "targets_met",
+      "committed_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.34,
+          "original_scale": 1.34,
+          "probe_id": "a",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "6814b04ecd2698ce"
+        }
+      ],
+      "baseline_sha256": "a274c5b708a121e0467c85ed6e8d92e3a667bbcce493c268e819f6b7b8fc6392",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "a79fb536fcfebeedfabc73c8ea7f0997e9dffca2980c1adbe953ce606d9afb5b",
+      "seconds": 2.53
+    },
+    {
+      "case_id": "selective_43_restricted",
+      "task": "selective",
+      "policy": "restricted",
+      "seed": 43,
+      "target_met": false,
+      "base_accepted": true,
+      "verification_passed": false,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.045910909200122,
+        "b": 1.0095154294754993
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.99,
+          "upper": 1.01
+        }
+      ],
+      "steps": 1,
+      "candidate_count": 12,
+      "stop_reason": "no_verified_improving_action",
+      "committed_actions": [
+        {
+          "kind": "replace_conductor",
+          "probe_id": "a",
+          "replacements": [
+            {
+              "line_id": "l10",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l7",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l2",
+              "conductor": "epri_ckt24_58550f34a866"
+            },
+            {
+              "line_id": "l1",
+              "conductor": "epri_ckt24_58550f34a866"
+            }
+          ],
+          "proxy_effect": 0.024187464121237446,
+          "diagnosis": "a: coordinate 4 compatible whole-tuple replacements on the fixed path; r1 is a ranking proxy, not an AC bound",
+          "action_id": "0393dc91cd2aff01"
+        }
+      ],
+      "baseline_sha256": "a274c5b708a121e0467c85ed6e8d92e3a667bbcce493c268e819f6b7b8fc6392",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "8bdcd732d4b5740aa7cbe3bf40cdac62300333b934a0b19daf36cfbc8cf40e96",
+      "seconds": 2.034
+    },
+    {
+      "case_id": "selective_43_expanded",
+      "task": "selective",
+      "policy": "expanded",
+      "seed": 43,
+      "target_met": true,
+      "base_accepted": true,
+      "verification_passed": true,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.2074591570830508,
+        "b": 0.9999978783962731
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.99,
+          "upper": 1.01
+        }
+      ],
+      "steps": 1,
+      "candidate_count": 16,
+      "stop_reason": "targets_met",
+      "committed_actions": [
+        {
+          "kind": "scale_subtree",
+          "child_bus": "b9",
+          "factor": 1.6503206613884653,
+          "probe_id": "a",
+          "proxy_effect": 0.21761185173625383,
+          "diagnosis": "Scale the selected downstream subtree about its parent, preserving connectivity; original geometry budgets and all AC targets must pass",
+          "action_id": "4385827466c3d9c3"
+        }
+      ],
+      "baseline_sha256": "a274c5b708a121e0467c85ed6e8d92e3a667bbcce493c268e819f6b7b8fc6392",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "e2c828ee3018a5ebee54c636599f6105ff033e5025d91fd6b0e25578bb6877f1",
+      "seconds": 2.745
+    },
+    {
+      "case_id": "opposed_43_restricted",
+      "task": "opposed",
+      "policy": "restricted",
+      "seed": 43,
+      "target_met": false,
+      "base_accepted": true,
+      "verification_passed": false,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.0000000236692115,
+        "b": 0.8810128473532939
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.65,
+          "upper": 0.85
+        }
+      ],
+      "steps": 2,
+      "candidate_count": 48,
+      "stop_reason": "no_verified_improving_action",
+      "committed_actions": [
+        {
+          "kind": "replace_conductor",
+          "line_id": "l20",
+          "conductor": "epri_ckt24_c3943d4e3d31",
+          "probe_id": "b",
+          "proxy_effect": 0.06689195949193698,
+          "diagnosis": "b: change r1 on the fixed path; catalogue ratio 0.2715; AC verification required",
+          "action_id": "809eeba04123cb5d"
+        },
+        {
+          "kind": "replace_conductor",
+          "line_id": "l24",
+          "conductor": "epri_ckt24_c3943d4e3d31",
+          "probe_id": "b",
+          "proxy_effect": 0.06540914473798587,
+          "diagnosis": "b: change r1 on the fixed path; catalogue ratio 0.2715; AC verification required",
+          "action_id": "c70a1347152cc44a"
+        }
+      ],
+      "baseline_sha256": "a274c5b708a121e0467c85ed6e8d92e3a667bbcce493c268e819f6b7b8fc6392",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "d3dcc2d5eb0ad4ab9e6b63890218c696f165451d4e36a8708ba113180ffb3975",
+      "seconds": 8.578
+    },
+    {
+      "case_id": "opposed_43_expanded",
+      "task": "opposed",
+      "policy": "expanded",
+      "seed": 43,
+      "target_met": true,
+      "base_accepted": true,
+      "verification_passed": true,
+      "contract_preserved": true,
+      "ratios": {
+        "a": 1.1816347670583218,
+        "b": 0.7862185418800178
+      },
+      "targets": [
+        {
+          "probe_id": "a",
+          "reference": "baseline_ratio",
+          "lower": 1.15,
+          "upper": 1.35
+        },
+        {
+          "probe_id": "b",
+          "reference": "baseline_ratio",
+          "lower": 0.65,
+          "upper": 0.85
+        }
+      ],
+      "steps": 2,
+      "candidate_count": 32,
+      "stop_reason": "targets_met",
+      "committed_actions": [
+        {
+          "kind": "compound",
+          "actions": [
+            {
+              "kind": "scale_layout",
+              "factor": 1.19,
+              "original_scale": 1.19,
+              "probe_id": "a",
+              "proxy_effect": 0.0,
+              "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+              "action_id": "327f0d86c4434e2c"
+            },
+            {
+              "kind": "scale_subtree",
+              "child_bus": "b12",
+              "factor": 0.6805374791484506,
+              "probe_id": "b",
+              "proxy_effect": 0.24700000000000014,
+              "diagnosis": "Scale the selected downstream subtree about its parent, preserving connectivity; original geometry budgets and all AC targets must pass",
+              "action_id": "6a31de787de1cfcd"
+            }
+          ],
+          "diagnosis": "Joint preview of two permitted moves; validate every target and the combined original-reference budget",
+          "action_id": "ec4e94fad9cd00cd"
+        },
+        {
+          "kind": "scale_subtree",
+          "child_bus": "b18",
+          "factor": 0.7013144921591355,
+          "probe_id": "b",
+          "proxy_effect": 0.1277186751438158,
+          "diagnosis": "Scale the selected downstream subtree about its parent, preserving connectivity; original geometry budgets and all AC targets must pass",
+          "action_id": "77b91d79f13a040f"
+        }
+      ],
+      "baseline_sha256": "a274c5b708a121e0467c85ed6e8d92e3a667bbcce493c268e819f6b7b8fc6392",
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b",
+      "result_hash": "cd8f8d7354a5a97b5d4ca644d2c5e5b97387dff99e10d01518974e00e30130d5",
+      "seconds": 5.214
+    }
+  ]
+}

@@ -181,32 +181,32 @@ def compile_feedback(feedback,spec,feeder,model=None):
     if model is None:
         from .agent import configured_model
         model=configured_model(timeout=25,max_retries=0,max_tokens=2200,disable_thinking=True)
-    prompt=('你将科研馈线反馈编译成可验证修改计划，不是实际工程规划。完整处理每项要求，不支持的写unsupported，不得忽略。'
-        '局部动作：geometry_scale(整体空间/线长倍数，同步调整长度区间)、load_scale(负荷/合同容量倍数，保持PV绝对容量)、'
-        'pv_ratio(最终总负荷的PV比例)、conductor(指定线路ID和research_small/medium/large)。'
-        'phase_balance仅已有不平衡模型：load_phase_weights三元正数和为1，pv_phase_weights可选；保持每节点总P/Q/PV、接入相和拓扑，省略PV权重则保持原PV分配。单相节点不能靠此动作移相。不保证VUF下降，需潮流验证。'
-        '全局动作layout_redesign必须单独使用，layout包含layout=spatial_mst/rural_villages/structured_radial、kind=urban/rural；可填village_count、aspect_ratio、trunk_fraction。'
-        'structured_radial需topology对象：family为long_trunk长链、comb主干多支线、multi_branch同源多臂、balanced_tree分层树、irregular_tree不规则分支、open_ring常开环。'
-        'topology.branch_count仅comb/multi_branch；branching_factor仅balanced_tree/irregular_tree；topology.trunk_fraction仅comb（区别村落trunk_fraction）。'
-        'open_ring要求tie_count=1，其余可选tie_count常开联络数量0–10；不能闭环运行、不能证明N-1；多臂仍单源。'
-        '新结构及spatial_mst可选load_shape uniform/heterogeneous/downstream_heavy/upstream_heavy及定向load_concentration0–4；非默认形状与冻结每节点负荷/PV冲突。'
-        '所有新结构都可使用现有支持电压。source_branches/max_children/mean_depth/max_degree/load_weighted_depth/tie_count可以作为风格目标。'
-        'rural_villages仅rural且6/10/20kV，不支持aspect_ratio；spatial_mst不支持village_count和非默认trunk_fraction。'
-        '重设计保持节点身份/数量/负荷点、总P、总PV、电压、功率因数、原线段长度界限和工况；会重新连接和布点、重选导线；'
-        '村落模板把80%负荷放在村落，可能重分配每节点负荷/PV，这是假设非规范；需要保留每节点负荷时可能冲突。'
-        'layout_redesign时preserve不要默认包含topology/geometry/equipment，除非用户明确要求保持这些；明确冻结且冲突应保留冲突不能丢掉。'
-        '保持总负荷/总PV分别用aggregate_load/aggregate_pv；保持各节点负荷/PV用loads/pv；含糊的保持负荷优先loads，不偷换成总量。'
-        '局部动作默认保持topology/voltage，额外冻结要求写preserve。'
-        'reference_conditioned父案例暂不支持重布局；不支持节点增删、局部移点、部分子网冻结、变压器或跨工况目标搜索。'
-        '主干更明显可选rural_villages并提高trunk_fraction(0.1–0.8,默认0.3)，添加trunk_length_share increase目标。'
-        '必须根据父参数提出实际变化，例如原0.3可试0.5并列为推断；保持原0.3重生成同布局不会使主干更明显。'
-        'evidence必须是连续原文，禁止用省略号或改写；可以为多个目标重复引用同一个完整句子。'
-        '村落更分散用mean_village_anchor_distance_km increase；必须至少2村落；主干节点比例提升可能扩大间距但要实际检查，不能声称保证。'
-        '允许从定性风格选择模板参数，但将未明说的值逐项列入assumptions，并用style_targets记录需要验证的方向或阈值；不是规范要求。'
-        '没有明确动作对象/受支持指标的含糊要求用questions；不得捏造电气目标已达成。'
-        '每个action和style_target.evidence逐字引用原反馈。ge/le要threshold，increase/decrease不能给threshold，比较父模型。'
-        '风格指标只有已显式标注的主干/村落结构才计入，spatial_mst没有村落标签，0不表示不存在物理主干。'
-        '除拓扑风格模板推断以外，不擅自选局部修改倍数。同类action最多一条。反馈不更新通用规则。\n'
+    prompt=('Compile research-feeder feedback into a verifiable revision plan, not an actual engineering plan. Fully address every requirement; record unsupported requirements in unsupported rather than ignoring them. '
+        'Local actions: geometry_scale (a multiplier for all spatial dimensions/line lengths, adjusting the length interval accordingly), load_scale (a multiplier for load/contract capacity, preserving absolute PV capacity), '
+        'pv_ratio (PV as a fraction of the final total load), and conductor (specified line IDs and research_small/medium/large). '
+        'phase_balance applies only to existing unbalanced models: load_phase_weights is a triple of positive values summing to 1; pv_phase_weights is optional. Preserve each node\'s total P/Q/PV, connected phases, and topology; omit PV weights to retain the original PV allocation. This action cannot move a single-phase node to another phase. It does not guarantee a lower VUF; power-flow verification is required. '
+        'The global action layout_redesign must be used alone. layout contains layout=spatial_mst/rural_villages/structured_radial and kind=urban/rural; village_count, aspect_ratio, and trunk_fraction may be specified. '
+        'structured_radial requires a topology object: family is long_trunk for a long chain, comb for a trunk with multiple laterals, multi_branch for multiple arms sharing a source, balanced_tree for a hierarchical tree, irregular_tree for irregular branches, or open_ring for a normally open ring. '
+        'topology.branch_count is only for comb/multi_branch; branching_factor is only for balanced_tree/irregular_tree; topology.trunk_fraction is only for comb (distinct from the village trunk_fraction). '
+        'open_ring requires tie_count=1; other structures may specify tie_count as 0–10 normally open ties. Closed-ring operation is unsupported and N-1 cannot be demonstrated; multiple arms still share one source. '
+        'The new structures and spatial_mst may specify load_shape as uniform/heterogeneous/downstream_heavy/upstream_heavy and directional load_concentration from 0–4. Non-default shapes conflict with frozen per-node load/PV. '
+        'All new structures can use the currently supported voltages. source_branches/max_children/mean_depth/max_degree/load_weighted_depth/tie_count may be style targets. '
+        'rural_villages requires rural and 6/10/20kV, and does not support aspect_ratio; spatial_mst does not support village_count or a non-default trunk_fraction. '
+        'Redesign preserves node identities/count/load points, total P, total PV, voltage, power factor, original line-segment length bounds, and operating conditions; it reconnects and repositions nodes and reselects conductors. '
+        'The village template places 80% of the load in villages and may redistribute per-node load/PV. This is an assumption, not a normative requirement, and may conflict with preserving per-node loads. '
+        'For layout_redesign, do not include topology/geometry/equipment in preserve by default unless the user explicitly requests their preservation; retain explicit preservation conflicts rather than dropping them. '
+        'Use aggregate_load/aggregate_pv to preserve total load/total PV, respectively; use loads/pv to preserve load/PV at each node. For an ambiguous request to preserve loads, prefer loads; do not substitute aggregate preservation. '
+        'Local actions preserve topology/voltage by default; record additional preservation requirements in preserve. '
+        'Layout redesign is currently unsupported for reference_conditioned parent cases. Node addition/deletion, local node relocation, freezing part of a subnet, transformers, and objective search across operating conditions are unsupported. '
+        'For a more prominent trunk, choose rural_villages and increase trunk_fraction (0.1–0.8, default 0.3), adding a trunk_length_share increase target. '
+        'Propose an actual change from the parent parameters; for example, try 0.5 when the original is 0.3 and record this as an inference. Regenerating the same layout with the original 0.3 does not make the trunk more prominent. '
+        'evidence must be a contiguous verbatim source span; do not use ellipses or paraphrase. The same complete sentence may be quoted for multiple targets. '
+        'For more dispersed villages, use mean_village_anchor_distance_km increase; at least 2 villages are required. Increasing the fraction of trunk nodes may increase spacing, but this must be checked and cannot be guaranteed. '
+        'Template parameters may be inferred from qualitative style requests, but list every unstated value in assumptions and use style_targets to record directions or thresholds requiring verification; these are not normative requirements. '
+        'Use questions for ambiguous requirements without a clear action target/supported metric; do not fabricate attainment of electrical objectives. '
+        'The evidence for each action and style_target must quote the original feedback verbatim. ge/le require threshold; increase/decrease must not have threshold and compare against the parent model. '
+        'Style metrics count only explicitly labeled trunk/village structures. spatial_mst has no village labels; 0 does not mean no physical trunk exists. '
+        'Except for topology-style template inference, do not choose local revision multipliers without authorization. At most one action of each kind is allowed. Feedback does not update general rules.\n'
         +json.dumps({'feedback':feedback,'spec':spec.model_dump(),'style':style_contract(spec,feeder),
                      'line_ids':[l.id for l in feeder.lines]},ensure_ascii=False))
     interpreter=model.with_structured_output(RevisionPlan,method='function_calling')
@@ -227,7 +227,7 @@ def compile_feedback(feedback,spec,feeder,model=None):
         except ValueError as exc:
             if attempt:raise ValueError(f'Feedback interpretation failed validation after one correction: {exc}') from exc
             if plan is not None:previous=plan
-            correction='\n上一计划未通过程序校验；请修正且保持原需求，不放宽冻结条件或删除目标。\n'+json.dumps(
+            correction='\nThe previous plan failed programmatic validation. Correct it while preserving the original requirements; do not relax preservation constraints or remove targets.\n'+json.dumps(
                 {'previous_plan':plan.model_dump() if plan is not None else None,'validation_error':str(exc)},ensure_ascii=False)
     raise AssertionError('Unreachable')
 
@@ -270,7 +270,7 @@ def revise_case(project_root,parent_id,revision_id,sample_index=0,*,feedback=Non
             atomic_json(path,{**saved,'hash':digest(saved)})
         if parsed.unsupported or parsed.questions:
             return {'status':'blocked','directory':str(directory),'plan':parsed.model_dump(),
-                    'verified_report':'修订未执行：'+'；'.join(parsed.unsupported+parsed.questions)}
+                    'verified_report':'Revision not executed: '+'; '.join(parsed.unsupported+parsed.questions)}
         edited,target,diff=apply_revision(feeder,spec,parsed)
         # Batch seed is an execution identity; geometry was copied, not regenerated.
         edited.seed=int.from_bytes(hashlib.sha256(f'{target.seed}:0'.encode()).digest()[:4],'big')
@@ -280,7 +280,7 @@ def revise_case(project_root,parent_id,revision_id,sample_index=0,*,feedback=Non
                 'style_target_checks':edited.design_evidence['style_target_checks'],
                 'style_targets_met':True if parsed.style_targets else None,
                 'before_style':style_contract(spec,feeder),'after_style':style_contract(target,edited),
-                'specification':target.model_dump(),'verified_report':'修订草案已生成；尚未运行潮流。'}
+                'specification':target.model_dump(),'verified_report':'Revision draft generated; power flow has not yet been run.'}
         if execute:
             result_path=directory/'result.json'
             if result_path.exists():
@@ -294,6 +294,6 @@ def revise_case(project_root,parent_id,revision_id,sample_index=0,*,feedback=Non
             after=read_verified_experiment(root/'experiments'/revision_id)
             output.update(status='completed',outcome=after,
                 comparison={'before':verified['samples'][sample_index],'after':after['samples'][0]},
-                verified_report=('已保存布局重设计版本，连接关系/空间/设备可能改变；原案例未覆盖。' if output['operation']=='layout_redesign' else '已保存独立局部修订版本，原案例未覆盖。')+('所列风格指标已检查达成。' if parsed.style_targets else '未指定独立风格验收指标。')+'电气验收另行报告；未自动修复越限。\n\n'+result['verified_report'])
+                verified_report=('Layout redesign version saved; connectivity, geometry, and equipment may have changed. The original case was not overwritten. ' if output['operation']=='layout_redesign' else 'Separate local revision saved; the original case was not overwritten. ')+('The listed style targets were checked and met. ' if parsed.style_targets else 'No separate style acceptance targets were specified. ')+'Electrical acceptance is reported separately; violations were not automatically repaired.\n\n'+result['verified_report'])
         atomic_json(directory/'result.json',{**output,'hash':digest(output)})
         return output

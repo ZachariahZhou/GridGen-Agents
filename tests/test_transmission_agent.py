@@ -98,7 +98,7 @@ def test_homogeneous_generator_type_shorthand():
 
 
 def test_document_rule_is_enforced_with_evidence():
-    rule=dict(rule_id='doc.'+'1'*20,document_id='2'*64,source_title='research rule',chunk_index=0,voltage_levels_kv=[220],metric='max_line_km',operator='le',threshold=.01,unit='km',quote='每段线路的长度不得超过0.01km',locator='section 1')
+    rule=dict(rule_id='doc.'+'1'*20,document_id='2'*64,source_title='research rule',chunk_index=0,voltage_levels_kv=[220],metric='max_line_km',operator='le',threshold=.01,unit='km',quote='\u6bcf\u6bb5\u7ebf\u8def\u7684\u957f\u5ea6\u4e0d\u5f97\u8d85\u8fc70.01km',locator='section 1')
     spec=TransmissionSpec(n_buses=9,total_mw=180,document_rules=[rule]);case,meta=generate_case(spec,42)
     checked,_=validate_case(case,spec,meta)
     assert not checked['accepted'] and not checked['document_rules'][0]['passed']

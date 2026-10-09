@@ -19,6 +19,18 @@ def main():
     parser = argparse.ArgumentParser(description='Feeder Agents: synthetic research cases')
     parser.add_argument('--workspace', type=Path, default=Path('workspace'))
     sub = parser.add_subparsers(dest='command', required=True)
+    research=sub.add_parser('research-design',help='Generate a grid for voltage control, static PV impact or transmission transfer research')
+    research_input=research.add_mutually_exclusive_group(required=True)
+    research_input.add_argument('--plan',type=Path)
+    research_input.add_argument('--request')
+    research.add_argument('--id',required=True)
+    research.add_argument('--draft',action='store_true')
+    response = sub.add_parser('response-design', help='Synthesize models with verified electrical response targets')
+    response_input = response.add_mutually_exclusive_group(required=True)
+    response_input.add_argument('--plan', type=Path)
+    response_input.add_argument('--request')
+    response.add_argument('--id', required=True)
+    response.add_argument('--draft', action='store_true')
     benchmark=sub.add_parser('benchmark',help='Run independent requirements against shared-generation baselines')
     benchmark.add_argument('--suite',type=Path,required=True)
     benchmark.add_argument('--id',required=True)
@@ -87,7 +99,26 @@ def main():
     rules.add_argument('--query', default='')
     args = parser.parse_args()
     try:
-        if args.command=='benchmark':
+        if args.command=='research-design':
+            from .research_tasks import run_research_task,compile_research_task
+            if args.request:
+                from .research_language import design_research_from_request
+                output=design_research_from_request(args.request,args.workspace,args.id,execute=not args.draft)
+            else:
+                payload=yaml.safe_load(args.plan.read_text(encoding='utf-8'))
+                output=dict(status='draft',compiled_plan=compile_research_task(payload)) if args.draft else run_research_task(payload,args.workspace,args.id)
+                if not args.draft:output={k:v for k,v in output.items() if k not in ('artifacts','selected','compiled_plan')}
+        elif args.command=='response-design':
+            if args.request:
+                from .response_language import design_response_from_request
+                output=design_response_from_request(args.request,args.workspace,args.id,execute=not args.draft)
+            else:
+                from .response_design import run_response_design
+                from .response_schema import ResponseDesignPlan
+                plan=ResponseDesignPlan.model_validate(yaml.safe_load(args.plan.read_text(encoding='utf-8')))
+                output=dict(status='draft',plan=plan.model_dump()) if args.draft else run_response_design(plan,args.workspace,args.id)
+                if not args.draft:output={k:v for k,v in output.items() if k not in ('artifacts','baseline','selected','verification')}
+        elif args.command=='benchmark':
             from .benchmark.runner import run_benchmark
             suite_payload=yaml.safe_load(args.suite.read_text())
             if suite_payload.get('split')=='heldout' or args.suite.with_suffix('.freeze.json').exists():

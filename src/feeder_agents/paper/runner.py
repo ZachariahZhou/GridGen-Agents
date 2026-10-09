@@ -206,10 +206,10 @@ def run(protocol,workspace,run_id,allow_llm=False,model=None,freeze_path=None):
             pairing=audit_pairs(root,rows);pairing_ok=pairing['passed']
         atomic_json(root/'pairing_audit.json',pairing)
         if not pairing_ok:raise ValueError('Structured ablation arms did not start from identical networks')
-        report=['# 输配电科研模型评测（'+protocol.split+'）','', '执行模式：'+protocol.execution+'。结构化输入用于隔离生成/修复能力；不作为自然语言理解成绩。边界任务须人工复核。', '', '|网络|输入|方法|生成尝试|联合成功率|独立评测成功率|电气有效率|导出重载率|执行错误|规划失败|未成功生成任务|','|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+        report=['# Distribution and transmission research-model evaluation ('+protocol.split+')','', 'Execution mode: '+protocol.execution+'. Structured input isolates generation/repair capability; it does not measure language understanding. Boundary tasks require manual review.', '', '|Network|Input|Method|Generation attempts|Joint success rate|Independent evaluation success rate|Electrical validity rate|Export reload rate|Execution errors|Planning failures|Unsuccessful generation tasks|','|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|']
         for m in metrics:
             pct=lambda x: '—' if x is None else f'{100*x:.1f}%'
             report.append('|'+ '|'.join([m['domain'],m['track'],m['method'],str(m['generation_trials']),pct(m['joint_success_rate']),pct(m['benchmark_success_rate']),pct(m['electrical_valid_rate']),pct(m['export_reload_rate']),str(m['execution_errors']),str(m['planning_failures']),str(m['unsuccessful_generation'])])+'|')
-        report+=['','所有尝试计入各自分母；可用配对检查：'+str(pairing_ok)+'，组数：'+str(pairing['groups'])+'。','开发结果不能当作独立测试结果；该试跑不证明LLM、记忆或泛化收益。']
+        report+=['','All attempts enter their respective denominators; available pairing checks: '+str(pairing_ok)+'; groups: '+str(pairing['groups'])+'.','Development results are not independent test results; this pilot does not establish gains from LLMs, memory or generalization.']
         (root/'report.md').write_text('\n'.join(report)+'\n')
         return dict(directory=str(root),metrics=metrics,trials=len(rows))

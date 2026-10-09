@@ -18,8 +18,8 @@ from planning_fixtures import equivalent_proposal as proposal
 
 def test_direct_typed_response_preserves_default_origin_through_planner(tmp_path):
     typed=AdaptiveProposal.model_validate(proposal())
-    response=StructuredPlanner(Model([typed]),AdaptiveProposal,tmp_path).invoke([('human','生成69节点科研配网')])
-    brief=_compile(response,'生成69节点科研配网')
+    response=StructuredPlanner(Model([typed]),AdaptiveProposal,tmp_path).invoke([('human','\u751f\u621069\u8282\u70b9\u79d1\u7814\u914d\u7f51')])
+    brief=_compile(response,'\u751f\u621069\u8282\u70b9\u79d1\u7814\u914d\u7f51')
     assert brief['plan']['parameter_origins']['n_loads_min']=='default'
     assert brief['plan']['parameter_origins']['total_kw_min']=='inferred'
 
@@ -28,14 +28,14 @@ def dual_proposal():
     value=proposal()
     value['single_voltage_spec']['scenario']['tie_count']=2
     value['single_voltage_spec']['pv_ratio']=.2
-    value['ledger']['requirements'].append(dict(id='formats',segment_ids=[1],evidence='输出OpenDSS和MATPOWER',
-        meaning='双格式交付',priority='hard',disposition='supported',target_field='deliverables',
+    value['ledger']['requirements'].append(dict(id='formats',segment_ids=[1],evidence='\u8f93\u51faOpenDSS\u548cMATPOWER',
+        meaning='\u53cc\u683c\u5f0f\u4ea4\u4ed8',priority='hard',disposition='supported',target_field='deliverables',
         expected_value=['opendss','matpower'],operator='contains'))
     return value
 
 
 def test_balanced_dual_export_through_natural_language_entry_and_tamper(tmp_path):
-    value=dual_proposal();request='生成69节点科研配网；输出OpenDSS和MATPOWER'
+    value=dual_proposal();request='\u751f\u621069\u8282\u70b9\u79d1\u7814\u914d\u7f51\uff1b\u8f93\u51faOpenDSS\u548cMATPOWER'
     result=design_from_request(request,tmp_path,'dual',model=Model([value]),planning_mode='adaptive',planning_memory_mode='off')
     assert result['status']=='completed',result
     assert result['requirement_acceptance']['jointly_accepted']==1
@@ -62,8 +62,8 @@ def test_balanced_dual_export_through_natural_language_entry_and_tamper(tmp_path
 
 def test_unbalanced_dual_format_cannot_be_silently_approximated():
     value=dual_proposal();value['single_voltage_spec']['phase_design']={'mode':'unbalanced'}
-    with pytest.raises(ValueError,match='balanced|三相|MATPOWER'):
-        _compile(AdaptiveProposal.model_validate(value),'生成69节点科研配网；输出OpenDSS和MATPOWER')
+    with pytest.raises(ValueError,match='balanced|\u4e09\u76f8|MATPOWER'):
+        _compile(AdaptiveProposal.model_validate(value),'\u751f\u621069\u8282\u70b9\u79d1\u7814\u914d\u7f51\uff1b\u8f93\u51faOpenDSS\u548cMATPOWER')
 
 
 def test_export_rejects_asymmetric_catalogue_matrix_even_with_balanced_label(tmp_path):
@@ -104,7 +104,7 @@ def test_line_units_charging_and_cross_solver_power_flow(tmp_path,construction):
 def test_dual_export_resume_rejects_changed_solver_version(tmp_path,monkeypatch,package):
     import feeder_agents.workflow as workflow
     from feeder_agents.planning import build_plan
-    plan=build_plan('平衡科研case双格式',dict(n_buses=5,n_loads_min=4,n_loads_max=4,
+    plan=build_plan('\u5e73\u8861\u79d1\u7814case\u53cc\u683c\u5f0f',dict(n_buses=5,n_loads_min=4,n_loads_max=4,
         total_kw_min=100,total_kw_max=100,equipment_design={'mode':'legacy'}))
     plan=ExperimentPlan.model_validate({**plan.model_dump(),'export_formats':['opendss','matpower']})
     result=workflow.run_experiment(plan.spec,tmp_path,'solver_version',plan=plan)

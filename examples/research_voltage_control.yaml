@@ -1,0 +1,23 @@
+task: voltage_control
+research_question: Generate a rural feeder for comparing voltage control algorithms with a measurable reactive-power voltage response.
+base_spec:
+  network_kind: distribution
+  n_buses: 37
+  voltage_kv: 10
+  total_kw_min: 360
+  total_kw_max: 360
+  seed: 42
+  scenario:
+    kind: rural
+    engineering_profile: rural
+    layout: spatial_mst
+  phase_design:
+    mode: unbalanced
+    single_phase_laterals: 0
+    two_phase_laterals: 0
+  repair_policy:
+    strategy: none
+support_mvar: 0.02
+assumptions:
+  - Use the declared fresh-synthesis protocol defaults for missing response targets and design freedoms.
+  - Reactive support is an external test injection, not a fabricated installed controller.

@@ -1,0 +1,14 @@
+task: transmission_transfer
+research_question: Generate a transmission model for a balanced interarea transfer study, reducing peak monitored-branch response and verifying a finite transfer.
+base_spec:
+  network_kind: transmission
+  n_buses: 139
+  n_generators: 12
+  voltage_kv: 220
+  total_mw: 1200
+  seed: 42
+transfer_mw: 10
+assumptions:
+  - Automatically select a distant pair of non-reference buses before measuring any response.
+  - Finite active transfer holds reactive demand fixed; the slack generator balances incremental losses.
+  - The standard response interval is a research protocol, not a maximum transfer-capacity claim.

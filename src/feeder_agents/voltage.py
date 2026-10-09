@@ -3,14 +3,14 @@ from copy import deepcopy
 
 # Bounds below are sampling priors, never statutory supply radii or span limits.
 PROFILES = {
-    .38: dict(tier='lv', label='低压三相平衡', defaults=dict(total_kw_min=20, total_kw_max=80,
+    .38: dict(tier='lv', label='Balanced three-phase LV', defaults=dict(total_kw_min=20, total_kw_max=80,
         segment_km_min=.005, segment_km_max=.03), research_voltage=[.93, 1.07]),
-    6: dict(tier='mv', label='6 kV 中压', defaults=dict(total_kw_min=500, total_kw_max=1500,
+    6: dict(tier='mv', label='6 kV MV', defaults=dict(total_kw_min=500, total_kw_max=1500,
         segment_km_min=.03, segment_km_max=.2), research_voltage=[.93, 1.07]),
-    10: dict(tier='mv', label='10 kV 中压', defaults={}, research_voltage=[.93, 1.07]),
-    20: dict(tier='mv', label='20 kV 中压', defaults=dict(total_kw_min=1500, total_kw_max=4000,
+    10: dict(tier='mv', label='10 kV MV', defaults={}, research_voltage=[.93, 1.07]),
+    20: dict(tier='mv', label='20 kV MV', defaults=dict(total_kw_min=1500, total_kw_max=4000,
         segment_km_min=.05, segment_km_max=.4), research_voltage=[.93, 1.07]),
-    35: dict(tier='hv', label='35 kV 高压配电研究等值', defaults=dict(total_kw_min=3000, total_kw_max=10000,
+    35: dict(tier='hv', label='35 kV HV distribution research equivalent', defaults=dict(total_kw_min=3000, total_kw_max=10000,
         segment_km_min=.1, segment_km_max=1), research_voltage=[.95, 1.05]),
 }
 

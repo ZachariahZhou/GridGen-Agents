@@ -1,0 +1,198 @@
+{
+  "milestone": "M89-task-v1",
+  "date": "2026-10-09",
+  "structured_attempts": 9,
+  "structured_passed": 9,
+  "full_release_tests": {
+    "passed": 237,
+    "seconds": 102.33,
+    "scope": "After all functional fixes; followed by prompt-only field-placement clarification and a 36-test task recheck."
+  },
+  "final_task_tests": {
+    "passed": 36,
+    "seconds": 4.78
+  },
+  "original_checks": [
+    {
+      "case_id": "static_pv_impact_41",
+      "result_hash": "d666e4dd90a92592fdbc1b265d5e3facf3d58e3757a7b09728ca6442badb9832",
+      "source_hash": "bdf1c45cef4bdc5792142087ebfc069c708b87c397b0d01232054e582ee5a7f2",
+      "accepted_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.1400000000000001,
+          "original_scale": 1.1400000000000001,
+          "probe_id": "task_response",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "0fff94d3b82e5bb1"
+        }
+      ],
+      "verified_artifacts": 582
+    },
+    {
+      "case_id": "static_pv_impact_42",
+      "result_hash": "4eb9152952438e17bca7f932c39ee38e29a48901d3793d7ac6b48e3e50e412df",
+      "source_hash": "bdf1c45cef4bdc5792142087ebfc069c708b87c397b0d01232054e582ee5a7f2",
+      "accepted_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.1400000000000001,
+          "original_scale": 1.1400000000000001,
+          "probe_id": "task_response",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "0fff94d3b82e5bb1"
+        }
+      ],
+      "verified_artifacts": 582
+    },
+    {
+      "case_id": "static_pv_impact_43",
+      "result_hash": "3955e405008430e6c91d579296bfef8988286493d72af652d8dfc9601018566f",
+      "source_hash": "bdf1c45cef4bdc5792142087ebfc069c708b87c397b0d01232054e582ee5a7f2",
+      "accepted_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.1400000000000001,
+          "original_scale": 1.1400000000000001,
+          "probe_id": "task_response",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "0fff94d3b82e5bb1"
+        }
+      ],
+      "verified_artifacts": 582
+    },
+    {
+      "case_id": "transmission_transfer_41",
+      "result_hash": "3fb6c74957c9f0c62b2ab4976568ee5597e5b7206456154ec6c7c9c5f1fd03d2",
+      "source_hash": "bdf1c45cef4bdc5792142087ebfc069c708b87c397b0d01232054e582ee5a7f2",
+      "accepted_actions": [
+        {
+          "kind": "parallel_line",
+          "index": 61,
+          "value": 2,
+          "proxy_effect": 0.11913672871593994,
+          "diagnosis": "Add a complete parallel circuit; retain the fixed charging compensation fraction; verify AC transfer response",
+          "dc_predicted_deficit": 0.0,
+          "dc_response_ratios": {
+            "task_response": 0.9732280819950299
+          },
+          "action_id": "b91ba63f0ce4d0f1"
+        }
+      ],
+      "verified_artifacts": 147
+    },
+    {
+      "case_id": "transmission_transfer_42",
+      "result_hash": "6c33b08b65c6ddb2a7bed986001a75005ed99016395022e592e77d679eb27bf4",
+      "source_hash": "bdf1c45cef4bdc5792142087ebfc069c708b87c397b0d01232054e582ee5a7f2",
+      "accepted_actions": [
+        {
+          "kind": "parallel_line",
+          "index": 128,
+          "value": 2,
+          "proxy_effect": 0.18179983990086868,
+          "diagnosis": "Add a complete parallel circuit; retain the fixed charging compensation fraction; verify AC transfer response",
+          "dc_predicted_deficit": 0.0,
+          "dc_response_ratios": {
+            "task_response": 0.9765980877909933
+          },
+          "action_id": "01dc0611fe9e1706"
+        }
+      ],
+      "verified_artifacts": 147
+    },
+    {
+      "case_id": "transmission_transfer_43",
+      "result_hash": "87accf4f7bb35b3dae613d1b28502c726a47f97b6bb959238c9a78680c33510b",
+      "source_hash": "bdf1c45cef4bdc5792142087ebfc069c708b87c397b0d01232054e582ee5a7f2",
+      "accepted_actions": [
+        {
+          "kind": "parallel_line",
+          "index": 22,
+          "value": 2,
+          "proxy_effect": 0.2871562605372304,
+          "diagnosis": "Add a complete parallel circuit; retain the fixed charging compensation fraction; verify AC transfer response",
+          "dc_predicted_deficit": 0.0,
+          "dc_response_ratios": {
+            "task_response": 0.9031826585553421
+          },
+          "action_id": "0ced9a1b5e2c3f00"
+        }
+      ],
+      "verified_artifacts": 147
+    },
+    {
+      "case_id": "voltage_control_41",
+      "result_hash": "76ecdd726f797418258df1d774c9c43c6444862663fd57d49896f63702e12cb5",
+      "source_hash": "bdf1c45cef4bdc5792142087ebfc069c708b87c397b0d01232054e582ee5a7f2",
+      "accepted_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.1400000000000001,
+          "original_scale": 1.1400000000000001,
+          "probe_id": "task_response",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "0fff94d3b82e5bb1"
+        }
+      ],
+      "verified_artifacts": 582
+    },
+    {
+      "case_id": "voltage_control_42",
+      "result_hash": "e5a8b68fae544d76115773309cbf28177baa900494faed8b1581db79e1a64c59",
+      "source_hash": "bdf1c45cef4bdc5792142087ebfc069c708b87c397b0d01232054e582ee5a7f2",
+      "accepted_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.1400000000000001,
+          "original_scale": 1.1400000000000001,
+          "probe_id": "task_response",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "0fff94d3b82e5bb1"
+        }
+      ],
+      "verified_artifacts": 582
+    },
+    {
+      "case_id": "voltage_control_43",
+      "result_hash": "7a17fddd65e31fa58d55e34b4db76a1889e9705872b6abc9227d654e4679639f",
+      "source_hash": "bdf1c45cef4bdc5792142087ebfc069c708b87c397b0d01232054e582ee5a7f2",
+      "accepted_actions": [
+        {
+          "kind": "scale_layout",
+          "factor": 1.1400000000000001,
+          "original_scale": 1.1400000000000001,
+          "probe_id": "task_response",
+          "proxy_effect": 0.0,
+          "diagnosis": "Explicitly permitted uniform scaling of generated coordinates and all line lengths; source anchored; original scale bound and segment limits enforced; AC verification required",
+          "action_id": "0fff94d3b82e5bb1"
+        }
+      ],
+      "verified_artifacts": 582
+    }
+  ],
+  "current_source_hash": "0a7f4a2a84e16efd5cf41db4c34b0274926822a9dd9fc47b8e70ad3cec5747ef",
+  "batch_source_note": "The nine structured plans ran before final one-sided language-bound checking and source-correction/prompt fixes; source hashes are preserved. Those changes do not alter these structured-plan solver executions.",
+  "raw_runtime_artifacts_excluded": true,
+  "files": {
+    "research_tasks.pdf": "ea9ea1ef6867f23cf0d3f8dd1286d009982bd5f925cf587aba5e2a47f1411111",
+    "research_tasks.png": "ae0d24ee1aec1606b25ae294d0883e8e4c39137ce6fe4cfc2bbd0caa46289a33",
+    "research_tasks_live.json": "e0a6bb9cb2573f77d26efd54ad8649b0a5aaf1ee7a870a8b9e600c451939478f",
+    "research_tasks_results.csv": "e72c9186b7d04e49c3f5b334110205b5ec9dd0338e7206a2413d06621bab75f1",
+    "research_tasks_results.json": "b45763ef9bd7ecfc06427039512551c1fee4896b238a5981d6c8578d47293d5c",
+    "research_tasks_suite.json": "a064443d73d99cbf0fc9f74eedbdf718e9e1d3d59da261ddaedc7ecba58983bf"
+  },
+  "publication_serialization": [
+    {
+      "file": "research_tasks_live.json",
+      "original_sha256": "86dbba1c68f64f1acf569191d976903fc51698467f11319d14c398c2a4583ed8",
+      "published_sha256": "e0a6bb9cb2573f77d26efd54ad8649b0a5aaf1ee7a870a8b9e600c451939478f",
+      "change": "Unicode serialization only; decoded evidence identical"
+    }
+  ]
+}

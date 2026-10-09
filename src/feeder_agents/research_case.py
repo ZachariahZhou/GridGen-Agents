@@ -40,7 +40,7 @@ def equivalent_plan(spec, ledger, assumptions, supplied):
         parameters=records,user_requirements=ledger.model_dump(),
         scope='Single-voltage research model; no explicit customer or transformer expansion. Synthetic coordinates remain part of the existing generator.')
     evidence=[dict(field=k,value=r['value'],origin=r['origin'],evidence='; '.join(i['evidence'] for i in r['requirements']),
-        reason='用户要求约束' if r['requirements'] else '系统推断或研究默认，可在遵守用户合同的重新规划中调整')
+        reason='Explicit user constraint' if r['requirements'] else 'Inferred or research default; replanning may adjust it while preserving the user contract')
         for k,r in records.items() if r['origin']!='default' and not isinstance(r['value'],dict)]
     return plan,contract,evidence
 

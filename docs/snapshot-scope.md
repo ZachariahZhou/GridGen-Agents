@@ -1,14 +1,14 @@
 # Snapshot scope
 
-The repository is a curated release, not a copy of the full research workspace. M87 identifies the algorithm milestone; `0.1.0` is the package version. The English presentation update does not introduce a new generation algorithm.
+The repository is a curated release, not a copy of the full research workspace. M89-task-v1 extends M88-response-v3 with three complete research-task workflows; `0.1.0` is the package version. Earlier milestones retain their dated evidence.
 
 ## Included
 
-- All 100 runtime Python modules and 18 required JSON catalogs.
+- All 114 runtime Python modules and 18 required JSON catalogs.
 - The Streamlit entry point, installation metadata, blank-key environment template and tested direct dependencies.
-- Seven executable specifications, 19 selected test files and one shared fixture module.
-- Solver/example checks and a gallery regeneration script.
-- English documentation, freshly generated PNG/PDF figures, compact provenance/metrics and retained upstream notices.
+- Fifteen executable specifications (seven base examples, five response plans and three research-task plans), 23 selected test files and one shared fixture module.
+- Solver/example checks, gallery regeneration, task experiment and plotting scripts.
+- English usage documentation and translated response/research-task reports, English PNG/PDF figures, compact provenance/metrics and retained upstream notices.
 
 ## Excluded
 
@@ -19,7 +19,7 @@ The repository is a curated release, not a copy of the full research workspace. 
 
 ## Provenance and changes
 
-The initial release copied the M87 runtime byte-for-byte. This update translates the public interface and presentation strings, updates matching label assertions and regenerates figures from current examples. Original-language source evidence and bilingual input fixtures remain available internally. File-level provenance, differences and hashes are recorded in [SNAPSHOT.json](../SNAPSHOT.json).
+The initial release copied the M87 runtime byte-for-byte. Subsequent updates translated public presentation strings, regenerated figures and added static electrical-response design with bounded local freedoms and verified feedback. This publication update translates the five response and research-task reports into English while preserving their results, failure records and caveats. Original-language documents remain in the parent research workspace. Bilingual parsing remains supported through Unicode-escaped recognition patterns and input fixtures in the published source. Retained source evidence and historical requests use Unicode escapes in JSON/Python, preserving their decoded values. File-level provenance, differences and hashes are recorded in [SNAPSHOT.json](../SNAPSHOT.json). Response figures use the source hash recorded in their experiment summaries, which may precede narrowly scoped final regression fixes.
 
 Historical tests `test_m69_distribution_matpower.py` and `test_m87_transmission_equipment.py` were renamed to functional names. Shared planning helpers were extracted into `tests/planning_fixtures.py`; numerical assertions were retained.
 

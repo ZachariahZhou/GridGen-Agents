@@ -1,0 +1,63 @@
+research_question: Spatially selective response design with explicitly bounded geometry,
+  reconnection and demand allocation.
+base_spec:
+  network_kind: distribution
+  n_buses: 25
+  voltage_kv: 10
+  total_kw_min: 360
+  total_kw_max: 360
+  seed: 42
+  scenario:
+    kind: urban
+    engineering_profile: urban
+    layout: spatial_mst
+  phase_design:
+    mode: unbalanced
+    single_phase_laterals: 0
+    two_phase_laterals: 0
+  repair_policy:
+    strategy: none
+probes:
+- id: a
+  kind: voltage_p
+  step_mw: 0.01
+  injection_buses:
+  - b1
+- id: b
+  kind: voltage_p
+  step_mw: 0.01
+  injection_buses:
+  - b9
+targets:
+- probe_id: a
+  reference: baseline_ratio
+  lower: 1.15
+  upper: 1.35
+- probe_id: b
+  reference: baseline_ratio
+  lower: 0.99
+  upper: 1.01
+search:
+  allowed_actions:
+  - replace_conductor
+  - scale_layout
+  - scale_subtree
+  - rewire_branch
+  - redistribute_load
+  max_layout_scale_change: 0.75
+  max_rounds: 4
+  candidates_per_round: 16
+  max_branch_length_change: 0.75
+  max_node_displacement_km: 0.75
+  max_joint_actions: 2
+  max_rewired_lines: 2
+  max_rewire_length_ratio: 2
+  max_node_degree: 4
+  max_load_redistribution_fraction: 0.2
+  max_load_bus_change: 0.5
+assumptions:
+- Explicitly permit the listed topology, geometry and demand redistribution bounds;
+  this is a different design contract from the selective example.
+- Keep exact buses, total P/Q, each PV injection, each local phase fraction and power
+  factor, voltage and controls.
+- All budgets refer to the original model, never to the last accepted edit.

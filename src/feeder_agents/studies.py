@@ -131,11 +131,11 @@ def _execute_study(plan,root,workers,configuration_hash):
             'mean_min_voltage_pu':statistics.mean(voltages) if voltages else None})
         atomic_json(root/'progress.json',{'status':'running','completed_combinations':index+1,
                     'total_combinations':len(plan.pv_ratios)*len(plan.load_scales)})
-    report=(f"受控研究 `{root.name}`：{len(base_models)}条基准网络，{len(combinations)}个参数组合，{len(rows)}个变体。\n\n"
-            f"配对一致性通过 {sum(r['paired_verified'] for r in rows)}/{len(rows)}；运行检查通过 {sum(r['operational_pass'] for r in rows)}/{len(rows)}。\n\n"
-            '节点、线路、设备与合同容量固定；修复禁用。PV轴以未缩放基准峰值负荷为分母，改变负荷不改变PV绝对容量。'
-            '电压差以各自基准案例为参考，不代表统计显著性；压力模式接受不等于运行合格。\n\n'
-            f'目录：`{root}`；`comparison.csv`为逐案例指标，`index.html`为对比入口，`dataset.zip`包含模型和证据。')
+    report=(f"Controlled study `{root.name}`：{len(base_models)} base networks, {len(combinations)} parameter combinations, {len(rows)} variants.\n\n"
+            f"Pairing checks passed {sum(r['paired_verified'] for r in rows)}/{len(rows)}; operational checks passed {sum(r['operational_pass'] for r in rows)}/{len(rows)} .\n\n"
+            'Buses, lines, equipment and contracted capacity are fixed; repairs are disabled. The PV axis uses unscaled base peak demand as its denominator; changing demand does not change absolute PV capacity. '
+            'Voltage differences use each original case as reference and do not establish statistical significance; stress-mode acceptance is not operational compliance.\n\n'
+            f'Directory: `{root}`; `comparison.csv` contains per-case metrics, `index.html` compares models, and `dataset.zip` includes models and evidence.')
     result={'study_id':root.name,'configuration_hash':configuration_hash,'directory':str(root),
             'base_cases':len(base_models),'variant_count':len(rows),'combinations':combinations,
             'samples':rows,'verified_report':report}
@@ -160,13 +160,13 @@ def _render_index(root,result):
         rows.append(f'<tr data-pair="{html.escape(sample["base_case_id"])}"><td>{html.escape(sample["base_case_id"])}</td>'
             f'<td>{sample["pv_capacity_ratio"]}</td><td>{sample["load_scale"]}</td>'
             f'<td>{sample["min_voltage_pu"]}</td><td>{sample["loss_kw"]}</td><td>{sample["operational_pass"]}</td>'
-            f'<td>{sample["paired_verified"]}</td><td><a href="{sample["relative_path"]}/visualization.html">查看网络</a></td></tr>')
+            f'<td>{sample["paired_verified"]}</td><td><a href="{sample["relative_path"]}/visualization.html">View network</a></td></tr>')
     options=''.join(f'<option>{html.escape(name)}</option>' for name in sorted({r['base_case_id'] for r in result['samples']}))
-    (root/'index.html').write_text('<!doctype html><meta charset="utf-8"><title>受控馈线研究</title>'
+    (root/'index.html').write_text('<!doctype html><meta charset="utf-8"><title>Controlled feeder study</title>'
         '<style>body{font:15px system-ui;max-width:1200px;margin:35px auto}td,th{padding:10px;border-bottom:1px solid #ddd}select{padding:8px}</style>'
-        f'<h1>受控参数研究 · {html.escape(root.name)}</h1><p>{result["base_cases"]}条基准网络，{result["variant_count"]}个变体；修复禁用。</p>'
-        '<p>PV容量比例以未缩放的基准负荷为分母。运行越限保留，不等于模型无效；配对检查确认网络和负荷变换保持一致。</p>'
-        '<p><a href="comparison.csv">下载CSV</a> · <a href="dataset.zip">下载全部模型</a> · <a href="report.md">研究说明</a></p>'
-        f'<label>筛选同一基础网络：<select id="pair"><option value="">全部</option>{options}</select></label>'
-        '<table><thead><tr><th>基准案例</th><th>PV容量比例</th><th>负荷倍数</th><th>最低电压pu</th><th>损耗kW</th><th>运行合格</th><th>配对一致</th><th>模型</th></tr></thead><tbody>'
+        f'<h1>Controlled parameter study · {html.escape(root.name)}</h1><p>{result["base_cases"]} base networks, {result["variant_count"]} variants; repairs disabled.</p>'
+        '<p>PV capacity ratios use unscaled base demand. Operational violations are retained and do not necessarily invalidate a model; pairing checks verify consistent network and load transformations.</p>'
+        '<p><a href="comparison.csv">Download CSV</a> · <a href="dataset.zip">Download all models</a> · <a href="report.md">Study description</a></p>'
+        f'<label>Filter by base network: <select id="pair"><option value="">All</option>{options}</select></label>'
+        '<table><thead><tr><th>Base case</th><th>PV capacity ratio</th><th>Load multiplier</th><th>Min. voltage (pu)</th><th>Losses (kW)</th><th>Operational checks passed</th><th>Pairing verified</th><th>Model</th></tr></thead><tbody>'
         +''.join(rows)+'</tbody></table><script>document.querySelector("#pair").onchange=e=>document.querySelectorAll("tbody tr").forEach(r=>r.hidden=!!e.target.value&&r.dataset.pair!==e.target.value);</script>',encoding='utf-8')

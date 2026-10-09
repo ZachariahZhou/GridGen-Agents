@@ -55,4 +55,4 @@ def test_rule_provenance_and_metadata_only_documents():
     assert all(r['source_id'] != 'dlt5729-2023' for r in rules.values())
     sources = search_sources('5729')
     assert sources[0]['access'] == 'metadata_only'
-    assert search_sources('电压')[0]['id'] == 'ndrc-2024'
+    assert search_sources('\u7535\u538b')[0]['id'] == 'ndrc-2024'

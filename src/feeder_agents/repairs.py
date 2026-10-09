@@ -202,11 +202,11 @@ def select_candidate(options, diagnosis, model=None):
     model = selector_model() if model is None else model
     start = time.perf_counter()
     payload = model.with_structured_output(RepairDecision, method='function_calling', include_raw=True).invoke([
-        ('system', '你是配网科研修复决策节点。只选择给出的candidate_id或stop，解释依据。保持负荷/PV/坐标/规则阈值。'
-                   'experience_hints是同版本/场景的历史观察，不能替代当前DSS结果，也不保证本次有效。'
-                   '优先处理主导越限，比较局部增容与缩短路径。候选priority是启发式，不是已验证电气收益。'
-                   'candidate_previews是实际DSS试算证据，优先选择would_commit=true且accepted=true的已验证候选，未试算不等于失败。'
-                   '每轮只能执行一个动作，随后DSS复验。不得发明动作。'),
+        ('system', 'You are a repair decision node for distribution-network research. Select only a provided candidate_id or stop, and explain the basis. Preserve load/PV/coordinates/rule thresholds. '
+                   'experience_hints contains historical observations from the same version/scenario; these do not replace current DSS results or guarantee effectiveness in this run. '
+                   'Prioritize the dominant violations and compare local capacity upgrades with path shortening. Candidate priority is a heuristic, not a verified electrical benefit. '
+                   'candidate_previews provides evidence from actual DSS trial runs. Prefer verified candidates with would_commit=true and accepted=true; absence of a trial run does not mean failure. '
+                   'Execute only one action per round, followed by DSS revalidation. Do not invent actions.'),
         ('human', json.dumps({'diagnosis': diagnosis, 'candidates': [c.model_dump() for c in options]}, ensure_ascii=False))])
     if isinstance(payload, dict) and 'parsed' in payload:
         if payload.get('parsing_error') or payload['parsed'] is None:

@@ -20,9 +20,29 @@ Commands return JSON summaries. A completed execution may still contain unaccept
 | Single-voltage distribution | `experiments/<id>/sample_00000/` | `feeder.json`, `opendss/Master.dss` |
 | MV/LV distribution | `hierarchical_experiments/<id>/sample_00000/` | `feeder.json`, OpenDSS files |
 | Transmission | `transmission_experiments/<id>/sample_00000/` | `case.json`, `case_generated.m` |
+| Research task | `research_tasks/<id>/` | `selected/`, `suitability.json`, frozen contract, task evidence and `dataset.zip` |
 | Natural-language design | `projects/<project>/designs/<id>/` | Plan and result index; `outcome.directory` locates generated models |
 
 Keep models, validation JSON, HTML views and metadata together. MATPOWER exports represent balanced models; phase-resolved unbalanced distribution uses OpenDSS. Consult each run's artifact and validation records.
+
+## Research tasks
+
+```bash
+feeder-agents --workspace workspace/tasks research-design --plan examples/research_voltage_control.yaml --id voltage
+feeder-agents --workspace workspace/tasks research-design --plan examples/research_static_pv_impact.yaml --id pv
+feeder-agents --workspace workspace/tasks research-design --plan examples/research_transmission_transfer.yaml --id transfer
+```
+
+These structured examples run without an API key. `research-design --request '...' --id task` uses the configured model; `--draft` compiles without physical generation. Supply a new ID when changing the request, plan or runtime code. `selected/` contains the callable model; `response_designs/response/` holds the original reference, candidate history and physical experiments. The finite task budget and response target remain fixed throughout the loop. Inspect `target_met`, `verification_passed`, `task_validation` and `diagnosis`; a stopped search does not prove physical impossibility.
+
+```bash
+python scripts/run_research_tasks.py --output workspace/task_reproduction
+python scripts/plot_research_tasks.py --results workspace/task_reproduction/results.json --output docs/assets/research_tasks
+```
+
+The runner uses three task specifications and three seeds; it records every attempt. The figure separates local response targets from finite-intervention effects. Full defaults, measurements, failure records and interpretation are documented in the [task workflow report](research-task-workflows.md).
+
+`python scripts/check_examples.py` executes the seven base generation examples and validates the schemas of the five response and three research-task specifications. The latter eight are not physically executed by that checker; use their dedicated commands and experiment runners for numerical validation.
 
 ## Model configuration
 
@@ -35,6 +55,8 @@ feeder-agents design 'Generate a rural 10 kV feeder with exactly 37 buses, three
 ```
 
 `--draft` still calls the LLM. `--nodes 37` explicitly supplies the total bus count. Resolve contradictions between the text and this option rather than silently overriding either.
+
+The public examples use English. The request parser also retains Chinese-language recognition, with its patterns and regression inputs represented by Unicode escapes in source files. This representation preserves decoded input text and does not change the configured model's language capabilities.
 
 ## Feedback and experience
 

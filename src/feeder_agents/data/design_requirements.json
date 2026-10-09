@@ -2,12 +2,12 @@
   {
     "id": "S01",
     "version": 1,
-    "title": "电压、频率、地域、相别及建模粒度与规则包兼容",
+    "title": "Voltage, frequency, region, phases, and modeling granularity are compatible with the rule pack",
     "stages": [
-      "需求编译"
+      "Requirements compilation"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：0.38/6/10/20/35 kV、50 Hz单电压平衡研究模型；66/110 kV仅规划登记",
+    "implementation_note": "Partial: 0.38/6/10/20/35 kV, 50 Hz single-voltage balanced research models; 66/110 kV recorded for planning only",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -15,13 +15,13 @@
   {
     "id": "S02",
     "version": 1,
-    "title": "用户明确给定的总节点数、负荷、PV、坐标及区间全部进入任务合同",
+    "title": "All user-specified total node counts, loads, PV, coordinates, and ranges enter the task contract",
     "stages": [
-      "需求编译",
-      "交付"
+      "Requirements compilation",
+      "Delivery"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：常见字段和区间覆盖",
+    "implementation_note": "Partial: common fields and ranges are covered",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -29,12 +29,12 @@
   {
     "id": "S03",
     "version": 1,
-    "title": "节点数缺省时依据场景与负荷规模推断，并展示假设",
+    "title": "Infer an unspecified node count from the scenario and load scale, and disclose assumptions",
     "stages": [
-      "需求编译"
+      "Requirements compilation"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：已有默认/推断，未统计标定",
+    "implementation_note": "Partial: defaults/inference exist; no statistical calibration",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -42,12 +42,12 @@
   {
     "id": "S04",
     "version": 1,
-    "title": "区分母线、连接点、负荷点、配变和实际用户数",
+    "title": "Distinguish buses, junctions, load points, distribution transformers, and actual customer counts",
     "stages": [
-      "数据建模"
+      "Data modeling"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：可选总节点与正负荷点分开；reference_conditioned支持零负荷连接节点，设备节点仍未扩展",
+    "implementation_note": "Partial: optional total nodes and positive-load points are separate; reference_conditioned supports zero-load junctions, but equipment nodes have not yet been extended",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -55,12 +55,12 @@
   {
     "id": "S05",
     "version": 1,
-    "title": "检查规则前提、单位、交集及模型能力，生成未支持项目清单",
+    "title": "Check rule prerequisites, units, intersections, and model capabilities, and list unsupported items",
     "stages": [
-      "需求编译"
+      "Requirements compilation"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：类型和范围检查",
+    "implementation_note": "Partial: type and range checks",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -68,13 +68,13 @@
   {
     "id": "G01",
     "version": 1,
-    "title": "每个节点坐标具有单位与坐标系；无实际 GIS 时标为合成局部坐标",
+    "title": "Each node coordinate has units and a coordinate system; label coordinates as synthetic local coordinates when actual GIS is unavailable",
     "stages": [
-      "布局",
-      "交付"
+      "Layout",
+      "Delivery"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：局部 km 坐标",
+    "implementation_note": "Partial: local coordinates in km",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -82,12 +82,12 @@
   {
     "id": "G02",
     "version": 1,
-    "title": "按居民区、村落、工业负荷等形成空间聚集与负荷中心",
+    "title": "Form spatial clusters and load centers around residential areas, villages, industrial loads, and similar groups",
     "stages": [
-      "布局"
+      "Layout"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：城市/农村及村落研究布局",
+    "implementation_note": "Partial: urban/rural and village research layouts",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -95,13 +95,13 @@
   {
     "id": "G03",
     "version": 1,
-    "title": "在可行走廊、分区、禁入区及长度边界内优先选择短路径",
+    "title": "Prefer short paths within feasible corridors, zones, exclusion areas, and length bounds",
     "stages": [
-      "候选边",
-      "拓扑"
+      "Candidate edges",
+      "Topology"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：距离约束 MST，无 GIS 走廊",
+    "implementation_note": "Partial: distance-constrained MST, without GIS corridors",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -109,13 +109,13 @@
   {
     "id": "G04",
     "version": 1,
-    "title": "区分欧氏距离、实际路径长度、等值电气线段和杆塔档距",
+    "title": "Distinguish Euclidean distance, actual route length, equivalent electrical segments, and pole/tower spans",
     "stages": [
-      "布局",
-      "导出"
+      "Layout",
+      "Export"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展：当前要求长度等于端点直线距离",
+    "implementation_note": "Pending extension: length must currently equal the straight-line distance between endpoints",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -123,13 +123,13 @@
   {
     "id": "G05",
     "version": 1,
-    "title": "同时记录源点直线覆盖半径、最大供电路径长度和总线路长度",
+    "title": "Record the straight-line coverage radius from the source, maximum supply-path length, and total line length together",
     "stages": [
-      "布局",
-      "校验"
+      "Layout",
+      "Validation"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：有长度；供电半径条款口径尚未编译",
+    "implementation_note": "Partial: lengths are available; the interpretation of supply-radius clauses has not yet been compiled",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -137,13 +137,13 @@
   {
     "id": "G06",
     "version": 1,
-    "title": "供电分区、跨区连接及空间交叉需明确解释；几何相交不自动构成电气连接",
+    "title": "Explain supply zones, cross-zone connections, and spatial crossings explicitly; geometric intersections do not automatically imply electrical connections",
     "stages": [
-      "布局",
-      "拓扑"
+      "Layout",
+      "Topology"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展",
+    "implementation_note": "Pending extension",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -151,13 +151,13 @@
   {
     "id": "T01",
     "version": 1,
-    "title": "运行图中负荷可达、标识唯一、无非法自环或重复设备",
+    "title": "Loads are reachable in the operating graph, identifiers are unique, and no invalid self-loops or duplicate equipment exist",
     "stages": [
-      "生成",
-      "校验"
+      "Generation",
+      "Validation"
     ],
     "coverage": "implemented",
-    "implementation_note": "已有单源树检查",
+    "implementation_note": "Single-source tree checks are available",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -165,13 +165,13 @@
   {
     "id": "T02",
     "version": 1,
-    "title": "径向运行时运行图为树；物理建设图可含处于断开状态的联络线",
+    "title": "The operating graph is a tree during radial operation; the physical construction graph may include open tie lines",
     "stages": [
-      "拓扑",
-      "工况"
+      "Topology",
+      "Operating conditions"
     ],
     "coverage": "partial",
-    "implementation_note": "已支持带电树+独立常开联络；DSS逐相两端断开与近零电流验证。尚不支持切换策略/恢复/N-1。",
+    "implementation_note": "Energized trees plus separate normally open ties are supported; DSS verifies per-phase opening at both ends and near-zero current. Switching strategies/restoration/N-1 are not yet supported.",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -179,12 +179,12 @@
   {
     "id": "T03",
     "version": 1,
-    "title": "主干、支线、接入段有明确角色；分支数、深度、长度与场景相适应",
+    "title": "Trunks, laterals, and service segments have explicit roles; branch counts, depths, and lengths suit the scenario",
     "stages": [
-      "拓扑"
+      "Topology"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：村落主干/经验子节点数",
+    "implementation_note": "Partial: village trunks/empirical child counts",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -192,12 +192,12 @@
   {
     "id": "T04",
     "version": 1,
-    "title": "分段开关、分支开关及联络位置依赖负荷分布和运行需求",
+    "title": "Sectionalizing switches, branch switches, and tie locations depend on load distribution and operational requirements",
     "stages": [
-      "设备布置"
+      "Equipment placement"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展",
+    "implementation_note": "Pending extension",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -205,13 +205,13 @@
   {
     "id": "T05",
     "version": 1,
-    "title": "重要负荷所需的供电路径独立性、备用供电或应急电源显式建模",
+    "title": "Explicitly model supply-path independence, backup supply, or emergency power required by critical loads",
     "stages": [
-      "拓扑",
-      "校验"
+      "Topology",
+      "Validation"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展；单源模型不能承诺",
+    "implementation_note": "Pending extension; a single-source model cannot provide this assurance",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -219,13 +219,13 @@
   {
     "id": "L01",
     "version": 1,
-    "title": "总负荷、功率因数、PV 容量及分母定义符合任务合同",
+    "title": "Total load, power factor, PV capacity, and denominator definitions satisfy the task contract",
     "stages": [
-      "负荷分配",
-      "校验"
+      "Load allocation",
+      "Validation"
     ],
     "coverage": "implemented",
-    "implementation_note": "已有基本检查",
+    "implementation_note": "Basic checks are available",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -233,12 +233,12 @@
   {
     "id": "L02",
     "version": 1,
-    "title": "零负荷连接节点与负荷接入节点分开，负荷占位率按场景采样",
+    "title": "Separate zero-load junctions from load connection nodes and sample load occupancy by scenario",
     "stages": [
-      "负荷布点"
+      "Load placement"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：reference_conditioned按显式参考占位率与拓扑条件采样；单例迁移，非场景总体标定",
+    "implementation_note": "Partial: reference_conditioned samples using explicit reference occupancy and topology conditions; transfer from a single example, not calibration of the scenario population",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -246,12 +246,12 @@
   {
     "id": "L03",
     "version": 1,
-    "title": "分配负荷类型、容量、空间位置及主干/支线位置之间的条件关系",
+    "title": "Represent conditional relationships among load type, capacity, spatial location, and trunk/lateral location",
     "stages": [
-      "联合采样"
+      "Joint sampling"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：按参考子节点数和相对深度分组采样正负荷位置及权重；空间和设备联合分布仍未标定",
+    "implementation_note": "Partial: positive-load locations and weights are sampled in groups based on reference child counts and relative depth; joint spatial and equipment distributions remain uncalibrated",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -259,13 +259,13 @@
   {
     "id": "L04",
     "version": 1,
-    "title": "区分装机容量、同时峰值、需求系数、同时系数、规划年负荷",
+    "title": "Distinguish installed capacity, coincident peak, demand factor, coincidence factor, and planning-year load",
     "stages": [
-      "需求",
-      "选型"
+      "Requirements",
+      "Equipment selection"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：仅同步峰值研究模型",
+    "implementation_note": "Partial: coincident-peak research model only",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -273,12 +273,12 @@
   {
     "id": "L05",
     "version": 1,
-    "title": "负荷时序及 PV 时序有相关性、季节和工况来源",
+    "title": "Load and PV time series have documented correlation, seasonal, and operating-condition sources",
     "stages": [
-      "工况构建"
+      "Operating-condition construction"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展：当前为用户指定倍率快照",
+    "implementation_note": "Pending extension: currently snapshots with user-specified multipliers",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -286,13 +286,13 @@
   {
     "id": "L06",
     "version": 1,
-    "title": "不平衡研究必须具备相别与各相负荷，不能用平衡模型声称验证",
+    "title": "Unbalanced studies require phase assignments and per-phase loads; a balanced model cannot establish verification",
     "stages": [
-      "数据",
-      "校验"
+      "Data",
+      "Validation"
     ],
     "coverage": "partial",
-    "implementation_note": "6/10/20kV支持显式相别、逐相P/Q/PV、末端缺相、DSS逐相电压/电流和ABC节点VUF；等效接地回路，无显式中性线/配变；research.unbalance为研究阈值",
+    "implementation_note": "6/10/20kV supports explicit phases, per-phase P/Q/PV, missing phases at terminals, DSS per-phase voltage/current, and VUF at ABC nodes; equivalent ground-return path, without explicit neutrals/distribution transformers; research.unbalance is a research threshold",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -300,13 +300,13 @@
   {
     "id": "E01",
     "version": 1,
-    "title": "导线材料、截面、阻抗、额定电流及适用条件来自一致目录",
+    "title": "Conductor material, cross section, impedance, rated current, and applicability conditions come from a consistent catalog",
     "stages": [
-      "选型",
-      "导出"
+      "Equipment selection",
+      "Export"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：示例阻抗和载流量",
+    "implementation_note": "Partial: illustrative impedances and ampacities",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -314,13 +314,13 @@
   {
     "id": "E02",
     "version": 1,
-    "title": "导线初选考虑各设计工况的下游视在功率，最终以潮流电流复核",
+    "title": "Initial conductor selection considers downstream apparent power in each design condition and is finally checked against power-flow currents",
     "stages": [
-      "初选",
-      "验证"
+      "Initial selection",
+      "Verification"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：负荷及满 PV 端点估算",
+    "implementation_note": "Partial: estimates at load and full-PV endpoints",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -328,13 +328,13 @@
   {
     "id": "E03",
     "version": 1,
-    "title": "热约束、压降、短路耐受及适用机械条件共同约束导线选择",
+    "title": "Thermal limits, voltage drop, short-circuit withstand, and applicable mechanical conditions jointly constrain conductor selection",
     "stages": [
-      "选型",
-      "验证"
+      "Equipment selection",
+      "Verification"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：仅电流和电压检查",
+    "implementation_note": "Partial: current and voltage checks only",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -342,13 +342,13 @@
   {
     "id": "E04",
     "version": 1,
-    "title": "配变位置靠近服务负荷，容量、阻抗、接线组别及分接头明确",
+    "title": "Distribution transformers are near served loads, with explicit ratings, impedances, vector groups, and taps",
     "stages": [
-      "设备布点",
-      "选型"
+      "Equipment siting",
+      "Equipment selection"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展",
+    "implementation_note": "Pending extension",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -356,13 +356,13 @@
   {
     "id": "E05",
     "version": 1,
-    "title": "无功补偿和调压设备有容量、位置、控制模式及动作边界",
+    "title": "Reactive compensation and voltage-regulation equipment have explicit capacities, locations, control modes, and action limits",
     "stages": [
-      "选型",
-      "工况"
+      "Equipment selection",
+      "Operating conditions"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展",
+    "implementation_note": "Pending extension",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -370,13 +370,13 @@
   {
     "id": "E06",
     "version": 1,
-    "title": "开关额定电流、开断能力与预期运行/故障条件匹配",
+    "title": "Switch rated currents and interrupting capacities match expected operating/fault conditions",
     "stages": [
-      "选型",
-      "校验"
+      "Equipment selection",
+      "Validation"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展",
+    "implementation_note": "Pending extension",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -384,13 +384,13 @@
   {
     "id": "O01",
     "version": 1,
-    "title": "潮流收敛，结果完整有限，功率平衡且实际负荷/PV 与请求一致",
+    "title": "Power flow converges with complete finite results, balanced power, and actual load/PV matching the request",
     "stages": [
-      "仿真",
-      "验收"
+      "Simulation",
+      "Acceptance"
     ],
     "coverage": "implemented",
-    "implementation_note": "已有",
+    "implementation_note": "Available",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -398,13 +398,13 @@
   {
     "id": "O02",
     "version": 1,
-    "title": "受电点标准电压检查和全网研究电压目标分开，并保留适用前提",
+    "title": "Separate standard voltage checks at receiving points from network-wide research voltage targets, preserving applicability prerequisites",
     "stages": [
-      "仿真",
-      "验收"
+      "Simulation",
+      "Acceptance"
     ],
     "coverage": "implemented",
-    "implementation_note": "已有受限映射",
+    "implementation_note": "A restricted mapping is available",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -412,13 +412,13 @@
   {
     "id": "O03",
     "version": 1,
-    "title": "载流量按各相、各工况及额定条件检查，裕度与热限值分开",
+    "title": "Check ampacity by phase, operating condition, and rating conditions; distinguish margins from thermal limits",
     "stages": [
-      "仿真",
-      "验收"
+      "Simulation",
+      "Acceptance"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：最大相电流/示例额定值",
+    "implementation_note": "Partial: maximum phase current/illustrative ratings",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -426,13 +426,13 @@
   {
     "id": "O04",
     "version": 1,
-    "title": "用户峰值功率因数按用户类别、容量、特殊约定及计量边界判断",
+    "title": "Assess customer peak power factor by customer category, capacity, special agreements, and metering boundaries",
     "stages": [
-      "仿真",
-      "验收"
+      "Simulation",
+      "Acceptance"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：无 PV 的非农业高压用户研究映射",
+    "implementation_note": "Partial: research mapping for non-agricultural HV customers without PV",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -440,13 +440,13 @@
   {
     "id": "O05",
     "version": 1,
-    "title": "PV 接入点、容量分母、逆变器 kVA、无功能力及控制模式一致",
+    "title": "Keep PV connection points, capacity denominators, inverter kVA, reactive capability, and control modes consistent",
     "stages": [
-      "建模",
-      "仿真"
+      "Modeling",
+      "Simulation"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：恒功率、单位 PF 等效发电机",
+    "implementation_note": "Partial: constant-power equivalent generators at unity PF",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -454,13 +454,13 @@
   {
     "id": "O06",
     "version": 1,
-    "title": "反向潮流允许性及接入约束按项目明确，不把反送自动认定为故障",
+    "title": "Specify reverse-power-flow permissions and connection constraints by project; do not automatically classify reverse flow as a fault",
     "stages": [
-      "工况",
-      "验收"
+      "Operating conditions",
+      "Acceptance"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展接入规则",
+    "implementation_note": "Connection rules pending extension",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -468,12 +468,12 @@
   {
     "id": "O07",
     "version": 1,
-    "title": "短路电流水平、保护灵敏性/选择性、接地及绝缘配合单独校验",
+    "title": "Check short-circuit current levels, protection sensitivity/selectivity, grounding, and insulation coordination separately",
     "stages": [
-      "专项仿真"
+      "Specialized simulation"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展",
+    "implementation_note": "Pending extension",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -481,12 +481,12 @@
   {
     "id": "O08",
     "version": 1,
-    "title": "谐波、电压不平衡、闪变及动态性能使用对应模型和计算方法",
+    "title": "Use appropriate models and calculation methods for harmonics, voltage unbalance, flicker, and dynamic performance",
     "stages": [
-      "专项仿真"
+      "Specialized simulation"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展；快照潮流不足",
+    "implementation_note": "Pending extension; snapshot power flow is insufficient",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -494,12 +494,12 @@
   {
     "id": "R01",
     "version": 1,
-    "title": "正常、峰荷低 PV、轻载高 PV 工况按研究目的选择并记录",
+    "title": "Select and record normal, peak-load/low-PV, and light-load/high-PV conditions according to research objectives",
     "stages": [
-      "实验规划"
+      "Experiment planning"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：已有显式配对工况",
+    "implementation_note": "Partial: explicit paired operating conditions are available",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -507,13 +507,13 @@
   {
     "id": "R02",
     "version": 1,
-    "title": "转供或 N−1 要求必须有邻馈线、备用容量及允许操作序列",
+    "title": "Load-transfer or N-1 requirements need adjacent feeders, reserve capacity, and permitted operating sequences",
     "stages": [
-      "规划",
-      "事故仿真"
+      "Planning",
+      "Contingency simulation"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待扩展，不对所有馈线一律强制",
+    "implementation_note": "Pending extension; not imposed uniformly on every feeder",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -521,12 +521,12 @@
   {
     "id": "R03",
     "version": 1,
-    "title": "跨工况比较冻结网络与设备，仅改变明确授权的工况变量",
+    "title": "Freeze the network and equipment in comparisons across operating conditions; change only explicitly authorized condition variables",
     "stages": [
-      "研究执行"
+      "Research execution"
     ],
     "coverage": "implemented",
-    "implementation_note": "已有网络指纹和负荷变换检查",
+    "implementation_note": "Network fingerprint and load-transformation checks are available",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -534,12 +534,12 @@
   {
     "id": "R04",
     "version": 1,
-    "title": "反向设计对同一候选馈线同时检查全部工况目标和保护约束",
+    "title": "Inverse design checks all operating-condition targets and protected constraints simultaneously for the same candidate feeder",
     "stages": [
-      "目标搜索"
+      "Target search"
     ],
     "coverage": "implemented",
-    "implementation_note": "已有种子及统一缩放搜索",
+    "implementation_note": "Seed and uniform-scaling searches are available",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -547,13 +547,13 @@
   {
     "id": "R05",
     "version": 1,
-    "title": "未找到目标解与数学不可行证明分开；保留最近候选及差距",
+    "title": "Distinguish failure to find a target solution from a mathematical infeasibility proof; retain the nearest candidate and its gaps",
     "stages": [
-      "搜索",
-      "交付"
+      "Search",
+      "Delivery"
     ],
     "coverage": "implemented",
-    "implementation_note": "已有 target_unmet",
+    "implementation_note": "target_unmet is available",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -561,13 +561,13 @@
   {
     "id": "C01",
     "version": 1,
-    "title": "统计参考按场景/粒度选择，记录单位、独立馈线数、合成或实际派生来源",
+    "title": "Select statistical references by scenario/granularity and record units, independent feeder counts, and synthetic or real-derived provenance",
     "stages": [
-      "标定",
-      "采样"
+      "Calibration",
+      "Sampling"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：J1/K1 与 M1 留出",
+    "implementation_note": "Partial: J1/K1 with M1 held out",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -575,12 +575,12 @@
   {
     "id": "C02",
     "version": 1,
-    "title": "验证长度、分支、负荷占位及设备—负荷的联合关系",
+    "title": "Validate joint relationships among lengths, branches, load occupancy, and equipment/load",
     "stages": [
-      "统计验证"
+      "Statistical validation"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：边际分布，缺联合关系",
+    "implementation_note": "Partial: marginal distributions; joint relationships are missing",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -588,13 +588,13 @@
   {
     "id": "C03",
     "version": 1,
-    "title": "逆向修改后重新评价统计偏离，超过显式界限拒绝或标为非典型样本",
+    "title": "Reassess statistical deviation after inverse modifications; reject or label samples atypical when explicit limits are exceeded",
     "stages": [
-      "目标搜索",
-      "验收"
+      "Target search",
+      "Acceptance"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：已记录长度距离，未约束",
+    "implementation_note": "Partial: length distances are recorded but unconstrained",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -602,12 +602,12 @@
   {
     "id": "C04",
     "version": 1,
-    "title": "批量输出评价重复率、场景覆盖和馈线级分布，避免只评估成功样本",
+    "title": "Evaluate duplicate rates, scenario coverage, and feeder-level distributions for batches; avoid assessing only successful samples",
     "stages": [
-      "批次验收"
+      "Batch acceptance"
     ],
     "coverage": "unsupported",
-    "implementation_note": "待形成统一统计验收",
+    "implementation_note": "A unified statistical acceptance process remains to be established",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -615,12 +615,12 @@
   {
     "id": "A01",
     "version": 1,
-    "title": "修复只用有前提的允许动作，保留需求、保护规则和已冻结参数",
+    "title": "Repair uses only permitted actions with prerequisites, preserving requirements, protective rules, and frozen parameters",
     "stages": [
-      "修复"
+      "Repair"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：升级/可选重接及回滚",
+    "implementation_note": "Partial: upgrades/optional reconnection and rollback",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -628,13 +628,13 @@
   {
     "id": "A02",
     "version": 1,
-    "title": "每次修复和搜索均记录触发规则、修改对象、预测及实际结果",
+    "title": "Record triggering rules, modified objects, predictions, and actual results for every repair and search",
     "stages": [
-      "修复",
-      "搜索"
+      "Repair",
+      "Search"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：已有轨迹和候选结果",
+    "implementation_note": "Partial: traces and candidate results are available",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -642,12 +642,12 @@
   {
     "id": "A03",
     "version": 1,
-    "title": "冻结规则、目录、参考分布、模型及求解器版本；记忆不自动修改规则",
+    "title": "Freeze versions of rules, catalogs, reference distributions, models, and solvers; memory does not automatically modify rules",
     "stages": [
-      "全流程"
+      "Entire workflow"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：已有快照、哈希和记忆过滤",
+    "implementation_note": "Partial: snapshots, hashes, and memory filtering are available",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"
@@ -655,13 +655,13 @@
   {
     "id": "A04",
     "version": 1,
-    "title": "模型、地理图、电气图、统计和约束报告对应同一最终网络",
+    "title": "The model, geographic diagram, electrical diagram, statistics, and constraint report describe the same final network",
     "stages": [
-      "导出",
-      "交付"
+      "Export",
+      "Delivery"
     ],
     "coverage": "partial",
-    "implementation_note": "部分：已有最终模型及可视化，尚无独立完整单线图",
+    "implementation_note": "Partial: final models and visualizations are available; no separate complete single-line diagram yet",
     "origin": "project_requirement",
     "source": "docs/architecture/feeder-design-rule-system.md",
     "enforcement": "inventory_only"

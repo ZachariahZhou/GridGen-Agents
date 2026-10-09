@@ -7,14 +7,14 @@ from .hierarchy_actions import design_contract,physical_graph
 
 def topology_permission(request,requested=False):
     # Conservative opt-in. A stated freeze always overrides a UI/CLI opt-in.
-    frozen=(r'(?:保持|保留|固定)[^，,。；;\n]{0,24}(?:拓扑|连接|接线|结构)[^，,。；;\n]{0,12}(?:不变|原状)?',
-            r'(?:不允许|禁止|不得|不要|不能|不需|不改变|不调整|不修改)[^，,。；;\n]{0,16}(?:拓扑|结构|重接|连接|接线)',
+    frozen=('(?:\u4fdd\u6301|\u4fdd\u7559|\u56fa\u5b9a)[^\uff0c,\u3002\uff1b;\\n]{0,24}(?:\u62d3\u6251|\u8fde\u63a5|\u63a5\u7ebf|\u7ed3\u6784)[^\uff0c,\u3002\uff1b;\\n]{0,12}(?:\u4e0d\u53d8|\u539f\u72b6)?',
+            '(?:\u4e0d\u5141\u8bb8|\u7981\u6b62|\u4e0d\u5f97|\u4e0d\u8981|\u4e0d\u80fd|\u4e0d\u9700|\u4e0d\u6539\u53d8|\u4e0d\u8c03\u6574|\u4e0d\u4fee\u6539)[^\uff0c,\u3002\uff1b;\\n]{0,16}(?:\u62d3\u6251|\u7ed3\u6784|\u91cd\u63a5|\u8fde\u63a5|\u63a5\u7ebf)',
             r'(?:keep|preserve|fix|freeze)[^.;\n]{0,24}(?:topology|connections|network structure)',
             r'(?:no|do not|must not)[^.;\n]{0,20}(?:rewir|reconnect|topology|network structure)',
-            r'(?:拓扑|网络结构|连接|接线)[^，,。；;\n]{0,12}(?:不可|不得|不能|不许|禁止)[^，,。；;\n]{0,8}(?:改|调|重接)',
+            '(?:\u62d3\u6251|\u7f51\u7edc\u7ed3\u6784|\u8fde\u63a5|\u63a5\u7ebf)[^\uff0c,\u3002\uff1b;\\n]{0,12}(?:\u4e0d\u53ef|\u4e0d\u5f97|\u4e0d\u80fd|\u4e0d\u8bb8|\u7981\u6b62)[^\uff0c,\u3002\uff1b;\\n]{0,8}(?:\u6539|\u8c03|\u91cd\u63a5)',
             r'(?:topology|network structure|connections)[^.;\n]{0,24}(?:remain unchanged|stay unchanged|must not change|cannot be changed)')
     if any(re.search(pattern,request,re.I) for pattern in frozen):return False
-    explicit=re.search(r'(?:允许|可以)[^，,。；;\n]{0,16}(?:局部拓扑调整|调整拓扑|支路重接|用户重接)|allow[^.;\n]{0,20}(?:rewir|reconnect)',request,re.I)
+    explicit=re.search('(?:\u5141\u8bb8|\u53ef\u4ee5)[^\uff0c,\u3002\uff1b;\\n]{0,16}(?:\u5c40\u90e8\u62d3\u6251\u8c03\u6574|\u8c03\u6574\u62d3\u6251|\u652f\u8def\u91cd\u63a5|\u7528\u6237\u91cd\u63a5)|allow[^.;\\n]{0,20}(?:rewir|reconnect)',request,re.I)
     return bool(requested or explicit)
 
 

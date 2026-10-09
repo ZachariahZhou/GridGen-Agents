@@ -1,0 +1,35 @@
+research_question: Generate a sensitivity-controlled urban feeder with explicitly bounded spatial freedom.
+base_spec:
+  network_kind: distribution
+  n_buses: 25
+  voltage_kv: 10
+  total_kw_min: 360
+  total_kw_max: 360
+  seed: 42
+  scenario:
+    kind: urban
+    engineering_profile: urban
+    layout: spatial_mst
+  phase_design:
+    mode: unbalanced
+  repair_policy:
+    strategy: none
+probes:
+  - id: terminal_p
+    kind: voltage_p
+    step_mw: 0.01
+    aggregation: mean_abs
+targets:
+  - probe_id: terminal_p
+    reference: baseline_ratio
+    lower: 1.05
+    upper: 1.25
+search:
+  allowed_actions: [replace_conductor, scale_layout]
+  max_layout_scale_change: 0.15
+  max_rounds: 4
+  candidates_per_round: 8
+assumptions:
+  - Explicitly allow uniform scaling of generated coordinates and line lengths within 15% of the original baseline; source location stays fixed.
+  - Preserve buses, connectivity, load and PV, phases, voltage level and source/control policy.
+  - Response target and original baseline remain fixed; this plan grants more design freedom than conductor-only synthesis.

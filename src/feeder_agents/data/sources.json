@@ -1,25 +1,37 @@
 [
   {
     "id": "ndrc-2024",
-    "title": "供电营业规则",
-    "publisher": "国家发展改革委",
+    "title": "Rules for Electricity Supply Services",
+    "publisher": "National Development and Reform Commission",
     "version": "2024-02-08 / effective 2024-06-01",
     "url": "https://zfxxgk.ndrc.gov.cn/wap/iteminfo.jsp?id=20347",
     "retrieved": "2026-09-22",
     "access": "full_text_verified",
-    "locator": "第六条、第四十五条、第五十七条",
-    "summary": "规定供电额定频率、按用户类别及条件区分的高峰功率因数要求和正常状况受电端电压偏差。电压条款带有功率因数例外，不可无条件应用到所有模拟母线。"
+    "locator": "Articles 6, 45, and 57",
+    "summary": "Specifies nominal supply frequency, peak-load power-factor requirements differentiated by customer category and conditions, and receiving-terminal voltage deviations under normal conditions. The voltage provisions include power-factor exceptions and cannot be applied unconditionally to all simulated buses.",
+    "original_language": {
+      "title": "\u4f9b\u7535\u8425\u4e1a\u89c4\u5219",
+      "publisher": "\u56fd\u5bb6\u53d1\u5c55\u6539\u9769\u59d4",
+      "locator": "\u7b2c\u516d\u6761\u3001\u7b2c\u56db\u5341\u4e94\u6761\u3001\u7b2c\u4e94\u5341\u4e03\u6761",
+      "summary": "\u89c4\u5b9a\u4f9b\u7535\u989d\u5b9a\u9891\u7387\u3001\u6309\u7528\u6237\u7c7b\u522b\u53ca\u6761\u4ef6\u533a\u5206\u7684\u9ad8\u5cf0\u529f\u7387\u56e0\u6570\u8981\u6c42\u548c\u6b63\u5e38\u72b6\u51b5\u53d7\u7535\u7aef\u7535\u538b\u504f\u5dee\u3002\u7535\u538b\u6761\u6b3e\u5e26\u6709\u529f\u7387\u56e0\u6570\u4f8b\u5916\uff0c\u4e0d\u53ef\u65e0\u6761\u4ef6\u5e94\u7528\u5230\u6240\u6709\u6a21\u62df\u6bcd\u7ebf\u3002"
+    }
   },
   {
     "id": "dlt5729-2023",
-    "title": "DL/T 5729—2023 配电网规划设计技术导则",
-    "publisher": "全国标准信息公共服务平台 / 国家能源局",
+    "title": "DL/T 5729-2023 Technical Guidelines for Distribution Network Planning and Design",
+    "publisher": "National Public Service Platform for Standards Information / National Energy Administration",
     "version": "2023 / effective 2024-06-28",
     "url": "https://std.samr.gov.cn/hb/search/stdHBDetailedCNF?id=2E1288291AD60971E06397BE0A0ABFD2",
     "retrieved": "2026-09-22",
     "access": "metadata_only",
-    "locator": "基础信息、适用范围",
-    "summary": "确认新版替代2016版，适用于110 kV及以下公用交流配网规划。本项目未取得正文，不据此生成技术条款。"
+    "locator": "Basic information and scope",
+    "summary": "Confirms that the new edition replaces the 2016 edition and applies to planning public AC distribution networks at 110 kV and below. This project has not obtained the full text and does not derive technical clauses from it.",
+    "original_language": {
+      "title": "DL/T 5729\u20142023 \u914d\u7535\u7f51\u89c4\u5212\u8bbe\u8ba1\u6280\u672f\u5bfc\u5219",
+      "publisher": "\u5168\u56fd\u6807\u51c6\u4fe1\u606f\u516c\u5171\u670d\u52a1\u5e73\u53f0 / \u56fd\u5bb6\u80fd\u6e90\u5c40",
+      "locator": "\u57fa\u7840\u4fe1\u606f\u3001\u9002\u7528\u8303\u56f4",
+      "summary": "\u786e\u8ba4\u65b0\u7248\u66ff\u4ee32016\u7248\uff0c\u9002\u7528\u4e8e110 kV\u53ca\u4ee5\u4e0b\u516c\u7528\u4ea4\u6d41\u914d\u7f51\u89c4\u5212\u3002\u672c\u9879\u76ee\u672a\u53d6\u5f97\u6b63\u6587\uff0c\u4e0d\u636e\u6b64\u751f\u6210\u6280\u672f\u6761\u6b3e\u3002"
+    }
   },
   {
     "id": "pnnl-31580",
@@ -30,7 +42,13 @@
     "retrieved": "2026-09-22",
     "access": "full_text_verified",
     "locator": "Section 2.10, printed page 29 / PDF page 49",
-    "summary": "讨论辐射与网状拓扑、常开联络点及分布式资源对网络设计的影响。是研究背景，不是中国配网强制设计条款。"
+    "summary": "Discusses radial and meshed topologies, normally open tie points, and the impact of distributed resources on network design. Research background, not mandatory design provisions for Chinese distribution networks.",
+    "original_language": {
+      "title": "Distribution System Research Roadmap",
+      "publisher": "Pacific Northwest National Laboratory",
+      "locator": "Section 2.10, printed page 29 / PDF page 49",
+      "summary": "\u8ba8\u8bba\u8f90\u5c04\u4e0e\u7f51\u72b6\u62d3\u6251\u3001\u5e38\u5f00\u8054\u7edc\u70b9\u53ca\u5206\u5e03\u5f0f\u8d44\u6e90\u5bf9\u7f51\u7edc\u8bbe\u8ba1\u7684\u5f71\u54cd\u3002\u662f\u7814\u7a76\u80cc\u666f\uff0c\u4e0d\u662f\u4e2d\u56fd\u914d\u7f51\u5f3a\u5236\u8bbe\u8ba1\u6761\u6b3e\u3002"
+    }
   },
   {
     "id": "nrel-75723",
@@ -41,7 +59,13 @@
     "retrieved": "2026-09-22",
     "access": "full_text_verified",
     "locator": "Validation methodology; official publication abstract",
-    "summary": "SMART-DS结合统计、运行与专家验证。用于指导本项目评价框架；本项目尚未完成真实配网统计标定或专家验证。"
+    "summary": "SMART-DS combines statistical, operational, and expert validation. It informs this project's evaluation framework; this project has not yet completed statistical calibration against real distribution networks or expert validation.",
+    "original_language": {
+      "title": "Realistic Synthetic Distribution Grids: Summary of Validation Results",
+      "publisher": "NREL",
+      "locator": "Validation methodology; official publication abstract",
+      "summary": "SMART-DS\u7ed3\u5408\u7edf\u8ba1\u3001\u8fd0\u884c\u4e0e\u4e13\u5bb6\u9a8c\u8bc1\u3002\u7528\u4e8e\u6307\u5bfc\u672c\u9879\u76ee\u8bc4\u4ef7\u6846\u67b6\uff1b\u672c\u9879\u76ee\u5c1a\u672a\u5b8c\u6210\u771f\u5b9e\u914d\u7f51\u7edf\u8ba1\u6807\u5b9a\u6216\u4e13\u5bb6\u9a8c\u8bc1\u3002"
+    }
   },
   {
     "id": "project-v1",
@@ -52,6 +76,12 @@
     "retrieved": "2026-09-22",
     "access": "project_assumption",
     "locator": "Prototype scope and explicit assumptions",
-    "summary": "三相平衡、单源树、中压聚合负荷、示例阻抗和载流量、同步峰值、恒功率等效光伏；不代表完整设计标准或真实地区统计分布。"
+    "summary": "Three-phase balanced, single-source trees, aggregated medium-voltage loads, illustrative impedances and ampacities, coincident peaks, and constant-power equivalent PV; not a complete design standard or the statistical distribution of a real region.",
+    "original_language": {
+      "title": "Feeder Agents research profile",
+      "publisher": "This project",
+      "locator": "Prototype scope and explicit assumptions",
+      "summary": "\u4e09\u76f8\u5e73\u8861\u3001\u5355\u6e90\u6811\u3001\u4e2d\u538b\u805a\u5408\u8d1f\u8377\u3001\u793a\u4f8b\u963b\u6297\u548c\u8f7d\u6d41\u91cf\u3001\u540c\u6b65\u5cf0\u503c\u3001\u6052\u529f\u7387\u7b49\u6548\u5149\u4f0f\uff1b\u4e0d\u4ee3\u8868\u5b8c\u6574\u8bbe\u8ba1\u6807\u51c6\u6216\u771f\u5b9e\u5730\u533a\u7edf\u8ba1\u5206\u5e03\u3002"
+    }
   }
 ]

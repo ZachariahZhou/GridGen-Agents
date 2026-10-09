@@ -1,0 +1,54 @@
+[
+  {
+    "example": "response_selective_25.yaml",
+    "target_met": true,
+    "verification_passed": true,
+    "contract_preserved": true,
+    "ratios": {
+      "a": 1.1933748723262825,
+      "b": 0.9999997557133304
+    },
+    "accepted_steps": 1,
+    "result_hash": "91298e87f3d4d70132373dcfa6cd7bdc497be9cd2fcd0bbcdc22ea8327d506d6",
+    "source_hash": "b7752c800ced9834abd8e27c5e113de900fcb1ced2dc81666efeaa5d7700b1f8",
+    "actual_changes": {
+      "line_length_ratio_min": 1.0,
+      "line_length_ratio_max": 1.2469999999999999,
+      "maximum_node_displacement_km": 0.03878688027858984,
+      "rewired_lines": 0,
+      "changed_conductors": 0,
+      "redistributed_load_fraction": 0.0,
+      "maximum_bus_load_change": 0.0,
+      "total_kw_before": 360.0,
+      "total_kw_after": 360.0,
+      "total_pv_kw_before": 0.0,
+      "total_pv_kw_after": 0.0
+    }
+  },
+  {
+    "example": "response_flexible_25.yaml",
+    "target_met": true,
+    "verification_passed": true,
+    "contract_preserved": true,
+    "ratios": {
+      "a": 1.1933748723262825,
+      "b": 0.9999997557133304
+    },
+    "accepted_steps": 1,
+    "result_hash": "c935377c2a6ab259e5982b61e35b7bc571c1e042532c3865df4fab52b81fb60f",
+    "source_hash": "b7752c800ced9834abd8e27c5e113de900fcb1ced2dc81666efeaa5d7700b1f8",
+    "actual_changes": {
+      "line_length_ratio_min": 1.0,
+      "line_length_ratio_max": 1.2469999999999999,
+      "maximum_node_displacement_km": 0.03878688027858984,
+      "rewired_lines": 0,
+      "changed_conductors": 0,
+      "redistributed_load_fraction": 0.0,
+      "maximum_bus_load_change": 0.0,
+      "total_kw_before": 360.0,
+      "total_kw_after": 360.0,
+      "total_pv_kw_before": 0.0,
+      "total_pv_kw_after": 0.0
+    }
+  }
+]

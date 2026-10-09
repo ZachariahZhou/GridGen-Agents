@@ -1,0 +1,7 @@
+case_id,domain,n_buses,seed,lower,upper,target_met,base_accepted,verification_passed,protected_contract_preserved,initial_response,final_response,response_ratio,unit,accepted_steps,candidates,stop_reason,seconds
+urban_25_41_increase,distribution,25,41,1.05,1.25,False,True,False,True,0.007013570335778763,0.007247864901373709,1.0334058909197394,pu/MW,4,19,search_exhausted,2.343
+urban_25_42_increase,distribution,25,42,1.05,1.25,False,True,False,True,0.012092673384929883,0.012322080196541796,1.0189707275066078,pu/MW,4,23,search_exhausted,2.268
+urban_25_43_increase,distribution,25,43,1.05,1.25,False,True,False,True,0.011163962081306433,0.011386123853309357,1.0198999038499892,pu/MW,4,23,search_exhausted,2.284
+transmission_37_43_decrease,transmission,37,43,0.5,0.98,True,True,True,True,0.6807558905968047,0.6556480558874611,0.963117712154746,MW/MW,1,9,targets_met,0.593
+transmission_139_42_decrease,transmission,139,42,0.5,0.98,True,True,True,True,0.7259887737376616,0.6998771566214259,0.9640330290759135,MW/MW,1,9,targets_met,1.634
+transmission_139_43_decrease,transmission,139,43,0.5,0.98,True,True,True,True,0.7866450317392122,0.7643695243959705,0.9716828983283703,MW/MW,1,9,targets_met,1.347

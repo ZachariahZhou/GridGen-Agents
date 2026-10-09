@@ -1,0 +1,194 @@
+{
+  "protocol": "Only previously unmet urban tasks. Catalogue-only permissions unchanged; expanded experiment explicitly allows bounded uniform spatial scaling. Original baselines byte-identical and targets unchanged.",
+  "interpretation": "Different action permissions; do not report expanded success as recovery under the original fixed-geometry contract or as full-suite success.",
+  "rows": [
+    {
+      "case_id": "urban_25_41_increase",
+      "seed": 41,
+      "previous_ratio": 1.0334058909197394,
+      "catalogue_ratio": 1.048887953590911,
+      "expanded_ratio": 1.0871298434881838,
+      "catalogue_steps": 1,
+      "expanded_steps": 1,
+      "catalogue_target_met": false,
+      "expanded_target_met": true,
+      "layout_scale": 1.09,
+      "layout_permission": 0.15,
+      "expanded_base_accepted": true,
+      "expanded_verification_passed": true,
+      "contract_preserved": true,
+      "baseline_identical": true,
+      "original_baseline_sha256": "904d17c41f70c7a9d1ead4032bdf0954b9ebcc7df70dcf4e8aba4496fd269197",
+      "diagnosis_code": "catalogue_direction_exhausted"
+    },
+    {
+      "case_id": "urban_25_42_increase",
+      "seed": 42,
+      "previous_ratio": 1.0189707275066078,
+      "catalogue_ratio": 1.0315242484743117,
+      "expanded_ratio": 1.0885955197987067,
+      "catalogue_steps": 1,
+      "expanded_steps": 1,
+      "catalogue_target_met": false,
+      "expanded_target_met": true,
+      "layout_scale": 1.09,
+      "layout_permission": 0.15,
+      "expanded_base_accepted": true,
+      "expanded_verification_passed": true,
+      "contract_preserved": true,
+      "baseline_identical": true,
+      "original_baseline_sha256": "3c47d9d8a853dfbeeab6157a29211aa037d9b96ae231191b16f2f85da24d02ea",
+      "diagnosis_code": "catalogue_direction_exhausted"
+    },
+    {
+      "case_id": "urban_25_43_increase",
+      "seed": 43,
+      "previous_ratio": 1.0198999038499892,
+      "catalogue_ratio": 1.0337082557632271,
+      "expanded_ratio": 1.0884652257508345,
+      "catalogue_steps": 1,
+      "expanded_steps": 1,
+      "catalogue_target_met": false,
+      "expanded_target_met": true,
+      "layout_scale": 1.09,
+      "layout_permission": 0.15,
+      "expanded_base_accepted": true,
+      "expanded_verification_passed": true,
+      "contract_preserved": true,
+      "baseline_identical": true,
+      "original_baseline_sha256": "ccbc14249d70debb1606cc7041beacc6d83fa26730bdb8a4759d65922b55b20f",
+      "diagnosis_code": "catalogue_direction_exhausted"
+    }
+  ],
+  "provenance": [
+    {
+      "case_id": "urban_25_41_increase",
+      "source_hashes": [
+        "ee0ee7c439edfe1f575cd28cf5727dced8bdf712e9dd565b3ad99ba151f20476",
+        "b60f81e71851f1c3a70101a7dc03e062048e70a22e03405da30aaf8b9a0dbb5d",
+        "b60f81e71851f1c3a70101a7dc03e062048e70a22e03405da30aaf8b9a0dbb5d"
+      ],
+      "plan_hashes": [
+        "7e6a1f5ce370f43af88eaca67c6b715e5ddee1c14f1bbfa07e2d3542aa026355",
+        "1f44dfed2ca743099504c40aedce72176e847756b10e93610a4121694102f41c",
+        "496f36236f6a25d4a8a0809ef02c6802e1eeb1c16091d66092919f209c72c7ba"
+      ],
+      "fixed_result_hash": "600a4c0d93cf924bd3b56a385af12454288adea6914a41c1cfde7bd614f4025f",
+      "expanded_result_hash": "8457f9978e0d767a6330c61601c9ad57a1d1c0f092113372d183c04a9a518b62",
+      "diagnosis": {
+        "code": "catalogue_direction_exhausted",
+        "infeasibility_proven": false,
+        "requires_explicit_permission": true,
+        "summary": "No direction-improving conductor replacement remains on the probed paths in the permitted catalogue. More rounds of the same moves cannot help. Changing geometry, equipment scope or targets requires explicit permission; no AC infeasibility is proven.",
+        "catalogue_evidence": [
+          {
+            "probe_id": "terminal_p",
+            "observed": 1.048887953590911,
+            "requested": {
+              "probe_id": "terminal_p",
+              "reference": "baseline_ratio",
+              "lower": 1.05,
+              "upper": 1.25
+            },
+            "path_lines": 8,
+            "compatible_equipment_types": 5,
+            "ranking_component": "r1",
+            "path_component_ohm": 0.7091747782949055,
+            "catalogue_path_component_range_ohm": [
+              0.15171328935706288,
+              0.7091747782949055
+            ],
+            "scope": "Path-impedance proxy range; not an AC response envelope or infeasibility proof"
+          }
+        ],
+        "suggested_action": "For generated spatial_mst geometry, explicitly permit scale_layout with a numerical max_layout_scale_change; otherwise revise the design space explicitly."
+      }
+    },
+    {
+      "case_id": "urban_25_42_increase",
+      "source_hashes": [
+        "ee0ee7c439edfe1f575cd28cf5727dced8bdf712e9dd565b3ad99ba151f20476",
+        "b60f81e71851f1c3a70101a7dc03e062048e70a22e03405da30aaf8b9a0dbb5d",
+        "b60f81e71851f1c3a70101a7dc03e062048e70a22e03405da30aaf8b9a0dbb5d"
+      ],
+      "plan_hashes": [
+        "fc71e29d9361abd37595075ea393d969719d8918c7d941e618daa02d6b45a1f5",
+        "527f999f4169080dc75a3dbcfa28564c4b7cd66f1a0774395a85c2756395415c",
+        "827323e6044de5e7563a90afcdb1f559531033a534b5be6dc094d1638164abfe"
+      ],
+      "fixed_result_hash": "9104f4f1c6b93cfc5ac2804d69f7eb3c036b52df89ed0248e554111a0220c023",
+      "expanded_result_hash": "db3c160ac0914863eff92c073e7a0af565c588f8e7978d65d10183734d4b5678",
+      "diagnosis": {
+        "code": "catalogue_direction_exhausted",
+        "infeasibility_proven": false,
+        "requires_explicit_permission": true,
+        "summary": "No direction-improving conductor replacement remains on the probed paths in the permitted catalogue. More rounds of the same moves cannot help. Changing geometry, equipment scope or targets requires explicit permission; no AC infeasibility is proven.",
+        "catalogue_evidence": [
+          {
+            "probe_id": "terminal_p",
+            "observed": 1.0315242484743117,
+            "requested": {
+              "probe_id": "terminal_p",
+              "reference": "baseline_ratio",
+              "lower": 1.05,
+              "upper": 1.25
+            },
+            "path_lines": 14,
+            "compatible_equipment_types": 5,
+            "ranking_component": "r1",
+            "path_component_ohm": 1.2175063326134519,
+            "catalogue_path_component_range_ohm": [
+              0.26046032118901713,
+              1.2175063326134519
+            ],
+            "scope": "Path-impedance proxy range; not an AC response envelope or infeasibility proof"
+          }
+        ],
+        "suggested_action": "For generated spatial_mst geometry, explicitly permit scale_layout with a numerical max_layout_scale_change; otherwise revise the design space explicitly."
+      }
+    },
+    {
+      "case_id": "urban_25_43_increase",
+      "source_hashes": [
+        "ee0ee7c439edfe1f575cd28cf5727dced8bdf712e9dd565b3ad99ba151f20476",
+        "b60f81e71851f1c3a70101a7dc03e062048e70a22e03405da30aaf8b9a0dbb5d",
+        "b60f81e71851f1c3a70101a7dc03e062048e70a22e03405da30aaf8b9a0dbb5d"
+      ],
+      "plan_hashes": [
+        "aec92330a54aa81dc69c704578f77043470f6f9fabbbf21624350c03a86586e3",
+        "001b848180efaed8fcf79755659827c87cf18a2c574111c72d7e5d55096f8fbc",
+        "b04986fd2a1e632ac7878ba837d903444bfcc0fceb08f495e2b8546fc5e98e24"
+      ],
+      "fixed_result_hash": "b2138fcdc79e1960668efc77b71cd6b682b05b928bc9415f70126ae64e6b1ecb",
+      "expanded_result_hash": "0514312e11818204d2d137ce43de3c1b7e61c68da91a7a1ab0888e4618fe0b31",
+      "diagnosis": {
+        "code": "catalogue_direction_exhausted",
+        "infeasibility_proven": false,
+        "requires_explicit_permission": true,
+        "summary": "No direction-improving conductor replacement remains on the probed paths in the permitted catalogue. More rounds of the same moves cannot help. Changing geometry, equipment scope or targets requires explicit permission; no AC infeasibility is proven.",
+        "catalogue_evidence": [
+          {
+            "probe_id": "terminal_p",
+            "observed": 1.0337082557632271,
+            "requested": {
+              "probe_id": "terminal_p",
+              "reference": "baseline_ratio",
+              "lower": 1.05,
+              "upper": 1.25
+            },
+            "path_lines": 13,
+            "compatible_equipment_types": 5,
+            "ranking_component": "r1",
+            "path_component_ohm": 1.124269849399721,
+            "catalogue_path_component_range_ohm": [
+              0.24051430225353052,
+              1.124269849399721
+            ],
+            "scope": "Path-impedance proxy range; not an AC response envelope or infeasibility proof"
+          }
+        ],
+        "suggested_action": "For generated spatial_mst geometry, explicitly permit scale_layout with a numerical max_layout_scale_change; otherwise revise the design space explicitly."
+      }
+    }
+  ]
+}

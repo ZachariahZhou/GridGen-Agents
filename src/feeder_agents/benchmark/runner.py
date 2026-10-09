@@ -118,8 +118,8 @@ def _reports(root,rows,summary):
     detail=[]
     for r in rows:
         rel=Path(r['trial_path']).relative_to(root)
-        detail.append(f'<tr><td>{html.escape(r["adapter"])}</td><td>{html.escape(r["case_id"])}</td><td>{r["seed"]}</td><td>{r["status"]}</td><td>{r["electrical_valid"]}</td><td>{r["requirements"]["satisfied"]}/{r["requirements"]["total"]}</td><td>{r["end_to_end_success"]}</td><td><a href="{rel}/row.json">评分证据</a></td></tr>')
-    (root/'index.html').write_text('<meta charset="utf-8"><title>Feeder benchmark</title><h1>统一馈线评测</h1><p>所有尝试计入分母；oracle为带答案的能力参考。当前仅多电压单例生成；不评估逆向任务或开放语义判断。</p><p><a href="summary.json">汇总</a> · <a href="trials.csv">CSV</a></p><table border="1"><tr><th>方法</th><th>需求</th><th>种子</th><th>状态</th><th>电气有效</th><th>需求满足</th><th>端到端成功</th><th>依据</th></tr>'+''.join(detail)+'</table>')
+        detail.append(f'<tr><td>{html.escape(r["adapter"])}</td><td>{html.escape(r["case_id"])}</td><td>{r["seed"]}</td><td>{r["status"]}</td><td>{r["electrical_valid"]}</td><td>{r["requirements"]["satisfied"]}/{r["requirements"]["total"]}</td><td>{r["end_to_end_success"]}</td><td><a href="{rel}/row.json">Scoring evidence</a></td></tr>')
+    (root/'index.html').write_text('<meta charset="utf-8"><title>Feeder benchmark</title><h1>Unified feeder benchmark</h1><p>All attempts count in the denominator. The oracle is a capability reference with supplied answers. This runner covers individual multi-voltage generation, not inverse tasks or open-ended semantic judgment.</p><p><a href="summary.json">Summary</a> · <a href="trials.csv">CSV</a></p><table border="1"><tr><th>Method</th><th>Request</th><th>Seed</th><th>Status</th><th>Electrically valid</th><th>Requirements satisfied</th><th>End-to-end success</th><th>Evidence</th></tr>'+''.join(detail)+'</table>')
     atomic_json(root/'summary.json',summary)
 
 

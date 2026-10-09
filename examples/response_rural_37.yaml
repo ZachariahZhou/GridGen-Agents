@@ -1,0 +1,34 @@
+research_question: Generate a feasible rural feeder with increased terminal active-power voltage sensitivity.
+base_spec:
+  network_kind: distribution
+  n_buses: 37
+  voltage_kv: 10
+  total_kw_min: 480
+  total_kw_max: 480
+  seed: 41
+  scenario:
+    kind: rural
+    engineering_profile: rural
+    layout: rural_villages
+    village_count: 3
+  phase_design:
+    mode: unbalanced
+  repair_policy:
+    strategy: none
+probes:
+  - id: terminal_p
+    kind: voltage_p
+    step_mw: 0.01
+    aggregation: mean_abs
+targets:
+  - probe_id: terminal_p
+    reference: baseline_ratio
+    lower: 1.05
+    upper: 1.25
+search:
+  allowed_actions: [replace_conductor]
+  max_rounds: 4
+  candidates_per_round: 8
+assumptions:
+  - The terminal port is the farthest load by source-path length and remains fixed during search.
+  - Response bands are requested experimental targets, not calibrated realism classes.

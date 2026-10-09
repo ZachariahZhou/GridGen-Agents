@@ -4,7 +4,7 @@
 
 [Repository](https://github.com/ZachariahZhou/GridGen-Agents) | [Architecture](docs/architecture.md) | [Usage](docs/usage.md) | [Verification](docs/verification.md)
 
-This repository packages the **M87 research milestone**, with Python package version **0.1.0**. The Python package and CLI retain the name `feeder-agents`. Original code is licensed under [Apache-2.0](LICENSE); reference data and dependencies retain their own terms, documented in [THIRD_PARTY.md](THIRD_PARTY.md).
+This repository packages **M89-task-v1**, adding three complete research-task workflows to the electrical-response generator, with Python package version **0.1.0**. The Python package and CLI retain the name `feeder-agents`. Original code is licensed under [Apache-2.0](LICENSE); reference data and dependencies retain their own terms, documented in [THIRD_PARTY.md](THIRD_PARTY.md).
 
 ## Capabilities
 
@@ -14,6 +14,8 @@ This repository packages the **M87 research milestone**, with Python package ver
 - LangChain tools and LangGraph execution with requirement checks, electrical feedback, permitted repairs and rollback.
 - Design-document rule extraction, project memory and repair experiences admitted after verification.
 - Individual cases, batches, specified-condition target searches, a CLI and a Streamlit interface.
+- Electrical-response targets: distribution voltage sensitivity and transmission AC transfer response, with guarded equipment edits and independent perturbation-step verification.
+- Research-task workflows: voltage control, static PV integration impact and transmission power transfer, with frozen task contracts, finite AC experiments and auditable model exports.
 
 The delivered objects are research network models. Continuous annual time series, dynamic simulation, protection coordination, real GIS reconstruction and general-purpose OPF or N-1 design are outside the implemented scope. Acceptance refers to the checks actually executed for the selected specification.
 
@@ -66,6 +68,51 @@ Open `http://localhost:8501`. Start the application from this directory so it re
 
 Natural-language planning and explicitly enabled agent feedback call the configured external model. Structured example commands use local execution by default. See [usage and outputs](docs/usage.md) for details.
 
+Public documentation, examples and interface text are in English. English and Chinese request parsing remain supported; Chinese recognition patterns and input fixtures use Unicode escapes in the published source, preserving their decoded values.
+
+## Research-task workflows
+
+Turn a research request into a reusable model, frozen test ports and measured suitability evidence. The loop checks both the response objective and a finite task experiment on every candidate: external Q support for voltage control, full existing-PV off/on for PV impact, or balanced MW transfer at fixed Q for transmission.
+
+```bash
+feeder-agents --workspace workspace/tasks research-design --plan examples/research_voltage_control.yaml --id voltage
+feeder-agents --workspace workspace/tasks research-design --plan examples/research_static_pv_impact.yaml --id pv
+feeder-agents --workspace workspace/tasks research-design --plan examples/research_transmission_transfer.yaml --id transfer
+```
+
+Use `research-design --request 'Generate a rural 10 kV feeder for voltage control with 360 kW total load and 20 kvar reactive support.' --id voltage_language` for configured-LLM compilation; `--draft` stops before generation. The standard `design` entry point and web interface also route these task requests. Explicit bus counts are retained; omitted counts use disclosed defaults. LangChain exposes `describe_research_tasks` and `design_research_grid`.
+
+The default protocol seeks response ratios of 1.10–1.30 for voltage/PV and 0.50–0.98 for transmission. Fresh distribution synthesis permits compatible conductors and bounded uniform geometry scaling (up to 75%); fixed coordinates remove scaling. These are declared research choices, not calibrated difficulty classes or engineering standards. Custom targets and tighter permissions can be supplied. Controller design, maximum PV hosting capacity and maximum transfer capacity are separate research problems.
+
+All nine fixed-plan examples passed response, finite-experiment and independent-step checks. Three distinct live `qwen3.7-plus` requests have completed records, with two failed voltage-request attempts retained before fixes. This is a workflow pilot across fixes, not a general or same-version first-attempt success-rate estimate. [Full method and experiment record](docs/research-task-workflows.md), [CSV](docs/assets/research_tasks_results.csv), [frozen inputs](docs/assets/research_tasks_suite.json), [live attempt ledger](docs/assets/research_tasks_live.json).
+
+![Research-task response and finite-experiment results](docs/assets/research_tasks.png)
+
+## Electrical-response-conditioned synthesis
+
+Generate a research network with requested response intervals. Exact buses, total P/Q, each PV injection, phase assignments, voltage level and source/control settings remain protected. Geometry, connectivity and nodal demand are fixed unless the plan explicitly enables and bounds the corresponding action. Catalogue replacement, uniform scaling, local subtree scaling, radial branch reconnection and conserved load redistribution provide different design freedoms. Local changes currently require generated `spatial_mst` distribution models; rewiring excludes normally-open ties, and redistribution excludes prescribed load shapes. Explicit coordinates forbid geometry scaling.
+
+```bash
+feeder-agents response-design --plan examples/response_rural_37.yaml --id response_rural
+feeder-agents response-design --plan examples/response_transmission_139.yaml --id response_tx
+# Explicitly allow up to 15% spatial scaling relative to the original geometry.
+feeder-agents response-design --plan examples/response_urban_25.yaml --id response_urban
+# Increase response A while preserving response B; bounded local geometry.
+feeder-agents response-design --plan examples/response_selective_25.yaml --id selective_demo
+# Also grant explicit reconnection and load-redistribution permissions.
+feeder-agents response-design --plan examples/response_flexible_25.yaml --id flexible_demo
+```
+
+Natural-language requests mentioning voltage sensitivity or electrical response enter the same workflow. `search.selector: agent` enables the configured LLM to select among numerically verified improvements; `heuristic` uses deterministic selection. The original response denominator stays fixed. The final model must also pass a separate half-step check. Unmet targets are reported explicitly; bounded-search failure is not proof of infeasibility.
+
+Version 3 permits broader numerical edit bounds, previews up to two combined moves and proposes compensating changes for protected response ports. All budgets refer to the original model. Uniform scale permission can be configured up to 90%; actual edits also obey segment lengths and electrical checks. These are research design limits, not engineering standards. Transmission retains its existing parallel-circuit actions. Multi-voltage distribution response synthesis, arbitrary response matrices and dynamic response are outside this extension.
+
+In 18 paired runs (three tasks, three seeds, two permission sets), expanded permissions met all nine response targets; restricted permissions met none of the nine complete target sets. Both groups retained valid baseline electrical models. This evaluates design-space expansion, not LLM superiority or success under identical action permissions. A separate live `qwen3.7-plus` request increased response A to 1.285286 times its baseline while preserving B at 1.000000332. See [v3 method, boundaries and complete results](docs/response-design-space.md), [CSV](docs/assets/response_flexibility_results.csv) and [frozen plans](docs/assets/response_flexibility_suite.json).
+
+![Bounded response control under paired design permissions](docs/assets/response_flexibility.png)
+
+The [initial method](docs/electrical-response-design.md), [pilot report](docs/response-experiments.md) and [v2 failure analysis](docs/response-failure-analysis.md) retain their original protocols and results. New permission sets do not overwrite historical failures.
+
 ## Figures from the current release
 
 ![Freshly generated distribution and transmission cases](docs/assets/network_overview.png)
@@ -99,7 +146,7 @@ Tests use controlled substitutes for external model decisions and actual OpenDSS
 ```text
 src/feeder_agents/   Runtime, rules and equipment catalogs
 app.py              Streamlit interface
-examples/           Seven executable input specifications
+examples/           Generation and electrical-response specifications
 scripts/            Solver checks, example checks and gallery regeneration
 tests/              Selected regression tests
 docs/               Architecture, usage, verification and current figures
@@ -107,4 +154,4 @@ third_party/        Retained upstream license notices
 SNAPSHOT.json       File hashes and provenance
 ```
 
-See [snapshot scope](docs/snapshot-scope.md) for the selection policy. Historical experiment batches, private memory, raw downloads and paper drafts are excluded. Original-language source evidence and bilingual input-recognition fixtures are retained internally for traceability and language support.
+See [snapshot scope](docs/snapshot-scope.md) for the selection policy. Historical experiment batches, private memory, raw downloads and paper drafts are excluded. Original-language research documents remain in the parent research workspace for traceability. Published reports are English translations that retain the original results, failures and limitations; bilingual parsing support is preserved through Unicode-escaped literals.

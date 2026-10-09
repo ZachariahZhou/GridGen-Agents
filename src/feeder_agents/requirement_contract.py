@@ -158,17 +158,17 @@ def normalize_deliverable_requirement(item):
     import re
     if item.target_field not in (None, 'deliverables', 'output_format', 'export_format'):
         return
-    if not re.search(r'输出|交付|导出|提供|export|deliver|output', item.evidence, re.I):
+    if not re.search('\u8f93\u51fa|\u4ea4\u4ed8|\u5bfc\u51fa|\u63d0\u4f9b|export|deliver|output', item.evidence, re.I):
         return
     formats = re.findall(r'(?<![A-Za-z])(?:OpenDSS|MATPOWER)(?![A-Za-z])', item.evidence, re.I)
     if not formats:
         return
-    directive = re.split(r'输出|交付|导出|提供|export|deliver|output', item.evidence, flags=re.I)[-1]
-    remainder = re.sub(r'OpenDSS|MATPOWER|可直接调用|可运行|可调用|模型|文件|格式|以及|并且|和|与|及|的|model|files?|format|and|runnable', '', directive, flags=re.I)
+    directive = re.split('\u8f93\u51fa|\u4ea4\u4ed8|\u5bfc\u51fa|\u63d0\u4f9b|export|deliver|output', item.evidence, flags=re.I)[-1]
+    remainder = re.sub('OpenDSS|MATPOWER|\u53ef\u76f4\u63a5\u8c03\u7528|\u53ef\u8fd0\u884c|\u53ef\u8c03\u7528|\u6a21\u578b|\u6587\u4ef6|\u683c\u5f0f|\u4ee5\u53ca|\u5e76\u4e14|\u548c|\u4e0e|\u53ca|\u7684|model|files?|format|and|runnable', '', directive, flags=re.I)
     if re.sub(r'[\s，,。；;、/。:：+&()（）-]', '', remainder):
         return  # A compound/unknown output requirement needs explicit interpretation.
     values = item.expected_value if isinstance(item.expected_value,list) else [item.expected_value]
-    aliases = {'opendss','opendss model','opendss_model','opendss模型','matpower','matpower model','matpower_model','matpower模型'}
+    aliases = {'opendss','opendss model','opendss_model','opendss\u6a21\u578b','matpower','matpower model','matpower_model','matpower\u6a21\u578b'}
     if any(v is not None and (not isinstance(v,str) or v.lower() not in aliases) for v in values):
         return  # Do not erase additional unsupported deliverables.
     if item.operator not in ('eq','contains'):

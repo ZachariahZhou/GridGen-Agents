@@ -1,0 +1,266 @@
+{
+  "protocol": "Three research tasks, fixed seeds, unchanged standard response objectives; finite task experiments gate every candidate. No replacement of failed seeds. Local derivative targets and finite downstream effects are separately recorded.",
+  "plans": [
+    {
+      "case_id": "voltage_control_41",
+      "plan": {
+        "task": "voltage_control",
+        "research_question": "Generate a rural feeder for comparing voltage control algorithms with a measurable reactive-power voltage response.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 37,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 41,
+          "scenario": {
+            "kind": "rural",
+            "engineering_profile": "rural",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "support_mvar": 0.02,
+        "assumptions": [
+          "Use the declared fresh-synthesis protocol defaults for missing response targets and design freedoms.",
+          "Reactive support is an external test injection, not a fabricated installed controller."
+        ]
+      }
+    },
+    {
+      "case_id": "voltage_control_42",
+      "plan": {
+        "task": "voltage_control",
+        "research_question": "Generate a rural feeder for comparing voltage control algorithms with a measurable reactive-power voltage response.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 37,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 42,
+          "scenario": {
+            "kind": "rural",
+            "engineering_profile": "rural",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "support_mvar": 0.02,
+        "assumptions": [
+          "Use the declared fresh-synthesis protocol defaults for missing response targets and design freedoms.",
+          "Reactive support is an external test injection, not a fabricated installed controller."
+        ]
+      }
+    },
+    {
+      "case_id": "voltage_control_43",
+      "plan": {
+        "task": "voltage_control",
+        "research_question": "Generate a rural feeder for comparing voltage control algorithms with a measurable reactive-power voltage response.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 37,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 43,
+          "scenario": {
+            "kind": "rural",
+            "engineering_profile": "rural",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "support_mvar": 0.02,
+        "assumptions": [
+          "Use the declared fresh-synthesis protocol defaults for missing response targets and design freedoms.",
+          "Reactive support is an external test injection, not a fabricated installed controller."
+        ]
+      }
+    },
+    {
+      "case_id": "static_pv_impact_41",
+      "plan": {
+        "task": "static_pv_impact",
+        "research_question": "Generate an urban feeder to investigate the static voltage effect of existing PV, with an identical-network PV-off contrast.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "pv_ratio": 0.6,
+          "seed": 41,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "assumptions": [
+          "Existing PV is a static unity-power-factor injection; no time-series product.",
+          "Use declared fresh-synthesis task defaults; response ports must actually contain PV."
+        ]
+      }
+    },
+    {
+      "case_id": "static_pv_impact_42",
+      "plan": {
+        "task": "static_pv_impact",
+        "research_question": "Generate an urban feeder to investigate the static voltage effect of existing PV, with an identical-network PV-off contrast.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "pv_ratio": 0.6,
+          "seed": 42,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "assumptions": [
+          "Existing PV is a static unity-power-factor injection; no time-series product.",
+          "Use declared fresh-synthesis task defaults; response ports must actually contain PV."
+        ]
+      }
+    },
+    {
+      "case_id": "static_pv_impact_43",
+      "plan": {
+        "task": "static_pv_impact",
+        "research_question": "Generate an urban feeder to investigate the static voltage effect of existing PV, with an identical-network PV-off contrast.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "pv_ratio": 0.6,
+          "seed": 43,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "assumptions": [
+          "Existing PV is a static unity-power-factor injection; no time-series product.",
+          "Use declared fresh-synthesis task defaults; response ports must actually contain PV."
+        ]
+      }
+    },
+    {
+      "case_id": "transmission_transfer_41",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Generate a transmission model for a balanced interarea transfer study, reducing peak monitored-branch response and verifying a finite transfer.",
+        "base_spec": {
+          "network_kind": "transmission",
+          "n_buses": 139,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200,
+          "seed": 41
+        },
+        "transfer_mw": 10,
+        "assumptions": [
+          "Automatically select a distant pair of non-reference buses before measuring any response.",
+          "Finite active transfer holds reactive demand fixed; the slack generator balances incremental losses.",
+          "The standard response interval is a research protocol, not a maximum transfer-capacity claim."
+        ]
+      }
+    },
+    {
+      "case_id": "transmission_transfer_42",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Generate a transmission model for a balanced interarea transfer study, reducing peak monitored-branch response and verifying a finite transfer.",
+        "base_spec": {
+          "network_kind": "transmission",
+          "n_buses": 139,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200,
+          "seed": 42
+        },
+        "transfer_mw": 10,
+        "assumptions": [
+          "Automatically select a distant pair of non-reference buses before measuring any response.",
+          "Finite active transfer holds reactive demand fixed; the slack generator balances incremental losses.",
+          "The standard response interval is a research protocol, not a maximum transfer-capacity claim."
+        ]
+      }
+    },
+    {
+      "case_id": "transmission_transfer_43",
+      "plan": {
+        "task": "transmission_transfer",
+        "research_question": "Generate a transmission model for a balanced interarea transfer study, reducing peak monitored-branch response and verifying a finite transfer.",
+        "base_spec": {
+          "network_kind": "transmission",
+          "n_buses": 139,
+          "n_generators": 12,
+          "voltage_kv": 220,
+          "total_mw": 1200,
+          "seed": 43
+        },
+        "transfer_mw": 10,
+        "assumptions": [
+          "Automatically select a distant pair of non-reference buses before measuring any response.",
+          "Finite active transfer holds reactive demand fixed; the slack generator balances incremental losses.",
+          "The standard response interval is a research protocol, not a maximum transfer-capacity claim."
+        ]
+      }
+    }
+  ]
+}

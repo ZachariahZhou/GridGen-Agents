@@ -289,8 +289,8 @@ def run_inverse_design(plan, workspace, design_id, workers=1):
                 factors = [(left+best)/2, (best+right)/2]
         winner = min(rows, key=_rank)
         status = 'target_met' if winner['target_met'] else 'target_unmet'
-        report = (f'跨工况逆向设计 `{design_id}`：**{"目标达成" if winner["target_met"] else "目标未达成"}**。'
-            f'共验证 {len(rows)} 个候选、{len(plan.conditions)} 个运行工况。\n\n'
+        report = (f'Inverse design across conditions `{design_id}`: **{"target met" if winner["target_met"] else "target unmet"}**. '
+            f'Evaluated {len(rows)} candidates and {len(plan.conditions)} operating conditions.\n\n'
             f'Inverse design `{design_id}`: **{status}** across {len(plan.conditions)} conditions. '
             f'Evaluated {len(rows)} candidates; selected `{winner["candidate_id"]}` (seed {winner["seed"]}, geometry scale {winner["geometry_scale"]:.6g}).\n\n'
             'Deterministic bounded grid search with local refinement; no learned or LLM search claim. '
@@ -305,13 +305,13 @@ def run_inverse_design(plan, workspace, design_id, workers=1):
             f'Artifacts: `{root}`. Selected condition links are in `index.html`; all metrics and signed deficits are in `result.json`.')
         if winner.get('calibration_distance'):
             distance = winner['calibration_distance']
-            report += f'\n\n经验线长分布仅用于初始化；缩放前/后相对于原长度边界内参考观测的 Wasserstein 距离为 {distance["baseline"]:.6g} / {distance["candidate"]:.6g} km。电气目标达成不意味着最终分布仍与真实馈线一致。'
+            report += f'\n\nThe empirical length distribution is used only for initialization. Wasserstein distances before/after scaling, relative to reference observations within the original length bounds, are {distance["baseline"]:.6g} / {distance["candidate"]:.6g} km. Electrical target attainment does not imply that the final distribution still matches real feeders.'
         for condition in winner['conditions']:
-            report += f'\n\n工况 `{condition["name"]}`：目标满足={condition["target_met"]}；模型有效={condition["valid"]}；运行检查通过={condition["operational_pass"]}；配对保持={condition["paired_verified"]}。\n'
+            report += f'\n\nCondition `{condition["name"]}`: target met={condition["target_met"]}; model valid={condition["valid"]}; operational checks passed={condition["operational_pass"]}; pairing verified={condition["paired_verified"]}.\n'
             for constraint in condition['constraints']:
                 operator = '>=' if constraint['operator'] == 'ge' else '<='
-                report += f'\n- `{constraint["metric"]}` 实测 {constraint["actual"]}；要求 {operator} {constraint["threshold"]}；满足={constraint["met"]}。'
-        report += '\n\n`dataset.zip` 包含选中候选的基准模型、全部工况 DSS/可视化/证据及计划和报告；完整搜索轨迹保存在原目录。'
+                report += f'\n- `{constraint["metric"]}` measured {constraint["actual"]}; required {operator} {constraint["threshold"]}; met={constraint["met"]}.'
+        report += '\n\n`dataset.zip` includes the selected base model, DSS models/views/evidence for all conditions, the plan and report. The original directory retains the complete search history.'
         result = {'design_id': design_id, 'status': status, 'target_met': winner['target_met'], 'directory': str(root),
                   'configuration_hash': manifest['configuration_hash'], 'winner': winner, 'candidates': rows, 'verified_report': report}
         atomic_json(root/'result.json', result)

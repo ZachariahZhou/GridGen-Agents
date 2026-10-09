@@ -117,5 +117,269 @@
     "wheel_sha256": "f5877f72915c569757316857b2d92fd5087e7e2925ab93eb30a3a06fb57cee3a",
     "runtime_matches_current_checkout": true,
     "test_changes": "English widget and diagram label assertions; numerical assertions retained."
+  },
+  "response_v3": {
+    "date": "2026-10-09",
+    "milestone": "M88-response-v3",
+    "regression": {
+      "passed": 201,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "duration_seconds": 101.04,
+      "response_tests": 42
+    },
+    "paired_experiment": {
+      "runs": 18,
+      "expanded_targets_met": 9,
+      "restricted_targets_met": 0,
+      "base_electrical_passed": 18,
+      "protected_contract_passed": 18,
+      "halfstep_numerical_consistency_passed": 18,
+      "identical_baseline_pairs": 9,
+      "permissions_differ": true,
+      "source_hash": "4434d8436b17b36fcd7de250489460c6c9ad6553467062583987fe7253961b6b"
+    },
+    "live_llm": {
+      "model": "qwen3.7-plus",
+      "requests": 1,
+      "passed": 1,
+      "accepted_steps": 1
+    },
+    "final_code_cli_examples": {
+      "runs": 2,
+      "passed": 2
+    },
+    "evidence": "assets/response_flexibility_results.json",
+    "source_note": "Batch and live source hashes precede the final normally-open tie, English-denial and compiler-label fixes; these do not affect the recorded tie-free affirmative-input cases. Final regression and two CLI examples use the final source. No historical batch was overwritten."
+  },
+  "research_tasks_v1": {
+    "date": "2026-10-09",
+    "milestone": "M89-task-v1",
+    "regression": {
+      "passed": 237,
+      "failed": 0,
+      "duration_seconds": 102.33,
+      "task_tests": 36
+    },
+    "final_prompt_check": {
+      "task_tests_passed": 36,
+      "duration_seconds": 4.78,
+      "live_voltage_request_passed": true
+    },
+    "structured_experiment": {
+      "tasks": 3,
+      "seeds": [
+        41,
+        42,
+        43
+      ],
+      "runs": 9,
+      "target_met": 9,
+      "finite_task_passed": 9,
+      "protected_contract_passed": 9,
+      "verification_passed": 9
+    },
+    "live_llm": {
+      "model": "qwen3.7-plus",
+      "distinct_requests": 3,
+      "workflow_attempts": 5,
+      "completed_records": 3,
+      "retained_failed_records": 2,
+      "model_calls": 7,
+      "candidate_selector": "heuristic",
+      "scope": "Across targeted fixes; not a same-version first-attempt success-rate estimate"
+    },
+    "evidence": "assets/research_tasks_results.json",
+    "provenance": "assets/research_tasks_provenance.json",
+    "live_attempts": "assets/research_tasks_live.json",
+    "historical_batches_rerun": false,
+    "wheel_build_repeated": false
+  },
+  "m89_publication_check": {
+    "date": "2026-10-09",
+    "milestone": "M89-task-v1",
+    "full_tests": {
+      "passed": 237,
+      "failed": 0,
+      "seconds": 103.94
+    },
+    "examples": {
+      "examples": [
+        {
+          "example": "distribution_radial.yaml",
+          "expected": 1,
+          "accepted": 1
+        },
+        {
+          "example": "distribution_villages.yaml",
+          "expected": 1,
+          "accepted": 1
+        },
+        {
+          "example": "hierarchical_rural.yaml",
+          "expected": 1,
+          "accepted": 1
+        },
+        {
+          "example": "hierarchical_urban.yaml",
+          "expected": 1,
+          "accepted": 1
+        },
+        {
+          "example": "transmission_139.yaml",
+          "expected": 1,
+          "accepted": 1
+        },
+        {
+          "example": "transmission_237.yaml",
+          "expected": 1,
+          "accepted": 1
+        },
+        {
+          "example": "transmission_37.yaml",
+          "expected": 1,
+          "accepted": 1
+        }
+      ],
+      "all_accepted": true,
+      "protocol_specs": [
+        {
+          "example": "research_static_pv_impact.yaml",
+          "schema_valid": true,
+          "physically_executed": false
+        },
+        {
+          "example": "research_transmission_transfer.yaml",
+          "schema_valid": true,
+          "physically_executed": false
+        },
+        {
+          "example": "research_voltage_control.yaml",
+          "schema_valid": true,
+          "physically_executed": false
+        },
+        {
+          "example": "response_flexible_25.yaml",
+          "schema_valid": true,
+          "physically_executed": false
+        },
+        {
+          "example": "response_rural_37.yaml",
+          "schema_valid": true,
+          "physically_executed": false
+        },
+        {
+          "example": "response_selective_25.yaml",
+          "schema_valid": true,
+          "physically_executed": false
+        },
+        {
+          "example": "response_transmission_139.yaml",
+          "schema_valid": true,
+          "physically_executed": false
+        },
+        {
+          "example": "response_urban_25.yaml",
+          "schema_valid": true,
+          "physically_executed": false
+        }
+      ],
+      "external_llm_calls": 0
+    },
+    "offline_wheel_build": true,
+    "wheel_sha256": "72ef16eea02c64495f1a111ee685f342ec638ed55e614f40d47490a110aa3281",
+    "wheel_runtime_files_verified": 132,
+    "installed_outside_checkout": true,
+    "installed_solver_checks": [
+      {
+        "family": "single_voltage",
+        "phase_mode": "balanced",
+        "buses": 9,
+        "accepted": true
+      },
+      {
+        "family": "single_voltage",
+        "phase_mode": "unbalanced",
+        "buses": 9,
+        "accepted": true
+      },
+      {
+        "family": "hierarchical",
+        "buses": 23,
+        "accepted": true
+      },
+      {
+        "family": "transmission",
+        "buses": 9,
+        "accepted": true,
+        "matpower_reloaded": true
+      }
+    ],
+    "external_llm_calls": 0,
+    "ci_registry_fix": "New response/task YAML files are strictly schema-validated separately from the seven executed base examples; workflow unchanged.",
+    "record_scope": "Local publication checks; remote commit and CI status are recorded in Git/GitHub."
+  },
+  "english_publication_check": {
+    "date": "2026-10-09",
+    "milestone": "M89-task-v1",
+    "full_tests": {
+      "passed": 238,
+      "failed": 0,
+      "seconds": 104.87,
+      "selected_test_files": 23
+    },
+    "public_text_literal_cjk_matches": 0,
+    "language_scope": "English public prose, prompts, comments, reports and catalog descriptions; bilingual recognition and original evidence retained as Unicode-escaped literals.",
+    "unicode_literal_conversion_ast_equivalent": true,
+    "python_minimum_syntax_checked": "3.11",
+    "numerical_catalog_rules_preserved": true,
+    "evidence_serialization": [
+      {
+        "file": "research_tasks_live.json",
+        "original_sha256": "86dbba1c68f64f1acf569191d976903fc51698467f11319d14c398c2a4583ed8",
+        "published_sha256": "e0a6bb9cb2573f77d26efd54ad8649b0a5aaf1ee7a870a8b9e600c451939478f",
+        "change": "Unicode serialization only; decoded evidence identical"
+      },
+      {
+        "file": "response_flexibility_live.json",
+        "original_sha256": "e5f9108628c2204040e079bf24e20d3a88a71b18597a2d223b0048b3bd1400fb",
+        "published_sha256": "3945fdce16abc6f7feb240e625c50ee3f40d99e0e9220324b4e23577a7f1a370",
+        "change": "Unicode serialization only; decoded evidence identical"
+      }
+    ],
+    "offline_wheel_build": true,
+    "wheel_sha256": "4d19b842a98ca9979831e584f07db14ab902ad535de257f6da05a2eed405b6dc",
+    "wheel_runtime_files_verified": 132,
+    "installed_outside_checkout": true,
+    "installed_solver_checks": [
+      {
+        "family": "single_voltage",
+        "phase_mode": "balanced",
+        "buses": 9,
+        "accepted": true
+      },
+      {
+        "family": "single_voltage",
+        "phase_mode": "unbalanced",
+        "buses": 9,
+        "accepted": true
+      },
+      {
+        "family": "hierarchical",
+        "buses": 23,
+        "accepted": true
+      },
+      {
+        "family": "transmission",
+        "buses": 9,
+        "accepted": true,
+        "matpower_reloaded": true
+      }
+    ],
+    "external_llm_calls": 0,
+    "historical_batches_rerun": false,
+    "translated_prompts_live_retested": false,
+    "scope_note": "Release language and packaging checks. Earlier numerical studies retain their original source hashes and scope; no new natural-language success-rate claim."
   }
 }

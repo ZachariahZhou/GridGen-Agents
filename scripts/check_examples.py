@@ -1,4 +1,4 @@
-"""Run the seven included specifications locally, with no external LLM calls."""
+"""Run seven base examples and validate additional response/task specifications."""
 import argparse
 import json
 import tempfile
@@ -12,9 +12,12 @@ def check_all(directory):
     from feeder_agents.workflow import run_experiment
     from feeder_agents.hierarchy_workflow import run_hierarchy
     from feeder_agents.transmission import run_transmission
+    from feeder_agents.response_schema import ResponseDesignPlan
+    from feeder_agents.research_schema import ResearchTaskPlan
 
     root = Path(__file__).resolve().parents[1]
     records = []
+    protocols = []
     for path in sorted((root / 'examples').glob('*.yaml')):
         config = yaml.safe_load(path.read_text())
         if path.stem.startswith('distribution_'):
@@ -23,6 +26,13 @@ def check_all(directory):
             result = run_hierarchy(config, directory, path.stem)
         elif path.stem.startswith('transmission_'):
             result = run_transmission(config, directory, path.stem)
+        elif path.stem.startswith(('response_', 'research_')):
+            schema = ResearchTaskPlan if path.stem.startswith('research_') else ResponseDesignPlan
+            schema.model_validate(config)
+            row = dict(example=path.name, schema_valid=True, physically_executed=False)
+            protocols.append(row)
+            print(json.dumps(row), flush=True)
+            continue
         else:
             raise ValueError(f'Unregistered example family: {path.name}')
         expected = config.get('count', 1)
@@ -31,7 +41,7 @@ def check_all(directory):
         print(json.dumps(row, ensure_ascii=False), flush=True)
         assert result['accepted'] == expected, f'Example did not pass: {row}'
     assert len(records) == 7, 'Review the example registry after changing the selection'
-    return dict(examples=records, all_accepted=True, external_llm_calls=0)
+    return dict(examples=records, all_accepted=True, protocol_specs=protocols, external_llm_calls=0)
 
 
 if __name__ == '__main__':

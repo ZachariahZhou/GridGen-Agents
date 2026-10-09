@@ -61,7 +61,7 @@ def verified_answer(messages):
     latest_user = max((i for i,m in enumerate(messages) if m.type == 'human'), default=-1)
     reports = {}
     for message in messages[latest_user+1:]:
-        if message.type != 'tool' or getattr(message,'name',None) not in {'generate_cases','execute_plan','read_experiment_result','execute_paired_study','design_from_language'}:
+        if message.type != 'tool' or getattr(message,'name',None) not in {'generate_cases','execute_plan','read_experiment_result','execute_paired_study','design_from_language','design_electrical_response'}:
             continue
         try:
             payload = json.loads(message.content)

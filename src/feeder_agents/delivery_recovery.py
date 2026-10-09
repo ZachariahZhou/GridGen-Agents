@@ -158,7 +158,7 @@ def recover_delivery(brief,output,request,root,design_id,model,local_topology=Fa
         return finish('missing_evidence_requires_review')
     # The existing local feedback path runs before this controller. Regenerating
     # an entire case cannot guarantee preservation of an existing geometry.
-    if re.search(r'(?:保持|保留|固定|不改变|禁止改变|不得改变).{0,24}(?:位置|坐标|拓扑|连接|相别)|(?:位置|坐标|拓扑|连接|相别).{0,8}不变|preserv|keep.{0,24}(?:position|topology|coordinate)|fixed.{0,12}topology',request,re.I):
+    if re.search('(?:\u4fdd\u6301|\u4fdd\u7559|\u56fa\u5b9a|\u4e0d\u6539\u53d8|\u7981\u6b62\u6539\u53d8|\u4e0d\u5f97\u6539\u53d8).{0,24}(?:\u4f4d\u7f6e|\u5750\u6807|\u62d3\u6251|\u8fde\u63a5|\u76f8\u522b)|(?:\u4f4d\u7f6e|\u5750\u6807|\u62d3\u6251|\u8fde\u63a5|\u76f8\u522b).{0,8}\u4e0d\u53d8|preserv|keep.{0,24}(?:position|topology|coordinate)|fixed.{0,12}topology',request,re.I):
         return finish('preservation_requires_local_revision')
     initial=brief['plan']['spec']
     limits={k:v for k,v in initial.items() if ('voltage_min' in k or 'voltage_max' in k or k in ('max_vuf_percent','count','targets','validation_conditions'))}
@@ -178,23 +178,23 @@ def recover_delivery(brief,output,request,root,design_id,model,local_topology=Fa
         folder=directory/f'round_{index+1:02}'
         feedback=dict(original_contract=ledger.model_dump(),previous_spec=previous_spec,
                       failed_delivery=audit,physical_diagnostics=delivery_diagnostics(selected,best),protected_settings=limits,
-                      instruction='根据最终文件验收诊断重新设计，不能更改验收台账或放宽阈值。仅返回确有改善依据的参数方案。')
+                      instruction='Redesign based on final-file acceptance diagnostics. Do not change the acceptance ledger or relax thresholds. Return only parameter proposals supported by evidence of improvement.')
         if proposal_error:feedback['previous_proposal_error']=proposal_error
         if tie_construction:
             feedback.update(construction_failures=construction,construction_recovery_allowed_fields=sorted(allowed_structure),
-                instruction='常开联络线构造失败：生成器已遍历所有非相邻母线对，当前长度区间内候选不足，尚未形成可交付模型。'
-                '依据候选数量、最近未占用母线对距离与原长度区间，仅调整construction_recovery_allowed_fields列出的未固定线段长度设计参数。'
-                'segment_km_min/max也影响重新生成的几何间距，不能假设扩大上限必然找到候选；提交后必须由真实生成与原台账验收。'
-                '逐项保留previous_spec其他字段，特别是母线数、功率、PV、场景、拓扑、相别、电压、设备、载流参数、验收阈值、联络线数量、导出格式与seed。'
-                '用户固定的长度条件不可改；候选不足只表示当前工具设计未找到合格方案，不代表数学不可行。')
+                instruction='Normally open tie construction failed: the generator exhausted all nonadjacent bus pairs, and too few candidates satisfy the current length interval. No deliverable model has been constructed. '
+                'Use candidate counts, the distance to the nearest unused bus pair, and the original length interval to adjust only unfixed segment-length design parameters listed in construction_recovery_allowed_fields. '
+                'segment_km_min/max also affects regenerated geometric spacing; do not assume increasing the upper bound guarantees candidates. Submissions must undergo actual generation and acceptance against the original ledger. '
+                'Preserve all other previous_spec fields individually, especially bus count, power, PV, scenario, topology, phases, voltage, equipment, ampacity parameters, acceptance thresholds, tie count, export formats, and seed. '
+                'Do not change user-fixed length conditions. Insufficient candidates means the current tool design found no acceptable solution, not mathematical infeasibility. ')
         elif construction_mode:
             feedback.update(construction_failures=construction,construction_recovery_allowed_fields=sorted(allowed_structure),
-                instruction='构造阶段导线目录无法满足给定负荷分布，尚未形成可交付模型。依据失败部件、需求电流和目录最大可支持电流重新分配结构容量。'
-                '支线超限可尝试均衡的customer_allocation或branch_star的lv_topology，二者均保留每台配变的分支节点数；单用户接户线超限可尝试调整未指定的users。'
-                '只能修改construction_recovery_allowed_fields中的字段；用户明确固定的用户数、配变数、分支数和拓扑不可改，其他字段逐项保留previous_spec。'
-                '总负荷、PV比例、相别分配、电压、场景、敷设、设备目录、载流折减、裕度及压降预算不能放松。'
-                '改变users/mv_buses/合法分支数时按母线公式同步计算n_buses，并遵守原文母线数范围；不能沿用旧的派生总数。所有候选必须由生成和求解工具验证。'
-                '如果所有有效结构参数都被用户固定，说明当前工具候选范围未找到合格方案，不代表数学不可行；不能减少负荷或切换legacy_epri绕开目录。')
+                instruction='During construction, the conductor catalog could not serve the specified load distribution, so no deliverable model exists. Reallocate structural capacity using the failed component, required current, and maximum catalog-supported current. '
+                'For overloaded branches, try balanced customer_allocation or branch_star lv_topology; both preserve each transformer branch-node count. For an overloaded individual service connection, try adjusting users if unspecified. '
+                'Modify only fields in construction_recovery_allowed_fields. Do not change user-fixed customer counts, transformer counts, branch counts, or topology. Preserve every other previous_spec field. '
+                'Do not relax total load, PV ratio, phase allocation, voltage, scenario, installation, equipment catalogs, ampacity derating, margins, or voltage-drop budgets. '
+                'When changing users/mv_buses/legal branch counts, recalculate n_buses using the bus-count formula and respect the source bus-count range; do not retain stale derived totals. Every candidate must be verified by generation and solver tools. '
+                'If all effective structural parameters are user-fixed, the current tool candidate range has not yielded an acceptable solution; this does not prove mathematical infeasibility. Do not reduce load or switch to legacy_epri to bypass the catalog. ')
         atomic_json(folder/'feedback.json',feedback)
         try:
             path=folder/'candidate.json'
@@ -232,7 +232,7 @@ def recover_delivery(brief,output,request,root,design_id,model,local_topology=Fa
             key=digest(spec)
             if key in seen:
                 if construction_mode and index+1<max_rounds:
-                    proposal_error='上一轮返回了已失败的相同设计，未改变任何设计自由度。依据construction_failures诊断仅调整construction_recovery_allowed_fields中未被用户固定的字段；保留其他所有参数与验收阈值。'
+                    proposal_error='The previous round returned the same failed design without changing any design freedom. Use construction_failures diagnostics to adjust only fields in construction_recovery_allowed_fields that are not user-fixed; preserve all other parameters and acceptance thresholds.'
                     trace['rounds'].append(dict(round=index+1,status='repeated_design',selected=False,diagnosis=proposal_error))
                     continue
                 return finish('repeated_design')
@@ -242,7 +242,7 @@ def recover_delivery(brief,output,request,root,design_id,model,local_topology=Fa
         except ValueError as exc:
             trace['rounds'].append(dict(round=index+1,status='invalid_redesign',diagnosis=str(exc)))
             if (construction_mode or brief['plan_type']=='feeder') and index+1<max_rounds:
-                proposal_error=str(exc)+'. 上一候选未执行，原方案仍被选中。完整保留原台账与protected_settings；从previous_spec复制所有未修改值，仅修正允许的未固定设计项，再提交。'
+                proposal_error=str(exc)+'. The previous candidate was not executed; the original design remains selected. Preserve the original ledger and protected_settings in full. Copy all unchanged values from previous_spec, correct only permitted unfixed design items, and resubmit.'
                 continue
             return finish('invalid_redesign')
         except Exception as exc:

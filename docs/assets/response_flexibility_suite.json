@@ -1,0 +1,1205 @@
+{
+  "protocol": "Paired identical baselines; exact 25 buses, 360 kW, 10 kV; four rounds and 16 AC candidate previews per round in both methods. Graph-separated ports chosen before solving. Scope is action-space controllability, not LLM attribution or global feasibility.",
+  "plans": [
+    {
+      "case_id": "large_change_41_restricted",
+      "task": "large_change",
+      "policy": "restricted",
+      "seed": 41,
+      "plan": {
+        "research_question": "large_change: restricted design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 41,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.3,
+            "upper": 1.5
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.15,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "large_change_41_expanded",
+      "task": "large_change",
+      "policy": "expanded",
+      "seed": 41,
+      "plan": {
+        "research_question": "large_change: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 41,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.3,
+            "upper": 1.5
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "selective_41_restricted",
+      "task": "selective",
+      "policy": "restricted",
+      "seed": 41,
+      "plan": {
+        "research_question": "selective: restricted design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 41,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b5"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b9"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.99,
+            "upper": 1.01
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.15,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "selective_41_expanded",
+      "task": "selective",
+      "policy": "expanded",
+      "seed": 41,
+      "plan": {
+        "research_question": "selective: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 41,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b5"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b9"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.99,
+            "upper": 1.01
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_joint_actions": 2
+        }
+      }
+    },
+    {
+      "case_id": "opposed_41_restricted",
+      "task": "opposed",
+      "policy": "restricted",
+      "seed": 41,
+      "plan": {
+        "research_question": "opposed: restricted design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 41,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b5"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b9"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.15,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "opposed_41_expanded",
+      "task": "opposed",
+      "policy": "expanded",
+      "seed": 41,
+      "plan": {
+        "research_question": "opposed: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 41,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b5"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b9"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_joint_actions": 2
+        }
+      }
+    },
+    {
+      "case_id": "large_change_42_restricted",
+      "task": "large_change",
+      "policy": "restricted",
+      "seed": 42,
+      "plan": {
+        "research_question": "large_change: restricted design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 42,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.3,
+            "upper": 1.5
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.15,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "large_change_42_expanded",
+      "task": "large_change",
+      "policy": "expanded",
+      "seed": 42,
+      "plan": {
+        "research_question": "large_change: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 42,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.3,
+            "upper": 1.5
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "selective_42_restricted",
+      "task": "selective",
+      "policy": "restricted",
+      "seed": 42,
+      "plan": {
+        "research_question": "selective: restricted design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 42,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b1"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b9"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.99,
+            "upper": 1.01
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.15,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "selective_42_expanded",
+      "task": "selective",
+      "policy": "expanded",
+      "seed": 42,
+      "plan": {
+        "research_question": "selective: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 42,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b1"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b9"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.99,
+            "upper": 1.01
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_joint_actions": 2
+        }
+      }
+    },
+    {
+      "case_id": "opposed_42_restricted",
+      "task": "opposed",
+      "policy": "restricted",
+      "seed": 42,
+      "plan": {
+        "research_question": "opposed: restricted design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 42,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b1"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b9"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.15,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "opposed_42_expanded",
+      "task": "opposed",
+      "policy": "expanded",
+      "seed": 42,
+      "plan": {
+        "research_question": "opposed: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 42,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b1"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b9"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_joint_actions": 2
+        }
+      }
+    },
+    {
+      "case_id": "large_change_43_restricted",
+      "task": "large_change",
+      "policy": "restricted",
+      "seed": 43,
+      "plan": {
+        "research_question": "large_change: restricted design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 43,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.3,
+            "upper": 1.5
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.15,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "large_change_43_expanded",
+      "task": "large_change",
+      "policy": "expanded",
+      "seed": 43,
+      "plan": {
+        "research_question": "large_change: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 43,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.3,
+            "upper": 1.5
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "selective_43_restricted",
+      "task": "selective",
+      "policy": "restricted",
+      "seed": 43,
+      "plan": {
+        "research_question": "selective: restricted design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 43,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b4"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b5"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.99,
+            "upper": 1.01
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.15,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "selective_43_expanded",
+      "task": "selective",
+      "policy": "expanded",
+      "seed": 43,
+      "plan": {
+        "research_question": "selective: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 43,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b4"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b5"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.99,
+            "upper": 1.01
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_joint_actions": 2
+        }
+      }
+    },
+    {
+      "case_id": "opposed_43_restricted",
+      "task": "opposed",
+      "policy": "restricted",
+      "seed": 43,
+      "plan": {
+        "research_question": "opposed: restricted design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 43,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b4"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b5"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout"
+          ],
+          "max_layout_scale_change": 0.15,
+          "max_rounds": 4,
+          "candidates_per_round": 16
+        }
+      }
+    },
+    {
+      "case_id": "opposed_43_expanded",
+      "task": "opposed",
+      "policy": "expanded",
+      "seed": 43,
+      "plan": {
+        "research_question": "opposed: expanded design permissions; preserve original response baseline and all requested targets.",
+        "base_spec": {
+          "network_kind": "distribution",
+          "n_buses": 25,
+          "voltage_kv": 10,
+          "total_kw_min": 360,
+          "total_kw_max": 360,
+          "seed": 43,
+          "scenario": {
+            "kind": "urban",
+            "engineering_profile": "urban",
+            "layout": "spatial_mst"
+          },
+          "phase_design": {
+            "mode": "unbalanced",
+            "single_phase_laterals": 0,
+            "two_phase_laterals": 0
+          },
+          "repair_policy": {
+            "strategy": "none"
+          }
+        },
+        "probes": [
+          {
+            "id": "a",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b4"
+            ]
+          },
+          {
+            "id": "b",
+            "kind": "voltage_p",
+            "step_mw": 0.01,
+            "injection_buses": [
+              "b5"
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "probe_id": "a",
+            "reference": "baseline_ratio",
+            "lower": 1.15,
+            "upper": 1.35
+          },
+          {
+            "probe_id": "b",
+            "reference": "baseline_ratio",
+            "lower": 0.65,
+            "upper": 0.85
+          }
+        ],
+        "search": {
+          "allowed_actions": [
+            "replace_conductor",
+            "scale_layout",
+            "scale_subtree"
+          ],
+          "max_layout_scale_change": 0.75,
+          "max_rounds": 4,
+          "candidates_per_round": 16,
+          "max_branch_length_change": 0.75,
+          "max_node_displacement_km": 0.75,
+          "max_joint_actions": 2
+        }
+      }
+    }
+  ]
+}

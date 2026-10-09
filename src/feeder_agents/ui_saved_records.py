@@ -50,7 +50,8 @@ def load_verified_design_record(result_path,workspace):
         return None,f'{result_path}: Unverified: specification checksum mismatch.'
     family=brief.get('plan_type')
     folders={'feeder':'experiments','hierarchical':'hierarchical_experiments',
-             'transmission':'transmission_experiments','hierarchical_inverse':'hierarchical_inverse_designs'}
+             'transmission':'transmission_experiments','hierarchical_inverse':'hierarchical_inverse_designs',
+             'electrical_response':'response_designs','research_task':'research_tasks'}
     if family not in folders:
         return None,f'{result_path}: Unverified: no verified reader for this design family.'
     if not isinstance(outcome,dict) or not isinstance(outcome.get('directory'),str):
@@ -71,6 +72,12 @@ def load_verified_design_record(result_path,workspace):
         elif family=='transmission':
             from .transmission import read_transmission_result
             verified=read_transmission_result(folder)
+        elif family=='electrical_response':
+            from .response_design import read_response_result
+            verified=read_response_result(folder)
+        elif family=='research_task':
+            from .research_tasks import read_research_task_result
+            verified=read_research_task_result(folder)
         else:
             from .hierarchy_inverse import read_hierarchy_inverse
             verified=read_hierarchy_inverse(folder)
@@ -111,7 +118,7 @@ def load_verified_design_record(result_path,workspace):
             warning=(warning+' ' if warning else '')+f'{result_path}: Requirement contract is unverified: {type(exc).__name__}: {exc}'
             report+='\n\nModel artifacts verified; requirement contract not yet verified.'
             displayed['status']='completed_unverified'
-    else:
+    elif family not in ('electrical_response','research_task'):
         report+='\n\nModel artifacts verified; requirement contract not yet verified.'
         displayed['status']='completed_unverified' if family in ('feeder','hierarchical','transmission') else displayed.get('status')
     if verified.get('attempted') is not None and verified.get('accepted')!=verified['attempted']:
