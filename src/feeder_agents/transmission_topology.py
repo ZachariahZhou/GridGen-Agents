@@ -125,7 +125,14 @@ def build_topology(spec,rng,seed):
             layer,method=_spatial_mesh(core,positions,len(core)+budgets[k],spec.mesh_style)
             layer += [(min(core,key=lambda a:(math.dist(positions[a],positions[b]),a)),b) for b in periphery]
             radial.extend(periphery);edges+=layer;methods.append(method)
+    # The public radius is a geometric envelope, not a random-layout scale.
+    # Normalize all layers together before equipment lengths/impedances are
+    # computed. A uniform scale preserves topology, shape and RNG consumption.
+    outer_radius=max(math.hypot(*xy) for xy in positions.values())
+    scale=spec.radius_km/outer_radius
+    positions={node:(x*scale,y*scale) for node,(x,y) in positions.items()}
     return positions,groups,nominal,edges,dict(family=family,layer_methods=methods or ['ring_plus_chords'],
+        coordinate_envelope=dict(policy='origin_radius_v1',center_km=[0.,0.],radius_km=spec.radius_km),
         region_by_bus=regions,radial_buses=radial,connectivity_requirement=spec.connectivity,basis='Synthetic spatial construction prior; not a fitted real-grid population',
         connectivity='Connected voltage layers with optional radial periphery; explicit bridgeless policy applies to each layer and whole graph. No AC contingency guarantee')
 

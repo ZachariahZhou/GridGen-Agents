@@ -1,0 +1,106 @@
+{
+  "plan": {
+    "research_question": "Increase port A Q-voltage response while preserving port B under fixed geometric permissions.",
+    "base_spec": {
+      "network_kind": "distribution",
+      "n_buses": 25,
+      "voltage_kv": 10,
+      "total_kw_min": 360,
+      "total_kw_max": 360,
+      "seed": 1501,
+      "scenario": {
+        "kind": "urban",
+        "engineering_profile": "urban",
+        "layout": "spatial_mst"
+      },
+      "phase_design": {
+        "mode": "unbalanced",
+        "single_phase_laterals": 0,
+        "two_phase_laterals": 0
+      },
+      "repair_policy": {
+        "strategy": "none"
+      }
+    },
+    "probes": [
+      {
+        "id": "a",
+        "kind": "voltage_q",
+        "step_mw": 0.01,
+        "injection_buses": [
+          "b1"
+        ],
+        "aggregation": "mean_abs"
+      },
+      {
+        "id": "b",
+        "kind": "voltage_q",
+        "step_mw": 0.01,
+        "injection_buses": [
+          "b9"
+        ],
+        "aggregation": "mean_abs"
+      }
+    ],
+    "targets": [
+      {
+        "probe_id": "a",
+        "reference": "baseline_ratio",
+        "lower": 1.1,
+        "upper": 1.25
+      },
+      {
+        "probe_id": "b",
+        "reference": "baseline_ratio",
+        "lower": 0.995,
+        "upper": 1.005
+      }
+    ],
+    "search": {
+      "allowed_actions": [
+        "scale_layout",
+        "scale_subtree"
+      ],
+      "max_layout_scale_change": 0.2,
+      "max_rounds": 6,
+      "candidates_per_round": 8,
+      "max_branch_length_change": 0.2,
+      "max_node_displacement_km": 0.2,
+      "max_joint_actions": 2,
+      "max_search_ac_calls": 160,
+      "archive_width": 4,
+      "exploration_deficit_allowance": 0.15,
+      "strategy": "archive",
+      "selector": "heuristic",
+      "compensation_mode": "bounded",
+      "calibrate_proxies": true
+    },
+    "assumptions": [
+      "Geometry permissions are research freedoms, not engineering standards.",
+      "Preserve exact bus count, connectivity, demand and PV allocation, phases, voltage and source/control policy.",
+      "Both response ratios refer to the original model."
+    ]
+  },
+  "permissions": {
+    "tier": "equipment",
+    "max_changed_conductors": 4
+  },
+  "followup_permissions": [
+    {
+      "tier": "equipment_topology",
+      "max_changed_conductors": 4,
+      "max_rewired_lines": 2,
+      "max_rewire_length_ratio": 2,
+      "max_node_degree": 4
+    },
+    {
+      "tier": "equipment_geometry",
+      "max_changed_conductors": 4,
+      "max_layout_scale_change": 0.5,
+      "max_branch_length_change": 0.5,
+      "max_node_displacement_km": 0.2
+    }
+  ],
+  "design_id": "permission_example",
+  "execute": false
+}

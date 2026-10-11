@@ -31,7 +31,9 @@ class ScriptedModel(BaseChatModel):
 
 def test_langchain_agent_runs_real_tool_and_retains_thread(tmp_path):
     with agent_session(tmp_path, 'project_a', model=ScriptedModel()) as agent:
-        result = agent.invoke({'messages': [{'role': 'user', 'content': 'Generate cases'}]},
+        request = json.dumps({'spec': {'count': 1, 'n_loads_min': 4, 'n_loads_max': 4,
+            'total_kw_min': 200, 'total_kw_max': 200}})
+        result = agent.invoke({'messages': [{'role': 'user', 'content': request}]},
                               {'configurable': {'thread_id': 'thread1'}})
         tool_messages = [m for m in result['messages'] if m.type == 'tool']
         assert tool_messages

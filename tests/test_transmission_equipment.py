@@ -100,11 +100,18 @@ def test_local_voltage_action_changes_only_the_identified_generator():
 def test_local_q_violation_has_a_fine_repair_that_passes_fresh_ac(tmp_path):
     from feeder_agents.transmission_feedback import run_feedback, preserved
     from feeder_agents.transmission import validate_case
+    # Preserve this physical feedback witness: the former 40 km layout scale
+    # produced a 109.55375476302684 km envelope at seed 43. Radius now denotes
+    # the actual envelope, so state that extent explicitly; limits/actions stay fixed.
     spec = TransmissionSpec(n_buses=237, n_generators=36, total_mw=6500,
-        voltage_layers=[{'kv': 500, 'buses': 97}, {'kv': 220, 'buses': 140}], radial_bus_count=15)
+        voltage_layers=[{'kv': 500, 'buses': 97}, {'kv': 220, 'buses': 140}], radial_bus_count=15,
+        radius_km=109.55375476302684,
+        # Fix the historical sites as well as the physical envelope: the new
+        # graph-aware default need not reproduce this voltage-repair witness.
+        generator_buses=[int(i * 237 / 36) + 1 for i in range(36)])
     case, meta = generate_case(spec, 43)
-    # Recreate the nominal operating point to exercise the feedback repair;
-    # generation now initializes permitted local voltage controls itself.
+    # Recreate nominal dispatch to exercise feedback after construction now
+    # initializes the permitted voltage controls itself.
     case['gen'][:, 5] = 1.
     before, _ = validate_case(case, spec, meta)
     assert before['converged'] and not before['checks']['generator_q_limits']

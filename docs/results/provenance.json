@@ -1,0 +1,205 @@
+{
+  "inputs": [
+    {
+      "path": "experiments/m102_generation_recovery_audit/cumulative_final_deliveries.csv",
+      "sha256": "9e34852c7d425140216c6e5f3379de2c64716034b4d54adf4d812f5916d1415e"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/construction_d01__full_outer__r0/independent_grade.json",
+      "sha256": "fe2cf16c284e849fd87eabe1b3b0f73a3cfabbf6e3b5ab8d8906fb51dafdf3ce"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/construction_d01__full_outer__r1/independent_grade.json",
+      "sha256": "185f24828e09dc54bb15ac944b497c0ca3bacd4349bea556e214260045ec23de"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/construction_d02__full_outer__r0/independent_grade.json",
+      "sha256": "022e411230fa8ae0fbd2e634abb5edf2dfe13eda5faffe601d5a260d4caeb94a"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/construction_d02__full_outer__r1/independent_grade.json",
+      "sha256": "228f0fd7c3221685d1842c40261b2acb493ce81fa994c18280b6a79273bd983b"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/construction_d03__full_outer__r0/independent_grade.json",
+      "sha256": "7fd13653fd0d0716f64e3117eed12ea2039a1c91f136c986b6a4f4ff1bb9286b"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/construction_d03__full_outer__r1/independent_grade.json",
+      "sha256": "d04c318db6d6854879c0cde3d4c2ca9bb7d569c283587f9eebbbcf34f22f138c"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/construction_d04__full_outer__r0/independent_grade.json",
+      "sha256": "58b5a26eb18ff5f31e496c83ea55495cd2bf96fea6b168acf7fe0ddcd25a3503"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/construction_d04__full_outer__r1/independent_grade.json",
+      "sha256": "79abd9266232a2b6769bf78357b94a966ce3976cca5d7dd6f1799f0018d3b210"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/construction_h01__full_outer__r0/independent_grade.json",
+      "sha256": "4fb2ef05cc06bb22d6d0bea1337b6417b47cff1c11382c4589f0a002e0e585e1"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/construction_h01__full_outer__r1/independent_grade.json",
+      "sha256": "ba9fe113a035676b678d4da8369adf41de70fffba36f78879f552f402a362113"
+    },
+    {
+      "path": "experiments/m102_generation_recovery_v2/jobs/construction_h02__full_outer__r0/independent_grade.json",
+      "sha256": "93e1364528b4a08dd45a346ce830e128f05b9d09c8238a2cd6527de55362a70f"
+    },
+    {
+      "path": "experiments/m102_generation_recovery_v2/jobs/construction_h02__full_outer__r1/independent_grade.json",
+      "sha256": "3ccf234a0a05a1f56dcf3f637e7686635f248189d2842bde449e6d432151b27e"
+    },
+    {
+      "path": "experiments/m102_generation_recovery_v2/jobs/construction_t01__full_outer__r0/independent_grade.json",
+      "sha256": "18c02f7dd9d8d23cb83f5c17738eb213c31b480c005d279d3ecb8a78157c8c38"
+    },
+    {
+      "path": "experiments/m102_generation_recovery_v2/jobs/construction_t01__full_outer__r1/independent_grade.json",
+      "sha256": "ebf201bfdb186d8131d9d7d4b36af0349788c66b33de6dd3abe0dfa4d23ab56d"
+    },
+    {
+      "path": "experiments/m102_generation_recovery_v2/jobs/construction_t02__full_outer__r0/independent_grade.json",
+      "sha256": "eea642e14b315907601428063f7929dcbdc8cd0dd1d05bca8829f91f50b45238"
+    },
+    {
+      "path": "experiments/m102_generation_recovery_v2/jobs/construction_t02__full_outer__r1/independent_grade.json",
+      "sha256": "37905385d5f45b5aa0fd2953f2395855a0087568af9963eb244c8eff5c809027"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/revision_01__full_outer__r0/independent_grade.json",
+      "sha256": "bc669fa988131ecf812f460381b6b31df19e914c0934ffb7037e85c19fafdadd"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/revision_01__full_outer__r1/independent_grade.json",
+      "sha256": "c46487f0e4f0383b5bc67d033f6f6aa5fdbb2532ab234adf49f60f1df46fdb72"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/revision_02__full_outer__r0/independent_grade.json",
+      "sha256": "0369889397db3c7bab411bb353de4dda0d24a62252bb34e79df69975943da8d2"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/revision_02__full_outer__r1/independent_grade.json",
+      "sha256": "907253c093f1db538a9d0e23e9dd6414bda4f5c8f2b1c1603e6fb0f3869ae361"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/revision_03__full_outer__r0/independent_grade.json",
+      "sha256": "e05b0ec83610d6f30f4351cc9f10b7221afce4f29540756d949b52724a88e3f0"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/audit_v2/jobs/revision_03__full_outer__r1/independent_grade.json",
+      "sha256": "c6cd3c25d3982c7f97fc6f405f49dc28c4c69011cf4288c9ea78f772b5d714d0"
+    },
+    {
+      "path": "experiments/m102_generation_recovery_v2/jobs/revision_04__full_outer__r0/independent_grade.json",
+      "sha256": "2f8c0820287c4d8576c2073d80d293f68646a44973469065c66ecc1410a19258"
+    },
+    {
+      "path": "experiments/m102_generation_recovery_v2/jobs/revision_04__full_outer__r1/independent_grade.json",
+      "sha256": "b1aa9e5d3c4e3672611b137844828b1f9ce36f486c9cbd433438b7740e2ed1a8"
+    },
+    {
+      "path": "experiments/m101_research_retest_v2/jobs/research_01__full_outer__r0/independent_grade.json",
+      "sha256": "665bb57dfffb2e6f21719efd8340edc7038e419f12f8fb1b3063a222ec2cd393"
+    },
+    {
+      "path": "experiments/m101_research_retest_v2/jobs/research_01__full_outer__r1/independent_grade.json",
+      "sha256": "483a02cef4541c5978087c2dc48e9f44707c693e1227f76cd078812e79df6ee9"
+    },
+    {
+      "path": "experiments/m101_research_retest_v2/jobs/research_02__full_outer__r0/independent_grade.json",
+      "sha256": "f98bb4a8c4897000c9df8c11249381f5f9b64a71eaf187e6af9170ed0ce48b9b"
+    },
+    {
+      "path": "experiments/m101_research_retest_v2/jobs/research_02__full_outer__r1/independent_grade.json",
+      "sha256": "1c416e5a01f03f0cf711602d14447e078a83cb27ca7ddce7913fc6170f3b5882"
+    },
+    {
+      "path": "experiments/m101_research_retest_v2/jobs/research_03__full_outer__r0/independent_grade.json",
+      "sha256": "a0f7d9d1584306469c012efeef69aa975978656e9fae81d3a540094aef9278c4"
+    },
+    {
+      "path": "experiments/m101_research_retest_v2/jobs/research_03__full_outer__r1/independent_grade.json",
+      "sha256": "50d4c44d99b189b7de040733059890f9a99fd5878e36852e57b93984cdd2b969"
+    },
+    {
+      "path": "experiments/m102_generation_recovery_audit/paired_executions.csv",
+      "sha256": "7a115da253a9c54b26ec40c2bff101c9274863d3697445af1619ea7066ac9e2f"
+    },
+    {
+      "path": "experiments/m101_response_reuse/q3_deliveries.csv",
+      "sha256": "4d2299f2237e5b0f40280bb159abbb5e5b05819416c099ac638ca0696f85d8be"
+    },
+    {
+      "path": "experiments/m101_response_reuse/q3_target_components.csv",
+      "sha256": "bf828b093a6a69aa9afb6f12fcd728d866fc3a52850f32c139db86f5924ad5ce"
+    },
+    {
+      "path": "experiments/m101_response_reuse/independent_response_ratios.csv",
+      "sha256": "4f76cd88ff0496788e386ed969f05b3afb2219fa542a0787693f95e5f6b08ecb"
+    },
+    {
+      "path": "experiments/m101_response_reuse/runs.csv",
+      "sha256": "96731abc1e2393af54f8360da4fe66e2994b751e364185bc99b76876803817f0"
+    },
+    {
+      "path": "experiments/m101_response_reuse/paired_control.csv",
+      "sha256": "ba4b5f3e616b97fc2a7e35c3caea940ea2793aa6121671aa4425cdd587a18fe4"
+    },
+    {
+      "path": "experiments/m101_response_reuse/control_summary.csv",
+      "sha256": "dd594b8b63a6d1a7739db31c4dac3b8ee2c6056208a17c0a9abc9ff9da608b86"
+    },
+    {
+      "path": "experiments/m101_response_reuse/q3_target_attainment.png",
+      "sha256": "142cf32283202ea704843ba4a4b61fce974f5b9446f634b2a6f3ca11a9e963cd"
+    },
+    {
+      "path": "experiments/m101_response_reuse/q3_target_attainment.pdf",
+      "sha256": "b90e3bf0682e1ecefb0f8d3c54a88208783a365cb0defd805e2bd258463c699a"
+    },
+    {
+      "path": "experiments/m101_response_reuse/m97_bridge_static_control.png",
+      "sha256": "120ed7ce7d8c44d2aa9f569cd69d1ffeafd0d1fad9b72869745653e5bc0502b9"
+    },
+    {
+      "path": "experiments/m101_response_reuse/m97_bridge_static_control.pdf",
+      "sha256": "ba1b79586a8db5ddddd3cd8453ac918c25126b6174a79906c2c5f20693e7234f"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/suite.json",
+      "sha256": "3e1ac421ab1809604a8e30c8624960b3631f2c78c506e66bb76dd358ceed13ab"
+    },
+    {
+      "path": "experiments/m101_research_retest_v2/suite.json",
+      "sha256": "e5bcbcacbeb38a88838715cce800b1b16bfefa68d46861bcc6541047481e91f7"
+    },
+    {
+      "path": "experiments/m102_generation_recovery_protocol/cases.json",
+      "sha256": "93dc6aa455ed8e44cf9fe7048a69c0a3163133b65f4517b8e0d9d597235da33c"
+    },
+    {
+      "path": "experiments/m102_generation_recovery_audit/summary.json",
+      "sha256": "871034eb423ebe13a4c00d7c127e965d8ca03868b37654c9fb8a4e79c678c656"
+    },
+    {
+      "path": "experiments/m101_response_reuse/q3_audit_summary.json",
+      "sha256": "729cb2f914f397d2729da8e2ac1dab6cd7db96886ae80ecc98d21184cf6805ee"
+    },
+    {
+      "path": "experiments/m101_response_reuse/summary.json",
+      "sha256": "cc8792b8396e110bfd8bfaa88e14cd284a63b85ed6508efc8f41663f29a6fc0b"
+    },
+    {
+      "path": "experiments/m101_language_evidence_v1/authored_cases.json",
+      "sha256": "651b22ca025ec1e3588bab195e4af0c2269465a06499a260872fa93006159494"
+    },
+    {
+      "path": "experiments/m101_research_retest_v2/authored_cases.json",
+      "sha256": "73603344b2b208742d04e72ba6723dc99a5a30cee698deeadeac6bafb838f197"
+    }
+  ],
+  "serialization": "JSON uses Unicode escapes; local workspace prefixes removed. Numerical results are unchanged."
+}

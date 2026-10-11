@@ -1,0 +1,32 @@
+{
+  "accepted": true,
+  "converged": true,
+  "checks": {
+    "converged": true,
+    "finite": true,
+    "connected": true,
+    "topology": true,
+    "demand": true,
+    "voltage": true,
+    "generator_p_limits": true,
+    "generator_q_limits": true,
+    "branch_limits": true,
+    "balance": true,
+    "line_unit_consistency": true,
+    "transformer_consistency": true,
+    "shunt_consistency": true,
+    "nominal_voltage_consistency": true,
+    "parameter_catalogue_consistency": true
+  },
+  "metrics": {
+    "min_voltage_pu": 0.9998505167170525,
+    "max_voltage_pu": 1.0000000000000004,
+    "max_branch_loading": 0.06536581157631875,
+    "generation_mw": 640.028404811246,
+    "demand_mw": 640.0,
+    "losses_mw": 0.028404815771728403
+  },
+  "conditions": [],
+  "document_rules": [],
+  "boundary": "Steady-state AC check with explicit post-solve P/Q/rating checks; no OPF, security or dynamic certification."
+}

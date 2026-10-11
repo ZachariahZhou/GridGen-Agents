@@ -1,0 +1,9 @@
+New LineCode.research_small nphases=3 units=km r1=0.32 x1=0.35 r0=0.65 x0=1.05 c1=0 c0=0 normamps=180 basefreq=50
+New LineCode.research_medium nphases=3 units=km r1=0.16 x1=0.32 r0=0.45 x0=0.96 c1=0 c0=0 normamps=320 basefreq=50
+New LineCode.research_large nphases=3 units=km r1=0.08 x1=0.29 r0=0.3 x0=0.87 c1=0 c0=0 normamps=520 basefreq=50
+! source=J1/ug-3c1/0alurd_15; sha256=a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533; X frequency-scaled, R/C retained
+New LineCode.epri_j1_e38b9e239a23 nphases=3 units=km basefreq=50 rmatrix=[0.748316 | 0.176717 0.748316 | 0.176717 0.176717 0.748316] xmatrix=[0.3368175 | 0.00775 0.3368175 | 0.00775 0.00775 0.3368175] cmatrix=[266.899366667 | -122.250333333 266.899366667 | -122.250333333 -122.250333333 266.899366667] normamps=175.0 rg=0 xg=0
+! source=Ckt24/ug_1/0_al_xlpe_35kv; sha256=29dc4b140d1d505ca2a97c9c8dfa62f2be72ff75f3458c0a6c367d45fc46f987; X frequency-scaled, R/C retained
+New LineCode.epri_ckt24_58550f34a866 nphases=3 units=km basefreq=50 rmatrix=[0.779199475 | 0.168950827 0.779199475 | 0.168950827 0.168950827 0.779199475] xmatrix=[0.198666178333 | -0.0495716125 0.198666178333 | -0.0495716125 -0.0495716125 0.198666178333] cmatrix=[114.953670564 | 0 114.953670564 | 0 0 114.953670564] normamps=200.0 rg=0 xg=0
+! Nexans Section 5 page 21, sheet 330-05 B, June 2019 sha256=56ba1f561a43557e827301d7c6eee287ad38cadf663d88ec4fb82c875c21e3e9; grounded-equivalent model (conversion in equipment_catalog)
+New LineCode.nexans_abc_4x25_p123 nphases=3 units=km basefreq=50 normamps=109 rg=0 xg=0 rmatrix=[1.49 | 0 1.49 | 0 0 1.49] xmatrix=[0.102 | 0 0.102 | 0 0 0.102] cmatrix=[0 | 0 0 | 0 0 0]

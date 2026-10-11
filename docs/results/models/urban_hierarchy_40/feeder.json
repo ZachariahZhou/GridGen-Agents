@@ -1,0 +1,3166 @@
+{
+  "phase_mode": "unbalanced",
+  "seed": 1416840650,
+  "voltage_kv": 10.0,
+  "frequency_hz": 50,
+  "source_bus": "source",
+  "total_kw": 96.0,
+  "buses": [
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "source",
+      "x_km": 0.0,
+      "y_km": 0.0,
+      "voltage_kv": 10.0,
+      "role": "source",
+      "transformer_id": null,
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "b1",
+      "x_km": 0.08696711441821885,
+      "y_km": 0.00026253633589243546,
+      "voltage_kv": 10.0,
+      "role": "mv_tap",
+      "transformer_id": null,
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "b2",
+      "x_km": 0.17438336388820624,
+      "y_km": -5.574393144991007e-06,
+      "voltage_kv": 10.0,
+      "role": "mv_junction",
+      "transformer_id": null,
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "b3",
+      "x_km": 0.3102925591937988,
+      "y_km": -0.0001958204976726148,
+      "voltage_kv": 10.0,
+      "role": "mv_tap",
+      "transformer_id": null,
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "b4",
+      "x_km": 0.4506713084690967,
+      "y_km": 0.00037488165118759254,
+      "voltage_kv": 10.0,
+      "role": "mv_junction",
+      "transformer_id": null,
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "b5",
+      "x_km": 0.5434600700883839,
+      "y_km": -0.00018849904012610628,
+      "voltage_kv": 10.0,
+      "role": "mv_junction",
+      "transformer_id": null,
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "b6",
+      "x_km": 0.5439912394215815,
+      "y_km": 0.09242760471946368,
+      "voltage_kv": 10.0,
+      "role": "mv_tap",
+      "transformer_id": null,
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_1",
+      "x_km": 0.08796711441821885,
+      "y_km": 0.0012625363358924355,
+      "voltage_kv": 0.4,
+      "role": "lv_bus",
+      "transformer_id": "tx_1",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_1_branch_1",
+      "x_km": 0.09523873054794546,
+      "y_km": 0.01567827449407421,
+      "voltage_kv": 0.4,
+      "role": "lv_branch",
+      "transformer_id": "tx_1",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_1",
+      "x_km": 0.08563912943783901,
+      "y_km": 0.021445619346042857,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_1",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_2",
+      "x_km": 0.08160532726585817,
+      "y_km": 0.023306125853628113,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_1",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_3",
+      "x_km": 0.07587414858492421,
+      "y_km": 0.02721433141332948,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_1",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_4",
+      "x_km": 0.06805660534044301,
+      "y_km": 0.03070147407102879,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_1",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_5",
+      "x_km": 0.06488632661922673,
+      "y_km": 0.03203870197329143,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_1",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_1_branch_2",
+      "x_km": 0.11096004037436295,
+      "y_km": 0.039297531479097356,
+      "voltage_kv": 0.4,
+      "role": "lv_branch",
+      "transformer_id": "tx_1",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_6",
+      "x_km": 0.11448907771429284,
+      "y_km": 0.036455840940692937,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_1",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_7",
+      "x_km": 0.1197838866862423,
+      "y_km": 0.03389350858569163,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_1",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_8",
+      "x_km": 0.13014272302157315,
+      "y_km": 0.028982997590711518,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_1",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_2",
+      "x_km": 0.3112925591937988,
+      "y_km": 0.0008041795023273852,
+      "voltage_kv": 0.4,
+      "role": "lv_bus",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_2_branch_1",
+      "x_km": 0.3271460535063274,
+      "y_km": -0.0017706999667976126,
+      "voltage_kv": 0.4,
+      "role": "lv_branch",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_9",
+      "x_km": 0.32724625074981456,
+      "y_km": 0.00651726934362807,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_10",
+      "x_km": 0.32753849173219307,
+      "y_km": 0.010492689430432803,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_11",
+      "x_km": 0.3275630155894811,
+      "y_km": 0.013531207386652939,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_12",
+      "x_km": 0.3305675654185517,
+      "y_km": 0.02456710733436842,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_13",
+      "x_km": 0.33216380795221306,
+      "y_km": 0.02971588344859173,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_14",
+      "x_km": 0.3324996122052987,
+      "y_km": 0.04154612127926998,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_2_branch_2",
+      "x_km": 0.2993869683669579,
+      "y_km": 0.0037186724242052943,
+      "voltage_kv": 0.4,
+      "role": "lv_branch",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_15",
+      "x_km": 0.3012439281807442,
+      "y_km": 0.012176726039645085,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_16",
+      "x_km": 0.30229396549654153,
+      "y_km": 0.015796907568671692,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_17",
+      "x_km": 0.3044197922397902,
+      "y_km": 0.023393148763385635,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_2",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_3",
+      "x_km": 0.5449912394215815,
+      "y_km": 0.09342760471946368,
+      "voltage_kv": 0.4,
+      "role": "lv_bus",
+      "transformer_id": "tx_3",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_3_branch_1",
+      "x_km": 0.5652749510632662,
+      "y_km": 0.09760337193181871,
+      "voltage_kv": 0.4,
+      "role": "lv_branch",
+      "transformer_id": "tx_3",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_18",
+      "x_km": 0.5640936613951937,
+      "y_km": 0.10356353451913403,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_3",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_19",
+      "x_km": 0.5628254860863803,
+      "y_km": 0.11152762742875716,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_3",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_20",
+      "x_km": 0.562056940857369,
+      "y_km": 0.11515289959051579,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_3",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_3_branch_2",
+      "x_km": 0.5803885643301095,
+      "y_km": 0.10356827019837392,
+      "voltage_kv": 0.4,
+      "role": "lv_branch",
+      "transformer_id": "tx_3",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_21",
+      "x_km": 0.5832814575297239,
+      "y_km": 0.09683235862182978,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_3",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_22",
+      "x_km": 0.5846208709369788,
+      "y_km": 0.09397379854148206,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_3",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_23",
+      "x_km": 0.587031859556876,
+      "y_km": 0.08517581363496741,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_3",
+      "region_id": null
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "user_24",
+      "x_km": 0.5885441303050187,
+      "y_km": 0.07938370011195857,
+      "voltage_kv": 0.4,
+      "role": "customer",
+      "transformer_id": "tx_3",
+      "region_id": null
+    }
+  ],
+  "lines": [
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "l1",
+      "bus1": "source",
+      "bus2": "b1",
+      "length_km": 0.08696751068967785,
+      "conductor": "epri_j1_e38b9e239a23",
+      "construction": "cable"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "l2",
+      "bus1": "b1",
+      "bus2": "b2",
+      "length_km": 0.08741666062463206,
+      "conductor": "epri_j1_e38b9e239a23",
+      "construction": "cable"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "l3",
+      "bus1": "b2",
+      "bus2": "b3",
+      "length_km": 0.1359093284590649,
+      "conductor": "epri_j1_e38b9e239a23",
+      "construction": "cable"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "l4",
+      "bus1": "b3",
+      "bus2": "b4",
+      "length_km": 0.1403799093497345,
+      "conductor": "epri_j1_e38b9e239a23",
+      "construction": "cable"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "l5",
+      "bus1": "b4",
+      "bus2": "b5",
+      "length_km": 0.09279047192812555,
+      "conductor": "epri_ckt24_58550f34a866",
+      "construction": "cable"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "l6",
+      "bus1": "b5",
+      "bus2": "b6",
+      "length_km": 0.09261762692094648,
+      "conductor": "epri_j1_e38b9e239a23",
+      "construction": "cable"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_main_1_1",
+      "bus1": "lv_1",
+      "bus2": "lv_1_branch_1",
+      "length_km": 0.016145894455971102,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_1",
+      "bus1": "lv_1_branch_1",
+      "bus2": "user_1",
+      "length_km": 0.011198866376320695,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_2",
+      "bus1": "user_1",
+      "bus2": "user_2",
+      "length_km": 0.004442189148094036,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_3",
+      "bus1": "user_2",
+      "bus2": "user_3",
+      "length_km": 0.006936892659517848,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_4",
+      "bus1": "user_3",
+      "bus2": "user_4",
+      "length_km": 0.008560031909664813,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_5",
+      "bus1": "user_4",
+      "bus2": "user_5",
+      "length_km": 0.003440762362149776,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_main_1_2",
+      "bus1": "lv_1_branch_1",
+      "bus2": "lv_1_branch_2",
+      "length_km": 0.028373030912871744,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_6",
+      "bus1": "lv_1_branch_2",
+      "bus2": "user_6",
+      "length_km": 0.0045309281237597,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_7",
+      "bus1": "user_6",
+      "bus2": "user_7",
+      "length_km": 0.005882223146644739,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_8",
+      "bus1": "user_7",
+      "bus2": "user_8",
+      "length_km": 0.011463795551822746,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_main_2_1",
+      "bus1": "lv_2",
+      "bus2": "lv_2_branch_1",
+      "length_km": 0.016061235512808466,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_9",
+      "bus1": "lv_2_branch_1",
+      "bus2": "user_9",
+      "length_km": 0.008288574954608323,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_10",
+      "bus1": "user_9",
+      "bus2": "user_10",
+      "length_km": 0.003986147219854295,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_11",
+      "bus1": "user_10",
+      "bus2": "user_11",
+      "length_km": 0.003038616920549294,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_12",
+      "bus1": "user_11",
+      "bus2": "user_12",
+      "length_km": 0.011437587478631786,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_13",
+      "bus1": "user_12",
+      "bus2": "user_13",
+      "length_km": 0.005390536680207848,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_14",
+      "bus1": "user_13",
+      "bus2": "user_14",
+      "length_km": 0.011835002814820163,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_main_2_2",
+      "bus1": "lv_2",
+      "bus2": "lv_2_branch_2",
+      "length_km": 0.0122571351435739,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_15",
+      "bus1": "lv_2_branch_2",
+      "bus2": "user_15",
+      "length_km": 0.00865950175885838,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_16",
+      "bus1": "user_15",
+      "bus2": "user_16",
+      "length_km": 0.0037693888984386124,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_17",
+      "bus1": "user_16",
+      "bus2": "user_17",
+      "length_km": 0.007888093535866607,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_main_3_1",
+      "bus1": "lv_3",
+      "bus2": "lv_3_branch_1",
+      "length_km": 0.020709079887208832,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_18",
+      "bus1": "lv_3_branch_1",
+      "bus2": "user_18",
+      "length_km": 0.006076099352967168,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_19",
+      "bus1": "user_18",
+      "bus2": "user_19",
+      "length_km": 0.008064430822258526,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_20",
+      "bus1": "user_19",
+      "bus2": "user_20",
+      "length_km": 0.003705841337113356,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "lv_main_3_2",
+      "bus1": "lv_3_branch_1",
+      "bus2": "lv_3_branch_2",
+      "length_km": 0.016248117346636136,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_21",
+      "bus1": "lv_3_branch_2",
+      "bus2": "user_21",
+      "length_km": 0.007330848234099271,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_22",
+      "bus1": "user_21",
+      "bus2": "user_22",
+      "length_km": 0.0031568012304374502,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_23",
+      "bus1": "user_22",
+      "bus2": "user_23",
+      "length_km": 0.00912235740039457,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    },
+    {
+      "phases": [
+        1,
+        2,
+        3
+      ],
+      "id": "service_24",
+      "bus1": "user_23",
+      "bus2": "user_24",
+      "length_km": 0.005986279468844589,
+      "conductor": "nexans_abc_4x25_p123",
+      "construction": "overhead"
+    }
+  ],
+  "loads": [
+    {
+      "phases": [
+        2
+      ],
+      "id": "load_1",
+      "bus": "user_1",
+      "kw": 5.588321524232695,
+      "kvar": 1.8367924596442042,
+      "pv_kw": 1.6764964572698084,
+      "contract_kva": 5.882443709718626,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 2,
+          "kw": 5.588321524232695,
+          "kvar": 1.8367924596442042,
+          "pv_kw": 1.6764964572698084
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_2",
+      "bus": "user_2",
+      "kw": 2.439576132475129,
+      "kvar": 0.8018498981182995,
+      "pv_kw": 0.7318728397425386,
+      "contract_kva": 2.5679748762896093,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 2.439576132475129,
+          "kvar": 0.8018498981182995,
+          "pv_kw": 0.7318728397425386
+        }
+      ]
+    },
+    {
+      "phases": [
+        3
+      ],
+      "id": "load_3",
+      "bus": "user_3",
+      "kw": 3.934344785797187,
+      "kvar": 1.2931565953848747,
+      "pv_kw": 1.1803034357391562,
+      "contract_kva": 4.14141556399704,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 3,
+          "kw": 3.934344785797187,
+          "kvar": 1.2931565953848747,
+          "pv_kw": 1.1803034357391562
+        }
+      ]
+    },
+    {
+      "phases": [
+        2
+      ],
+      "id": "load_4",
+      "bus": "user_4",
+      "kw": 3.823576722595644,
+      "kvar": 1.2567488936490796,
+      "pv_kw": 1.147073016778693,
+      "contract_kva": 4.024817602732257,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 2,
+          "kw": 3.823576722595644,
+          "kvar": 1.2567488936490796,
+          "pv_kw": 1.147073016778693
+        }
+      ]
+    },
+    {
+      "phases": [
+        3
+      ],
+      "id": "load_5",
+      "bus": "user_5",
+      "kw": 3.251875883169,
+      "kvar": 1.0688399148121281,
+      "pv_kw": 0.9755627649506999,
+      "contract_kva": 3.4230272454410526,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 3,
+          "kw": 3.251875883169,
+          "kvar": 1.0688399148121281,
+          "pv_kw": 0.9755627649506999
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_6",
+      "bus": "user_6",
+      "kw": 4.419824512210732,
+      "kvar": 1.45272606484359,
+      "pv_kw": 1.3259473536632196,
+      "contract_kva": 4.652446854958665,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 4.419824512210732,
+          "kvar": 1.45272606484359,
+          "pv_kw": 1.3259473536632196
+        }
+      ]
+    },
+    {
+      "phases": [
+        2
+      ],
+      "id": "load_7",
+      "bus": "user_7",
+      "kw": 3.6969195271539976,
+      "kvar": 1.2151186867008779,
+      "pv_kw": 1.1090758581461992,
+      "contract_kva": 3.8914942391094716,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 2,
+          "kw": 3.6969195271539976,
+          "kvar": 1.2151186867008779,
+          "pv_kw": 1.1090758581461992
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_8",
+      "bus": "user_8",
+      "kw": 5.39631396606868,
+      "kvar": 1.7736826272014865,
+      "pv_kw": 1.618894189820604,
+      "contract_kva": 5.680330490598611,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 5.39631396606868,
+          "kvar": 1.7736826272014865,
+          "pv_kw": 1.618894189820604
+        }
+      ]
+    },
+    {
+      "phases": [
+        3
+      ],
+      "id": "load_9",
+      "bus": "user_9",
+      "kw": 3.3331216378538446,
+      "kvar": 1.095544102990298,
+      "pv_kw": 0.9999364913561534,
+      "contract_kva": 3.508549092477731,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 3,
+          "kw": 3.3331216378538446,
+          "kvar": 1.095544102990298,
+          "pv_kw": 0.9999364913561534
+        }
+      ]
+    },
+    {
+      "phases": [
+        3
+      ],
+      "id": "load_10",
+      "bus": "user_10",
+      "kw": 3.9232949742878342,
+      "kvar": 1.289524697976528,
+      "pv_kw": 1.1769884922863503,
+      "contract_kva": 4.129784183460878,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 3,
+          "kw": 3.9232949742878342,
+          "kvar": 1.289524697976528,
+          "pv_kw": 1.1769884922863503
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_11",
+      "bus": "user_11",
+      "kw": 4.537386670218621,
+      "kvar": 1.4913668775513091,
+      "pv_kw": 1.3612160010655863,
+      "contract_kva": 4.776196494966969,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 4.537386670218621,
+          "kvar": 1.4913668775513091,
+          "pv_kw": 1.3612160010655863
+        }
+      ]
+    },
+    {
+      "phases": [
+        2
+      ],
+      "id": "load_12",
+      "bus": "user_12",
+      "kw": 2.5260611148826513,
+      "kvar": 0.8302761371723258,
+      "pv_kw": 0.7578183344647954,
+      "contract_kva": 2.659011699876475,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 2,
+          "kw": 2.5260611148826513,
+          "kvar": 0.8302761371723258,
+          "pv_kw": 0.7578183344647954
+        }
+      ]
+    },
+    {
+      "phases": [
+        2
+      ],
+      "id": "load_13",
+      "bus": "user_13",
+      "kw": 4.611403586481592,
+      "kvar": 1.5156950614413027,
+      "pv_kw": 1.3834210759444776,
+      "contract_kva": 4.854109038401677,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 2,
+          "kw": 4.611403586481592,
+          "kvar": 1.5156950614413027,
+          "pv_kw": 1.3834210759444776
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_14",
+      "bus": "user_14",
+      "kw": 3.4938731538615073,
+      "kvar": 1.1483805711854222,
+      "pv_kw": 1.0481619461584522,
+      "contract_kva": 3.6777612145910603,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 3.4938731538615073,
+          "kvar": 1.1483805711854222,
+          "pv_kw": 1.0481619461584522
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_15",
+      "bus": "user_15",
+      "kw": 7.476796320805398,
+      "kvar": 2.4575041083085387,
+      "pv_kw": 2.243038896241619,
+      "contract_kva": 7.870311916637261,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 7.476796320805398,
+          "kvar": 2.4575041083085387,
+          "pv_kw": 2.243038896241619
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_16",
+      "bus": "user_16",
+      "kw": 2.2304397966937617,
+      "kvar": 0.7331101087316146,
+      "pv_kw": 0.6691319390081285,
+      "contract_kva": 2.347831364940802,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 2.2304397966937617,
+          "kvar": 0.7331101087316146,
+          "pv_kw": 0.6691319390081285
+        }
+      ]
+    },
+    {
+      "phases": [
+        3
+      ],
+      "id": "load_17",
+      "bus": "user_17",
+      "kw": 4.039883317775618,
+      "kvar": 1.327845433330096,
+      "pv_kw": 1.2119649953326854,
+      "contract_kva": 4.252508755553282,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 3,
+          "kw": 4.039883317775618,
+          "kvar": 1.327845433330096,
+          "pv_kw": 1.2119649953326854
+        }
+      ]
+    },
+    {
+      "phases": [
+        2
+      ],
+      "id": "load_18",
+      "bus": "user_18",
+      "kw": 4.731781100835154,
+      "kvar": 1.555261237030259,
+      "pv_kw": 1.4195343302505463,
+      "contract_kva": 4.9808222114054255,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 2,
+          "kw": 4.731781100835154,
+          "kvar": 1.555261237030259,
+          "pv_kw": 1.4195343302505463
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_19",
+      "bus": "user_19",
+      "kw": 1.8298484602617904,
+      "kvar": 0.6014421037740671,
+      "pv_kw": 0.5489545380785371,
+      "contract_kva": 1.9261562739597795,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 1.8298484602617904,
+          "kvar": 0.6014421037740671,
+          "pv_kw": 0.5489545380785371
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_20",
+      "bus": "user_20",
+      "kw": 5.4925834113667635,
+      "kvar": 1.8053248636853525,
+      "pv_kw": 1.647775023410029,
+      "contract_kva": 5.78166674880712,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 5.4925834113667635,
+          "kvar": 1.8053248636853525,
+          "pv_kw": 1.647775023410029
+        }
+      ]
+    },
+    {
+      "phases": [
+        2
+      ],
+      "id": "load_21",
+      "bus": "user_21",
+      "kw": 5.2738487424335,
+      "kvar": 1.733430254755428,
+      "pv_kw": 1.5821546227300498,
+      "contract_kva": 5.551419728877368,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 2,
+          "kw": 5.2738487424335,
+          "kvar": 1.733430254755428,
+          "pv_kw": 1.5821546227300498
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_22",
+      "bus": "user_22",
+      "kw": 2.7288496788394703,
+      "kvar": 0.8969295148569796,
+      "pv_kw": 0.818654903651841,
+      "contract_kva": 2.872473346146811,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 2.7288496788394703,
+          "kvar": 0.8969295148569796,
+          "pv_kw": 0.818654903651841
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_23",
+      "bus": "user_23",
+      "kw": 2.657968658420488,
+      "kvar": 0.8736320500864015,
+      "pv_kw": 0.7973905975261463,
+      "contract_kva": 2.797861745705777,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 2.657968658420488,
+          "kvar": 0.8736320500864015,
+          "pv_kw": 0.7973905975261463
+        }
+      ]
+    },
+    {
+      "phases": [
+        1
+      ],
+      "id": "load_24",
+      "bus": "user_24",
+      "kw": 4.562106321278946,
+      "kvar": 1.4994918339404057,
+      "pv_kw": 1.3686318963836837,
+      "contract_kva": 4.802217180293627,
+      "category": "residential",
+      "phase_powers": [
+        {
+          "phase": 1,
+          "kw": 4.562106321278946,
+          "kvar": 1.4994918339404057,
+          "pv_kw": 1.3686318963836837
+        }
+      ]
+    }
+  ],
+  "tie_lines": [],
+  "assumptions": [
+    "Target winding voltages and delta/grounded-wye lag connection are design choices; X scales50/60; R/C and percent losses retained. No explicit neutral.",
+    "Synthetic spatial hierarchy; grounded return equivalent; no neutral displacement, time series or protection.",
+    "Normally-open MV ties are physical links; energized topology remains radial. No independent multi-source or restoration guarantee.",
+    "Delta/grounded-wye lag target connection is explicit; it is not claimed as the source transformer vector group.",
+    "Voltage and VUF limits are configurable research acceptance bounds.",
+    "LV equipment profile=nexans_abc; installation=aerial_bundle; sourced products with declared handbook mapping.",
+    "LV matrices are grounded diagonal equivalents of published R/X; two-core services use 2R/2X loop. No explicit neutral displacement or harmonic heating.",
+    "Ampacity uses the selected installation column and recorded environmental conditions; user derating is a multiplier, not a thermal recalculation."
+  ],
+  "design_evidence": {
+    "hierarchical": true,
+    "spec": {
+      "scene": "urban",
+      "voltage_kv": 10,
+      "lv_voltage_kv": 0.4,
+      "transformer_count": 3,
+      "mv_buses": 7,
+      "customer_allocation": "varied",
+      "customer_connection": "distributed_taps",
+      "mv_topology_policy": "branched_v4",
+      "mv_topology": {
+        "family": "auto",
+        "branch_count": null,
+        "branching_factor": null,
+        "trunk_fraction": null,
+        "ring_count": null,
+        "terminal_count": null,
+        "local_tie_count": null
+      },
+      "lv_topology": "auto",
+      "lv_branches": 2,
+      "users": 24,
+      "n_buses": 40,
+      "total_kw": 96.0,
+      "power_factor": 0.95,
+      "pv_ratio": 0.3,
+      "phase_weights": [
+        0.5,
+        0.3,
+        0.2
+      ],
+      "mv_segment_km_min": 0.05,
+      "mv_segment_km_max": 0.15,
+      "lv_segment_km_min": 0.01,
+      "lv_segment_km_max": 0.03,
+      "service_km_min": 0.003,
+      "service_km_max": 0.012,
+      "lv_equipment_profile": "auto",
+      "lv_installation": "auto",
+      "lv_installation_decision": null,
+      "lv_regions": [],
+      "lv_ampacity_derating": 1,
+      "lv_drop_budget_pu": 0.05,
+      "loading_margin": 0.8,
+      "mv_voltage_min_pu": 0.93,
+      "mv_voltage_max_pu": 1.07,
+      "lv_voltage_min_pu": 0.9,
+      "lv_voltage_max_pu": 1.1,
+      "max_vuf_percent": 2,
+      "count": 1,
+      "seed": 42
+    },
+    "actual_load_phase_kw": {
+      "2": 30.251912318615236,
+      "1": 47.26556708250129,
+      "3": 18.482520598883486
+    },
+    "node_count_formula": "MV+T*(1+B)+U",
+    "mv_initial_design": {
+      "topology_design": {
+        "family": "branched_network",
+        "parameters": {
+          "family": "branched_network",
+          "branch_count": null,
+          "branching_factor": null,
+          "trunk_fraction": null,
+          "ring_count": null,
+          "terminal_count": 1,
+          "local_tie_count": 0
+        },
+        "parent_seed": 1416840650,
+        "operating_topology": "single_source_radial",
+        "physical_cycle_rank": 0,
+        "selection": "scene_default",
+        "policy_version": "branched_v4",
+        "construction": {
+          "joint_design": {
+            "terminal_selection": "joint_default",
+            "terminals": 1,
+            "transformers": 3,
+            "preferred_inline_reserve": 1,
+            "inline_transformers": 2,
+            "inline_reserve_met": true,
+            "reserve_override": null,
+            "degree4_target": 0,
+            "degree4_achieved": 0,
+            "degree4_target_met": true,
+            "constructor_edits": 0,
+            "is_llm_feedback": false,
+            "edits": [],
+            "tap_selection": "Terminal coverage followed by graph-distance spread; fixed transformer budget",
+            "basis": "Joint synthetic prior; one-third preferred inline reserve, sparse degree-4 soft target, explicit terminal/tie counts take precedence",
+            "limitations": [
+              "Not fitted to a utility population; scene density ceiling retained.",
+              "Degree-4 target is soft and constrained by existing geometry and open ties.",
+              "Transformer cap, lattice directions and single-source scope remain."
+            ]
+          },
+          "algorithm": "joint_corridor_v4",
+          "attempts": 1,
+          "terminal_count": 1,
+          "local_tie_cycle_sizes": [],
+          "spatial_basis": "Synthetic corridor lattice with bounded jitter; not actual street GIS"
+        },
+        "scope": "Synthetic structural prior; not GIS, population calibration or N-1 certification"
+      },
+      "trunk_buses": [
+        "source",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ],
+      "scene_profile": {
+        "profile_id": "urban_research_v1",
+        "kind": "urban",
+        "construction": "cable",
+        "category_mix": {
+          "residential": 0.5,
+          "commercial": 0.5
+        },
+        "scope": "urban construction/category selection; equipment parameters assigned in the subsequent equipment selection stage. Category probabilities are illustrative peak-snapshot labels, not measured population shares or time-series curves; geography is synthetic.",
+        "engineering_profile": "urban",
+        "seed": 1416840650,
+        "category_assignment": "seeded_per_load_probability; peak_snapshot_only",
+        "category_counts": {
+          "residential": 2,
+          "commercial": 1
+        }
+      },
+      "equipment_selection": {
+        "profile_id": "epri_joint_equipment_v2",
+        "settings": {
+          "mode": "auto",
+          "reference_feeders": [
+            "J1",
+            "K1",
+            "Ckt5",
+            "Ckt24"
+          ],
+          "source_weighting": "equal_feeder",
+          "loading_margin": 0.8,
+          "capacity_band": 2.0,
+          "conditioning": "length_voltage",
+          "length_bandwidth": 0.65,
+          "voltage_drop_budget_pu": 0.05,
+          "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+        },
+        "verified_reference_analysis": {
+          "J1:overhead:1ph": {
+            "types": 12,
+            "segments": 762,
+            "normamps_range": [
+              142.0,
+              732.0
+            ],
+            "selectable": true,
+            "selectable_types": 12,
+            "selectable_segments": 762,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "J1:overhead:2ph": {
+            "types": 3,
+            "segments": 95,
+            "normamps_range": [
+              142.0,
+              732.0
+            ],
+            "selectable": true,
+            "selectable_types": 3,
+            "selectable_segments": 95,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "J1:overhead:3ph": {
+            "types": 17,
+            "segments": 334,
+            "normamps_range": [
+              142.0,
+              732.0
+            ],
+            "selectable": true,
+            "selectable_types": 17,
+            "selectable_segments": 334,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "J1:cable:1ph": {
+            "types": 2,
+            "segments": 22,
+            "normamps_range": [
+              170.0,
+              225.0
+            ],
+            "selectable": true,
+            "selectable_types": 2,
+            "selectable_segments": 22,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "J1:cable:3ph": {
+            "types": 1,
+            "segments": 6,
+            "normamps_range": [
+              175.0,
+              175.0
+            ],
+            "selectable": true,
+            "selectable_types": 1,
+            "selectable_segments": 6,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "K1:overhead:1ph": {
+            "types": 3,
+            "segments": 386,
+            "normamps_range": [
+              175.0,
+              301.0
+            ],
+            "selectable": true,
+            "selectable_types": 3,
+            "selectable_segments": 386,
+            "observed_voltage_kv": [
+              13.2
+            ]
+          },
+          "K1:overhead:3ph": {
+            "types": 6,
+            "segments": 198,
+            "normamps_range": [
+              175.0,
+              900.0
+            ],
+            "selectable": true,
+            "selectable_types": 6,
+            "selectable_segments": 198,
+            "observed_voltage_kv": [
+              13.2
+            ]
+          },
+          "K1:cable:1ph": {
+            "types": 1,
+            "segments": 43,
+            "normamps_range": [
+              155.0,
+              155.0
+            ],
+            "selectable": true,
+            "selectable_types": 1,
+            "selectable_segments": 43,
+            "observed_voltage_kv": [
+              13.2
+            ]
+          },
+          "K1:overhead:2ph": {
+            "types": 1,
+            "segments": 6,
+            "normamps_range": [
+              301.0,
+              301.0
+            ],
+            "selectable": true,
+            "selectable_types": 1,
+            "selectable_segments": 6,
+            "observed_voltage_kv": [
+              13.2
+            ]
+          },
+          "K1:cable:3ph": {
+            "types": 1,
+            "segments": 5,
+            "normamps_range": [
+              155.0,
+              155.0
+            ],
+            "selectable": true,
+            "selectable_types": 1,
+            "selectable_segments": 5,
+            "observed_voltage_kv": [
+              13.2
+            ]
+          },
+          "Ckt5:overhead:1ph": {
+            "types": 4,
+            "segments": 579,
+            "normamps_range": [
+              125.0,
+              271.0
+            ],
+            "selectable": true,
+            "selectable_types": 4,
+            "selectable_segments": 579,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "Ckt5:cable:1ph": {
+            "types": 1,
+            "segments": 37,
+            "normamps_range": [
+              150.0,
+              150.0
+            ],
+            "selectable": true,
+            "selectable_types": 1,
+            "selectable_segments": 37,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "Ckt5:overhead:3ph": {
+            "types": 13,
+            "segments": 175,
+            "normamps_range": [
+              163.0,
+              619.0
+            ],
+            "selectable": true,
+            "selectable_types": 13,
+            "selectable_segments": 175,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "Ckt5:overhead:2ph": {
+            "types": 3,
+            "segments": 11,
+            "normamps_range": [
+              125.0,
+              218.0
+            ],
+            "selectable": true,
+            "selectable_types": 3,
+            "selectable_segments": 11,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "Ckt7:unknown:3ph": {
+            "types": 10,
+            "segments": 190,
+            "normamps_range": [
+              160.0,
+              637.0
+            ],
+            "selectable": false,
+            "selectable_types": 0,
+            "selectable_segments": 0,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "Ckt7:unknown:1ph": {
+            "types": 3,
+            "segments": 87,
+            "normamps_range": [
+              160.0,
+              500.0
+            ],
+            "selectable": false,
+            "selectable_types": 0,
+            "selectable_segments": 0,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "Ckt7:unknown:2ph": {
+            "types": 1,
+            "segments": 1,
+            "normamps_range": [
+              500.0,
+              500.0
+            ],
+            "selectable": false,
+            "selectable_types": 0,
+            "selectable_segments": 0,
+            "observed_voltage_kv": [
+              12.47
+            ]
+          },
+          "Ckt24:cable:1ph": {
+            "types": 1,
+            "segments": 642,
+            "normamps_range": [
+              200.0,
+              200.0
+            ],
+            "selectable": true,
+            "selectable_types": 1,
+            "selectable_segments": 642,
+            "observed_voltage_kv": [
+              13.2,
+              34.5
+            ]
+          },
+          "Ckt24:cable:3ph": {
+            "types": 4,
+            "segments": 121,
+            "normamps_range": [
+              200.0,
+              640.0
+            ],
+            "selectable": true,
+            "selectable_types": 3,
+            "selectable_segments": 114,
+            "observed_voltage_kv": [
+              13.2,
+              34.5
+            ]
+          },
+          "Ckt24:overhead:1ph": {
+            "types": 14,
+            "segments": 280,
+            "normamps_range": [
+              195.0,
+              650.0
+            ],
+            "selectable": true,
+            "selectable_types": 14,
+            "selectable_segments": 280,
+            "observed_voltage_kv": [
+              13.2,
+              34.5
+            ]
+          },
+          "Ckt24:overhead:3ph": {
+            "types": 10,
+            "segments": 196,
+            "normamps_range": [
+              195.0,
+              650.0
+            ],
+            "selectable": true,
+            "selectable_types": 10,
+            "selectable_segments": 196,
+            "observed_voltage_kv": [
+              34.5
+            ]
+          },
+          "Ckt24:cable:2ph": {
+            "types": 1,
+            "segments": 14,
+            "normamps_range": [
+              200.0,
+              200.0
+            ],
+            "selectable": false,
+            "selectable_types": 0,
+            "selectable_segments": 0,
+            "observed_voltage_kv": [
+              13.2,
+              34.5
+            ]
+          },
+          "Ckt24:overhead:2ph": {
+            "types": 3,
+            "segments": 13,
+            "normamps_range": [
+              195.0,
+              650.0
+            ],
+            "selectable": true,
+            "selectable_types": 3,
+            "selectable_segments": 13,
+            "observed_voltage_kv": [
+              13.2,
+              34.5
+            ]
+          }
+        },
+        "selection_reason_status": "Agent/user rationale proposes criteria; verified_reference_analysis is authoritative for numeric ranges",
+        "selection_seed": 1416840650,
+        "algorithm": "capacity-constrained conditional whole-tuple bootstrap",
+        "lines": [
+          {
+            "line_id": "l1",
+            "equipment_id": "epri_j1_e38b9e239a23",
+            "source_feeder": "J1",
+            "source_linecode": "ug-3c1/0alurd_15",
+            "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+            "estimated_current_a": 8.61751196162603,
+            "role": "backbone",
+            "role_fallback": false,
+            "phase_mapping": "observed phase count",
+            "projection_from": null,
+            "candidate_count": 2,
+            "selection_probability": 0.6269336861633303,
+            "normamps": 175.0,
+            "source_frequency_hz": 60.0,
+            "target_frequency_hz": 50,
+            "source_operating_voltage_kv": [
+              12.47
+            ],
+            "source_voltage_class_kv": null,
+            "source_weighting": "equal_feeder",
+            "target_voltage_kv": 10.0,
+            "length_likelihood": 0.9999986038430997,
+            "length_observations": 1,
+            "length_fallback": false,
+            "length_in_observed_range": false,
+            "estimated_drop_pu": 0.0001524454828206229,
+            "allocated_drop_budget_pu": 0.006836192343252442,
+            "voltage_weight": 0.9995028441034474,
+            "joint_weight": 0.9995014486406547,
+            "length_km": 0.08696751068967785
+          },
+          {
+            "line_id": "l2",
+            "equipment_id": "epri_j1_e38b9e239a23",
+            "source_feeder": "J1",
+            "source_linecode": "ug-3c1/0alurd_15",
+            "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+            "estimated_current_a": 6.383036131216443,
+            "role": "backbone",
+            "role_fallback": false,
+            "phase_mapping": "observed phase count",
+            "projection_from": null,
+            "candidate_count": 2,
+            "selection_probability": 0.6268310054392849,
+            "normamps": 175.0,
+            "source_frequency_hz": 60.0,
+            "target_frequency_hz": 50,
+            "source_operating_voltage_kv": [
+              12.47
+            ],
+            "source_voltage_class_kv": null,
+            "source_weighting": "equal_feeder",
+            "target_voltage_kv": 10.0,
+            "length_likelihood": 0.9999577786130721,
+            "length_observations": 1,
+            "length_fallback": false,
+            "length_in_observed_range": false,
+            "estimated_drop_pu": 0.00011350033434509833,
+            "allocated_drop_budget_pu": 0.00687149834801165,
+            "voltage_weight": 0.9997272076757916,
+            "joint_weight": 0.999684997806534,
+            "length_km": 0.08741666062463206
+          },
+          {
+            "line_id": "l3",
+            "equipment_id": "epri_j1_e38b9e239a23",
+            "source_feeder": "J1",
+            "source_linecode": "ug-3c1/0alurd_15",
+            "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+            "estimated_current_a": 6.383036131216443,
+            "role": "backbone",
+            "role_fallback": false,
+            "phase_mapping": "observed phase count",
+            "projection_from": null,
+            "candidate_count": 2,
+            "selection_probability": 0.5915157550298845,
+            "normamps": 175.0,
+            "source_frequency_hz": 60.0,
+            "target_frequency_hz": 50,
+            "source_operating_voltage_kv": [
+              12.47
+            ],
+            "source_voltage_class_kv": null,
+            "source_weighting": "equal_feeder",
+            "target_voltage_kv": 10.0,
+            "length_likelihood": 0.8100255972094677,
+            "length_observations": 1,
+            "length_fallback": false,
+            "length_in_observed_range": false,
+            "estimated_drop_pu": 0.0001764624055700318,
+            "allocated_drop_budget_pu": 0.010683326488482733,
+            "voltage_weight": 0.9997272076757916,
+            "joint_weight": 0.8098046284441366,
+            "length_km": 0.1359093284590649
+          },
+          {
+            "line_id": "l4",
+            "equipment_id": "epri_j1_e38b9e239a23",
+            "source_feeder": "J1",
+            "source_linecode": "ug-3c1/0alurd_15",
+            "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+            "estimated_current_a": 3.1489333711459526,
+            "role": "backbone",
+            "role_fallback": false,
+            "phase_mapping": "observed phase count",
+            "projection_from": null,
+            "candidate_count": 2,
+            "selection_probability": 0.5869550573472903,
+            "normamps": 175.0,
+            "source_frequency_hz": 60.0,
+            "target_frequency_hz": 50,
+            "source_operating_voltage_kv": [
+              12.47
+            ],
+            "source_voltage_class_kv": null,
+            "source_weighting": "equal_feeder",
+            "target_voltage_kv": 10.0,
+            "length_likelihood": 0.7852436180396617,
+            "length_observations": 1,
+            "length_fallback": false,
+            "length_in_observed_range": false,
+            "estimated_drop_pu": 8.991746509834491e-05,
+            "allocated_drop_budget_pu": 0.011034742213876302,
+            "voltage_weight": 0.9999336028699493,
+            "joint_weight": 0.7851914801170332,
+            "length_km": 0.1403799093497345
+          },
+          {
+            "line_id": "l5",
+            "equipment_id": "epri_ckt24_58550f34a866",
+            "source_feeder": "Ckt24",
+            "source_linecode": "ug_1/0_al_xlpe_35kv",
+            "source_sha256": "29dc4b140d1d505ca2a97c9c8dfa62f2be72ff75f3458c0a6c367d45fc46f987",
+            "estimated_current_a": 3.1489333711459526,
+            "role": "backbone",
+            "role_fallback": false,
+            "phase_mapping": "observed phase count",
+            "projection_from": null,
+            "candidate_count": 2,
+            "selection_probability": 0.3749097657520217,
+            "normamps": 200.0,
+            "source_frequency_hz": 60.0,
+            "target_frequency_hz": 50,
+            "source_operating_voltage_kv": [
+              13.2,
+              34.5
+            ],
+            "source_voltage_class_kv": 35.0,
+            "source_weighting": "equal_feeder",
+            "target_voltage_kv": 10.0,
+            "length_likelihood": 0.5969961700611549,
+            "length_observations": 70,
+            "length_fallback": false,
+            "length_in_observed_range": true,
+            "estimated_drop_pu": 5.851778564004069e-05,
+            "allocated_drop_budget_pu": 0.007293913654551933,
+            "voltage_weight": 0.9999356363662322,
+            "joint_weight": 0.5969577452183042,
+            "length_km": 0.09279047192812555
+          },
+          {
+            "line_id": "l6",
+            "equipment_id": "epri_j1_e38b9e239a23",
+            "source_feeder": "J1",
+            "source_linecode": "ug-3c1/0alurd_15",
+            "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+            "estimated_current_a": 3.1489333711459526,
+            "role": "terminal",
+            "role_fallback": false,
+            "phase_mapping": "observed phase count",
+            "projection_from": null,
+            "candidate_count": 3,
+            "selection_probability": 0.5028478013943974,
+            "normamps": 175.0,
+            "source_frequency_hz": 60.0,
+            "target_frequency_hz": 50,
+            "source_operating_voltage_kv": [
+              12.47
+            ],
+            "source_voltage_class_kv": null,
+            "source_weighting": "equal_feeder",
+            "target_voltage_kv": 10.0,
+            "length_likelihood": 0.8071595794199214,
+            "length_observations": 5,
+            "length_fallback": false,
+            "length_in_observed_range": true,
+            "estimated_drop_pu": 5.9324316953417996e-05,
+            "allocated_drop_budget_pu": 0.007280326951824944,
+            "voltage_weight": 0.9999336028699493,
+            "joint_weight": 0.807105986340355,
+            "length_km": 0.09261762692094648
+          }
+        ],
+        "conditioning": "length_voltage",
+        "operating_condition_count": 0,
+        "joint_profile_id": "epri_equipment_length_role_v1",
+        "physical_prior": "Length/role likelihood times soft impedance-current path-drop score; not AC voltage prediction. Bandwidth, smoothing and voltage budget are research assumptions.",
+        "scope": "Joint observed source parameters, model ratings retained; frequency and voltage transfer explicit; no independent R/X/C/rating noise."
+      },
+      "initial_conductor_sizing": [
+        {
+          "line_id": "l1",
+          "equipment_id": "epri_j1_e38b9e239a23",
+          "source_feeder": "J1",
+          "source_linecode": "ug-3c1/0alurd_15",
+          "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+          "estimated_current_a": 8.61751196162603,
+          "role": "backbone",
+          "role_fallback": false,
+          "phase_mapping": "observed phase count",
+          "projection_from": null,
+          "candidate_count": 2,
+          "selection_probability": 0.6269336861633303,
+          "normamps": 175.0,
+          "source_frequency_hz": 60.0,
+          "target_frequency_hz": 50,
+          "source_operating_voltage_kv": [
+            12.47
+          ],
+          "source_voltage_class_kv": null,
+          "source_weighting": "equal_feeder",
+          "target_voltage_kv": 10.0,
+          "length_likelihood": 0.9999986038430997,
+          "length_observations": 1,
+          "length_fallback": false,
+          "length_in_observed_range": false,
+          "estimated_drop_pu": 0.0001524454828206229,
+          "allocated_drop_budget_pu": 0.006836192343252442,
+          "voltage_weight": 0.9995028441034474,
+          "joint_weight": 0.9995014486406547,
+          "length_km": 0.08696751068967785
+        },
+        {
+          "line_id": "l2",
+          "equipment_id": "epri_j1_e38b9e239a23",
+          "source_feeder": "J1",
+          "source_linecode": "ug-3c1/0alurd_15",
+          "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+          "estimated_current_a": 6.383036131216443,
+          "role": "backbone",
+          "role_fallback": false,
+          "phase_mapping": "observed phase count",
+          "projection_from": null,
+          "candidate_count": 2,
+          "selection_probability": 0.6268310054392849,
+          "normamps": 175.0,
+          "source_frequency_hz": 60.0,
+          "target_frequency_hz": 50,
+          "source_operating_voltage_kv": [
+            12.47
+          ],
+          "source_voltage_class_kv": null,
+          "source_weighting": "equal_feeder",
+          "target_voltage_kv": 10.0,
+          "length_likelihood": 0.9999577786130721,
+          "length_observations": 1,
+          "length_fallback": false,
+          "length_in_observed_range": false,
+          "estimated_drop_pu": 0.00011350033434509833,
+          "allocated_drop_budget_pu": 0.00687149834801165,
+          "voltage_weight": 0.9997272076757916,
+          "joint_weight": 0.999684997806534,
+          "length_km": 0.08741666062463206
+        },
+        {
+          "line_id": "l3",
+          "equipment_id": "epri_j1_e38b9e239a23",
+          "source_feeder": "J1",
+          "source_linecode": "ug-3c1/0alurd_15",
+          "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+          "estimated_current_a": 6.383036131216443,
+          "role": "backbone",
+          "role_fallback": false,
+          "phase_mapping": "observed phase count",
+          "projection_from": null,
+          "candidate_count": 2,
+          "selection_probability": 0.5915157550298845,
+          "normamps": 175.0,
+          "source_frequency_hz": 60.0,
+          "target_frequency_hz": 50,
+          "source_operating_voltage_kv": [
+            12.47
+          ],
+          "source_voltage_class_kv": null,
+          "source_weighting": "equal_feeder",
+          "target_voltage_kv": 10.0,
+          "length_likelihood": 0.8100255972094677,
+          "length_observations": 1,
+          "length_fallback": false,
+          "length_in_observed_range": false,
+          "estimated_drop_pu": 0.0001764624055700318,
+          "allocated_drop_budget_pu": 0.010683326488482733,
+          "voltage_weight": 0.9997272076757916,
+          "joint_weight": 0.8098046284441366,
+          "length_km": 0.1359093284590649
+        },
+        {
+          "line_id": "l4",
+          "equipment_id": "epri_j1_e38b9e239a23",
+          "source_feeder": "J1",
+          "source_linecode": "ug-3c1/0alurd_15",
+          "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+          "estimated_current_a": 3.1489333711459526,
+          "role": "backbone",
+          "role_fallback": false,
+          "phase_mapping": "observed phase count",
+          "projection_from": null,
+          "candidate_count": 2,
+          "selection_probability": 0.5869550573472903,
+          "normamps": 175.0,
+          "source_frequency_hz": 60.0,
+          "target_frequency_hz": 50,
+          "source_operating_voltage_kv": [
+            12.47
+          ],
+          "source_voltage_class_kv": null,
+          "source_weighting": "equal_feeder",
+          "target_voltage_kv": 10.0,
+          "length_likelihood": 0.7852436180396617,
+          "length_observations": 1,
+          "length_fallback": false,
+          "length_in_observed_range": false,
+          "estimated_drop_pu": 8.991746509834491e-05,
+          "allocated_drop_budget_pu": 0.011034742213876302,
+          "voltage_weight": 0.9999336028699493,
+          "joint_weight": 0.7851914801170332,
+          "length_km": 0.1403799093497345
+        },
+        {
+          "line_id": "l5",
+          "equipment_id": "epri_ckt24_58550f34a866",
+          "source_feeder": "Ckt24",
+          "source_linecode": "ug_1/0_al_xlpe_35kv",
+          "source_sha256": "29dc4b140d1d505ca2a97c9c8dfa62f2be72ff75f3458c0a6c367d45fc46f987",
+          "estimated_current_a": 3.1489333711459526,
+          "role": "backbone",
+          "role_fallback": false,
+          "phase_mapping": "observed phase count",
+          "projection_from": null,
+          "candidate_count": 2,
+          "selection_probability": 0.3749097657520217,
+          "normamps": 200.0,
+          "source_frequency_hz": 60.0,
+          "target_frequency_hz": 50,
+          "source_operating_voltage_kv": [
+            13.2,
+            34.5
+          ],
+          "source_voltage_class_kv": 35.0,
+          "source_weighting": "equal_feeder",
+          "target_voltage_kv": 10.0,
+          "length_likelihood": 0.5969961700611549,
+          "length_observations": 70,
+          "length_fallback": false,
+          "length_in_observed_range": true,
+          "estimated_drop_pu": 5.851778564004069e-05,
+          "allocated_drop_budget_pu": 0.007293913654551933,
+          "voltage_weight": 0.9999356363662322,
+          "joint_weight": 0.5969577452183042,
+          "length_km": 0.09279047192812555
+        },
+        {
+          "line_id": "l6",
+          "equipment_id": "epri_j1_e38b9e239a23",
+          "source_feeder": "J1",
+          "source_linecode": "ug-3c1/0alurd_15",
+          "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+          "estimated_current_a": 3.1489333711459526,
+          "role": "terminal",
+          "role_fallback": false,
+          "phase_mapping": "observed phase count",
+          "projection_from": null,
+          "candidate_count": 3,
+          "selection_probability": 0.5028478013943974,
+          "normamps": 175.0,
+          "source_frequency_hz": 60.0,
+          "target_frequency_hz": 50,
+          "source_operating_voltage_kv": [
+            12.47
+          ],
+          "source_voltage_class_kv": null,
+          "source_weighting": "equal_feeder",
+          "target_voltage_kv": 10.0,
+          "length_likelihood": 0.8071595794199214,
+          "length_observations": 5,
+          "length_fallback": false,
+          "length_in_observed_range": true,
+          "estimated_drop_pu": 5.9324316953417996e-05,
+          "allocated_drop_budget_pu": 0.007280326951824944,
+          "voltage_weight": 0.9999336028699493,
+          "joint_weight": 0.807105986340355,
+          "length_km": 0.09261762692094648
+        }
+      ]
+    },
+    "structure_resolution": {
+      "mv_buses": 7,
+      "transformer_taps": [
+        "b1",
+        "b3",
+        "b6"
+      ],
+      "customer_groups": [
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "allocation": "varied",
+      "basis": "Seeded synthetic structural variation; not a fitted utility population"
+    },
+    "topology_policy_version": "branched_v4",
+    "resolved_mv_topology": {
+      "family": "branched_network",
+      "branch_count": null,
+      "branching_factor": null,
+      "trunk_fraction": null,
+      "ring_count": null,
+      "terminal_count": 1,
+      "local_tie_count": 0
+    },
+    "resolved_lv_topology": "mixed_radial",
+    "customer_connection": {
+      "mode": "distributed_taps",
+      "bus_semantics": "Public LV connection point with a single-phase customer injection; three-phase through conductor; no separate meter drop"
+    },
+    "lv_equipment": {
+      "decision_source": "offline_fallback",
+      "installation_decision": null,
+      "decision_notice": "No Agent analysis supplied: scene-independent aerial baseline for offline reproducibility, not an engineering recommendation.",
+      "profile": "nexans_abc",
+      "requested_profile": "auto",
+      "installation": "aerial_bundle",
+      "lines": {
+        "lv_main_1_1": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 59.7503642413141,
+          "estimated_drop_pu": 0.006238853756622097,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.012158808916243635,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.06639587219107003,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_1": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 42.89969989256611,
+          "estimated_drop_pu": 0.003106922756105714,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.011038882738393306,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.050724636911718274,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_2": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 32.75499819223958,
+          "estimated_drop_pu": 0.0009409721415195498,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.004378729369542134,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.050724636911718274,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_3": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 32.75499819223958,
+          "estimated_drop_pu": 0.0014694157595964608,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.00683779429667569,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.050724636911718274,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_4": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 17.427971447824593,
+          "estimated_drop_pu": 0.0009647712711530162,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.008437745867518765,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.050724636911718274,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_5": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 14.82214276199111,
+          "estimated_drop_pu": 0.00032981303049599726,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.0033916086655663177,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.050724636911718274,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "lv_main_1_2": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 44.7422383645047,
+          "estimated_drop_pu": 0.008209667680503031,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.02136656239052147,
+          "longest_customer_path_edges": 5,
+          "longest_customer_path_km": 0.06639587219107003,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_6": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 44.7422383645047,
+          "estimated_drop_pu": 0.0013110130635862812,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.0034120555798415214,
+          "longest_customer_path_edges": 5,
+          "longest_customer_path_km": 0.06639587219107003,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_7": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 24.5965525337486,
+          "estimated_drop_pu": 0.0009356595947355751,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.004429660272943801,
+          "longest_customer_path_edges": 5,
+          "longest_customer_path_km": 0.06639587219107003,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_8": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 24.5965525337486,
+          "estimated_drop_pu": 0.001823495986592801,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.008632912840449574,
+          "longest_customer_path_edges": 5,
+          "longest_customer_path_km": 0.06639587219107003,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "lv_main_2_1": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 36.606710694982795,
+          "estimated_drop_pu": 0.003802259876162769,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.013375958014491077,
+          "longest_customer_path_edges": 7,
+          "longest_customer_path_km": 0.06003770158148017,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_9": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 36.606710694982795,
+          "estimated_drop_pu": 0.0019621974881908763,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.006902808348983416,
+          "longest_customer_path_edges": 7,
+          "longest_customer_path_km": 0.06003770158148017,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_10": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 36.606710694982795,
+          "estimated_drop_pu": 0.0009436613778835946,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.0033197033820860844,
+          "longest_customer_path_edges": 7,
+          "longest_customer_path_km": 0.06003770158148017,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_11": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 36.606710694982795,
+          "estimated_drop_pu": 0.0007193475985592836,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.0025305906459672134,
+          "longest_customer_path_edges": 7,
+          "longest_customer_path_km": 0.060037701581480175,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_12": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 32.532767105242876,
+          "estimated_drop_pu": 0.002406343223899237,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.009525337560690314,
+          "longest_customer_path_edges": 7,
+          "longest_customer_path_km": 0.060037701581480175,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_13": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 21.018908699977523,
+          "estimated_drop_pu": 0.0007327305659132564,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.004489293009403499,
+          "longest_customer_path_edges": 7,
+          "longest_customer_path_km": 0.06003770158148018,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_14": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 15.925173204444853,
+          "estimated_drop_pu": 0.0012188623700449706,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.009856309038378398,
+          "longest_customer_path_edges": 7,
+          "longest_customer_path_km": 0.06003770158148018,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "lv_main_2_2": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 44.245858306779446,
+          "estimated_drop_pu": 0.003507225886596887,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.01881422336681586,
+          "longest_customer_path_edges": 4,
+          "longest_customer_path_km": 0.0325741193367375,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_15": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 44.245858306779446,
+          "estimated_drop_pu": 0.0024778080993601535,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.013291996737256511,
+          "longest_customer_path_edges": 4,
+          "longest_customer_path_km": 0.0325741193367375,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_16": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 18.41390306062446,
+          "estimated_drop_pu": 0.00044886830325837756,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.005785864629941735,
+          "longest_customer_path_edges": 4,
+          "longest_customer_path_km": 0.0325741193367375,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_17": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 18.41390306062446,
+          "estimated_drop_pu": 0.0009393340026163085,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.012107915265985897,
+          "longest_customer_path_edges": 4,
+          "longest_customer_path_km": 0.0325741193367375,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "lv_main_3_1": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 78.7233342786488,
+          "estimated_drop_pu": 0.010543053802149566,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.01655309880929504,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.06255348356762086,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_18": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 33.37585272795348,
+          "estimated_drop_pu": 0.001311473067253328,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.007879689035411499,
+          "longest_customer_path_edges": 4,
+          "longest_customer_path_km": 0.038555451399547885,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_19": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 33.37585272795348,
+          "estimated_drop_pu": 0.0017406370784498288,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.010458223843221679,
+          "longest_customer_path_edges": 4,
+          "longest_customer_path_km": 0.038555451399547885,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_20": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 25.03535140341374,
+          "estimated_drop_pu": 0.0005999881213920853,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.00480585909721292,
+          "longest_customer_path_edges": 4,
+          "longest_customer_path_km": 0.038555451399547885,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "lv_main_3_2": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 45.34748155069532,
+          "estimated_drop_pu": 0.0047649501223927795,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.012987380094564824,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.06255348356762085,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_21": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 45.34748155069532,
+          "estimated_drop_pu": 0.0021498568384937244,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.005859664255288487,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.06255348356762085,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_22": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 45.34748155069532,
+          "estimated_drop_pu": 0.0009257688191461003,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.0025232817186151765,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.06255348356762085,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_23": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 32.90930710341118,
+          "estimated_drop_pu": 0.0019414578262337088,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.007291646188284002,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.06255348356762085,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        },
+        "service_24": {
+          "product": "nexans_abc_4x25",
+          "installation": "aerial_bundle",
+          "region_id": null,
+          "design_current_a": 20.794210363121785,
+          "estimated_drop_pu": 0.0008050105284177718,
+          "selection": "smallest section satisfying phase/neutral fundamental current envelope and path-length allocated drop budget",
+          "allocated_drop_budget_pu": 0.004784928933952471,
+          "longest_customer_path_edges": 6,
+          "longest_customer_path_km": 0.06255348356762085,
+          "drop_allocation": "length_proportional",
+          "ampacity_derating": 1
+        }
+      },
+      "drop_budget_pu": 0.05,
+      "method": "load/PV envelope, fundamental neutral screening, depth-aware path voltage-drop budget; final OpenDSS acceptance required"
+    }
+  },
+  "transformers": [
+    {
+      "id": "tx_1",
+      "bus1": "b1",
+      "bus2": "lv_1",
+      "primary_kv": 10.0,
+      "secondary_kv": 0.4,
+      "kva": 75.0,
+      "xhl_percent": 1.4541666666666666,
+      "loadloss_percent": 1.316,
+      "noloadloss_percent": 0.198,
+      "imag_percent": 0.5,
+      "connection": "delta_grounded_wye_lag",
+      "source": {
+        "id": "ckt24_tx_6",
+        "kva": 75.0,
+        "xhl_percent": 1.745,
+        "loadloss_percent": 1.316,
+        "noloadloss_percent": 0.198,
+        "imag_percent": 0.5,
+        "source_primary_kv": 34.5,
+        "source_secondary_kv": 0.48,
+        "source_frequency_hz": 60,
+        "source_path": "reference_data/epri_large/ckt24/transformers_ckt24.dss",
+        "source_sha256": "52f9e9ae30f61372217fb96eedbf2b308b7a74129c90bca83047d04dbd3d5913",
+        "source_line": 368,
+        "source_text": "New\tTransformer.05410_G2100GF8600\tphases=3\twdg=1\tbus=N292253.1.2.3\tkV=34.5\tkVA=75\twdg=2\tbus=G2100GF8600_N292253_sec.1.2.3\tkV=0.480\tkVA=75\t%imag=0.5\t%loadloss=1.316\t%noloadloss=0.198\txhl=1.745",
+        "observations": 7,
+        "required_kva_worst_phase": 51.74533331835133,
+        "transfer": "Target winding voltages and delta/grounded-wye lag connection are design choices; X scales50/60; R/C and percent losses retained. No explicit neutral."
+      }
+    },
+    {
+      "id": "tx_2",
+      "bus1": "b3",
+      "bus2": "lv_2",
+      "primary_kv": 10.0,
+      "secondary_kv": 0.4,
+      "kva": 75.0,
+      "xhl_percent": 1.4541666666666666,
+      "loadloss_percent": 1.316,
+      "noloadloss_percent": 0.198,
+      "imag_percent": 0.5,
+      "connection": "delta_grounded_wye_lag",
+      "source": {
+        "id": "ckt24_tx_6",
+        "kva": 75.0,
+        "xhl_percent": 1.745,
+        "loadloss_percent": 1.316,
+        "noloadloss_percent": 0.198,
+        "imag_percent": 0.5,
+        "source_primary_kv": 34.5,
+        "source_secondary_kv": 0.48,
+        "source_frequency_hz": 60,
+        "source_path": "reference_data/epri_large/ckt24/transformers_ckt24.dss",
+        "source_sha256": "52f9e9ae30f61372217fb96eedbf2b308b7a74129c90bca83047d04dbd3d5913",
+        "source_line": 368,
+        "source_text": "New\tTransformer.05410_G2100GF8600\tphases=3\twdg=1\tbus=N292253.1.2.3\tkV=34.5\tkVA=75\twdg=2\tbus=G2100GF8600_N292253_sec.1.2.3\tkV=0.480\tkVA=75\t%imag=0.5\t%loadloss=1.316\t%noloadloss=0.198\txhl=1.745",
+        "observations": 7,
+        "required_kva_worst_phase": 70.02037871676035,
+        "transfer": "Target winding voltages and delta/grounded-wye lag connection are design choices; X scales50/60; R/C and percent losses retained. No explicit neutral."
+      }
+    },
+    {
+      "id": "tx_3",
+      "bus1": "b6",
+      "bus2": "lv_3",
+      "primary_kv": 10.0,
+      "secondary_kv": 0.4,
+      "kva": 75.0,
+      "xhl_percent": 1.4541666666666666,
+      "loadloss_percent": 1.316,
+      "noloadloss_percent": 0.198,
+      "imag_percent": 0.5,
+      "connection": "delta_grounded_wye_lag",
+      "source": {
+        "id": "ckt24_tx_6",
+        "kva": 75.0,
+        "xhl_percent": 1.745,
+        "loadloss_percent": 1.316,
+        "noloadloss_percent": 0.198,
+        "imag_percent": 0.5,
+        "source_primary_kv": 34.5,
+        "source_secondary_kv": 0.48,
+        "source_frequency_hz": 60,
+        "source_path": "reference_data/epri_large/ckt24/transformers_ckt24.dss",
+        "source_sha256": "52f9e9ae30f61372217fb96eedbf2b308b7a74129c90bca83047d04dbd3d5913",
+        "source_line": 368,
+        "source_text": "New\tTransformer.05410_G2100GF8600\tphases=3\twdg=1\tbus=N292253.1.2.3\tkV=34.5\tkVA=75\twdg=2\tbus=G2100GF8600_N292253_sec.1.2.3\tkV=0.480\tkVA=75\t%imag=0.5\t%loadloss=1.316\t%noloadloss=0.198\txhl=1.745",
+        "observations": 7,
+        "required_kva_worst_phase": 68.17640735592417,
+        "transfer": "Target winding voltages and delta/grounded-wye lag connection are design choices; X scales50/60; R/C and percent losses retained. No explicit neutral."
+      }
+    }
+  ],
+  "equipment_catalog": {
+    "epri_j1_e38b9e239a23": {
+      "r1": 0.571599,
+      "x1": 0.394881,
+      "r0": 1.10175,
+      "x0": 0.422781,
+      "c1": 389.1497,
+      "c0": 22.3987,
+      "normamps": 175.0,
+      "basefreq": 60.0,
+      "rmatrix": [
+        0.748316,
+        0.176717,
+        0.176717,
+        0.176717,
+        0.748316,
+        0.176717,
+        0.176717,
+        0.176717,
+        0.748316
+      ],
+      "xmatrix": [
+        0.4041809999999999,
+        0.009300000000000011,
+        0.009300000000000011,
+        0.009300000000000011,
+        0.4041809999999999,
+        0.009300000000000011,
+        0.009300000000000011,
+        0.009300000000000011,
+        0.4041809999999999
+      ],
+      "cmatrix": [
+        266.8993666666667,
+        -122.25033333333332,
+        -122.25033333333332,
+        -122.25033333333332,
+        266.8993666666667,
+        -122.25033333333332,
+        -122.25033333333332,
+        -122.25033333333332,
+        266.8993666666667
+      ],
+      "nphases": 3,
+      "construction": "cable",
+      "source_feeder": "J1",
+      "source_linecode": "ug-3c1/0alurd_15",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "a1882df5b67298919ea3c14ecd2166a63533ea6509385fc44176d1572a297533",
+      "source_file": "reference_data/epri_dpv/J1/LineCodes.dss",
+      "source_commit": "eaa0c3dcbc607e01c3f98092e3dea18929ae4d60",
+      "observation_count": 6,
+      "role_counts": {
+        "terminal": 5,
+        "backbone": 1
+      },
+      "observed_voltage_kv": [
+        12.47
+      ],
+      "source_kind": "utility_derived_published_model",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R and C fixed; X multiplied by target/source frequency; ground/skin corrections not reconstructed"
+    },
+    "epri_ckt24_58550f34a866": {
+      "r1": 0.610248648,
+      "r0": 1.117101129,
+      "x1": 0.297885349,
+      "x0": 0.11942754400000001,
+      "c1": 114.953670564,
+      "c0": 114.953670564,
+      "rmatrix": [
+        0.779199475,
+        0.168950827,
+        0.168950827,
+        0.168950827,
+        0.779199475,
+        0.168950827,
+        0.168950827,
+        0.168950827,
+        0.779199475
+      ],
+      "xmatrix": [
+        0.238399414,
+        -0.059485935,
+        -0.059485935,
+        -0.059485935,
+        0.238399414,
+        -0.059485935,
+        -0.059485935,
+        -0.059485935,
+        0.238399414
+      ],
+      "cmatrix": [
+        114.953670564,
+        0.0,
+        0.0,
+        0.0,
+        114.953670564,
+        0.0,
+        0.0,
+        0.0,
+        114.953670564
+      ],
+      "normamps": 200.0,
+      "basefreq": 60.0,
+      "nphases": 3,
+      "construction": "cable",
+      "source_feeder": "Ckt24",
+      "source_linecode": "ug_1/0_al_xlpe_35kv",
+      "source_frequency_hz": 60.0,
+      "source_sha256": "29dc4b140d1d505ca2a97c9c8dfa62f2be72ff75f3458c0a6c367d45fc46f987",
+      "source_file": "reference_data/epri_large/ckt24/Linecodes_ckt24.dss",
+      "source_locator": "line 9",
+      "source_commit": "5005c668a72d20775f4c2d060feebb2866ba1d38",
+      "source_kind": "utility_derived_published_model",
+      "source_url": "https://github.com/tshort/OpenDSS/tree/5005c668a72d20775f4c2d060feebb2866ba1d38/Distrib/EPRITestCircuits/ckt24",
+      "observation_count": 109,
+      "role_counts": {
+        "backbone": 70,
+        "terminal": 39
+      },
+      "observed_voltage_kv": [
+        13.2,
+        34.5
+      ],
+      "source_aliases": [
+        "ug_1/0_al_xlpe_35kv"
+      ],
+      "rating_basis": "explicit LineCode.normamps",
+      "phase_wire_names": [],
+      "source_voltage_class_kv": 35.0,
+      "voltage_class_basis": "explicit kV suffix in source LineCode name; not independently certified",
+      "source_declared_phases": 3,
+      "selectable": true,
+      "selection_blocker": null,
+      "sequence_values_basis": "phase-matrix averaged diagonal/mutual proxies for ranking; full matrices used in DSS",
+      "matrix_basis": "compiled source snapshot at source frequency; normalized from line units to per km",
+      "units": "ohm/km; nF/km; A",
+      "frequency_transfer": "R/C retained; X scales target/source; no explicit skin/ground reconstruction"
+    },
+    "nexans_abc_4x25_p123": {
+      "id": "nexans_abc_4x25",
+      "manufacturer": "Nexans",
+      "family": "Al XLPE ABC",
+      "cores": 4,
+      "section_mm2": 25,
+      "role": "lv_main",
+      "construction": "overhead",
+      "material": "aluminium",
+      "voltage_u0_kv": 0.6,
+      "voltage_u_kv": 1.0,
+      "rdc20_ohm_km": 1.2,
+      "rac80_ohm_km": 1.49,
+      "x1_50hz_ohm_km": 0.102,
+      "normamps": 109,
+      "source_frequency_hz": 50,
+      "source_definition": "Nexans Section 5 page 21, sheet 330-05 B, June 2019",
+      "source_url": "https://www.nexans.co.nz/en/dam/jcr:10f499b6-e750-4142-b95f-2e6a87b6d334/Section%20Five.pdf",
+      "source_path": "reference_data/lv_manufacturer/nexans_aerial.pdf",
+      "source_sha256": "56ba1f561a43557e827301d7c6eee287ad38cadf663d88ec4fb82c875c21e3e9",
+      "source_page": 21,
+      "source_accessed": "2026-09-24",
+      "evidence_class": "manufacturer_catalogue_not_feeder_distribution",
+      "rating_conditions": {
+        "ambient_c": 30,
+        "conductor_c": 80,
+        "wind_m_s": 1,
+        "solar_w_m2": 1000,
+        "installation": "aerial_bundle"
+      },
+      "nphases": 3,
+      "projection_phases": [
+        1,
+        2,
+        3
+      ],
+      "ampacity_derating": 1,
+      "installation": "aerial_bundle",
+      "resistance_temperature_c": 80,
+      "published_normamps": 109,
+      "rmatrix": [
+        1.49,
+        0.0,
+        0.0,
+        0.0,
+        1.49,
+        0.0,
+        0.0,
+        0.0,
+        1.49
+      ],
+      "xmatrix": [
+        0.102,
+        0.0,
+        0.0,
+        0.0,
+        0.102,
+        0.0,
+        0.0,
+        0.0,
+        0.102
+      ],
+      "cmatrix": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "model_conversion": "Diagonal grounded per-phase equivalent; two-working-core service uses 2R/2X loop; PE excluded from normal current; no mutual/neutral displacement; short-line shunt C neglected."
+    }
+  }
+}

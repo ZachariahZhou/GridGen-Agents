@@ -18,17 +18,18 @@ ALIASES={
     'semantic_capabilities.transmission.deliverables':'deliverables',
     'semantic_capabilities.hierarchical.deliverables':'deliverables',
     'capability.deliverables':'deliverables',
+    'ledger.deliverables':'deliverables',
 }
 CAPABILITIES={
     'hierarchical':{'network_kind':'distribution','phase_model':'unbalanced','frequency_hz':50,
-        'deliverables':['opendss'],
+        'deliverables':['opendss','visualization'],
         'implementation':'explicit ABC MV/LV branches, three-phase transformers and single-phase customers; no separate phase_design switch',
         'unsupported':['neutral displacement','time-series generation','protection certification']},
-    'single_voltage':{'network_kind':'distribution','phase_model':'phase_design.mode; unbalanced only at 6/10/20kV','deliverables':['opendss','matpower'],
+    'single_voltage':{'network_kind':'distribution','phase_model':'phase_design.mode; unbalanced only at 6/10/20kV','deliverables':['opendss','matpower','visualization'],
         'format_scope':'MATPOWER is opt-in, balanced only with symmetric equipment; fixes source-terminal voltage and verifies AC agreement. No implicit unbalanced reduction.',
         'implementation':'Equivalent single-voltage buses with aggregate loads; optional phase-resolved injections, zero-load junctions and normally-open ties'},
     'transmission':{'network_kind':'transmission','phase_model':'balanced',
-        'deliverables':['matpower'],
+        'deliverables':['matpower','visualization'],
         'implementation':'balanced positive-sequence AC; voltage_layers create explicit inter-layer transformers'},
 }
 PERFORMANCE_BOUNDS={
@@ -62,7 +63,7 @@ def compare(actual,expected,op='eq',tolerance=1e-6):
         return abs(actual-expected)<=tolerance if op=='eq' else abs(actual-expected)>tolerance if op=='excludes' else actual>=expected-tolerance if op=='ge' else actual<=expected+tolerance if op=='le' else False
     if isinstance(actual,list):
         values=expected if isinstance(expected,list) else [expected]
-        if not actual:return False
+        # An observed empty set is evidence of absence, unlike a missing value.
         if all(isinstance(v,str) for v in actual+values):
             a,b=set(actual),set(values)
             return a==b if op=='eq' else b<=a if op=='contains' else not a&b if op=='excludes' else False
@@ -149,22 +150,26 @@ def plan_observations(brief):
         for metric in ('total_kw','n_loads'):
             if spec.get(metric+'_min')==spec.get(metric+'_max'):observed[metric]=spec.get(metric+'_min')
     observed['deliverables']=CAPABILITIES.get(observed['model_family'],{}).get('deliverables',[])
-    if family=='feeder':observed['deliverables']=plan.get('export_formats',['opendss'])
+    if family=='feeder':observed['deliverables']=[*plan.get('export_formats',['opendss']),'visualization']
     return observed
 
 
 def normalize_deliverable_requirement(item):
     """Normalize only explicit supported format names, never arbitrary outputs."""
     import re
-    if item.target_field not in (None, 'deliverables', 'output_format', 'export_format'):
+    if item.target_field is not None and canonical(item.target_field) not in ('deliverables', 'output_format', 'export_format'):
         return
     if not re.search('\u8f93\u51fa|\u4ea4\u4ed8|\u5bfc\u51fa|\u63d0\u4f9b|export|deliver|output', item.evidence, re.I):
         return
     formats = re.findall(r'(?<![A-Za-z])(?:OpenDSS|MATPOWER)(?![A-Za-z])', item.evidence, re.I)
     if not formats:
         return
+    # A plain format request is inclusive; explicit exclusivity must retain its
+    # stricter original operator even when other artifact types are available.
+    if re.search('\u4ec5|\u53ea|\\b(?:only|exclusively)\\b',item.evidence,re.I):
+        return
     directive = re.split('\u8f93\u51fa|\u4ea4\u4ed8|\u5bfc\u51fa|\u63d0\u4f9b|export|deliver|output', item.evidence, flags=re.I)[-1]
-    remainder = re.sub('OpenDSS|MATPOWER|\u53ef\u76f4\u63a5\u8c03\u7528|\u53ef\u8fd0\u884c|\u53ef\u8c03\u7528|\u6a21\u578b|\u6587\u4ef6|\u683c\u5f0f|\u4ee5\u53ca|\u5e76\u4e14|\u548c|\u4e0e|\u53ca|\u7684|model|files?|format|and|runnable', '', directive, flags=re.I)
+    remainder = re.sub('OpenDSS|MATPOWER|\u53ef\u76f4\u63a5\u8c03\u7528|\u53ef\u8fd0\u884c|\u53ef\u8c03\u7528|\u6a21\u578b|\u6587\u4ef6|\u683c\u5f0f|\u5373\u53ef|\u4ee5\u53ca|\u5e76\u4e14|\u548c|\u4e0e|\u53ca|\u7684|model|files?|format|and|runnable', '', directive, flags=re.I)
     if re.sub(r'[\s，,。；;、/。:：+&()（）-]', '', remainder):
         return  # A compound/unknown output requirement needs explicit interpretation.
     values = item.expected_value if isinstance(item.expected_value,list) else [item.expected_value]
@@ -224,6 +229,36 @@ def delivered_formats(folder, brief, network):
     return []
 
 
+def delivered_visualization(folder, brief, network):
+    """Bind the portable HTML to the delivered model and saved solver evidence.
+
+    The existing renderers are deterministic. Mere file presence, HTML from a
+    different model, or an altered rendering cannot satisfy this requirement.
+    Solver export verification remains separate in delivered_formats.
+    """
+    import json
+    try:
+        artifact=folder/'visualization.html'
+        if not artifact.is_file():return False
+        checks=json.loads((folder/'validation.json').read_text())
+        if brief['plan_type']=='transmission':
+            from .transmission import visualization
+            metadata=json.loads((folder/'metadata.json').read_text())
+            expected=visualization(network,metadata,checks)
+        elif brief['plan_type']=='hierarchical':
+            from .hierarchy_workflow import visualization
+            simulation=json.loads((folder/'simulation.json').read_text())
+            expected=visualization(network,simulation,checks)
+        elif brief['plan_type']=='feeder':
+            from .artifacts import render_html
+            simulation=json.loads((folder/'simulation.json').read_text())
+            expected=render_html(network,simulation,checks['accepted'])
+        else:return False
+        return artifact.read_text(encoding='utf-8')==expected
+    except (OSError,ValueError,KeyError,TypeError):
+        return False
+
+
 def transmission_topology(network):
     """Observe each nominal-voltage layer; inter-layer transformers are separate.
 
@@ -253,6 +288,13 @@ def model_observations(domain,network,metadata=None,validation=None,*,voltage_la
         abc=any(set(b.phases)=={1,2,3} for b in network.buses if b.voltage_kv>=1)
         phase_resolved=bool(network.loads) and all(len(l.phases)==1 and len(l.phase_powers)==1 and l.phase_powers[0].phase==l.phases[0] for l in network.loads)
         if abc and network.transformers and phase_resolved:out['phase_model']='unbalanced'
+        # Customer weights describe an integer allocation, not phase power ratios.
+        # Observe the delivered customers without trusting design provenance.
+        if phase_resolved and all(l.phases[0] in (1,2,3) and all(
+                math.isclose(getattr(l.phase_powers[0],k),getattr(l,k),rel_tol=1e-9,abs_tol=1e-8)
+                for k in ('kw','kvar','pv_kw')) for l in network.loads):
+            counts=Counter(l.phases[0] for l in network.loads)
+            out['phase_weights']=[counts[p]/len(network.loads) for p in (1,2,3)]
         out.update(network_kind='distribution',model_family='hierarchical',frequency_hz=network.frequency_hz)
         if network.design_evidence.get('topology_policy_version'):
             from .hierarchy_topology_design import topology_observations
@@ -276,7 +318,17 @@ def model_observations(domain,network,metadata=None,validation=None,*,voltage_la
     graph=nx.Graph();graph.add_nodes_from(int(b[0]) for b in bus)
     graph.add_edges_from((int(e[0]),int(e[1])) for e in network['branch'] if e[10]>0)
     connectivity=('bridgeless' if not list(nx.bridges(graph)) else 'connected') if nx.is_connected(graph) else None
+    radius=None
+    try:
+        positions=metadata['positions_km']
+        coordinates={int(k):xy for k,xy in positions.items()}
+        if len(coordinates)==len(positions)==len(bus) and set(coordinates)==set(graph):
+            if all(isinstance(xy,(list,tuple)) and len(xy)==2 and
+                   all(type(v) in (int,float) and math.isfinite(v) for v in xy) for xy in coordinates.values()):
+                radius=max(math.hypot(*xy) for xy in coordinates.values())
+    except (KeyError,TypeError,ValueError,AttributeError):pass
     return dict(network_kind='transmission',model_family='transmission',phase_model='balanced',n_buses=len(bus),n_generators=len(gen),
+        radius_km=radius,
         total_mw=float(sum(bus[:,2])),voltage_kv=float(bus[0,9]) if len(set(bus[:,9]))==1 else None,
         primary_voltage_kv=float(primary[0,9]) if len(primary)==1 else None,
         voltage_levels=sorted({f'{v:g}' for v in bus[:,9]}),topology=transmission_topology(network),
@@ -293,6 +345,19 @@ def _explained_installation_decision(value):
     return (isinstance(value,dict) and value.get('selected') in
             ('aerial_bundle','buried_direct','buried_duct') and
             isinstance(value.get('reason'),str) and bool(value['reason'].strip()))
+
+
+def _phase_allocation_matches(actual,weights,users):
+    """Match the same largest-remainder customer allocation used by hierarchy."""
+    if (not isinstance(users,int) or isinstance(users,bool) or users<=0 or
+            not isinstance(weights,list) or len(weights)!=3 or
+            any(isinstance(w,bool) or not isinstance(w,(int,float)) or not math.isfinite(w) or w<=0 for w in weights) or
+            not math.isclose(sum(weights),1,abs_tol=1e-9)):
+        return False
+    counts=[int(users*w) for w in weights]
+    for i in sorted(range(3),key=lambda p:users*weights[p]-counts[p],reverse=True)[:users-sum(counts)]:
+        counts[i]+=1
+    return compare(actual,[n/users for n in counts])
 
 def audit_ledger(ledger,observed,stage='model'):
     checks=[]
@@ -311,12 +376,14 @@ def audit_ledger(ledger,observed,stage='model'):
         elif not key or item.expected_value is None:
             status='unverified'
         elif actual is None:status='unverified'
+        elif key=='phase_weights' and stage=='model' and observed.get('model_family')=='hierarchical':
+            status='passed' if op=='eq' and _phase_allocation_matches(actual,expected,observed.get('users')) else 'failed'
         elif key=='connectivity' and expected=='connected' and op=='eq':status='passed' if actual in ('connected','bridgeless') else 'failed'
         elif key=='voltage_layers':status='passed' if _compare_voltage_layers(actual,expected,op) else 'failed'
         else:status='passed' if compare(actual,expected,op) else 'failed'
         checks.append(dict(id=item.id,field=item.target_field,semantic_field=key,expected=item.expected_value,
             observed=actual,operator=op,status=status,evidence=item.evidence,
-            evidence_kind='reference_provenance' if key=='scenario.reference_case_id' else 'configuration' if key in ('scene','load_semantics','mode','scenario.layout','scenario.engineering_profile','mesh_family') else 'replayed_execution_policy' if key in ('allowed_repairs','allow_topology_changes') and stage=='model' else stage))
+            evidence_kind='reference_provenance' if key=='scenario.reference_case_id' else 'configuration' if key in ('scene','load_semantics','mode','scenario.layout','scenario.engineering_profile','mesh_family') else 'replayed_execution_policy' if key in ('allowed_repairs','allow_topology_changes','repair_policy.strategy','repair_policy.allow_rewire') and stage=='model' else stage))
     return dict(stage=stage,checks=checks,all_satisfied=bool(checks) and all(c['status']=='passed' for c in checks),
         failed=sum(c['status']=='failed' for c in checks),unverified=sum(c['status']=='unverified' for c in checks))
 
@@ -343,6 +410,34 @@ def transmission_execution_observations(folder,brief,network):
     new_edges={tuple(sorted(map(int,e[:2]))) for e in network['branch'] if e[10]>0}
     if not policy['allow_topology_changes'] and old_edges!=new_edges:return {}
     return dict(allowed_repairs=policy['allowed_repairs'],allow_topology_changes=policy['allow_topology_changes'])
+
+
+def single_voltage_execution_observations(folder,brief,network):
+    """Observe a disabled repair policy only with an unchanged audited baseline."""
+    import json
+    from .artifacts import digest
+    from .schemas import ExperimentSpec
+    from .workflow import _completed_sample
+    try:
+        manifest=json.loads((folder.parent/'manifest.json').read_text())
+        if manifest.get('spec')!=brief['plan']['spec']:return {}
+        spec=ExperimentSpec.model_validate(manifest['spec'])
+        if spec.repair_policy.strategy!='none':return {}
+        saved=_completed_sample(folder,network.seed)
+        if not saved or saved.get('repair_strategy')!='none':return {}
+        if any(saved.get(key)!=0 for key in ('repairs','repair_commits','repair_rollbacks','preview_solver_runs')):return {}
+        history=json.loads((folder/'history.json').read_text())
+        if not isinstance(history,list) or len(history)!=1:return {}
+        if history[0].get('attempt')!=0 or 'action' in history[0]:return {}
+        actual=digest(network.model_dump())
+        if saved.get('model_hash')!=actual or history[0].get('model_hash')!=actual:return {}
+        baseline=json.loads((folder/'baseline'/'feeder.json').read_text())
+        if digest(baseline)!=actual:return {}
+        for name in ('trials','previews'):
+            if (folder/name).exists() and any(path.is_file() for path in (folder/name).rglob('*')):return {}
+        return {'repair_policy.strategy':'none','repair_policy.allow_rewire':spec.repair_policy.allow_rewire}
+    except (OSError,ValueError,KeyError,TypeError,AttributeError):
+        return {}
 
 
 def _transmission_batch_observations(brief,output):
@@ -478,6 +573,8 @@ def audit_delivery(ledger,brief,output):
                     from .research_case import single_voltage_design_observations
                     observed.update(single_voltage_design_observations(network,spec))
                     observed['scene']=spec.scenario.kind
+                    if any(canonical(r.target_field or '') in ('repair_policy.strategy','repair_policy.allow_rewire') and r.priority=='hard' for r in ledger.requirements):
+                        observed.update(single_voltage_execution_observations(folder,brief,network))
             elif brief['plan_type']=='transmission':
                 network=json.loads((folder/'case.json').read_text())
                 for k in ('bus','gen','branch'):network[k]=np.asarray(network[k])
@@ -487,6 +584,7 @@ def audit_delivery(ledger,brief,output):
                     observed.update(transmission_execution_observations(folder,brief,network))
             if any(canonical(r.target_field or '')=='deliverables' and r.priority=='hard' for r in ledger.requirements):
                 observed['deliverables']=delivered_formats(folder,brief,network)
+                if delivered_visualization(folder,brief,network):observed['deliverables'].append('visualization')
         except (OSError,ValueError,KeyError,TypeError):
             model_accepted=False  # Missing evidence cannot retain a previously loaded accepted flag.
         if brief['plan_type'] in ('feeder','hierarchical','transmission') and batch_integrity is not True:model_accepted=False

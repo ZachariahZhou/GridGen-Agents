@@ -28,6 +28,9 @@ logs/
 *.sqlite*
 /reference_data/
 /data/
+/experiments/
+/deliverables/
+*.zip
 
 # Local editor and operating-system files
 .idea/

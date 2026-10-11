@@ -118,18 +118,35 @@ def initialize_voltage_dispatch(case,meta,spec):
         final_setpoints_pu=case['gen'][:,5].tolist())
 
 
+def generator_sites(spec, edges):
+    """Spread unspecified generator sites through graph distance, not bus IDs.
+
+    Farthest-first placement is an initial construction heuristic, with no AC
+    retry, changed nameplate, or post-construction relocation. Explicit sites
+    are authoritative. Keep the original first/slack site and deterministic
+    smallest-ID tie breaks. This is not an optimal reactive siting guarantee.
+    """
+    if spec.generator_buses is not None:
+        return list(spec.generator_buses)
+    graph = nx.Graph()
+    graph.add_nodes_from(range(1, spec.n_buses + 1))
+    graph.add_edges_from(edges)
+    selected = [1]
+    distance = {bus: math.inf for bus in graph}
+    while len(selected) < spec.n_generators:
+        for bus, hops in nx.single_source_shortest_path_length(graph, selected[-1]).items():
+            distance[bus] = min(distance[bus], hops)
+        selected.append(max((bus for bus in graph if bus not in selected),
+                            key=lambda bus: (distance[bus], -bus)))
+    return selected
+
+
 def generate(spec,seed):
     rng=np.random.default_rng(seed);n=spec.n_buses
     from .transmission_topology import build_topology
     positions,groups,nominal,edges,topology_design=build_topology(spec,rng,seed)
     bus=np.zeros((n,13));bus[:,0]=np.arange(1,n+1);bus[:,1]=1;bus[:,6]=1;bus[:,7]=1;bus[:,9]=nominal;bus[:,10]=1;bus[:,11]=spec.voltage_max_pu;bus[:,12]=spec.voltage_min_pu
     weights=rng.lognormal(0,.25 if spec.load_pattern=='dispersed' else 1.,n);bus[:,2]=spec.total_mw*weights/weights.sum();bus[-1,2]+=spec.total_mw-bus[:,2].sum();bus[:,3]=bus[:,2]*math.tan(math.acos(spec.power_factor))
-    sites=spec.generator_buses or [int(i*n/spec.n_generators)+1 for i in range(spec.n_generators)]
-    weights=np.asarray(spec.generator_weights or [1.]*spec.n_generators,dtype=float);weights/=weights.sum()
-    gen=np.zeros((spec.n_generators,21))
-    for i,b in enumerate(sites):
-        bus[b-1,1]=3 if i==0 else 2;share=spec.total_mw*weights[i]
-        gen[i,:10]=[b,share,0,share*.9,-share*.9,1.,100.,1.,share*1.6,0.]
     evidence=[line_record(a,b,positions,int(bus[a-1,9])) for a,b in edges]
     rating=next((x for x in TRANSFORMER_RATINGS if x>=spec.total_mw/spec.n_generators*2),TRANSFORMER_RATINGS[-1])
     for left,right in zip(groups,groups[1:]):
@@ -138,7 +155,15 @@ def generate(spec,seed):
         for _ in range(2):
             _,a,b=next(p for p in available if p[1] not in used and p[2] not in used);used.update((a,b))
             evidence.append(dict(kind='transformer',from_bus=a,to_bus=b,primary_kv=int(bus[a-1,9]),secondary_kv=int(bus[b-1,9]),rating_mva=rating,r_pu=.003,x_pu=.12,tap=1.,basis='Synthetic two-winding engineering template; impedance on transformer MVA base; no site geometry claim'))
+    sites=generator_sites(spec, [(e['from_bus'], e['to_bus']) for e in evidence])
+    weights=np.asarray(spec.generator_weights or [1.]*spec.n_generators,dtype=float);weights/=weights.sum()
+    gen=np.zeros((spec.n_generators,21))
+    for i,b in enumerate(sites):
+        bus[b-1,1]=3 if i==0 else 2;share=spec.total_mw*weights[i]
+        gen[i,:10]=[b,share,0,share*.9,-share*.9,1.,100.,1.,share*1.6,0.]
     meta=dict(network_kind='transmission',phase_model='balanced positive sequence',positions_km=positions,generator_types=spec.generator_types,
+        generator_placement=dict(policy='explicit' if spec.generator_buses is not None else 'graph_farthest_first_v1',
+            buses=sites, basis='User-specified sites, or deterministic graph-hop coverage at initial construction; no AC-based selection or capacity adjustment.'),
         branch_evidence=evidence,topology_design=topology_design,shunt_fraction=spec.shunt_compensation,parameter_policy='engineering_plausibility',frequency_hz=50,
         catalogue_hash=digest(data('transmission_lines.json')),reference='Physical-unit line profiles and declared transformer engineering templates',
         assumptions=['50Hz balanced steady-state research model; no dynamic, OPF or N-1 certification.',

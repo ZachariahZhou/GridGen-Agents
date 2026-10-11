@@ -1,0 +1,687 @@
+[
+  {
+    "case_id": "construction_h02",
+    "request": "\u751f\u6210\u4e00\u4e2a\u519c\u6751\u4e2d\u538b\u2014\u914d\u53d8\u2014\u4f4e\u538b\u2014\u7528\u6237\u914d\u7535\u7f51\u6a21\u578b\uff0c\u603b\u5171\u51c6\u786e71\u4e2a\u6bcd\u7ebf\uff0c\u5176\u4e2d10kV\u4e2d\u538b\u6bcd\u7ebf13\u4e2a\uff08\u542b\u7535\u6e90\uff09\uff0c\u914d\u53d86\u53f0\uff0c\u4f4e\u538b\u7535\u538b0.4kV\uff0c\u6bcf\u53f0\u914d\u53d8\u4e0b\u8bbe2\u4e2a\u4f4e\u538b\u5206\u652f\u6bcd\u7ebf\uff0c\u603b\u517140\u4e2a\u5355\u76f8\u7528\u6237\u3002\u603b\u8d1f\u8377120kW\uff0c\u5149\u4f0f\u88c5\u673a\u4e3a\u8d1f\u8377\u768420%\u3002\u5355\u76f8\u7528\u6237\u6570\u91cf\u6309A/B/C\u76f80.5/0.3/0.2\u5206\u914d\uff0c\u8fd9\u91cc\u662f\u7528\u6237\u6570\u91cf\u6bd4\u4f8b\uff0c\u4e0d\u662f\u5404\u76f8\u8d1f\u8377\u529f\u7387\u6bd4\u4f8b\u3002\u4ea4\u4ed8\u53ef\u8fd0\u884c\u7684OpenDSS\u548c\u53ef\u89c6\u5316\u3002 \u7269\u7406\u751f\u6210\u968f\u673a\u79cd\u5b50\u4e3a101022\u3002\u8bf7\u6267\u884c\u751f\u6210\u5e76\u4ea4\u4ed8\u4fdd\u5b58\u7684\u6a21\u578b\u6587\u4ef6\u3002",
+    "candidate": {
+      "status": "ready",
+      "family": "hierarchical",
+      "single_voltage_spec": null,
+      "distribution_spec": {
+        "scene": "rural",
+        "voltage_kv": 10,
+        "lv_voltage_kv": 0.4,
+        "transformer_count": 6,
+        "mv_buses": 13,
+        "customer_allocation": "varied",
+        "customer_connection": "distributed_taps",
+        "mv_topology_policy": "branched_v4",
+        "mv_topology": {
+          "family": "branched_network",
+          "branch_count": null,
+          "branching_factor": null,
+          "trunk_fraction": null,
+          "ring_count": null,
+          "terminal_count": 6,
+          "local_tie_count": 0
+        },
+        "structure_targets": null,
+        "lv_topology": "radial_chain",
+        "lv_branches": 2,
+        "users": 40,
+        "n_buses": 71,
+        "total_kw": 120.0,
+        "power_factor": 0.95,
+        "pv_ratio": 0.2,
+        "phase_weights": [
+          0.5,
+          0.3,
+          0.2
+        ],
+        "mv_segment_km_min": 0.05,
+        "mv_segment_km_max": 0.15,
+        "lv_segment_km_min": 0.01,
+        "lv_segment_km_max": 0.03,
+        "service_km_min": 0.003,
+        "service_km_max": 0.012,
+        "lv_equipment_profile": "auto",
+        "lv_installation": "aerial_bundle",
+        "lv_installation_decision": null,
+        "lv_regions": [],
+        "lv_ampacity_derating": 1.0,
+        "lv_drop_budget_pu": 0.05,
+        "loading_margin": 0.8,
+        "mv_voltage_min_pu": 0.93,
+        "mv_voltage_max_pu": 1.07,
+        "lv_voltage_min_pu": 0.9,
+        "lv_voltage_max_pu": 1.1,
+        "max_vuf_percent": 2.0,
+        "count": 1,
+        "seed": 101022
+      },
+      "transmission_spec": null,
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "hierarchical",
+        "summary": "\u519c\u6751\u4e2d\u538b\u2014\u914d\u53d8\u2014\u4f4e\u538b\u2014\u7528\u6237\u914d\u7535\u7f51\u6a21\u578b\uff0c\u603b\u6bcd\u7ebf71\u4e2a\uff0813\u4e2a\u4e2d\u538b\u542b\u7535\u6e90\uff0c6\u53f0\u914d\u53d8\uff0c\u6bcf\u53f02\u4e2a\u4f4e\u538b\u5206\u652f\uff0c40\u4e2a\u5355\u76f8\u7528\u6237\uff09\uff0c10kV/0.4kV\uff0c\u603b\u8d1f\u8377120kW\uff0c\u5149\u4f0f20%\uff0c\u76f8\u522b\u7528\u6237\u6570\u6bd4\u4f8b0.5/0.3/0.2\uff0cOpenDSS\u4ea4\u4ed8\uff0c\u79cd\u5b50101022\u3002",
+        "requirements": [
+          {
+            "id": "req_total_buses",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u5171\u51c6\u786e71\u4e2a\u6bcd\u7ebf",
+            "meaning": "\u603b\u5171\u51c6\u786e71\u4e2a\u6bcd\u7ebf",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "hierarchy.n_buses",
+            "expected_value": 71,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_mv_buses",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u5176\u4e2d10kV\u4e2d\u538b\u6bcd\u7ebf13\u4e2a\uff08\u542b\u7535\u6e90\uff09",
+            "meaning": "10kV\u4e2d\u538b\u6bcd\u7ebf13\u4e2a\uff08\u542b\u7535\u6e90\uff09",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "hierarchy.mv_buses",
+            "expected_value": 13,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_transformer_count",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u914d\u53d86\u53f0",
+            "meaning": "\u914d\u53d86\u53f0",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "hierarchy.transformer_count",
+            "expected_value": 6,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_lv_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u4f4e\u538b\u7535\u538b0.4kV",
+            "meaning": "\u4f4e\u538b\u7535\u538b0.4kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "hierarchy.lv_voltage_kv",
+            "expected_value": 0.4,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_lv_branches",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u6bcf\u53f0\u914d\u53d8\u4e0b\u8bbe2\u4e2a\u4f4e\u538b\u5206\u652f\u6bcd\u7ebf",
+            "meaning": "\u6bcf\u53f0\u914d\u53d8\u4e0b\u8bbe2\u4e2a\u4f4e\u538b\u5206\u652f\u6bcd\u7ebf",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "hierarchy.lv_branches",
+            "expected_value": 2,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_users",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u517140\u4e2a\u5355\u76f8\u7528\u6237",
+            "meaning": "\u603b\u517140\u4e2a\u5355\u76f8\u7528\u6237",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "hierarchy.users",
+            "expected_value": 40,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_total_load",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u603b\u8d1f\u8377120kW",
+            "meaning": "\u603b\u8d1f\u8377120kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "hierarchy.total_kw",
+            "expected_value": 120,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u5149\u4f0f\u88c5\u673a\u4e3a\u8d1f\u8377\u768420%",
+            "meaning": "\u5149\u4f0f\u88c5\u673a\u4e3a\u8d1f\u8377\u768420%",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "hierarchy.pv_ratio",
+            "expected_value": 0.2,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_phase_weights",
+            "segment_ids": [
+              2
+            ],
+            "evidence": "\u5355\u76f8\u7528\u6237\u6570\u91cf\u6309A/B/C\u76f80.5/0.3/0.2\u5206\u914d",
+            "meaning": "\u5355\u76f8\u7528\u6237\u6570\u91cf\u6309A/B/C\u76f80.5/0.3/0.2\u5206\u914d",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "hierarchy.phase_weights",
+            "expected_value": [
+              0.5,
+              0.3,
+              0.2
+            ],
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables",
+            "segment_ids": [
+              3
+            ],
+            "evidence": "\u4ea4\u4ed8\u53ef\u8fd0\u884c\u7684OpenDSS\u548c\u53ef\u89c6\u5316",
+            "meaning": "\u4ea4\u4ed8\u53ef\u8fd0\u884c\u7684OpenDSS\u548c\u53ef\u89c6\u5316",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss",
+              "visualization"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_seed",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u7269\u7406\u751f\u6210\u968f\u673a\u79cd\u5b50\u4e3a101022",
+            "meaning": "\u7269\u7406\u751f\u6210\u968f\u673a\u79cd\u5b50\u4e3a101022",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "distribution.seed",
+            "expected_value": 101022,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_scene",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u751f\u6210\u4e00\u4e2a\u519c\u6751\u4e2d\u538b\u2014\u914d\u53d8\u2014\u4f4e\u538b\u2014\u7528\u6237\u914d\u7535\u7f51\u6a21\u578b",
+            "meaning": "\u519c\u6751\u4e2d\u538b\u2014\u914d\u53d8\u2014\u4f4e\u538b\u2014\u7528\u6237\u914d\u7535\u7f51\u6a21\u578b",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "hierarchy.scene",
+            "expected_value": "rural",
+            "operator": "eq",
+            "reason": ""
+          }
+        ],
+        "questions": []
+      },
+      "issues": [],
+      "assumptions": [],
+      "uncertainties": [],
+      "edits": null,
+      "base_candidate_hash": null
+    },
+    "source_path": "experiments/m101_language_evidence_v1/jobs/construction_h02__full_outer__r1/workspace/projects/conversation/designs/rural_hierarchical_71bus_seed101022/failure_analysis/attempt_01.json",
+    "source_sha256": "448312cd0f28815038ec9702bf02692e32ef976c3a39392b253245670205702d"
+  },
+  {
+    "case_id": "construction_t01",
+    "request": "\u751f\u6210\u4e00\u4e2a\u9759\u6001\u5e73\u8861\u8f93\u7535\u7f51\u79d1\u7814\u6a21\u578b\uff0c\u51c6\u786e137\u4e2a\u6bcd\u7ebf\u548c12\u53f0\u53d1\u7535\u673a\uff0c220kV\uff0c\u603b\u8d1f\u8377\u56fa\u5b9a0.42GW\u3002\u6240\u6709\u6bcd\u7ebf\u8ddd\u5750\u6807\u539f\u70b9\u4e0d\u8d85\u8fc720km\uff0c\u7981\u7528\u81ea\u52a8\u4fee\u590d\u3002\u5bfc\u51fa\u53ef\u8fd0\u884c\u7684MATPOWER\u6587\u4ef6\u548c\u53ef\u89c6\u5316\u3002 \u7269\u7406\u751f\u6210\u968f\u673a\u79cd\u5b50\u4e3a101031\u3002\u8bf7\u6267\u884c\u751f\u6210\u5e76\u4ea4\u4ed8\u4fdd\u5b58\u7684\u6a21\u578b\u6587\u4ef6\u3002",
+    "candidate": {
+      "status": "ready",
+      "family": "transmission",
+      "single_voltage_spec": null,
+      "distribution_spec": null,
+      "transmission_spec": {
+        "network_kind": "transmission",
+        "voltage_layers": null,
+        "allow_topology_changes": false,
+        "connectivity": "connected",
+        "radial_bus_count": null,
+        "mesh_style": "local",
+        "mesh_family": "auto",
+        "load_pattern": "dispersed",
+        "generator_buses": null,
+        "generator_weights": null,
+        "targets": [],
+        "document_rules": [],
+        "validation_conditions": [],
+        "allowed_repairs": [
+          "shunt_step",
+          "voltage_setpoint",
+          "parallel_line",
+          "upgrade_transformer",
+          "transformer_tap",
+          "redispatch",
+          "relocate_corridor"
+        ],
+        "n_buses": 137,
+        "n_generators": 12,
+        "voltage_kv": 220,
+        "total_mw": 420.0,
+        "power_factor": 0.97,
+        "topology": "meshed",
+        "extra_edges": 45,
+        "shunt_compensation": 0.7,
+        "radius_km": 20.0,
+        "generator_types": [
+          "generic",
+          "generic",
+          "generic",
+          "generic",
+          "generic",
+          "generic",
+          "generic",
+          "generic",
+          "generic",
+          "generic",
+          "generic",
+          "generic"
+        ],
+        "voltage_min_pu": 0.95,
+        "voltage_max_pu": 1.05,
+        "count": 1,
+        "seed": 101031
+      },
+      "ledger": {
+        "network_kind": "transmission",
+        "model_family": "transmission",
+        "summary": "\u9759\u6001\u5e73\u8861\u8f93\u7535\u7f51\u79d1\u7814\u6a21\u578b\uff0c137\u6bcd\u7ebf\u300112\u53d1\u7535\u673a\u3001220kV\u3001\u603b\u8d1f\u8377420MW\uff0c\u5750\u6807\u534a\u5f8420km\uff0c\u7981\u7528\u81ea\u52a8\u4fee\u590d\uff0c\u5bfc\u51faMATPOWER\u53ca\u53ef\u89c6\u5316\u3002",
+        "requirements": [
+          {
+            "id": "req_n_buses",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u51c6\u786e137\u4e2a\u6bcd\u7ebf\u548c12\u53f0\u53d1\u7535\u673a",
+            "meaning": "\u51c6\u786e137\u4e2a\u6bcd\u7ebf",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "transmission.n_buses",
+            "expected_value": 137,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_n_generators",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u51c6\u786e137\u4e2a\u6bcd\u7ebf\u548c12\u53f0\u53d1\u7535\u673a",
+            "meaning": "12\u53f0\u53d1\u7535\u673a",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "transmission.n_generators",
+            "expected_value": 12,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_voltage_kv",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "220kV",
+            "meaning": "220kV\u7535\u538b\u7b49\u7ea7",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "transmission.voltage_kv",
+            "expected_value": 220,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_total_mw",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u8d1f\u8377\u56fa\u5b9a0.42GW",
+            "meaning": "\u603b\u8d1f\u8377\u56fa\u5b9a0.42GW\uff08420MW\uff09",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "transmission.total_mw",
+            "expected_value": 420,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_radius_km",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u6240\u6709\u6bcd\u7ebf\u8ddd\u5750\u6807\u539f\u70b9\u4e0d\u8d85\u8fc720km",
+            "meaning": "\u6240\u6709\u6bcd\u7ebf\u8ddd\u5750\u6807\u539f\u70b9\u4e0d\u8d85\u8fc720km",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "transmission.radius_km",
+            "expected_value": 20,
+            "operator": "le",
+            "reason": ""
+          },
+          {
+            "id": "req_allow_topology_changes",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u7981\u7528\u81ea\u52a8\u4fee\u590d",
+            "meaning": "\u7981\u7528\u81ea\u52a8\u4fee\u590d\uff08\u4e0d\u5141\u8bb8\u62d3\u6251\u4fee\u6539\uff09",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "transmission.allow_topology_changes",
+            "expected_value": false,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_matpower",
+            "segment_ids": [
+              2
+            ],
+            "evidence": "\u5bfc\u51fa\u53ef\u8fd0\u884c\u7684MATPOWER\u6587\u4ef6\u548c\u53ef\u89c6\u5316",
+            "meaning": "\u5bfc\u51fa\u53ef\u8fd0\u884c\u7684MATPOWER\u6587\u4ef6",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": "matpower",
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_visualization",
+            "segment_ids": [
+              2
+            ],
+            "evidence": "\u5bfc\u51fa\u53ef\u8fd0\u884c\u7684MATPOWER\u6587\u4ef6\u548c\u53ef\u89c6\u5316",
+            "meaning": "\u5bfc\u51fa\u53ef\u89c6\u5316",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": "visualization",
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_seed",
+            "segment_ids": [
+              3
+            ],
+            "evidence": "\u7269\u7406\u751f\u6210\u968f\u673a\u79cd\u5b50\u4e3a101031",
+            "meaning": "\u7269\u7406\u751f\u6210\u968f\u673a\u79cd\u5b50\u4e3a101031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "transmission.seed",
+            "expected_value": 101031,
+            "operator": "eq",
+            "reason": ""
+          }
+        ],
+        "questions": []
+      },
+      "issues": [],
+      "assumptions": [],
+      "uncertainties": [],
+      "edits": null,
+      "base_candidate_hash": null
+    },
+    "source_path": "experiments/m101_language_evidence_v1/jobs/construction_t01__full_outer__r1/workspace/projects/conversation/designs/transmission_137bus_220kv_seed101031/failure_analysis/attempt_01.json",
+    "source_sha256": "31f98e0540ab24bbfacf6144816c267ae4c8e7520bbfec2bac8dd795be70096e"
+  },
+  {
+    "case_id": "revision_04",
+    "request": "\u751f\u6210\u4e00\u6761\u519c\u6751\u914d\u7535\u9988\u7ebf\uff0c\u603b\u6bcd\u7ebf\u6570\u51c6\u786e\u4e3a63\uff0c\u5305\u542b\u7535\u6e90\u6bcd\u7ebf\uff0c\u5355\u4e00\u7535\u538b\u7b49\u7ea710kV\uff0c\u91c7\u7528\u4e09\u76f8\u4e0d\u5e73\u8861\u6a21\u578b\u3002\u603b\u8d1f\u8377\u56fa\u5b9a\u4e3a160 kW\uff0c\u5149\u4f0f\u603b\u88c5\u673a\u4e3a\u603b\u8d1f\u8377\u768415%\u3002\u5bfc\u51fa\u53ef\u8fd0\u884c\u7684OpenDSS\u6a21\u578b\u548c\u53ef\u89c6\u5316\u3002\u521d\u59cb\u6784\u5efa\u5b8c\u6210\u540e\u7981\u7528\u81ea\u52a8\u4fee\u590d\u3002 \u7269\u7406\u751f\u6210\u968f\u673a\u79cd\u5b50\u4e3a101044\u3002\u8bf7\u6267\u884c\u751f\u6210\u5e76\u4ea4\u4ed8\u4fdd\u5b58\u7684\u6a21\u578b\u6587\u4ef6\u3002\n\u7ed3\u6784\u5316\u8865\u5145\u7ea6\u675f\uff1a\u603b\u6bcd\u7ebf\u8282\u70b9\u6570\uff08\u5305\u542b1\u4e2a\u7535\u6e90\u8282\u70b9\uff09\u4e3a63\u3002",
+    "candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "document_rules": [],
+        "repair_policy": {
+          "strategy": "none",
+          "allow_rewire": false,
+          "preview_limit": 2,
+          "max_candidates": 8
+        },
+        "scenario": {
+          "load_placement": "all_nodes",
+          "reference_case_id": null,
+          "kind": "rural",
+          "layout": "spatial_mst",
+          "engineering_profile": "generic",
+          "topology": null,
+          "tie_count": 0,
+          "load_shape": "heterogeneous",
+          "load_concentration": 2.0,
+          "calibration_profile": null,
+          "empirical_weight": 0.7,
+          "village_count": null,
+          "trunk_fraction": 0.3,
+          "aspect_ratio": null,
+          "positions_km": null
+        },
+        "phase_design": {
+          "mode": "unbalanced",
+          "load_phase_weights": [
+            0.5,
+            0.3,
+            0.2
+          ],
+          "pv_phase_weights": null,
+          "single_phase_laterals": null,
+          "two_phase_laterals": null,
+          "max_vuf_percent": 2.0
+        },
+        "equipment_design": {
+          "mode": "auto",
+          "reference_feeders": [
+            "J1",
+            "K1",
+            "Ckt5",
+            "Ckt24"
+          ],
+          "source_weighting": "equal_feeder",
+          "loading_margin": 0.8,
+          "capacity_band": 2.0,
+          "conditioning": "length_voltage",
+          "length_bandwidth": 0.65,
+          "voltage_drop_budget_pu": 0.05,
+          "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+        },
+        "count": 1,
+        "n_buses": 63,
+        "n_loads_min": 62,
+        "n_loads_max": 62,
+        "total_kw_min": 160.0,
+        "total_kw_max": 160.0,
+        "voltage_kv": 10.0,
+        "frequency_hz": 50,
+        "power_factor": 0.95,
+        "pv_ratio": 0.15,
+        "segment_km_min": 0.05,
+        "segment_km_max": 0.25,
+        "seed": 101044,
+        "mode": "normal",
+        "load_semantics": "aggregated",
+        "special_pf_agreement": false,
+        "max_repairs": 2
+      },
+      "distribution_spec": null,
+      "transmission_spec": null,
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Rural single-voltage 10 kV distribution feeder with 63 buses (including source), unbalanced three-phase model, fixed 160 kW total load, 15% PV ratio, OpenDSS deliverable, no automatic repairs, seed 101044.",
+        "requirements": [
+          {
+            "id": "req_n_buses",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u6bcd\u7ebf\u6570\u51c6\u786e\u4e3a63",
+            "meaning": "Total bus count including source is exactly 63",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 63,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u5355\u4e00\u7535\u538b\u7b49\u7ea710kV",
+            "meaning": "Single voltage level at 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_phase_model",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u91c7\u7528\u4e09\u76f8\u4e0d\u5e73\u8861\u6a21\u578b",
+            "meaning": "Three-phase unbalanced model",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "unbalanced",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_total_load",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u603b\u8d1f\u8377\u56fa\u5b9a\u4e3a160 kW",
+            "meaning": "Fixed total load of 160 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 160,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u5149\u4f0f\u603b\u88c5\u673a\u4e3a\u603b\u8d1f\u8377\u768415%",
+            "meaning": "PV capacity is 15% of total load",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0.15,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverable_opendss",
+            "segment_ids": [
+              2
+            ],
+            "evidence": "\u5bfc\u51fa\u53ef\u8fd0\u884c\u7684OpenDSS\u6a21\u578b\u548c\u53ef\u89c6\u5316",
+            "meaning": "Export runnable OpenDSS model and visualization",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "capability.deliverables",
+            "expected_value": [
+              "opendss",
+              "visualization"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_no_repair",
+            "segment_ids": [
+              3
+            ],
+            "evidence": "\u521d\u59cb\u6784\u5efa\u5b8c\u6210\u540e\u7981\u7528\u81ea\u52a8\u4fee\u590d",
+            "meaning": "Disable automatic repair after initial build",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_seed",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u7269\u7406\u751f\u6210\u968f\u673a\u79cd\u5b50\u4e3a101044",
+            "meaning": "Physical generation random seed is 101044",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "seed",
+            "expected_value": 101044,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_scene_rural",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u751f\u6210\u4e00\u6761\u519c\u6751\u914d\u7535\u9988\u7ebf",
+            "meaning": "Rural distribution feeder",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "rural",
+            "operator": "eq",
+            "reason": ""
+          }
+        ],
+        "questions": []
+      },
+      "issues": [],
+      "assumptions": [
+        "Default spatial_mst layout for rural scene as no specific topology family was requested.",
+        "Default equipment_design mode auto for line and transformer selection.",
+        "Default load placement all_nodes since each bus is implied to have load or be a junction in the rural feeder context.",
+        "OpenDSS and visualization are standard deliverables for single_voltage distribution models."
+      ],
+      "uncertainties": [],
+      "edits": null,
+      "base_candidate_hash": null
+    },
+    "source_path": "experiments/m101_language_evidence_v1/jobs/revision_04__full_outer__r1/workspace/projects/conversation/designs/rural_feeder_63bus_unbalanced/failure_analysis/attempt_01.json",
+    "source_sha256": "55c9571b03218be844b883478f776cc95c5c2a67ac5211f1872488b52ec8b347"
+  }
+]

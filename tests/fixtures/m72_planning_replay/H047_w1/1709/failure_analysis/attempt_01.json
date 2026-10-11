@@ -1,0 +1,223 @@
+{
+  "candidate": {
+    "status": "ready",
+    "family": "hierarchical",
+    "single_voltage_spec": null,
+    "distribution_spec": {
+      "scene": "rural",
+      "voltage_kv": 10,
+      "lv_voltage_kv": 0.4,
+      "transformer_count": 2,
+      "mv_buses": 35,
+      "customer_allocation": "varied",
+      "mv_topology_policy": "branched_v4",
+      "mv_topology": {
+        "family": "branched_network",
+        "branch_count": null,
+        "branching_factor": null,
+        "trunk_fraction": null,
+        "ring_count": null,
+        "terminal_count": 2,
+        "local_tie_count": null
+      },
+      "structure_targets": null,
+      "lv_topology": "branch_star",
+      "lv_branches": 2,
+      "users": 8,
+      "n_buses": 49,
+      "total_kw": 102.0,
+      "power_factor": 0.95,
+      "pv_ratio": 0.3,
+      "phase_weights": [
+        0.5,
+        0.3,
+        0.2
+      ],
+      "mv_segment_km_min": 0.1,
+      "mv_segment_km_max": 0.3,
+      "lv_segment_km_min": 0.02,
+      "lv_segment_km_max": 0.05,
+      "service_km_min": 0.005,
+      "service_km_max": 0.015,
+      "lv_equipment_profile": "auto",
+      "lv_installation": "aerial_bundle",
+      "lv_installation_decision": null,
+      "lv_regions": [],
+      "lv_ampacity_derating": 1.0,
+      "lv_drop_budget_pu": 0.05,
+      "loading_margin": 0.8,
+      "mv_voltage_min_pu": 0.93,
+      "mv_voltage_max_pu": 1.07,
+      "lv_voltage_min_pu": 0.9,
+      "lv_voltage_max_pu": 1.1,
+      "max_vuf_percent": 2.0,
+      "count": 1,
+      "seed": 42
+    },
+    "transmission_spec": null,
+    "ledger": {
+      "network_kind": "distribution",
+      "model_family": "hierarchical",
+      "summary": "Rural 10/0.4kV hierarchical distribution case with branched MV network, 2 transformers, unbalanced phase model, and OpenDSS deliverable.",
+      "requirements": [
+        {
+          "id": "req_0",
+          "segment_ids": [
+            0
+          ],
+          "evidence": "\u4e2d\u538b\u6bcd\u7ebf\u548c\u5355\u76f8\u7528\u6237\u6570\u91cf\u7531Agent\u5408\u7406\u5206\u914d\uff0c\u4f7f\u603b\u6bcd\u7ebf\u6570\u7b26\u5408\u8981\u6c42",
+          "meaning": "Agent allocates MV buses and single-phase users to satisfy total bus count constraints; no fixed numeric target for these individual fields.",
+          "priority": "permission",
+          "disposition": "supported",
+          "target_field": null,
+          "expected_value": null,
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_1",
+          "segment_ids": [
+            3
+          ],
+          "evidence": "\u751f\u621010/0.4kV\u519c\u6751\u4e09\u76f8\u4e0d\u5e73\u8861\u8be6\u7ec6\u914d\u7535case\uff0c\u56db\u5341\u591a\u4e2a\u6bcd\u7ebf\uff0c\u914d\u53d82\u53f0\uff0c\u6bcf\u53f0\u914d\u53d82\u4e2a\u4f4e\u538b\u5206\u652f\u8282\u70b9",
+          "meaning": "Total bus count must be in the range of 41-49 (forty-plus). Agent allocates MV buses and users to satisfy this.",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "hierarchy.n_buses",
+          "expected_value": {
+            "ge": 41,
+            "le": 49
+          },
+          "operator": "ge",
+          "reason": ""
+        },
+        {
+          "id": "req_2",
+          "segment_ids": [
+            1
+          ],
+          "evidence": "\u603b\u8d1f\u8377102kW",
+          "meaning": "Total coincident peak load is fixed at 102 kW.",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "hierarchy.total_kw",
+          "expected_value": 102,
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_3",
+          "segment_ids": [
+            1
+          ],
+          "evidence": "\u5149\u4f0f\u6bd4\u4f8b30%",
+          "meaning": "PV capacity ratio is 30% of total load.",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "hierarchy.pv_ratio",
+          "expected_value": 0.3,
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_4",
+          "segment_ids": [
+            1
+          ],
+          "evidence": "\u4e2d\u538b\u91c7\u7528\u5e26\u5206\u652f\u7684\u8f90\u5c04\u9aa8\u67b6",
+          "meaning": "MV topology is a branched radial network.",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "hierarchy.mv_topology.family",
+          "expected_value": "branched_network",
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_5",
+          "segment_ids": [
+            1
+          ],
+          "evidence": "\u8f93\u51faOpenDSS",
+          "meaning": "Deliverable format must include OpenDSS.",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "deliverables",
+          "expected_value": [
+            "opendss"
+          ],
+          "operator": "contains",
+          "reason": ""
+        },
+        {
+          "id": "req_6",
+          "segment_ids": [
+            2
+          ],
+          "evidence": "\u6577\u8bbe\u65b9\u5f0f\u548c\u8bbe\u5907\u5408\u7406\u9009\u62e9\u5e76\u89e3\u91ca",
+          "meaning": "LV installation and equipment are selected by Agent with justification.",
+          "priority": "preference",
+          "disposition": "supported",
+          "target_field": null,
+          "expected_value": null,
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_7",
+          "segment_ids": [
+            3
+          ],
+          "evidence": "\u751f\u621010/0.4kV\u519c\u6751\u4e09\u76f8\u4e0d\u5e73\u8861\u8be6\u7ec6\u914d\u7535case",
+          "meaning": "Voltage levels are 10kV MV and 0.4kV LV, scene is rural, and phase model is unbalanced.",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "hierarchy.voltage_kv",
+          "expected_value": 10,
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_8",
+          "segment_ids": [
+            3
+          ],
+          "evidence": "\u914d\u53d82\u53f0",
+          "meaning": "Number of distribution transformers is 2.",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "hierarchy.transformer_count",
+          "expected_value": 2,
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_9",
+          "segment_ids": [
+            3
+          ],
+          "evidence": "\u6bcf\u53f0\u914d\u53d82\u4e2a\u4f4e\u538b\u5206\u652f\u8282\u70b9",
+          "meaning": "Each transformer has exactly 2 LV branch nodes.",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "hierarchy.lv_branches",
+          "expected_value": 2,
+          "operator": "eq",
+          "reason": ""
+        }
+      ],
+      "questions": []
+    },
+    "issues": [],
+    "assumptions": [
+      "LV installation selected as aerial_bundle for rural scene based on typical cost and maintenance considerations.",
+      "MV topology family branched_network with terminal_count=2 ensures branched radial structure.",
+      "Unbalanced phase model is inherent to hierarchical distribution spec.",
+      "User count derived from total bus formula: n_buses = mv_buses + transformer_count * (1 + lv_branches) + users. With mv_buses=35, transformers=2, lv_branches=2, users=8, total buses = 35 + 2*(1+2) + 8 = 49, satisfying 'forty-plus' (41-49)."
+    ],
+    "uncertainties": [],
+    "edits": null,
+    "base_candidate_hash": null
+  },
+  "request": "\u4e2d\u538b\u6bcd\u7ebf\u548c\u5355\u76f8\u7528\u6237\u6570\u91cf\u7531Agent\u5408\u7406\u5206\u914d\uff0c\u4f7f\u603b\u6bcd\u7ebf\u6570\u7b26\u5408\u8981\u6c42\uff1b\u603b\u8d1f\u8377102kW\uff0c\u5149\u4f0f\u6bd4\u4f8b30%\uff0c\u4e2d\u538b\u91c7\u7528\u5e26\u5206\u652f\u7684\u8f90\u5c04\u9aa8\u67b6\uff0c\u8f93\u51faOpenDSS\uff1b\u6577\u8bbe\u65b9\u5f0f\u548c\u8bbe\u5907\u5408\u7406\u9009\u62e9\u5e76\u89e3\u91ca\uff1b\u751f\u621010/0.4kV\u519c\u6751\u4e09\u76f8\u4e0d\u5e73\u8861\u8be6\u7ec6\u914d\u7535case\uff0c\u56db\u5341\u591a\u4e2a\u6bcd\u7ebf\uff0c\u914d\u53d82\u53f0\uff0c\u6bcf\u53f0\u914d\u53d82\u4e2a\u4f4e\u538b\u5206\u652f\u8282\u70b9\u3002"
+}

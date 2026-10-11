@@ -118,7 +118,7 @@ def test_language_entry_preserves_exact_node_count_and_surfaces_ambiguity(tmp_pa
     assert r['plan']['base_spec']['n_buses']==13
     r=design_from_request('\u751f\u621037\u4e2a\u8282\u70b9\u7684\u9988\u7ebf\uff0c\u5c06\u672b\u7aef\u7535\u538b\u5bf9\u6709\u529f\u6ce8\u5165\u7684\u7075\u654f\u5ea6\u63d0\u9ad85%\u523050%\u3002',
                           tmp_path,'mismatch',execute=False,model=Model())
-    assert r['status']=='needs_clarification'
+    assert r['status']=='planning_failed' and r['failure_origin']=='compiler'
 
 
 def test_response_tools_are_available_to_langchain(tmp_path):
@@ -255,7 +255,7 @@ def test_language_does_not_grant_layout_changes_without_user_permission(tmp_path
             p=urban_response_plan();p['search'].update(allowed_actions=['replace_conductor','scale_layout'],max_layout_scale_change=.15)
             return dict(status='ready',plan=p,issues=[])
     r=design_response_from_request('\u751f\u621025\u8282\u70b9\u57ce\u5e02\u9988\u7ebf\uff0c\u672b\u7aef\u7075\u654f\u5ea6\u63d0\u9ad85%\u81f325%\uff0c\u53ea\u5141\u8bb8\u6362\u5bfc\u7ebf\u3002',tmp_path,'forbidden',execute=False,model=Model())
-    assert r['status']=='needs_clarification' and not r['plan']
+    assert r['status']=='planning_failed' and not r['plan']
     r=design_response_from_request('\u751f\u621025\u8282\u70b9\u57ce\u5e02\u9988\u7ebf\uff0c\u672b\u7aef\u7075\u654f\u5ea6\u63d0\u9ad85%\u81f325%\uff0c\u5141\u8bb8\u6574\u4f53\u7a7a\u95f4\u7f29\u653e\u4e0d\u8d85\u8fc715%\u3002',tmp_path,'permitted',execute=False,model=Model())
     assert r['status']=='draft'
 

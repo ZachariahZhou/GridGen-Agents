@@ -5,6 +5,7 @@ import fcntl
 import importlib.metadata
 import json
 import math
+import random
 import re
 import zipfile
 from itertools import zip_longest, combinations
@@ -18,6 +19,9 @@ from .response_measurement import create_model, resolve_probes, measure
 from .response_schema import ResponseDesignPlan
 from .schemas import StrictModel
 from .response_distribution import conductor_options, layout_options, catalogue_diagnosis
+from .solver_accounting import SolverMeter, solver_phase, ACSearchBudgetExceeded
+from .response_search import (physical_fingerprint, exploration_eligible,
+                              response_priority, retain_archive, learn_proxy_gains)
 
 
 def protected_fingerprint(model):
@@ -66,10 +70,15 @@ def score_response(measurement, targets, reference):
 
 
 def accept_candidate(before, after, preserved):
-    """No worsening of any response deficit, including already-met targets."""
+    """No material deficit regression; final target thresholds stay unchanged.
+
+    Central AC differences exhibit small numerical cross-port variation.
+    The 1e-6 normalized search tolerance does not relax score_response or the
+    independently verified delivery target, including already-met targets.
+    """
     return bool(preserved and after['base_accepted'] and after['valid']
         and len(before['deficits']) == len(after['deficits'])
-        and all(a <= b+1e-9 for a, b in zip(after['deficits'], before['deficits']))
+        and all(a <= b+1e-6 for a, b in zip(after['deficits'], before['deficits']))
         and (sum(after['deficits']) < sum(before['deficits'])-1e-9 or not before['base_accepted']))
 
 
@@ -77,7 +86,7 @@ def _distribution_options(model, spec, probes, assessment):
     return conductor_options(model, spec, probes, assessment)
 
 
-def propose_response_actions(model, spec, probes, assessment, search, original=None, audit=None, *, remaining_rounds=None):
+def propose_response_actions(model, spec, probes, assessment, search, original=None, audit=None, *, remaining_rounds=None, compensation_audit=None, seen_physical=None, candidate_filter=None):
     if model['kind'] == 'distribution':
         actions = _distribution_options(model, spec, probes, assessment) if 'replace_conductor' in search.allowed_actions else []
         if not assessment['base_accepted'] and 'replace_conductor' in search.allowed_actions:
@@ -116,13 +125,13 @@ def propose_response_actions(model, spec, probes, assessment, search, original=N
                         proxy_effect=impact.get(i, 0), diagnosis='Add a complete parallel circuit; retain the fixed charging compensation fraction; verify AC transfer response'))
             from .response_transmission import rank_parallel_actions
             actions = rank_parallel_actions(model, probes, assessment, actions,
-                lookahead=min(2, search.max_rounds if remaining_rounds is None else remaining_rounds))
+                lookahead=1 if search.selector == 'greedy' else min(2, search.max_rounds if remaining_rounds is None else remaining_rounds))
     if model['kind'] == 'distribution':
         from .response_distribution import rank_distribution_actions
         actions = rank_distribution_actions(model, probes, assessment, actions, preserve_diversity=True)
     unique = {}
     for action in actions:
-        key = digest({k: v for k, v in action.items() if k not in ('diagnosis', 'proxy_effect', 'dc_predicted_deficit', 'dc_response_ratios', 'dc_lookahead_deficit', 'dc_lookahead_action', 'proxy_predicted_deficits', 'proxy_response_estimates')})[:16]
+        key = digest({k: v for k, v in action.items() if k not in ('diagnosis', 'proxy_effect', 'dc_predicted_deficit', 'dc_response_ratios', 'dc_lookahead_deficit', 'dc_lookahead_action', 'proxy_predicted_deficits', 'proxy_response_estimates', 'proxy_raw_response_estimates')})[:16]
         unique.setdefault(key, dict(action, action_id=key))
     elementary=list(unique.values())
     if search.max_joint_actions>1:
@@ -133,7 +142,7 @@ def propose_response_actions(model, spec, probes, assessment, search, original=N
             if a['kind']==b['kind'] and any(a.get(k) is not None and a.get(k)==b.get(k) for k in ('line_id','child_bus','index')):continue
             action=dict(kind='compound',actions=[a,b],diagnosis='Joint preview of two permitted moves; validate every target and the combined original-reference budget')
             joint.append(dict(action,action_id=digest(action)[:16]))
-        from .response_compensation import compensation_actions
+        from .response_compensation import compensation_actions, conditional_compensation_actions
         compensation=[]
         counter_moves=compensation_actions(model,original,spec,probes,assessment,search)
         for a in elementary[:12]:
@@ -141,20 +150,36 @@ def propose_response_actions(model, spec, probes, assessment, search, original=N
                 if a.get('probe_id')==b.get('probe_id'):continue
                 action=dict(kind='compound',actions=[a,b],diagnosis='Joint response adjustment with a compensating move at an already-met port; evaluate only the original targets')
                 compensation.append(dict(action,action_id=digest(action)[:16]))
-        actions=[a for row in zip_longest(elementary,joint,compensation) for a in row if a is not None]
+        mode=search.compensation_mode
+        fitted = (conditional_compensation_actions(model, probes, assessment, elementary[:12], counter_moves,
+            original=original if mode=='bounded' else None,spec=spec,search=search,audit=compensation_audit)
+            if mode!='fixed' else [])
+        fitted = [dict(a, action_id=digest(a)[:16]) for a in fitted]
+        actions=[a for row in zip_longest(elementary,joint,compensation,fitted) for a in row if a is not None]
     else:actions=elementary
+    if candidate_filter is not None:
+        actions=[action for action in actions if candidate_filter(action)]
     if model['kind']=='distribution' and original is not None:
         actions = rank_distribution_actions(model, probes, assessment, actions)
         # Cheap structural/permission screening precedes the preview budget.
         from types import SimpleNamespace
         contract=SimpleNamespace(search=search,base_spec=spec)
-        screened=[]
+        from .response_candidates import diverse_directions
+        actions=diverse_directions(actions)
+        screened=[];fingerprints=set(seen_physical or ())
+        fingerprints.add(physical_fingerprint(model))
         for action in actions:
             try:
                 trial=apply_response_action(model,spec,action)
                 preserved=research_contract_preserved(original,trial,contract)
+                identity=physical_fingerprint(trial) if preserved else None
+                if preserved and identity in fingerprints:
+                    if audit is not None:audit.append(dict(action=action,eligible_for_ac=False,
+                        reason='duplicate_before_preview',physical_hash=identity))
+                    continue
                 if audit is not None:audit.append(dict(action=action,eligible_for_ac=preserved,reason='Original-reference contract satisfied' if preserved else 'Edit budget or structural contract failed'))
-                if preserved:screened.append(action)
+                if preserved:
+                    fingerprints.add(identity);screened.append(action)
             except (ValueError,KeyError,nx.NetworkXException) as exc:
                 if audit is not None:audit.append(dict(action=action,eligible_for_ac=False,reason=type(exc).__name__+': '+str(exc)))
                 continue
@@ -200,22 +225,30 @@ class ResponseDecision(StrictModel):
 
 
 def _choose(options, plan, root, model):
-    if plan.search.selector == 'heuristic':
+    if plan.search.selector == 'uniform':
+        # A reproducible selector within the shared proposer, not a uniform
+        # sampler over the entire legal model space.
+        rng = random.Random(f'{plan.base_spec.seed}:{Path(root).name}')
+        return rng.choice(options), dict(selector='uniform',
+            policy='Uniform selection among verified eligible retained alternatives; shared physical proposer')
+    if plan.search.selector in {'heuristic', 'greedy'}:
         def priority(option):
             actual = sum(option['assessment']['deficits'])
-            future = option['action'].get('dc_lookahead_deficit', actual)
+            future = option['action'].get('dc_lookahead_deficit', actual) if plan.search.selector == 'heuristic' else actual
             return (not option['assessment']['target_met'], future, actual,
                     len(option['action'].get('actions', [option['action']])), option['action']['action_id'])
-        return min(options, key=priority), dict(selector='heuristic',
-            policy='AC-verified completion first; bounded DC lookahead for transfer corridors; measured deficit otherwise')
+        return min(options, key=priority), dict(selector=plan.search.selector,
+            policy='AC-verified completion first; physical lookahead for heuristic, measured deficit for greedy')
     from .structured_planning import StructuredPlanner
     if model is None:
         from .agent import configured_model
         model = configured_model(timeout=30, max_retries=0, max_tokens=2000, disable_thinking=True)
     planner = StructuredPlanner(model, ResponseDecision, root)
     evidence = [dict(action=o['action'], targets=o['assessment']['targets']) for o in options]
-    decision = planner.invoke([dict(role='system', content='Select one electrically verified action that advances the research targets. Never invent actions or alter the requirements. Return stop if no justified edit remains.'),
-        dict(role='user', content=json.dumps(dict(research_question=plan.research_question, candidates=evidence), ensure_ascii=False))])
+    authority=options[0]['assessment'].get('adjustment_authority') if options else None
+    decision = planner.invoke([dict(role='system', content='Select one electrically verified eligible candidate for the next search expansion. Archive candidates may temporarily trade response deficits within a fixed allowance; hard constraints remain mandatory. Never invent actions or alter requirements. Return stop if no justified exploration remains.'),
+        dict(role='user', content=json.dumps(dict(research_question=plan.research_question, candidates=evidence,
+            original_adjustment_authority=authority), ensure_ascii=False))])
     planner.valid()
     if decision.action_id == 'stop': return None, dict(selector='agent', **decision.model_dump())
     chosen = next((o for o in options if o['action']['action_id'] == decision.action_id), None)
@@ -272,7 +305,7 @@ def run_response_design(plan, workspace, design_id, *, model=None,task_context=N
     if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,63}', design_id): raise ValueError('Invalid response design ID')
     root = Path(workspace).resolve()/'response_designs'/design_id
     root.mkdir(parents=True, exist_ok=True)
-    with (root/'.lock').open('w') as lock:
+    with (root/'.lock').open('w') as lock, SolverMeter(plan.search.max_search_ac_calls) as meter:
         fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
         manifest = _manifest(plan,task_context)
         if (root/'manifest.json').exists():
@@ -280,7 +313,9 @@ def run_response_design(plan, workspace, design_id, *, model=None,task_context=N
             if not (root/'result.json').exists(): raise ValueError('Interrupted response run; use a new ID')
             return read_response_result(root)
         atomic_json(root/'manifest.json', manifest)
-        current_model = create_model(plan.base_spec); original_model = copy.deepcopy(current_model)
+        with solver_phase('construction'):
+            current_model = create_model(plan.base_spec)
+        original_model = copy.deepcopy(current_model)
         if task_context is not None:
             from .research_tasks import _model_hash
             if _model_hash(original_model)!=task_context['original_model_hash']:
@@ -295,37 +330,94 @@ def run_response_design(plan, workspace, design_id, *, model=None,task_context=N
                 measured['base_accepted']=measured['base_accepted'] and measured['task_validation']['accepted']
             return measured
         atomic_json(root/'resolved_probes.json', probes)
-        initial = checked_measure(current_model,root/'baseline')
+        with solver_phase('baseline'):
+            initial = checked_measure(current_model,root/'baseline')
         current = score_response(initial, plan.targets, initial)
-        _export(copy.deepcopy(current_model), plan.base_spec, root/'baseline/model', current)
+        from .response_authority import estimate_adjustment_authority
+        authority=estimate_adjustment_authority(plan,initial)
+        current['adjustment_authority']=authority
+        atomic_json(root/'adjustment_authority.json',authority)
+        with solver_phase('export'):
+            _export(copy.deepcopy(current_model), plan.base_spec, root/'baseline/model', current)
         trace = []; rows = [dict(candidate='baseline', round=0, eligible=True, committed=True,
-            base_accepted=current['base_accepted'], target_met=current['target_met'], deficit=sum(current['deficits']))]
+            parent=None, base_accepted=current['base_accepted'], target_met=current['target_met'], deficit=sum(current['deficits']))]
         selected = 'baseline'; stop = 'targets_met' if current['target_met'] else 'search_exhausted'
-        seen = set()
+        strategy = plan.search.strategy
+        if strategy == 'auto': strategy = 'archive' if len(plan.targets) > 1 else 'monotone'
+        active = dict(candidate='baseline', model=current_model, assessment=current, parent=None)
+        states = {'baseline': active}; pending = []
+        seen = {physical_fingerprint(current_model)}
         for round_index in range(1, plan.search.max_rounds+1):
             if current['target_met'] or not current['valid']: break
-            proposal_audit=[]
-            options = propose_response_actions(current_model, plan.base_spec, probes, current, plan.search, original_model,proposal_audit,
-                remaining_rounds=plan.search.max_rounds-round_index+1)
-            atomic_json(root/f'proposals/round_{round_index:02d}.json',dict(screened=proposal_audit,ac_preview_count=len(options)))
-            eligible = []
+            proposal_audit=[]; compensation_audit=[]
+            parent_model, parent_assessment = active['model'], active['assessment']
+            options = propose_response_actions(parent_model, plan.base_spec, probes, parent_assessment, plan.search, original_model,proposal_audit,
+                remaining_rounds=plan.search.max_rounds-round_index+1,compensation_audit=compensation_audit,seen_physical=seen)
+            atomic_json(root/f'proposals/round_{round_index:02d}.json',dict(parent=active['candidate'], screened=proposal_audit,
+                compensation_fits=compensation_audit, proposed_previews=len(options)))
+            eligible = []; budget_exhausted = False
             for action in options:
                 candidate = f'round_{round_index:02d}_{action["action_id"]}'
-                if candidate in seen: continue
-                seen.add(candidate)
-                trial_model = apply_response_action(current_model, plan.base_spec, action)
+                trial_model = apply_response_action(parent_model, plan.base_spec, action)
                 preserved = research_contract_preserved(original_model, trial_model, plan)
-                trial = score_response(checked_measure(trial_model,root/'trials'/candidate), plan.targets, initial)
-                keep = accept_candidate(current, trial, preserved)
+                identity = physical_fingerprint(trial_model)
+                if not preserved or identity in seen:
+                    trace.append(dict(event='candidate_skipped', candidate=candidate, parent=active['candidate'],
+                        reason='duplicate_physical_model' if identity in seen else 'original_contract_failed'))
+                    continue
+                seen.add(identity)
+                try:
+                    with solver_phase('search'):
+                        trial = score_response(checked_measure(trial_model,root/'trials'/candidate), plan.targets, initial)
+                        trial['adjustment_authority']=authority
+                except ACSearchBudgetExceeded:
+                    trace.append(dict(event='incomplete_candidate', candidate=candidate,
+                        parent=active['candidate'], reason='search_ac_budget_exhausted'))
+                    budget_exhausted = True
+                    break
+                if plan.search.calibrate_proxies:
+                    trial['proxy_gains'] = learn_proxy_gains(parent_assessment, trial, action)
+                monotone = accept_candidate(parent_assessment, trial, preserved)
+                keep = (exploration_eligible(trial, current, preserved=preserved,
+                            allowance=plan.search.exploration_deficit_allowance)
+                        if strategy == 'archive' else monotone)
                 record = dict(candidate=candidate, round=round_index, action=action, eligible=keep,
+                    parent=active['candidate'], physical_hash=identity, nonregressing_improvement=monotone,
+                    proxy_gains=trial.get('proxy_gains', {}),
                     committed=False, contract_preserved=preserved, base_accepted=trial['base_accepted'],
                     target_met=trial['target_met'], deficit=sum(trial['deficits']), targets=trial['targets'],
-                    reason='Verified non-worsening improvement' if keep else 'Rejected: infeasible, changed contract, worsening target or no strict improvement')
+                    reason=('Verified bounded exploration' if strategy == 'archive' else 'Verified non-worsening improvement')
+                        if keep else 'Rejected: hard constraint, invalid response, or search acceptance policy')
                 rows.append({k: v for k, v in record.items() if k in rows[0]})
                 trace.append(record)
-                if keep: eligible.append(dict(action=action, model=trial_model, assessment=trial, record=record))
+                if keep:
+                    state = dict(candidate=candidate, action=dict(action, action_id=candidate),
+                        model=trial_model, assessment=trial, record=record, parent=active['candidate'])
+                    states[candidate] = state
+                    eligible.append(state)
+            if strategy == 'archive':
+                # The delivered incumbent only improves. Temporary tradeoffs
+                # live in separate feasible search states, never in the target.
+                for state in eligible:
+                    if response_priority(state['assessment']) < response_priority(current):
+                        current_model, current, selected = state['model'], state['assessment'], state['candidate']
+                pending = [s for s in pending+eligible if exploration_eligible(s['assessment'], current,
+                    preserved=True, allowance=plan.search.exploration_deficit_allowance)]
+                pending = retain_archive(pending, plan.search.archive_width)
+                eligible = pending
+            if budget_exhausted:
+                # Fully measured monotone candidates before the interruption
+                # can still improve the incumbent; incomplete ones cannot.
+                if strategy == 'monotone' and eligible:
+                    best = min(eligible, key=lambda s: response_priority(s['assessment']))
+                    current_model, current, selected = best['model'], best['assessment'], best['candidate']
+                stop = 'targets_met' if current['target_met'] else 'search_ac_budget_exhausted'
+                break
+            if current['target_met']:
+                stop = 'targets_met'; break
             if not eligible:
-                stop = 'no_verified_improving_action'; break
+                stop = 'no_verified_exploration_candidate' if strategy == 'archive' else 'no_verified_improving_action'
+                break
             try:
                 chosen, decision = _choose(eligible, plan, root/f'decisions/round_{round_index:02d}', model)
             except Exception as exc:
@@ -333,14 +425,27 @@ def run_response_design(plan, workspace, design_id, *, model=None,task_context=N
                 stop = 'agent_selection_failed'; break
             trace.append(dict(event='selection', round=round_index, **decision))
             if chosen is None: stop = 'agent_requested_stop'; break
-            current_model = chosen['model']; current = chosen['assessment']; selected = chosen['record']['candidate']
-            chosen['record']['committed'] = True
-            next(row for row in rows if row['candidate'] == selected)['committed'] = True
+            active = chosen
+            trace[-1]['next_parent'] = chosen['candidate']
+            if strategy == 'archive':
+                pending = [s for s in pending if s['candidate'] != chosen['candidate']]
+            else:
+                current_model, current, selected = chosen['model'], chosen['assessment'], chosen['candidate']
             if current['target_met']: stop = 'targets_met'
+        selected_path = []
+        cursor = selected
+        while cursor != 'baseline':
+            selected_path.append(cursor)
+            cursor = states[cursor]['parent']
+        selected_path.reverse()
+        for record in trace:
+            if 'committed' in record: record['committed'] = record['candidate'] in selected_path
+        for row in rows: row['committed'] = row['candidate'] == 'baseline' or row['candidate'] in selected_path
         # This independent step is evaluated once after selection, never used
         # to choose an alternative candidate or steer subsequent proposals.
-        heldout = score_response(checked_measure(current_model,root/'verification',
-                                  step_factor=plan.verification_step_factor), plan.targets, initial)
+        with solver_phase('verification'):
+            heldout = score_response(checked_measure(current_model,root/'verification',
+                                      step_factor=plan.verification_step_factor), plan.targets, initial)
         consistency = {}
         for p in probes:
             a, b = current['probes'][p['id']], heldout['probes'][p['id']]
@@ -354,6 +459,11 @@ def run_response_design(plan, workspace, design_id, *, model=None,task_context=N
         diagnosis = dict(code=stop, infeasibility_proven=False, requires_explicit_permission=False,
             summary='All requested targets and independent checks passed.' if success else
                 'The bounded search did not meet the requested targets; this is not a physical infeasibility proof.')
+        diagnosis['adjustment_authority']=authority
+        diagnosis['search_coverage']=dict(
+            selected_near_collinear_compensations=sum(bool(t.get('committed') and
+                t.get('action',{}).get('compensation_fit',{}).get('selectivity',{}).get('classification')=='near_collinear') for t in trace),
+            deduplication_policy='Original, visited and within-round physical duplicates are removed before the distribution preview quota is filled')
         from .response_contract import change_summary
         diagnosis['design_space']=dict(permissions=plan.search.model_dump(),actual_changes=change_summary(original_model,current_model),
             reference='All edit limits and response ratios refer to the original model; AC and each response target remain authoritative')
@@ -366,7 +476,10 @@ def run_response_design(plan, workspace, design_id, *, model=None,task_context=N
                     summary='No direction-improving conductor replacement remains on the probed paths in the permitted catalogue. More rounds of the same moves cannot help. Changing geometry, equipment scope or targets requires explicit permission; no AC infeasibility is proven.',
                     suggested_action='For generated spatial_mst geometry, explicitly permit scale_layout with a numerical max_layout_scale_change; otherwise revise the design space explicitly.')
         atomic_json(root/'diagnosis.json', diagnosis)
-        _export(current_model, plan.base_spec, root/'selected', current, accepted=success)
+        with solver_phase('export'):
+            _export(current_model, plan.base_spec, root/'selected', current, accepted=success)
+        accounting = meter.snapshot()
+        atomic_json(root/'solver_accounting.json', dict(accounting, events=meter.events))
         atomic_json(root/'selected/acceptance.json', dict(accepted=success,
             base_accepted=current['base_accepted'], selected_target_met=current['target_met'],
             verification_passed=verified, protected_contract_preserved=preserved))
@@ -387,12 +500,13 @@ def run_response_design(plan, workspace, design_id, *, model=None,task_context=N
             for path in sorted((root/'selected').rglob('*')):
                 if path.is_file(): archive.write(path, path.relative_to(root))
             for path in sorted((root/'proposals').glob('*.json')):archive.write(path,path.relative_to(root))
-            for name in ('manifest.json', 'resolved_probes.json', 'history.json', 'candidates.csv', 'report.md', 'diagnosis.json', 'verification/checks.json', 'verification/response.json'):
+            for name in ('manifest.json', 'resolved_probes.json', 'history.json', 'candidates.csv', 'report.md', 'diagnosis.json', 'adjustment_authority.json', 'solver_accounting.json', 'verification/checks.json', 'verification/response.json'):
                 archive.write(root/name, name)
         output = dict(status='completed' if success else 'target_not_met', target_met=success,
             selected_target_met=current['target_met'], verification_passed=verified,
             protected_contract_preserved=preserved, stop_reason=stop, directory=str(root),
             winner=selected, accepted_steps=sum(t.get('committed', False) for t in trace),
+            search_strategy=strategy, selected_path=selected_path, solver_accounting=accounting,
             evaluated_candidates=len(rows), baseline=initial, selected=current, verification=heldout,
             verified_report=report, diagnosis=diagnosis,
             artifacts={str(p.relative_to(root)): file_digest(p) for p in sorted(root.rglob('*')) if p.is_file() and p.name not in ('.lock', 'result.json')})

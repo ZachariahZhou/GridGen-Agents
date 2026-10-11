@@ -1,0 +1,2611 @@
+{
+  "units_counts_02__full_outer__r1/rural_feeder_35bus_10kv_seed971031": {
+    "origin": "experiments/m98_outer_retest_v1/jobs/units_counts_02__full_outer__r1/workspace/projects/conversation/designs/rural_feeder_35bus_10kv_seed971031/failure_analysis/attempt_01.json",
+    "request": "Generate one rural distribution feeder with approximately thirty-five total buses, any integer from 31 through 39 including the source, 10 kV, fixed total demand 120.0 kW, PV capacity equal to 0% of demand, balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs.  Use physical generation seed 971031. Execute the request when supported.",
+    "candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "n_buses": 35,
+        "voltage_kv": 10,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "pv_ratio": 0,
+        "seed": 971031,
+        "scenario": {
+          "kind": "rural",
+          "layout": "structured_radial",
+          "load_placement": "all_nodes"
+        },
+        "phase_design": {
+          "mode": "balanced"
+        },
+        "repair_policy": {
+          "strategy": "none"
+        },
+        "count": 1
+      },
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Rural 10 kV single-voltage distribution feeder with 35 total buses, fixed 120 kW demand, no PV, balanced three-phase, OpenDSS export, no automatic repairs, seed 971031.",
+        "requirements": [
+          {
+            "id": "req_01",
+            "evidence": "@source:ae49af2cf74983fe:s0a0",
+            "meaning": "Generate one rural distribution feeder with approximately thirty-five total buses",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 35,
+            "operator": "eq"
+          },
+          {
+            "id": "req_02",
+            "evidence": "@source:ae49af2cf74983fe:s0a1",
+            "meaning": "Any integer from 31 through 39 including the source for total bus count",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": {
+              "ge": 31,
+              "le": 39
+            },
+            "operator": "ge"
+          },
+          {
+            "id": "req_03",
+            "evidence": "@source:ae49af2cf74983fe:s0a2",
+            "meaning": "Nominal voltage 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq"
+          },
+          {
+            "id": "req_04",
+            "evidence": "@source:ae49af2cf74983fe:s0a3",
+            "meaning": "Fixed total demand 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_05",
+            "evidence": "@source:ae49af2cf74983fe:s0a3",
+            "meaning": "Fixed total demand 120.0 kW (upper bound)",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_max",
+            "expected_value": 120.0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_06",
+            "evidence": "@source:ae49af2cf74983fe:s0a4",
+            "meaning": "PV capacity equal to 0% of demand",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_07",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq"
+          },
+          {
+            "id": "req_08",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Export runnable OpenDSS",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss"
+            ],
+            "operator": "contains"
+          },
+          {
+            "id": "req_09",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Export a visualization",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "visualization"
+            ],
+            "operator": "contains"
+          },
+          {
+            "id": "req_10",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq"
+          },
+          {
+            "id": "req_11",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "seed",
+            "expected_value": 971031,
+            "operator": "eq"
+          },
+          {
+            "id": "req_12",
+            "evidence": "@source:ae49af2cf74983fe:s0a0",
+            "meaning": "Rural distribution feeder scene",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "rural",
+            "operator": "eq"
+          }
+        ]
+      },
+      "assumptions": [
+        "Default deliverables include OpenDSS and visualization as requested; MATPOWER not requested.",
+        "Frequency is 50 Hz per system default for distribution models.",
+        "Load placement set to all_nodes since each bus has load in this small rural feeder context.",
+        "Layout set to structured_radial for rural topology without explicit village clustering request.",
+        "No tie lines specified; tie_count defaults to 0.",
+        "Equipment design uses auto mode with standard rural engineering profile."
+      ]
+    }
+  },
+  "units_counts_02__full_outer__r1/rural_feeder_35bus_10kv_seed971031_v2": {
+    "origin": "experiments/m98_outer_retest_v1/jobs/units_counts_02__full_outer__r1/workspace/projects/conversation/designs/rural_feeder_35bus_10kv_seed971031_v2/failure_analysis/attempt_01.json",
+    "request": "Generate one rural distribution feeder with approximately thirty-five total buses, any integer from 31 through 39 including the source, 10 kV, fixed total demand 120.0 kW, PV capacity equal to 0% of demand, balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs.  Use physical generation seed 971031. Execute the request when supported.",
+    "candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "n_buses": 35,
+        "voltage_kv": 10,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "pv_ratio": 0,
+        "seed": 971031,
+        "count": 1,
+        "scenario": {
+          "kind": "rural",
+          "layout": "structured_radial",
+          "load_placement": "all_nodes"
+        },
+        "phase_design": {
+          "mode": "balanced"
+        },
+        "repair_policy": {
+          "strategy": "none"
+        },
+        "equipment_design": {
+          "mode": "auto"
+        }
+      },
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Rural 10 kV single-voltage distribution feeder with 35 total buses, fixed 120 kW demand, no PV, balanced three-phase, OpenDSS export, visualization, and disabled automatic repairs.",
+        "requirements": [
+          {
+            "id": "req_001",
+            "evidence": "@source:ae49af2cf74983fe:s0a0",
+            "meaning": "Generate one rural distribution feeder with approximately thirty-five total buses",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 35,
+            "operator": "eq"
+          },
+          {
+            "id": "req_002",
+            "evidence": "@source:ae49af2cf74983fe:s0a1",
+            "meaning": "Any integer from 31 through 39 including the source for total bus count",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": {
+              "ge": 31,
+              "le": 39
+            },
+            "operator": "ge"
+          },
+          {
+            "id": "req_003",
+            "evidence": "@source:ae49af2cf74983fe:s0a2",
+            "meaning": "Voltage level is 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq"
+          },
+          {
+            "id": "req_004",
+            "evidence": "@source:ae49af2cf74983fe:s0a3",
+            "meaning": "Fixed total demand is 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_005",
+            "evidence": "@source:ae49af2cf74983fe:s0a3",
+            "meaning": "Fixed total demand is 120.0 kW (upper bound)",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_max",
+            "expected_value": 120.0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_006",
+            "evidence": "@source:ae49af2cf74983fe:s0a4",
+            "meaning": "PV capacity equal to 0% of demand",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_007",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq"
+          },
+          {
+            "id": "req_008",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Export runnable OpenDSS",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": "opendss",
+            "operator": "contains"
+          },
+          {
+            "id": "req_009",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Export a visualization",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": "visualization",
+            "operator": "contains"
+          },
+          {
+            "id": "req_010",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq"
+          },
+          {
+            "id": "req_011",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "seed",
+            "expected_value": 971031,
+            "operator": "eq"
+          },
+          {
+            "id": "req_012",
+            "evidence": "@source:ae49af2cf74983fe:s0a0",
+            "meaning": "Rural distribution feeder scene",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "rural",
+            "operator": "eq"
+          }
+        ]
+      },
+      "assumptions": [
+        "Default deliverables include OpenDSS and visualization for single_voltage family",
+        "Frequency is 50 Hz as per system default",
+        "Load placement is all_nodes since each bus has load in this small rural feeder",
+        "Topology layout is structured_radial for rural scene without explicit village clustering request",
+        "Equipment design mode is auto for standard rural equipment selection",
+        "No MATPOWER export requested, so only OpenDSS and visualization are included"
+      ]
+    }
+  },
+  "units_counts_02__full_outer__r1/rural_feeder_35bus_10kv_seed971031_v4": {
+    "origin": "experiments/m98_outer_retest_v1/jobs/units_counts_02__full_outer__r1/workspace/projects/conversation/designs/rural_feeder_35bus_10kv_seed971031_v4/failure_analysis/attempt_01.json",
+    "request": "Generate one rural distribution feeder with approximately thirty-five total buses, any integer from 31 through 39 including the source, 10 kV, fixed total demand 120.0 kW, PV capacity equal to 0% of demand, balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs.  Use physical generation seed 971031. Execute the request when supported.",
+    "candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "n_buses": 35,
+        "voltage_kv": 10,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "pv_ratio": 0,
+        "seed": 971031,
+        "scenario": {
+          "kind": "rural",
+          "layout": "structured_radial",
+          "load_placement": "all_nodes"
+        },
+        "phase_design": {
+          "mode": "balanced"
+        },
+        "repair_policy": {
+          "strategy": "none"
+        },
+        "count": 1
+      },
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Rural 10 kV single-voltage distribution feeder with 35 total buses, fixed 120 kW load, no PV, balanced three-phase, OpenDSS export, no automatic repairs, seed 971031.",
+        "requirements": [
+          {
+            "id": "req_01",
+            "evidence": "@source:ae49af2cf74983fe:s0a0",
+            "meaning": "Generate one rural distribution feeder with approximately thirty-five total buses",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 35,
+            "operator": "eq"
+          },
+          {
+            "id": "req_02",
+            "evidence": "@source:ae49af2cf74983fe:s0a1",
+            "meaning": "any integer from 31 through 39 including the source",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 35,
+            "operator": "ge"
+          },
+          {
+            "id": "req_03",
+            "evidence": "@source:ae49af2cf74983fe:s0a1",
+            "meaning": "any integer from 31 through 39 including the source",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 35,
+            "operator": "le"
+          },
+          {
+            "id": "req_04",
+            "evidence": "@source:ae49af2cf74983fe:s0a2",
+            "meaning": "10 kV voltage level",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq"
+          },
+          {
+            "id": "req_05",
+            "evidence": "@source:ae49af2cf74983fe:s0a3",
+            "meaning": "fixed total demand 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_06",
+            "evidence": "@source:ae49af2cf74983fe:s0a3",
+            "meaning": "fixed total demand 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_max",
+            "expected_value": 120.0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_07",
+            "evidence": "@source:ae49af2cf74983fe:s0a4",
+            "meaning": "PV capacity equal to 0% of demand",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_08",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq"
+          },
+          {
+            "id": "req_09",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Export runnable OpenDSS and a visualization",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss",
+              "visualization"
+            ],
+            "operator": "contains"
+          },
+          {
+            "id": "req_10",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq"
+          },
+          {
+            "id": "req_11",
+            "evidence": "@source:ae49af2cf74983fe:s0a5",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "seed",
+            "expected_value": 971031,
+            "operator": "eq"
+          },
+          {
+            "id": "req_12",
+            "evidence": "@source:ae49af2cf74983fe:s0a0",
+            "meaning": "rural distribution feeder",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "rural",
+            "operator": "eq"
+          }
+        ]
+      },
+      "assumptions": [
+        "Default deliverables include OpenDSS and visualization for single_voltage models.",
+        "Frequency is 50 Hz as per system default.",
+        "Load placement is all_nodes since each bus has load in this small rural feeder context.",
+        "Topology layout is structured_radial for rural scene without explicit village clustering request.",
+        "No automatic repairs means repair_policy.strategy is none."
+      ]
+    }
+  },
+  "prohibitions_01__full_outer__r0/urban_feeder_29buses_10kv_120kw_seed971031": {
+    "origin": "experiments/m98_outer_retest_v1/jobs/prohibitions_01__full_outer__r0/workspace/projects/conversation/designs/urban_feeder_29buses_10kv_120kw_seed971031/failure_analysis/attempt_01.json",
+    "request": "Generate one urban distribution feeder with exactly 29 total buses including the source, 10 kV, fixed total demand 120.0 kW, PV capacity equal to 0% of demand, balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches, replace conductors after initial construction, change demand, or add PV. Use physical generation seed 971031. Execute the request when supported.\n\u7ed3\u6784\u5316\u8865\u5145\u7ea6\u675f\uff1a\u603b\u6bcd\u7ebf\u8282\u70b9\u6570\uff08\u5305\u542b1\u4e2a\u7535\u6e90\u8282\u70b9\uff09\u4e3a29\u3002",
+    "candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "document_rules": [],
+        "repair_policy": {
+          "strategy": "none",
+          "allow_rewire": false,
+          "preview_limit": 2,
+          "max_candidates": 8
+        },
+        "scenario": {
+          "load_placement": "all_nodes",
+          "reference_case_id": null,
+          "kind": "urban",
+          "layout": "spatial_mst",
+          "engineering_profile": "generic",
+          "topology": null,
+          "tie_count": 0,
+          "load_shape": "heterogeneous",
+          "load_concentration": 2.0,
+          "calibration_profile": null,
+          "empirical_weight": 0.7,
+          "village_count": null,
+          "trunk_fraction": 0.3,
+          "aspect_ratio": null,
+          "positions_km": null
+        },
+        "phase_design": {
+          "mode": "balanced",
+          "load_phase_weights": [
+            0.5,
+            0.3,
+            0.2
+          ],
+          "pv_phase_weights": null,
+          "single_phase_laterals": null,
+          "two_phase_laterals": null,
+          "max_vuf_percent": 2.0
+        },
+        "equipment_design": {
+          "mode": "auto",
+          "reference_feeders": [
+            "J1",
+            "K1",
+            "Ckt5",
+            "Ckt24"
+          ],
+          "source_weighting": "equal_feeder",
+          "loading_margin": 0.8,
+          "capacity_band": 2.0,
+          "conditioning": "length_voltage",
+          "length_bandwidth": 0.65,
+          "voltage_drop_budget_pu": 0.05,
+          "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+        },
+        "count": 1,
+        "n_buses": 29,
+        "n_loads_min": 28,
+        "n_loads_max": 28,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "voltage_kv": 10.0,
+        "frequency_hz": 50,
+        "power_factor": 0.95,
+        "pv_ratio": 0.0,
+        "segment_km_min": 0.05,
+        "segment_km_max": 0.25,
+        "seed": 971031,
+        "mode": "normal",
+        "load_semantics": "aggregated",
+        "special_pf_agreement": false,
+        "max_repairs": 2
+      },
+      "distribution_spec": null,
+      "transmission_spec": null,
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Urban 10 kV single-voltage distribution feeder with exactly 29 total buses (including source), fixed 120.0 kW total demand, 0% PV ratio, balanced three-phase representation, OpenDSS export and visualization, no automatic repairs or topology/conductor/demand/PV modifications after construction, seed 971031.",
+        "requirements": [
+          {
+            "id": "req_n_buses",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Exactly 29 total buses including the source node",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 29,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "10 kV",
+            "meaning": "Nominal voltage 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_total_demand",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "fixed total demand 120.0 kW",
+            "meaning": "Fixed total demand 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "PV capacity equal to 0% of demand",
+            "meaning": "PV capacity equal to 0% of demand",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_phase_model",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_opendss",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Export runnable OpenDSS model",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_viz",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Export visualization",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "visualization"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_disable_repairs",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_reconnect",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Do not reconnect branches after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.allow_rewire",
+            "expected_value": false,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_conductor_replace",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "replace conductors after initial construction",
+            "meaning": "Do not replace conductors after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_demand_change",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "change demand",
+            "meaning": "Do not change demand after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_add_pv",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "or add PV. Use physical generation seed 971031. Execute the request when supported.",
+            "meaning": "Do not add PV after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_seed",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "or add PV. Use physical generation seed 971031. Execute the request when supported.",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "seed",
+            "expected_value": 971031,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_scene_urban",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Urban distribution feeder scene",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "urban",
+            "operator": "eq",
+            "reason": ""
+          }
+        ],
+        "questions": []
+      },
+      "issues": [],
+      "assumptions": [
+        "Default load placement all_nodes since each bus is implied to have load in a small 29-bus feeder without explicit reference case",
+        "Default equipment_design mode auto for urban 10 kV feeder",
+        "Default segment lengths and topology within urban spatial MST prior",
+        "OpenDSS and visualization are standard deliverables for single_voltage family",
+        "Frequency 50 Hz per system default",
+        "No MATPOWER export requested, so only OpenDSS and visualization delivered"
+      ],
+      "uncertainties": [],
+      "edits": null,
+      "base_candidate_hash": null
+    },
+    "corrected_candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "document_rules": [],
+        "repair_policy": {
+          "strategy": "none",
+          "allow_rewire": false,
+          "preview_limit": 2,
+          "max_candidates": 8
+        },
+        "scenario": {
+          "load_placement": "all_nodes",
+          "reference_case_id": null,
+          "kind": "urban",
+          "layout": "spatial_mst",
+          "engineering_profile": "generic",
+          "topology": null,
+          "tie_count": 0,
+          "load_shape": "heterogeneous",
+          "load_concentration": 2.0,
+          "calibration_profile": null,
+          "empirical_weight": 0.7,
+          "village_count": null,
+          "trunk_fraction": 0.3,
+          "aspect_ratio": null,
+          "positions_km": null
+        },
+        "phase_design": {
+          "mode": "balanced",
+          "load_phase_weights": [
+            0.5,
+            0.3,
+            0.2
+          ],
+          "pv_phase_weights": null,
+          "single_phase_laterals": null,
+          "two_phase_laterals": null,
+          "max_vuf_percent": 2.0
+        },
+        "equipment_design": {
+          "mode": "auto",
+          "reference_feeders": [
+            "J1",
+            "K1",
+            "Ckt5",
+            "Ckt24"
+          ],
+          "source_weighting": "equal_feeder",
+          "loading_margin": 0.8,
+          "capacity_band": 2.0,
+          "conditioning": "length_voltage",
+          "length_bandwidth": 0.65,
+          "voltage_drop_budget_pu": 0.05,
+          "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+        },
+        "count": 1,
+        "n_buses": 29,
+        "n_loads_min": 28,
+        "n_loads_max": 28,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "voltage_kv": 10.0,
+        "frequency_hz": 50,
+        "power_factor": 0.95,
+        "pv_ratio": 0.0,
+        "segment_km_min": 0.05,
+        "segment_km_max": 0.25,
+        "seed": 971031,
+        "mode": "normal",
+        "load_semantics": "aggregated",
+        "special_pf_agreement": false,
+        "max_repairs": 2
+      },
+      "distribution_spec": null,
+      "transmission_spec": null,
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Urban 10 kV single-voltage distribution feeder with exactly 29 total buses (including source), fixed 120.0 kW total demand, 0% PV ratio, balanced three-phase representation, OpenDSS export and visualization, no automatic repairs or topology/conductor/demand/PV modifications after construction, seed 971031.",
+        "requirements": [
+          {
+            "id": "req_n_buses_en",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Exactly 29 total buses including the source node",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 29,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_n_buses_cn",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u7ed3\u6784\u5316\u8865\u5145\u7ea6\u675f\uff1a\u603b\u6bcd\u7ebf\u8282\u70b9\u6570\uff08\u5305\u542b1\u4e2a\u7535\u6e90\u8282\u70b9\uff09\u4e3a29",
+            "meaning": "Total bus count (including 1 source node) is exactly 29",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 29,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "10 kV",
+            "meaning": "Nominal voltage 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_total_demand",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "fixed total demand 120.0 kW",
+            "meaning": "Fixed total demand 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "PV capacity equal to 0% of demand",
+            "meaning": "PV capacity equal to 0% of demand",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_phase_model",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_opendss",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Export runnable OpenDSS model",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_viz",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Export visualization",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "visualization"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_disable_repairs",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_reconnect",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Do not reconnect branches after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.allow_rewire",
+            "expected_value": false,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_conductor_replace",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "replace conductors after initial construction",
+            "meaning": "Do not replace conductors after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_demand_change",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "change demand",
+            "meaning": "Do not change demand after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_add_pv",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "or add PV. Use physical generation seed 971031. Execute the request when supported.",
+            "meaning": "Do not add PV after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_seed",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "or add PV. Use physical generation seed 971031. Execute the request when supported.",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "seed",
+            "expected_value": 971031,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_scene_urban",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Urban distribution feeder scene",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "urban",
+            "operator": "eq",
+            "reason": ""
+          }
+        ],
+        "questions": []
+      },
+      "issues": [],
+      "assumptions": [
+        "Default load placement all_nodes since each bus is implied to have load in a small 29-bus feeder without explicit reference case",
+        "Default equipment_design mode auto for urban 10 kV feeder",
+        "Default segment lengths and topology within urban spatial MST prior",
+        "OpenDSS and visualization are standard deliverables for single_voltage family",
+        "Frequency 50 Hz per system default",
+        "No MATPOWER export requested, so only OpenDSS and visualization delivered"
+      ],
+      "uncertainties": [],
+      "edits": null,
+      "base_candidate_hash": null
+    }
+  },
+  "prohibitions_01__full_outer__r0/urban_feeder_29buses_10kv_120kw_seed971031_v2": {
+    "origin": "experiments/m98_outer_retest_v1/jobs/prohibitions_01__full_outer__r0/workspace/projects/conversation/designs/urban_feeder_29buses_10kv_120kw_seed971031_v2/failure_analysis/attempt_01.json",
+    "request": "Generate one urban distribution feeder with exactly 29 total buses including the source, 10 kV, fixed total demand 120.0 kW, PV capacity equal to 0% of demand, balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches, replace conductors after initial construction, change demand, or add PV. Use physical generation seed 971031. Execute the request when supported.\n\u7ed3\u6784\u5316\u8865\u5145\u7ea6\u675f\uff1a\u603b\u6bcd\u7ebf\u8282\u70b9\u6570\uff08\u5305\u542b1\u4e2a\u7535\u6e90\u8282\u70b9\uff09\u4e3a29\u3002",
+    "candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "document_rules": [],
+        "repair_policy": {
+          "strategy": "none",
+          "allow_rewire": false,
+          "preview_limit": 2,
+          "max_candidates": 8
+        },
+        "scenario": {
+          "load_placement": "all_nodes",
+          "reference_case_id": null,
+          "kind": "urban",
+          "layout": "spatial_mst",
+          "engineering_profile": "generic",
+          "topology": null,
+          "tie_count": 0,
+          "load_shape": "heterogeneous",
+          "load_concentration": 2.0,
+          "calibration_profile": null,
+          "empirical_weight": 0.7,
+          "village_count": null,
+          "trunk_fraction": 0.3,
+          "aspect_ratio": null,
+          "positions_km": null
+        },
+        "phase_design": {
+          "mode": "balanced",
+          "load_phase_weights": [
+            0.5,
+            0.3,
+            0.2
+          ],
+          "pv_phase_weights": null,
+          "single_phase_laterals": null,
+          "two_phase_laterals": null,
+          "max_vuf_percent": 2.0
+        },
+        "equipment_design": {
+          "mode": "auto",
+          "reference_feeders": [
+            "J1",
+            "K1",
+            "Ckt5",
+            "Ckt24"
+          ],
+          "source_weighting": "equal_feeder",
+          "loading_margin": 0.8,
+          "capacity_band": 2.0,
+          "conditioning": "length_voltage",
+          "length_bandwidth": 0.65,
+          "voltage_drop_budget_pu": 0.05,
+          "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+        },
+        "count": 1,
+        "n_buses": 29,
+        "n_loads_min": 28,
+        "n_loads_max": 28,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "voltage_kv": 10.0,
+        "frequency_hz": 50,
+        "power_factor": 0.95,
+        "pv_ratio": 0.0,
+        "segment_km_min": 0.05,
+        "segment_km_max": 0.25,
+        "seed": 971031,
+        "mode": "normal",
+        "load_semantics": "aggregated",
+        "special_pf_agreement": false,
+        "max_repairs": 2
+      },
+      "distribution_spec": null,
+      "transmission_spec": null,
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Urban 10 kV single-voltage distribution feeder with exactly 29 total buses (including source), fixed 120.0 kW total demand, 0% PV, balanced three-phase, OpenDSS export, no automatic repairs.",
+        "requirements": [
+          {
+            "id": "req_n_buses",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Exactly 29 total buses including the source",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 29,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "10 kV",
+            "meaning": "Nominal voltage 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_total_kw",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "fixed total demand 120.0 kW",
+            "meaning": "Fixed total demand 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "PV capacity equal to 0% of demand",
+            "meaning": "PV capacity equal to 0% of demand",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_phase_model",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_opendss",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Export runnable OpenDSS",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_no_repairs",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_seed",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "or add PV. Use physical generation seed 971031. Execute the request when supported.",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "seed",
+            "expected_value": 971031,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_scene",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Urban distribution feeder",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "urban",
+            "operator": "eq",
+            "reason": ""
+          }
+        ],
+        "questions": []
+      },
+      "issues": [],
+      "assumptions": [],
+      "uncertainties": [],
+      "edits": null,
+      "base_candidate_hash": null
+    },
+    "corrected_candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "document_rules": [],
+        "repair_policy": {
+          "strategy": "none",
+          "allow_rewire": false,
+          "preview_limit": 2,
+          "max_candidates": 8
+        },
+        "scenario": {
+          "load_placement": "all_nodes",
+          "reference_case_id": null,
+          "kind": "urban",
+          "layout": "spatial_mst",
+          "engineering_profile": "generic",
+          "topology": null,
+          "tie_count": 0,
+          "load_shape": "heterogeneous",
+          "load_concentration": 2.0,
+          "calibration_profile": null,
+          "empirical_weight": 0.7,
+          "village_count": null,
+          "trunk_fraction": 0.3,
+          "aspect_ratio": null,
+          "positions_km": null
+        },
+        "phase_design": {
+          "mode": "balanced",
+          "load_phase_weights": [
+            0.5,
+            0.3,
+            0.2
+          ],
+          "pv_phase_weights": null,
+          "single_phase_laterals": null,
+          "two_phase_laterals": null,
+          "max_vuf_percent": 2.0
+        },
+        "equipment_design": {
+          "mode": "auto",
+          "reference_feeders": [
+            "J1",
+            "K1",
+            "Ckt5",
+            "Ckt24"
+          ],
+          "source_weighting": "equal_feeder",
+          "loading_margin": 0.8,
+          "capacity_band": 2.0,
+          "conditioning": "length_voltage",
+          "length_bandwidth": 0.65,
+          "voltage_drop_budget_pu": 0.05,
+          "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+        },
+        "count": 1,
+        "n_buses": 29,
+        "n_loads_min": 28,
+        "n_loads_max": 28,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "voltage_kv": 10.0,
+        "frequency_hz": 50,
+        "power_factor": 0.95,
+        "pv_ratio": 0.0,
+        "segment_km_min": 0.05,
+        "segment_km_max": 0.25,
+        "seed": 971031,
+        "mode": "normal",
+        "load_semantics": "aggregated",
+        "special_pf_agreement": false,
+        "max_repairs": 2
+      },
+      "distribution_spec": null,
+      "transmission_spec": null,
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Urban 10 kV single-voltage distribution feeder with exactly 29 total buses (including source), fixed 120.0 kW total demand, 0% PV, balanced three-phase, OpenDSS export, no automatic repairs.",
+        "requirements": [
+          {
+            "id": "req_n_buses_en",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Exactly 29 total buses including the source",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 29,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_n_buses_cn",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u7ed3\u6784\u5316\u8865\u5145\u7ea6\u675f\uff1a\u603b\u6bcd\u7ebf\u8282\u70b9\u6570\uff08\u5305\u542b1\u4e2a\u7535\u6e90\u8282\u70b9\uff09\u4e3a29",
+            "meaning": "Total bus count (including 1 source node) is 29",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 29,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "10 kV",
+            "meaning": "Nominal voltage 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_total_kw",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "fixed total demand 120.0 kW",
+            "meaning": "Fixed total demand 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "PV capacity equal to 0% of demand",
+            "meaning": "PV capacity equal to 0% of demand",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_phase_model",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_opendss",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Export runnable OpenDSS",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_no_repairs",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_seed",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "or add PV. Use physical generation seed 971031. Execute the request when supported.",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "seed",
+            "expected_value": 971031,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_scene",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Urban distribution feeder",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "urban",
+            "operator": "eq",
+            "reason": ""
+          }
+        ],
+        "questions": []
+      },
+      "issues": [],
+      "assumptions": [
+        "Default deliverables include visualization as requested.",
+        "Load placement set to all_nodes as no reference case was specified for conditional occupancy.",
+        "Equipment design uses auto mode with standard reference feeders for parameter selection."
+      ],
+      "uncertainties": [],
+      "edits": null,
+      "base_candidate_hash": null
+    }
+  },
+  "prohibitions_01__full_outer__r2/urban_29bus_10kv_120kw_seed971031": {
+    "origin": "experiments/m98_outer_retest_v1/jobs/prohibitions_01__full_outer__r2/workspace/projects/conversation/designs/urban_29bus_10kv_120kw_seed971031/failure_analysis/attempt_01.json",
+    "request": "Generate one urban distribution feeder with exactly 29 total buses including the source, 10 kV, fixed total demand 120.0 kW, PV capacity equal to 0% of demand, balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches, replace conductors after initial construction, change demand, or add PV. Use physical generation seed 971031. Execute the request when supported.\n\u7ed3\u6784\u5316\u8865\u5145\u7ea6\u675f\uff1a\u603b\u6bcd\u7ebf\u8282\u70b9\u6570\uff08\u5305\u542b1\u4e2a\u7535\u6e90\u8282\u70b9\uff09\u4e3a29\u3002",
+    "candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "document_rules": [],
+        "repair_policy": {
+          "strategy": "none",
+          "allow_rewire": false,
+          "preview_limit": 2,
+          "max_candidates": 8
+        },
+        "scenario": {
+          "load_placement": "all_nodes",
+          "reference_case_id": null,
+          "kind": "urban",
+          "layout": "spatial_mst",
+          "engineering_profile": "generic",
+          "topology": null,
+          "tie_count": 0,
+          "load_shape": "heterogeneous",
+          "load_concentration": 2.0,
+          "calibration_profile": null,
+          "empirical_weight": 0.7,
+          "village_count": null,
+          "trunk_fraction": 0.3,
+          "aspect_ratio": null,
+          "positions_km": null
+        },
+        "phase_design": {
+          "mode": "balanced",
+          "load_phase_weights": [
+            0.5,
+            0.3,
+            0.2
+          ],
+          "pv_phase_weights": null,
+          "single_phase_laterals": null,
+          "two_phase_laterals": null,
+          "max_vuf_percent": 2.0
+        },
+        "equipment_design": {
+          "mode": "auto",
+          "reference_feeders": [
+            "J1",
+            "K1",
+            "Ckt5",
+            "Ckt24"
+          ],
+          "source_weighting": "equal_feeder",
+          "loading_margin": 0.8,
+          "capacity_band": 2.0,
+          "conditioning": "length_voltage",
+          "length_bandwidth": 0.65,
+          "voltage_drop_budget_pu": 0.05,
+          "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+        },
+        "count": 1,
+        "n_buses": 29,
+        "n_loads_min": 28,
+        "n_loads_max": 28,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "voltage_kv": 10.0,
+        "frequency_hz": 50,
+        "power_factor": 0.95,
+        "pv_ratio": 0.0,
+        "segment_km_min": 0.05,
+        "segment_km_max": 0.25,
+        "seed": 971031,
+        "mode": "normal",
+        "load_semantics": "aggregated",
+        "special_pf_agreement": false,
+        "max_repairs": 2
+      },
+      "distribution_spec": null,
+      "transmission_spec": null,
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Urban 10 kV single-voltage distribution feeder with exactly 29 total buses (including source), fixed 120.0 kW total demand, 0% PV ratio, balanced three-phase representation, OpenDSS export and visualization, no automatic repairs or post-construction modifications, seed 971031.",
+        "requirements": [
+          {
+            "id": "req_n_buses",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Exactly 29 total buses including the source node",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 29,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "10 kV",
+            "meaning": "Nominal voltage level is 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_total_demand",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "fixed total demand 120.0 kW",
+            "meaning": "Fixed total active power demand of 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "PV capacity equal to 0% of demand",
+            "meaning": "PV capacity is 0% of demand (no PV)",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_phase_model",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_opendss",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Export runnable OpenDSS model",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_viz",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Export visualization",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "visualization"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_no_repairs",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_reconnect",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Do not reconnect branches after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.allow_rewire",
+            "expected_value": false,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_conductor_replace",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "replace conductors after initial construction",
+            "meaning": "Do not replace conductors after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_demand_change",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "change demand",
+            "meaning": "Do not change demand after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_add_pv",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "or add PV. Use physical generation seed 971031. Execute the request when supported.",
+            "meaning": "Do not add PV after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_seed",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "or add PV. Use physical generation seed 971031. Execute the request when supported.",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "seed",
+            "expected_value": 971031,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_scene_urban",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Urban distribution feeder scene",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "urban",
+            "operator": "eq",
+            "reason": ""
+          }
+        ],
+        "questions": []
+      },
+      "issues": [],
+      "assumptions": [
+        "Default load placement set to all_nodes as no reference case specified",
+        "Default equipment design mode auto for urban 10kV feeder",
+        "Default segment lengths and topology generated per urban scenario priors",
+        "OpenDSS and visualization deliverables enabled by default for single_voltage family",
+        "Frequency 50Hz per system default"
+      ],
+      "uncertainties": [],
+      "edits": null,
+      "base_candidate_hash": null
+    },
+    "corrected_candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "document_rules": [],
+        "repair_policy": {
+          "strategy": "none",
+          "allow_rewire": false,
+          "preview_limit": 2,
+          "max_candidates": 8
+        },
+        "scenario": {
+          "load_placement": "all_nodes",
+          "reference_case_id": null,
+          "kind": "urban",
+          "layout": "spatial_mst",
+          "engineering_profile": "generic",
+          "topology": null,
+          "tie_count": 0,
+          "load_shape": "heterogeneous",
+          "load_concentration": 2.0,
+          "calibration_profile": null,
+          "empirical_weight": 0.7,
+          "village_count": null,
+          "trunk_fraction": 0.3,
+          "aspect_ratio": null,
+          "positions_km": null
+        },
+        "phase_design": {
+          "mode": "balanced",
+          "load_phase_weights": [
+            0.5,
+            0.3,
+            0.2
+          ],
+          "pv_phase_weights": null,
+          "single_phase_laterals": null,
+          "two_phase_laterals": null,
+          "max_vuf_percent": 2.0
+        },
+        "equipment_design": {
+          "mode": "auto",
+          "reference_feeders": [
+            "J1",
+            "K1",
+            "Ckt5",
+            "Ckt24"
+          ],
+          "source_weighting": "equal_feeder",
+          "loading_margin": 0.8,
+          "capacity_band": 2.0,
+          "conditioning": "length_voltage",
+          "length_bandwidth": 0.65,
+          "voltage_drop_budget_pu": 0.05,
+          "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+        },
+        "count": 1,
+        "n_buses": 29,
+        "n_loads_min": 28,
+        "n_loads_max": 28,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "voltage_kv": 10.0,
+        "frequency_hz": 50,
+        "power_factor": 0.95,
+        "pv_ratio": 0.0,
+        "segment_km_min": 0.05,
+        "segment_km_max": 0.25,
+        "seed": 971031,
+        "mode": "normal",
+        "load_semantics": "aggregated",
+        "special_pf_agreement": false,
+        "max_repairs": 2
+      },
+      "distribution_spec": null,
+      "transmission_spec": null,
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Urban 10 kV single-voltage distribution feeder with exactly 29 total buses (including source), fixed 120.0 kW total demand, 0% PV ratio, balanced three-phase representation, OpenDSS export and visualization, no automatic repairs or post-construction modifications, seed 971031.",
+        "requirements": [
+          {
+            "id": "req_n_buses_en",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Exactly 29 total buses including the source node",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 29,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_n_buses_cn",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u7ed3\u6784\u5316\u8865\u5145\u7ea6\u675f\uff1a\u603b\u6bcd\u7ebf\u8282\u70b9\u6570\uff08\u5305\u542b1\u4e2a\u7535\u6e90\u8282\u70b9\uff09\u4e3a29",
+            "meaning": "Total bus count including source is exactly 29",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 29,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "10 kV",
+            "meaning": "Nominal voltage level is 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_total_demand",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "fixed total demand 120.0 kW",
+            "meaning": "Fixed total active power demand of 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "PV capacity equal to 0% of demand",
+            "meaning": "PV capacity is 0% of demand (no PV)",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_phase_model",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_opendss",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Export runnable OpenDSS model",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverables_viz",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Export visualization",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "visualization"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_no_repairs",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_reconnect",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches",
+            "meaning": "Do not reconnect branches after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.allow_rewire",
+            "expected_value": false,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_conductor_replace",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "replace conductors after initial construction",
+            "meaning": "Do not replace conductors after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_demand_change",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "change demand",
+            "meaning": "Do not change demand after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_add_pv",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "or add PV. Use physical generation seed 971031. Execute the request when supported.",
+            "meaning": "Do not add PV after initial construction",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_seed",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "or add PV. Use physical generation seed 971031. Execute the request when supported.",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "seed",
+            "expected_value": 971031,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_scene_urban",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "Generate one urban distribution feeder with exactly 29 total buses including the source",
+            "meaning": "Urban distribution feeder scene",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "urban",
+            "operator": "eq",
+            "reason": ""
+          }
+        ],
+        "questions": []
+      },
+      "issues": [],
+      "assumptions": [
+        "Default load placement set to all_nodes as no reference case specified",
+        "Default equipment design mode auto for urban 10kV feeder",
+        "Default segment lengths and topology generated per urban scenario priors",
+        "OpenDSS and visualization deliverables enabled by default for single_voltage family",
+        "Frequency 50Hz per system default"
+      ],
+      "uncertainties": [],
+      "edits": null,
+      "base_candidate_hash": null
+    }
+  },
+  "prohibitions_02__full_outer__r2/rural_feeder_29bus_10kv_120kw_seed971031": {
+    "origin": "experiments/m98_outer_retest_v1/jobs/prohibitions_02__full_outer__r2/workspace/projects/conversation/designs/rural_feeder_29bus_10kv_120kw_seed971031/failure_analysis/attempt_01.json",
+    "request": "Generate one rural distribution feeder with exactly 29 total buses including the source, 10 kV, fixed total demand 120.0 kW, PV capacity equal to 0% of demand, balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches, replace conductors after initial construction, change demand, or add PV. Use physical generation seed 971031. Execute the request when supported.\n\u7ed3\u6784\u5316\u8865\u5145\u7ea6\u675f\uff1a\u603b\u6bcd\u7ebf\u8282\u70b9\u6570\uff08\u5305\u542b1\u4e2a\u7535\u6e90\u8282\u70b9\uff09\u4e3a29\u3002",
+    "candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "scenario": {
+          "kind": "rural",
+          "layout": "structured_radial",
+          "load_placement": "all_nodes",
+          "tie_count": 0
+        },
+        "phase_design": {
+          "mode": "balanced"
+        },
+        "equipment_design": {
+          "mode": "auto"
+        },
+        "n_buses": 29,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "voltage_kv": 10,
+        "pv_ratio": 0,
+        "seed": 971031,
+        "repair_policy": {
+          "strategy": "none"
+        },
+        "count": 1
+      },
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Rural 10 kV single-voltage feeder with exactly 29 buses, 120 kW fixed demand, no PV, balanced three-phase, OpenDSS export, no repairs.",
+        "requirements": [
+          {
+            "id": "req_n_buses",
+            "evidence": "@source:13d737a824ca52db:s0a0",
+            "meaning": "Exactly 29 total buses including the source",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.n_buses",
+            "expected_value": 29,
+            "operator": "eq"
+          },
+          {
+            "id": "req_voltage",
+            "evidence": "@source:13d737a824ca52db:s0a1",
+            "meaning": "Nominal voltage 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.voltage_kv",
+            "expected_value": 10,
+            "operator": "eq"
+          },
+          {
+            "id": "req_total_kw",
+            "evidence": "@source:13d737a824ca52db:s0a2",
+            "meaning": "Fixed total demand 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_pv_ratio",
+            "evidence": "@source:13d737a824ca52db:s0a3",
+            "meaning": "PV capacity equal to 0% of demand",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.pv_ratio",
+            "expected_value": 0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_phase_model",
+            "evidence": "@source:13d737a824ca52db:s0a4",
+            "meaning": "Balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq"
+          },
+          {
+            "id": "req_deliverables_opendss",
+            "evidence": "@source:13d737a824ca52db:s0a4",
+            "meaning": "Export runnable OpenDSS",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss"
+            ],
+            "operator": "contains"
+          },
+          {
+            "id": "req_no_repairs",
+            "evidence": "@source:13d737a824ca52db:s0a4",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq"
+          },
+          {
+            "id": "req_seed",
+            "evidence": "@source:13d737a824ca52db:s0a7",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.seed",
+            "expected_value": 971031,
+            "operator": "eq"
+          },
+          {
+            "id": "req_scene_rural",
+            "evidence": "@source:13d737a824ca52db:s0a0",
+            "meaning": "Rural distribution feeder",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.scenario.kind",
+            "expected_value": "rural",
+            "operator": "eq"
+          }
+        ]
+      }
+    }
+  },
+  "prohibitions_02__full_outer__r2/rural_feeder_29bus_10kv_120kw_seed971031_v3": {
+    "origin": "experiments/m98_outer_retest_v1/jobs/prohibitions_02__full_outer__r2/workspace/projects/conversation/designs/rural_feeder_29bus_10kv_120kw_seed971031_v3/failure_analysis/attempt_01.json",
+    "request": "Generate one rural distribution feeder with exactly 29 total buses including the source, 10 kV, fixed total demand 120.0 kW, PV capacity equal to 0% of demand, balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches, replace conductors after initial construction, change demand, or add PV. Use physical generation seed 971031. Execute the request when supported.\n\u7ed3\u6784\u5316\u8865\u5145\u7ea6\u675f\uff1a\u603b\u6bcd\u7ebf\u8282\u70b9\u6570\uff08\u5305\u542b1\u4e2a\u7535\u6e90\u8282\u70b9\uff09\u4e3a29\u3002",
+    "candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "n_buses": 29,
+        "voltage_kv": 10,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "pv_ratio": 0,
+        "seed": 971031,
+        "scenario": {
+          "kind": "rural",
+          "layout": "structured_radial",
+          "load_placement": "all_nodes"
+        },
+        "phase_design": {
+          "mode": "balanced"
+        },
+        "repair_policy": {
+          "strategy": "none",
+          "allow_rewire": false
+        },
+        "max_repairs": 0
+      },
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Rural 10 kV single-voltage feeder with exactly 29 buses (including source), fixed 120 kW total demand, 0% PV, balanced three-phase, OpenDSS export, no automatic repairs.",
+        "requirements": [
+          {
+            "id": "req_n_buses",
+            "evidence": "@source:13d737a824ca52db:s0a0",
+            "meaning": "Exactly 29 total buses including the source",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 29,
+            "operator": "eq"
+          },
+          {
+            "id": "req_voltage",
+            "evidence": "@source:13d737a824ca52db:s0a1",
+            "meaning": "Nominal voltage 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq"
+          },
+          {
+            "id": "req_total_kw",
+            "evidence": "@source:13d737a824ca52db:s0a2",
+            "meaning": "Fixed total demand 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_pv_ratio",
+            "evidence": "@source:13d737a824ca52db:s0a3",
+            "meaning": "PV capacity equal to 0% of demand",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_phase_model",
+            "evidence": "@source:13d737a824ca52db:s0a4",
+            "meaning": "Balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq"
+          },
+          {
+            "id": "req_deliverables_opendss",
+            "evidence": "@source:13d737a824ca52db:s0a4",
+            "meaning": "Export runnable OpenDSS and a visualization",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss",
+              "visualization"
+            ],
+            "operator": "contains"
+          },
+          {
+            "id": "req_no_repairs",
+            "evidence": "@source:13d737a824ca52db:s0a4",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq"
+          },
+          {
+            "id": "req_no_reconnect",
+            "evidence": "@source:13d737a824ca52db:s0a4",
+            "meaning": "Do not reconnect branches",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "repair_policy.allow_rewire",
+            "expected_value": false,
+            "operator": "eq"
+          },
+          {
+            "id": "req_seed",
+            "evidence": "@source:13d737a824ca52db:s0a7",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "seed",
+            "expected_value": 971031,
+            "operator": "eq"
+          },
+          {
+            "id": "req_scene_rural",
+            "evidence": "@source:13d737a824ca52db:s0a0",
+            "meaning": "Rural distribution feeder",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "rural",
+            "operator": "eq"
+          }
+        ]
+      },
+      "assumptions": [
+        "Default structured_radial layout for rural scene without explicit topology family",
+        "Default load placement all_nodes since each bus is implied to have load in small fixed-bus count",
+        "Default max_repairs=0 aligns with disable automatic repairs requirement",
+        "OpenDSS and visualization are standard deliverables for single_voltage family"
+      ]
+    }
+  },
+  "prohibitions_02__full_outer__r2/rural_feeder_29bus_v4": {
+    "origin": "experiments/m98_outer_retest_v1/jobs/prohibitions_02__full_outer__r2/workspace/projects/conversation/designs/rural_feeder_29bus_v4/failure_analysis/attempt_01.json",
+    "request": "Generate one rural distribution feeder with exactly 29 total buses including the source, 10 kV, fixed total demand 120.0 kW, PV capacity equal to 0% of demand, balanced three-phase representation. Export runnable OpenDSS and a visualization. Disable automatic repairs. Do not reconnect branches, replace conductors after initial construction, change demand, or add PV. Use physical generation seed 971031. Execute the request when supported.\n\u7ed3\u6784\u5316\u8865\u5145\u7ea6\u675f\uff1a\u603b\u6bcd\u7ebf\u8282\u70b9\u6570\uff08\u5305\u542b1\u4e2a\u7535\u6e90\u8282\u70b9\uff09\u4e3a29\u3002",
+    "candidate": {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "scenario": {
+          "kind": "rural",
+          "layout": "structured_radial",
+          "load_placement": "all_nodes",
+          "tie_count": 0
+        },
+        "phase_design": {
+          "mode": "balanced"
+        },
+        "equipment_design": {
+          "mode": "auto"
+        },
+        "n_buses": 29,
+        "total_kw_min": 120.0,
+        "total_kw_max": 120.0,
+        "voltage_kv": 10,
+        "pv_ratio": 0,
+        "seed": 971031,
+        "repair_policy": {
+          "strategy": "none"
+        },
+        "count": 1
+      },
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "Rural 10 kV single-voltage feeder with exactly 29 buses (including source), fixed 120 kW total demand, 0% PV, balanced three-phase, OpenDSS export, no automatic repairs.",
+        "requirements": [
+          {
+            "id": "req_n_buses",
+            "evidence": "@source:13d737a824ca52db:s0a0",
+            "meaning": "Exactly 29 total buses including the source",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.n_buses",
+            "expected_value": 29,
+            "operator": "eq"
+          },
+          {
+            "id": "req_voltage",
+            "evidence": "@source:13d737a824ca52db:s0a1",
+            "meaning": "Nominal voltage 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.voltage_kv",
+            "expected_value": 10,
+            "operator": "eq"
+          },
+          {
+            "id": "req_total_kw",
+            "evidence": "@source:13d737a824ca52db:s0a2",
+            "meaning": "Fixed total demand 120.0 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.total_kw_min",
+            "expected_value": 120.0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_pv_ratio",
+            "evidence": "@source:13d737a824ca52db:s0a3",
+            "meaning": "PV capacity equal to 0% of demand",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.pv_ratio",
+            "expected_value": 0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_phase_model",
+            "evidence": "@source:13d737a824ca52db:s0a4",
+            "meaning": "Balanced three-phase representation",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq"
+          },
+          {
+            "id": "req_deliverable_opendss",
+            "evidence": "@source:13d737a824ca52db:s0a4",
+            "meaning": "Export runnable OpenDSS",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "ledger.deliverables",
+            "expected_value": [
+              "opendss"
+            ],
+            "operator": "contains"
+          },
+          {
+            "id": "req_no_repairs",
+            "evidence": "@source:13d737a824ca52db:s0a4",
+            "meaning": "Disable automatic repairs",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.repair_policy.strategy",
+            "expected_value": "none",
+            "operator": "eq"
+          },
+          {
+            "id": "req_seed",
+            "evidence": "@source:13d737a824ca52db:s0a7",
+            "meaning": "Use physical generation seed 971031",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.seed",
+            "expected_value": 971031,
+            "operator": "eq"
+          },
+          {
+            "id": "req_scene_rural",
+            "evidence": "@source:13d737a824ca52db:s0a0",
+            "meaning": "Rural distribution feeder",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.scenario.kind",
+            "expected_value": "rural",
+            "operator": "eq"
+          }
+        ]
+      },
+      "assumptions": [
+        "Default structured_radial layout for rural scene without explicit village clustering request.",
+        "Default load placement all_nodes since each bus is implied to carry load in a small 29-bus feeder.",
+        "Default equipment design mode auto for conductor/transformer selection.",
+        "Visualization deliverable included as standard output alongside OpenDSS."
+      ]
+    }
+  }
+}

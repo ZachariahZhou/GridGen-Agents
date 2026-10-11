@@ -1,0 +1,6 @@
+! source=reference_data/epri_large/ckt24/transformers_ckt24.dss:368 sha256=52f9e9ae30f61372217fb96eedbf2b308b7a74129c90bca83047d04dbd3d5913
+New Transformer.tx_1 phases=3 windings=2 buses=[b1.1.2.3 lv_1.1.2.3.0] conns=[delta wye] kvs=[10.0 0.4] kvas=[75.0 75.0] xhl=1.45416666667 %loadloss=1.316 %noloadloss=0.198 %imag=0.5 leadlag=lag wdg=2 rneut=0 xneut=0
+! source=reference_data/epri_large/ckt24/transformers_ckt24.dss:368 sha256=52f9e9ae30f61372217fb96eedbf2b308b7a74129c90bca83047d04dbd3d5913
+New Transformer.tx_2 phases=3 windings=2 buses=[b3.1.2.3 lv_2.1.2.3.0] conns=[delta wye] kvs=[10.0 0.4] kvas=[75.0 75.0] xhl=1.45416666667 %loadloss=1.316 %noloadloss=0.198 %imag=0.5 leadlag=lag wdg=2 rneut=0 xneut=0
+! source=reference_data/epri_large/ckt24/transformers_ckt24.dss:368 sha256=52f9e9ae30f61372217fb96eedbf2b308b7a74129c90bca83047d04dbd3d5913
+New Transformer.tx_3 phases=3 windings=2 buses=[b6.1.2.3 lv_3.1.2.3.0] conns=[delta wye] kvs=[10.0 0.4] kvas=[75.0 75.0] xhl=1.45416666667 %loadloss=1.316 %noloadloss=0.198 %imag=0.5 leadlag=lag wdg=2 rneut=0 xneut=0

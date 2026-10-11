@@ -106,12 +106,14 @@ def measure(model, spec, probes, folder, step_factor=1):
     for p in probes:
         step = p['step_mw']*step_factor
         try:
-            vectors = []
+            vectors = [];source_vectors=[]
             for name, sign in (('plus', 1), ('minus', -1)):
                 directory = folder/'probes'/p['id']/name
                 if model['kind'] == 'distribution':
                     result = _distribution_solve(model['feeder'], directory, p, sign*step)
                     vector = {f'{bus}.{phase}': result['bus_phase_voltage_pu'][bus][str(phase)] for bus, phase in p['monitor_ports']}
+                    source=result.get('bus_phase_voltage_pu',{}).get(model['feeder'].source_bus,{})
+                    source_vectors.append({f'{bus}.{phase}':source.get(str(phase)) for bus,phase in p['monitor_ports']})
                 else:
                     result = _transmission_solve(model, directory, p, sign*step)
                     vector = {str(i): float(result['branch'][i, 13]) for i in p['monitor_branches']}
@@ -125,6 +127,9 @@ def measure(model, spec, probes, folder, step_factor=1):
             unit = {'voltage_p': 'pu/MW', 'voltage_q': 'pu/MVAr', 'transfer_p': 'MW/MW'}[p['kind']]
             responses[p['id']] = dict(valid=True, value=value, signed_response=response,
                 step=step, unit=unit, probe=p)
+            if len(source_vectors)==2 and all(isinstance(v,(int,float)) and math.isfinite(v)
+                    for vector in source_vectors for v in vector.values()):
+                responses[p['id']]['source_signed_response']={k:(source_vectors[0][k]-source_vectors[1][k])/(2*step) for k in response}
         except (ValueError, KeyError, RuntimeError) as exc:
             responses[p['id']] = dict(valid=False, value=None, error=f'{type(exc).__name__}: {exc}', probe=p)
     out = dict(base_accepted=bool(validation['accepted']), base_validation=validation,

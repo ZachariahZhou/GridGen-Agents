@@ -35,7 +35,7 @@ def request_guard(text):
         if re.search('\u4e0d\u8981\u6c42|\u4e0d\u9700\u8981|\u65e0\u9700|\u539f\u5148|\u6b64\u524d|\u539f\u6765|\u6539\u4e3a|\u4f8b\u5982|\u4e3e\u4f8b',clause):continue
         interval=re.search('((?:\u7528\u6237|\u8282\u70b9|\u6bcd\u7ebf)(?:\u6570\u91cf|\u603b\u6570|\u6570))\\s*(?:\u5fc5\u987b)?\\s*(?:\u81f3\u5c11|\u4e0d\u5c11\u4e8e|\u4e0d\u4f4e\u4e8e)\\s*(\\d+)\\s*(?:\u4e2a)?\\s*(?:\u4e14|\u5e76\u4e14|\u540c\u65f6|\u548c)\\s*(?:\u81f3\u591a|\u4e0d\u8d85\u8fc7|\u6700\u591a)\\s*(\\d+)',clause)
         if interval and int(interval[2])>int(interval[3]):
-            issue=f'The lower bound {interval[2]} for {interval[1]} exceeds the upper bound {interval[3]}; both limits cannot hold simultaneously. Please clarify the count range to retain.'
+            issue=f'{interval[1]} for {interval[2]} exceeds the upper bound {interval[3]}; both limits cannot hold simultaneously. Please clarify the count range to retain.'
             return dict(status='needs_clarification',issues=[issue],questions=[issue])
     # Inspect clauses separately: an external-data statement must not hide a
     # separate explicit demand for generated time series.
@@ -84,6 +84,6 @@ def request_guard(text):
             totals.extend([(a,unit_a),(b,unit_b)])
         values=sorted({round(float(n)*(1000 if unit.lower()=='mw' else 1),8) for n,unit in totals})
         if len(values)>1:
-            question='Conflicting total active-power requirements for the same baseline condition: '+ ', '.join(f'{v:g}kW' for v in values)+' cannot hold simultaneously. Please confirm which to retain, or whether they refer to different operating conditions.'
+            question='Conflicting total active-power requirements for the same baseline condition: '+ '、'.join(f'{v:g}kW' for v in values)+' cannot hold simultaneously. Please confirm which to retain, or whether they refer to different operating conditions.'
             return dict(status='needs_clarification',issues=[question],questions=[question])
     return None

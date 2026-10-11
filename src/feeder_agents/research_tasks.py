@@ -14,6 +14,7 @@ from .research_schema import ResearchTaskPlan
 from .response_schema import ResponseDesignPlan,ResponseProbe,ResponseSearch
 from .response_measurement import create_model,resolve_probes
 from .response_design import run_response_design,read_response_result,_manifest
+from .solver_accounting import SolverMeter, solver_phase
 
 
 def effective_search(task):
@@ -84,16 +85,28 @@ def read_research_task_result(root):
 
 
 def run_research_task(payload,workspace,design_id,*,model=None):
+    with SolverMeter() as meter:
+        return _run_research_task(payload,workspace,design_id,model=model,meter=meter)
+
+
+def _run_research_task(payload,workspace,design_id,*,model,meter):
     if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]{0,63}',design_id):raise ValueError('Invalid research design ID')
-    compiled=compile_research_task(payload);plan=ResponseDesignPlan.model_validate(compiled['response_plan'])
+    task=payload if isinstance(payload,ResearchTaskPlan) else ResearchTaskPlan.model_validate(payload)
+    request=dict(plan=task.model_dump(),explicit_fields=sorted(task.model_fields_set))
     root=Path(workspace).resolve()/'research_tasks'/design_id;root.mkdir(parents=True,exist_ok=True)
-    manifest=dict(compiled=compiled,response_source=_manifest(plan))
     with (root/'.lock').open('w') as lock:
         fcntl.flock(lock.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
         if (root/'manifest.json').exists():
-            if json.loads((root/'manifest.json').read_text())!=manifest:raise ValueError('Research configuration/code changed; use a new ID')
+            manifest=json.loads((root/'manifest.json').read_text())
+            saved_plan=ResponseDesignPlan.model_validate(manifest['compiled']['response_plan'])
+            if (manifest.get('request')!=request or manifest['response_source']!=_manifest(saved_plan)):
+                raise ValueError('Research configuration/code changed; use a new ID')
             if not (root/'result.json').exists():raise ValueError('Interrupted research run; use a new ID')
             return read_research_task_result(root)
+        with solver_phase('compile'):
+            compiled=compile_research_task(payload)
+        plan=ResponseDesignPlan.model_validate(compiled['response_plan'])
+        manifest=dict(compiled=compiled,response_source=_manifest(plan),request=request)
         atomic_json(root/'manifest.json',manifest);atomic_json(root/'compiled_plan.json',compiled)
         result=run_response_design(plan,root,'response',model=model,task_context=compiled['context'])
         inner=Path(result['directory'])
@@ -113,6 +126,8 @@ def run_research_task(payload,workspace,design_id,*,model=None):
             f"Response targets: {json.dumps(result['selected']['targets'])}\n\n"
             f"Task metrics: {json.dumps(task_validation['metrics'])}\n\n{compiled['notice']}\n\n{suitability['scope']}")
         (root/'report.md').write_text(report)
+        accounting=meter.snapshot()
+        atomic_json(root/'solver_accounting.json',dict(accounting,events=meter.events))
         with zipfile.ZipFile(root/'dataset.zip','w',zipfile.ZIP_DEFLATED) as archive:
             for path in sorted(root.rglob('*')):
                 if path.is_file() and path.name not in ('.lock','dataset.zip','result.json'):
@@ -126,6 +141,7 @@ def run_research_task(payload,workspace,design_id,*,model=None):
             target_met=result['target_met'],verification_passed=result['verification_passed'],
             electrical_base_accepted=suitability['electrical_base_accepted'],original_electrical_base_accepted=suitability['original_electrical_base_accepted'],protected_contract_preserved=result['protected_contract_preserved'],
             accepted_steps=result['accepted_steps'],stop_reason=result['stop_reason'],diagnosis=diagnosis,
+            solver_accounting=accounting,response_solver_accounting=result['solver_accounting'],
             selected=result['selected'],task_validation=task_validation,compiled_plan=compiled,verified_report=report,
             artifacts={str(p.relative_to(root)):file_digest(p) for p in sorted(root.rglob('*')) if p.is_file() and p.name!='.lock'})
         output['result_hash']=digest(output);atomic_json(root/'result.json',output)

@@ -76,6 +76,7 @@ def layout_options(model, original, spec, assessment, search):
         increase = lower is not None and value < lower
         width = upper-lower if lower is not None and upper is not None else .1*value
         desired = ((lower+.2*width) if increase else (upper-.2*width))/value
+        desired = 1+(desired-1)/assessment.get('proxy_gains', {}).get(row['target']['probe_id'], 1.)
         for weight in (1., .75, 1.25):
             factor = min(hi, max(lo, 1+(desired-1)*weight))
             if lo > hi or (increase and factor <= 1+1e-9) or (not increase and factor >= 1-1e-9): continue
@@ -181,6 +182,7 @@ def rank_distribution_actions(model, probes, assessment, actions, *, preserve_di
         predicted = path_components(lines)
         deficits = []
         responses = {}
+        raw_responses = {}
         worsening = 0.
         centering = 0.
         for row in assessment['targets']:
@@ -189,6 +191,9 @@ def rank_distribution_actions(model, probes, assessment, actions, *, preserve_di
                 estimate = observed
             else:
                 estimate = observed * predicted[key] / reference[key]
+            raw_responses[key] = estimate
+            if estimate is not None and observed is not None:
+                estimate = observed+assessment.get('proxy_gains', {}).get(key, 1.)*(estimate-observed)
             responses[key] = estimate
             lower, upper = target['lower'], target['upper']
             scale = max(lower or 0, upper or 0, 1e-9)
@@ -200,15 +205,16 @@ def rank_distribution_actions(model, probes, assessment, actions, *, preserve_di
             if estimate is not None and lower is not None and upper is not None:
                 centering += abs(estimate - (lower + upper) / 2) / scale
         proposal = dict(action, proxy_predicted_deficits=deficits,
-                        proxy_response_estimates=responses)
+                        proxy_response_estimates=responses, proxy_raw_response_estimates=raw_responses)
         ranked.append(((worsening, sum(deficits), centering,
                         len(action.get('actions', [action])), ordinal), proposal))
     ordered = [action for _, action in sorted(ranked, key=lambda item: item[0])]
     if preserve_diversity:
+        from .response_candidates import diverse_directions
         families = {}
         for action in ordered:
             families.setdefault((action['kind'], action.get('probe_id')), []).append(action)
-        ordered = [action for group in zip_longest(*families.values())
+        ordered = [action for group in zip_longest(*(diverse_directions(g) for g in families.values()))
                    for action in group if action is not None]
     # A proxy that cannot estimate an authorized family must not starve that
     # family of AC previews. Keep its original order and interleave families.

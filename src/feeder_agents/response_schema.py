@@ -52,6 +52,8 @@ class ResponseTarget(StrictModel):
 
 class ResponseSearch(StrictModel):
     allowed_actions: list[Literal['replace_conductor', 'parallel_line', 'scale_layout', 'scale_subtree', 'rewire_branch', 'redistribute_load']] = Field(default_factory=list, max_length=6)
+    max_changed_conductors: int | None = Field(default=None, ge=1, le=2000,
+        description='Maximum final conductor assignments differing from the ORIGINAL model, across all rounds and joint edits. Omitted retains legacy uncapped catalogue selection.')
     max_layout_scale_change: float | None = Field(default=None, gt=0, le=.9,
         description='Explicit permission for uniform spatial scaling relative to the ORIGINAL geometry, e.g. 0.15 means factors [0.85, 1.15]. Not an engineering standard.')
     max_branch_length_change: float | None = Field(default=None, gt=0, le=.9)
@@ -66,11 +68,24 @@ class ResponseSearch(StrictModel):
     max_joint_actions: int = Field(default=1, ge=1, le=2)
     max_rounds: int = Field(default=4, ge=0, le=32)
     candidates_per_round: int = Field(default=8, ge=1, le=64)
-    selector: Literal['heuristic', 'agent'] = 'heuristic'
+    selector: Literal['heuristic', 'agent', 'greedy', 'uniform'] = 'heuristic'
+    strategy: Literal['auto', 'monotone', 'archive'] = Field(default='auto',
+        description='Auto uses bounded archive exploration for multiple targets, monotone search otherwise.')
+    archive_width: int = Field(default=4, ge=1, le=16)
+    calibrate_proxies: bool = Field(default=True,
+        description='Use measured AC candidate changes to calibrate incremental distribution-response proposal gains; does not change targets or acceptance.')
+    compensation_mode: Literal['fixed', 'conditional', 'bounded'] = Field(default='bounded',
+        description='Fixed offset proposals, conditional affine sizing, or conditional sizing with original-reference geometric interval endpoints. All modes retain identical final contract and AC checks.')
+    exploration_deficit_allowance: float = Field(default=.15, ge=0, le=1,
+        description='Maximum temporary sum of normalized response deficits above the best incumbent. Hard engineering constraints are never relaxed.')
+    max_search_ac_calls: int | None = Field(default=None, ge=1, le=100000,
+        description='Hard limit on actual search AC evaluation attempts; baseline, construction, final verification and export are separately counted.')
 
     @model_validator(mode='after')
     def permissions(self):
         if len(self.allowed_actions) != len(set(self.allowed_actions)): raise ValueError('Duplicate actions')
+        if self.max_changed_conductors is not None and 'replace_conductor' not in self.allowed_actions:
+            raise ValueError('max_changed_conductors requires replace_conductor permission')
         if ('scale_layout' in self.allowed_actions) != (self.max_layout_scale_change is not None):
             raise ValueError('scale_layout requires explicit max_layout_scale_change; omit the bound when layout changes are forbidden')
         for action, fields in {'scale_subtree':['max_branch_length_change','max_node_displacement_km'],

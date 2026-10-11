@@ -1,0 +1,421 @@
+[
+  {
+    "id": "construction_h02",
+    "category": "hierarchy",
+    "language": "zh",
+    "cluster_id": "construction_h02",
+    "messages": [
+      "\u751f\u6210\u4e00\u4e2a\u519c\u6751\u4e2d\u538b\u2014\u914d\u53d8\u2014\u4f4e\u538b\u2014\u7528\u6237\u914d\u7535\u7f51\u6a21\u578b\uff0c\u603b\u5171\u51c6\u786e71\u4e2a\u6bcd\u7ebf\uff0c\u5176\u4e2d10kV\u4e2d\u538b\u6bcd\u7ebf13\u4e2a\uff08\u542b\u7535\u6e90\uff09\uff0c\u914d\u53d86\u53f0\uff0c\u4f4e\u538b\u7535\u538b0.4kV\uff0c\u6bcf\u53f0\u914d\u53d8\u4e0b\u8bbe2\u4e2a\u4f4e\u538b\u5206\u652f\u6bcd\u7ebf\uff0c\u603b\u517140\u4e2a\u5355\u76f8\u7528\u6237\u3002\u603b\u8d1f\u8377120kW\uff0c\u5149\u4f0f\u88c5\u673a\u4e3a\u8d1f\u8377\u768420%\u3002\u5355\u76f8\u7528\u6237\u6570\u91cf\u6309A/B/C\u76f80.5/0.3/0.2\u5206\u914d\uff0c\u8fd9\u91cc\u662f\u7528\u6237\u6570\u91cf\u6bd4\u4f8b\uff0c\u4e0d\u662f\u5404\u76f8\u8d1f\u8377\u529f\u7387\u6bd4\u4f8b\u3002\u4ea4\u4ed8\u53ef\u8fd0\u884c\u7684OpenDSS\u548c\u53ef\u89c6\u5316\u3002 \u7269\u7406\u751f\u6210\u968f\u673a\u79cd\u5b50\u4e3a101022\u3002\u8bf7\u6267\u884c\u751f\u6210\u5e76\u4ea4\u4ed8\u4fdd\u5b58\u7684\u6a21\u578b\u6587\u4ef6\u3002"
+    ],
+    "expected_outcome": "generation",
+    "witness_spec": {
+      "scene": "rural",
+      "voltage_kv": 10,
+      "lv_voltage_kv": 0.4,
+      "transformer_count": 6,
+      "mv_buses": 13,
+      "customer_allocation": "varied",
+      "customer_connection": "distributed_taps",
+      "mv_topology_policy": "branched_v4",
+      "mv_topology": {
+        "family": "auto",
+        "branch_count": null,
+        "branching_factor": null,
+        "trunk_fraction": null,
+        "ring_count": null,
+        "terminal_count": null,
+        "local_tie_count": null
+      },
+      "structure_targets": null,
+      "lv_topology": "auto",
+      "lv_branches": 2,
+      "users": 40,
+      "n_buses": 71,
+      "total_kw": 120.0,
+      "power_factor": 0.95,
+      "pv_ratio": 0.2,
+      "phase_weights": [
+        0.5,
+        0.3,
+        0.2
+      ],
+      "mv_segment_km_min": 0.1,
+      "mv_segment_km_max": 0.3,
+      "lv_segment_km_min": 0.02,
+      "lv_segment_km_max": 0.05,
+      "service_km_min": 0.005,
+      "service_km_max": 0.015,
+      "lv_equipment_profile": "auto",
+      "lv_installation": "auto",
+      "lv_installation_decision": null,
+      "lv_regions": [],
+      "lv_ampacity_derating": 1,
+      "lv_drop_budget_pu": 0.05,
+      "loading_margin": 0.8,
+      "mv_voltage_min_pu": 0.93,
+      "mv_voltage_max_pu": 1.07,
+      "lv_voltage_min_pu": 0.9,
+      "lv_voltage_max_pu": 1.1,
+      "max_vuf_percent": 2,
+      "count": 1,
+      "seed": 101022
+    },
+    "requirements": {
+      "n_buses": 71,
+      "scene": "rural",
+      "mv_buses": 13,
+      "transformer_count": 6,
+      "users": 40,
+      "lv_branches": 2,
+      "total_kw": 120,
+      "pv_ratio": 0.2,
+      "voltage_kv": 10,
+      "lv_voltage_kv": 0.4,
+      "seed": 101022,
+      "count": 1,
+      "phase_customer_counts": [
+        20,
+        12,
+        8
+      ]
+    },
+    "domain": "hierarchy",
+    "turn_requirements": [
+      {
+        "n_buses": 71,
+        "scene": "rural",
+        "mv_buses": 13,
+        "transformer_count": 6,
+        "users": 40,
+        "lv_branches": 2,
+        "total_kw": 120,
+        "pv_ratio": 0.2,
+        "voltage_kv": 10,
+        "lv_voltage_kv": 0.4,
+        "seed": 101022,
+        "count": 1,
+        "phase_customer_counts": [
+          20,
+          12,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "id": "construction_t01",
+    "category": "transmission",
+    "language": "zh",
+    "cluster_id": "construction_t01",
+    "messages": [
+      "\u751f\u6210\u4e00\u4e2a\u9759\u6001\u5e73\u8861\u8f93\u7535\u7f51\u79d1\u7814\u6a21\u578b\uff0c\u51c6\u786e137\u4e2a\u6bcd\u7ebf\u548c12\u53f0\u53d1\u7535\u673a\uff0c220kV\uff0c\u603b\u8d1f\u8377\u56fa\u5b9a0.42GW\u3002\u6240\u6709\u6bcd\u7ebf\u8ddd\u5750\u6807\u539f\u70b9\u4e0d\u8d85\u8fc720km\uff0c\u7981\u7528\u81ea\u52a8\u4fee\u590d\u3002\u5bfc\u51fa\u53ef\u8fd0\u884c\u7684MATPOWER\u6587\u4ef6\u548c\u53ef\u89c6\u5316\u3002 \u7269\u7406\u751f\u6210\u968f\u673a\u79cd\u5b50\u4e3a101031\u3002\u8bf7\u6267\u884c\u751f\u6210\u5e76\u4ea4\u4ed8\u4fdd\u5b58\u7684\u6a21\u578b\u6587\u4ef6\u3002"
+    ],
+    "expected_outcome": "generation",
+    "witness_spec": {
+      "network_kind": "transmission",
+      "voltage_layers": null,
+      "allow_topology_changes": false,
+      "connectivity": "connected",
+      "radial_bus_count": null,
+      "mesh_style": "local",
+      "mesh_family": "auto",
+      "load_pattern": "dispersed",
+      "generator_buses": null,
+      "generator_weights": null,
+      "targets": [],
+      "document_rules": [],
+      "validation_conditions": [],
+      "allowed_repairs": [],
+      "n_buses": 137,
+      "n_generators": 12,
+      "voltage_kv": 220,
+      "total_mw": 420.0,
+      "power_factor": 0.97,
+      "topology": "meshed",
+      "extra_edges": 45,
+      "shunt_compensation": 0.7,
+      "radius_km": 20.0,
+      "generator_types": [
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic"
+      ],
+      "voltage_min_pu": 0.95,
+      "voltage_max_pu": 1.05,
+      "count": 1,
+      "seed": 101031
+    },
+    "requirements": {
+      "n_buses": 137,
+      "n_generators": 12,
+      "total_mw": 420,
+      "voltage_kv": 220,
+      "radius_km": 20
+    },
+    "domain": "transmission",
+    "turn_requirements": [
+      {
+        "n_buses": 137,
+        "n_generators": 12,
+        "total_mw": 420,
+        "voltage_kv": 220,
+        "radius_km": 20
+      }
+    ]
+  },
+  {
+    "id": "construction_t02",
+    "category": "transmission",
+    "language": "en",
+    "cluster_id": "construction_t02",
+    "messages": [
+      "Generate one static balanced transmission grid with exactly 223 buses and 20 generators, 220 kV, fixed demand 640 MW. Every bus must lie within 20 km of the coordinate origin. Disable automatic repairs. Deliver a runnable MATPOWER case and visualization. Use physical generation seed 101032. Execute the request and deliver the saved files."
+    ],
+    "expected_outcome": "generation",
+    "witness_spec": {
+      "network_kind": "transmission",
+      "voltage_layers": null,
+      "allow_topology_changes": false,
+      "connectivity": "connected",
+      "radial_bus_count": null,
+      "mesh_style": "local",
+      "mesh_family": "auto",
+      "load_pattern": "dispersed",
+      "generator_buses": null,
+      "generator_weights": null,
+      "targets": [],
+      "document_rules": [],
+      "validation_conditions": [],
+      "allowed_repairs": [],
+      "n_buses": 223,
+      "n_generators": 20,
+      "voltage_kv": 220,
+      "total_mw": 640.0,
+      "power_factor": 0.97,
+      "topology": "meshed",
+      "extra_edges": 74,
+      "shunt_compensation": 0.7,
+      "radius_km": 20.0,
+      "generator_types": [
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic"
+      ],
+      "voltage_min_pu": 0.95,
+      "voltage_max_pu": 1.05,
+      "count": 1,
+      "seed": 101032
+    },
+    "requirements": {
+      "n_buses": 223,
+      "n_generators": 20,
+      "total_mw": 640,
+      "voltage_kv": 220,
+      "radius_km": 20
+    },
+    "domain": "transmission",
+    "turn_requirements": [
+      {
+        "n_buses": 223,
+        "n_generators": 20,
+        "total_mw": 640,
+        "voltage_kv": 220,
+        "radius_km": 20
+      }
+    ]
+  },
+  {
+    "id": "revision_04",
+    "category": "protected_revision",
+    "language": "zh",
+    "cluster_id": "revision_04",
+    "messages": [
+      "\u751f\u6210\u4e00\u6761\u519c\u6751\u914d\u7535\u9988\u7ebf\uff0c\u603b\u6bcd\u7ebf\u6570\u51c6\u786e\u4e3a63\uff0c\u5305\u542b\u7535\u6e90\u6bcd\u7ebf\uff0c\u5355\u4e00\u7535\u538b\u7b49\u7ea710kV\uff0c\u91c7\u7528\u4e09\u76f8\u4e0d\u5e73\u8861\u6a21\u578b\u3002\u603b\u8d1f\u8377\u56fa\u5b9a\u4e3a160 kW\uff0c\u5149\u4f0f\u603b\u88c5\u673a\u4e3a\u603b\u8d1f\u8377\u768415%\u3002\u5bfc\u51fa\u53ef\u8fd0\u884c\u7684OpenDSS\u6a21\u578b\u548c\u53ef\u89c6\u5316\u3002\u521d\u59cb\u6784\u5efa\u5b8c\u6210\u540e\u7981\u7528\u81ea\u52a8\u4fee\u590d\u3002 \u7269\u7406\u751f\u6210\u968f\u673a\u79cd\u5b50\u4e3a101044\u3002\u8bf7\u6267\u884c\u751f\u6210\u5e76\u4ea4\u4ed8\u4fdd\u5b58\u7684\u6a21\u578b\u6587\u4ef6\u3002",
+      "\u5c40\u90e8\u4fee\u6539\u5df2\u4fdd\u5b58\u9988\u7ebf\uff1a\u4ee5\u7535\u6e90\u8282\u70b9\u4e3a\u4e2d\u5fc3\uff0c\u5c06\u6240\u6709\u8282\u70b9\u5750\u6807\u8ddd\u79bb\u53ca\u7ebf\u8def\u957f\u5ea6\u7edf\u4e00\u4e58\u4ee51.05\u3002\u4fdd\u6301\u6bcf\u9879\u8d1f\u8377\u548c\u5149\u4f0f\u3001\u76f8\u522b\u8fde\u63a5\u3001\u6bcd\u7ebfID\u3001\u5bfc\u7ebf\u3001\u62d3\u6251\u53ca\u7535\u538b\u4e0d\u53d8\u3002\u4fdd\u5b58\u5b50\u7248\u672c\uff0c\u4e0d\u8981\u91cd\u65b0\u751f\u6210\u3002",
+      "\u7ee7\u7eed\u5c40\u90e8\u4fee\u6539\u6700\u8fd1\u4e00\u6b21\u4fdd\u5b58\u7684\u5b50\u7248\u672c\uff0c\u5c06\u5149\u4f0f\u603b\u88c5\u673a\u8bbe\u4e3a\u603b\u8d1f\u8377\u768430%\u3002\u4fdd\u6301\u521a\u624d\u4fee\u6539\u540e\u7684\u5750\u6807\u548c\u7ebf\u957f\uff0c\u4fdd\u6301\u5404\u76f8\u8d1f\u8377\u3001\u76f8\u522b\u8fde\u63a5\u3001\u6bcd\u7ebfID\u3001\u5bfc\u7ebf\u3001\u62d3\u6251\u3001\u7535\u538b\u4e0d\u53d8\u3002\u4fdd\u5b58\u4e0b\u4e00\u5b50\u7248\u672c\uff0c\u4e0d\u8981\u91cd\u65b0\u751f\u6210\u3002"
+    ],
+    "expected_outcome": "generation",
+    "witness_spec": {
+      "network_kind": "distribution",
+      "document_rules": [],
+      "repair_policy": {
+        "strategy": "none",
+        "allow_rewire": false,
+        "preview_limit": 2,
+        "max_candidates": 8
+      },
+      "scenario": {
+        "load_placement": "all_nodes",
+        "reference_case_id": null,
+        "kind": "rural",
+        "layout": "spatial_mst",
+        "engineering_profile": "rural",
+        "topology": null,
+        "tie_count": 0,
+        "load_shape": "heterogeneous",
+        "load_concentration": 2,
+        "calibration_profile": null,
+        "empirical_weight": 0.7,
+        "village_count": null,
+        "trunk_fraction": 0.3,
+        "aspect_ratio": null,
+        "positions_km": null
+      },
+      "phase_design": {
+        "mode": "unbalanced",
+        "load_phase_weights": [
+          0.5,
+          0.3,
+          0.2
+        ],
+        "pv_phase_weights": null,
+        "single_phase_laterals": null,
+        "two_phase_laterals": null,
+        "max_vuf_percent": 2
+      },
+      "equipment_design": {
+        "mode": "auto",
+        "reference_feeders": [
+          "J1",
+          "K1",
+          "Ckt5",
+          "Ckt24"
+        ],
+        "source_weighting": "equal_feeder",
+        "loading_margin": 0.8,
+        "capacity_band": 2,
+        "conditioning": "length_voltage",
+        "length_bandwidth": 0.65,
+        "voltage_drop_budget_pu": 0.05,
+        "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+      },
+      "count": 1,
+      "n_buses": 63,
+      "n_loads_min": 62,
+      "n_loads_max": 62,
+      "total_kw_min": 160.0,
+      "total_kw_max": 160.0,
+      "voltage_kv": 10.0,
+      "frequency_hz": 50,
+      "power_factor": 0.95,
+      "pv_ratio": 0.15,
+      "segment_km_min": 0.05,
+      "segment_km_max": 0.25,
+      "seed": 101044,
+      "mode": "normal",
+      "load_semantics": "aggregated",
+      "special_pf_agreement": false,
+      "max_repairs": 2
+    },
+    "requirements": {
+      "n_buses": 63,
+      "voltage_kv": 10.0,
+      "total_kw": 160.0,
+      "pv_ratio": 0.3,
+      "phase_mode": "unbalanced",
+      "scene": "rural",
+      "seed": 101044,
+      "count": 1,
+      "repair_strategy": "none"
+    },
+    "domain": "distribution",
+    "revision": true,
+    "required_revisions": 2,
+    "revision_actions": [
+      [
+        {
+          "kind": "geometry_scale",
+          "value": 1.05
+        }
+      ],
+      [
+        {
+          "kind": "pv_ratio",
+          "value": 0.3
+        }
+      ]
+    ],
+    "turn_requirements": [
+      {
+        "n_buses": 63,
+        "voltage_kv": 10.0,
+        "total_kw": 160.0,
+        "pv_ratio": 0.15,
+        "phase_mode": "unbalanced",
+        "scene": "rural",
+        "seed": 101044,
+        "count": 1,
+        "repair_strategy": "none"
+      },
+      {
+        "n_buses": 63,
+        "voltage_kv": 10.0,
+        "total_kw": 160.0,
+        "pv_ratio": 0.15,
+        "phase_mode": "unbalanced",
+        "scene": "rural",
+        "seed": 101044,
+        "count": 1,
+        "repair_strategy": "none"
+      },
+      {
+        "n_buses": 63,
+        "voltage_kv": 10.0,
+        "total_kw": 160.0,
+        "pv_ratio": 0.3,
+        "phase_mode": "unbalanced",
+        "scene": "rural",
+        "seed": 101044,
+        "count": 1,
+        "repair_strategy": "none"
+      }
+    ],
+    "preserve_groups": [
+      [
+        "topology",
+        "equipment",
+        "voltage",
+        "phase_connectivity",
+        "loads",
+        "pv",
+        "phase_loads",
+        "phase_pv"
+      ],
+      [
+        "topology",
+        "equipment",
+        "voltage",
+        "phase_connectivity",
+        "geometry",
+        "loads",
+        "phase_loads"
+      ]
+    ]
+  }
+]

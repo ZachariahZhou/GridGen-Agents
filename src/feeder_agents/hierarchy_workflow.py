@@ -79,14 +79,16 @@ def visualization(feeder,result,checks):
     body=''.join(svg)
     state='Passed' if checks['accepted'] else 'Failed'
     analysis=feeder.design_evidence.get('lv_equipment',{})
+    decision=analysis.get('installation_decision')
+    analysis_text=(decision['reason'] if decision else analysis.get('decision_notice',analysis.get('decision_source','\u65e7\u6a21\u578b')))
+    if analysis.get('regions'):
+        analysis_text='；'.join(r['name']+'：'+r['decision']['selected']+' — '+r['decision']['reason'] for r in analysis['regions'])
+    analysis_html=html.escape(str(analysis.get('installation',''))+'：'+analysis_text)
     topology=feeder.design_evidence.get('resolved_mv_topology',{}).get('family','legacy balanced_tree')
     return svg_page('MV-LV distribution feeder','MV-transformer-LV-customer network · Synthetic spatial coordinates',body,
         [('MV','#356a93'),('Transformer (square)','#ba8545'),('LV','#318579'),('Customers','#84719a'),('Normally-open tie (NO)','#bd7628'),('Line limit violation','#b64b4b')],
         [('Buses',len(feeder.buses)),('Transformers',len(feeder.transformers)),('Customers',len(feeder.loads)),('Acceptance',state)],
-        notes='MV topology: '+topology+'; normally-open ties: '+str(len(feeder.tie_lines))+
-        '. Energized connectivity is radial. Solid lines: overhead; dashed lines: cable; orange dash-dot lines: open ties (NO). '
-        'Synthetic coordinates use equal scale; crossings do not imply connections. Equivalent grounding, without an explicit neutral. '
-        'LV installation: '+str(analysis.get('installation',''))+'. Installation rationale and equipment provenance are stored in design_evidence.json.')
+        notes='MV topology: '+topology+'; normally-open ties: '+str(len(feeder.tie_lines))+'LV installation: '+str(analysis.get('installation',''))+' · '+analysis_text)
 
 
 def _solve(master,connection):
@@ -183,7 +185,7 @@ def run_hierarchy(spec,workspace,run_id,*,agent_feedback=False,feedback_model=No
         accepted=sum(s['accepted'] for s in samples)
         from .lv_equipment import resolve_installation
         lv_profile,lv_installation=resolve_installation(spec)
-        report=f'MV/LV research feeder: {spec.voltage_kv}/{spec.lv_voltage_kv} kV; {spec.transformer_count} transformers; {spec.users} single-phase customers; {spec.n_buses} total buses. Attempted {spec.count} cases; accepted {accepted}.\n\nLV catalog: {lv_profile}; installation: {lv_installation}. Product data and impedance-equivalent conversions are recorded separately. Transformer parameters are selected jointly with transfer assumptions recorded. Equivalent grounding excludes neutral displacement, time series and protection validation.'
+        report=f'MV/LV research feeder: {spec.voltage_kv}/{spec.lv_voltage_kv}kV；{spec.transformer_count} transformers; {spec.users} single-phase customers; {spec.n_buses} total buses. Attempted {spec.count} cases; accepted {accepted}.\n\nLV catalog: {lv_profile}; installation: {lv_installation}. Product data and impedance-equivalent conversions are recorded separately. Transformer parameters are selected jointly with transfer assumptions recorded. Equivalent grounding excludes neutral displacement, time series and protection validation.'
         from .hierarchy_topology_design import resolve_mv_topology,resolve_lv_topology
         report+='\n\nMV topology: '+resolve_mv_topology(spec).family+'; LV topology: '+resolve_lv_topology(spec)+'. Ring configurations retain normally-open ties. Energized connectivity is radial with one equivalent source; multi-source operation and N-1 security are not guaranteed.'
         report+='\n\nEach structure_diagnostic.json records graph structure and modeling simplifications. Electrical acceptance does not establish statistical similarity to the population of real feeders.'
@@ -192,9 +194,9 @@ def run_hierarchy(spec,workspace,run_id,*,agent_feedback=False,feedback_model=No
         if spec.structure_targets is not None:
             report+='\n\nExplicit structure targets: '+json.dumps(spec.structure_targets.model_dump(exclude_none=True),ensure_ascii=False)+'. Depth counts energized MV hops from the source; transformer-distance statistics exclude the source. Unmet targets prevent acceptance. Absence of a permitted local action does not prove global infeasibility.'
         if agent_feedback:
-            report+='\n\nFeedback loop: the agent selects equipment or permitted local topology repairs from measured evidence. The executor checks invariants and recalculates, with at most '+str(feedback_rounds)+' rounds per case.\n'+ '\n'.join(s['sample_id']+': '+s.get('feedback',{}).get('stop_reason',s.get('error','Incomplete')) for s in samples)
+            report+='\n\nFeedback loop: the agent selects equipment or permitted local topology repairs from measured evidence. The executor checks invariants and recalculates, with at most '+str(feedback_rounds)+' rounds per case.\n'+ '\n'.join(s['sample_id']+'：'+s.get('feedback',{}).get('stop_reason',s.get('error','Incomplete')) for s in samples)
         (root/'report.md').write_text(report)
-        rows=''.join(f'<li><a href="{s["sample_id"]}/visualization.html">{s["sample_id"]}</a>: '+('Passed' if s['accepted'] else 'Failed')+'</li>' for s in samples)
+        rows=''.join(f'<li><a href="{s["sample_id"]}/visualization.html">{s["sample_id"]}</a>：'+('Passed' if s['accepted'] else 'Failed')+'</li>' for s in samples)
         (root/'index.html').write_text('<meta charset="utf-8"><h1>MV/LV research cases</h1><p>'+html.escape(report)+'</p><ul>'+rows+'</ul><a href="dataset.zip">Download OpenDSS models and validation evidence</a>')
         with zipfile.ZipFile(root/'dataset.zip','w',zipfile.ZIP_DEFLATED) as archive:
             for path in sorted(root.rglob('*')):

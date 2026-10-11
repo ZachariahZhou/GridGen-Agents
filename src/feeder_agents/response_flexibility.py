@@ -30,6 +30,7 @@ def distribution_actions(model,original,spec,probes,assessment,search):
         lo,hi=row['target']['lower'],row['target']['upper']
         width=hi-lo if lo is not None and hi is not None else .1*max(row['observed'],1e-9)
         desired=((lo+.2*width) if increase else (hi-.2*width))/max(row['observed'],1e-9)
+        desired=1+(desired-1)/assessment.get('proxy_gains',{}).get(probe['id'],1.)
         for parent,child in tree.edges:
             edge=graph[parent][child]['line']
             if edge.id not in ids:continue

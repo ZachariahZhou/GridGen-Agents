@@ -1,0 +1,207 @@
+{
+  "candidate": {
+    "status": "ready",
+    "family": "transmission",
+    "single_voltage_spec": null,
+    "distribution_spec": null,
+    "transmission_spec": {
+      "network_kind": "transmission",
+      "voltage_layers": null,
+      "allow_topology_changes": false,
+      "mesh_style": "local",
+      "load_pattern": "dispersed",
+      "generator_buses": null,
+      "generator_weights": null,
+      "targets": [],
+      "document_rules": [],
+      "validation_conditions": [],
+      "allowed_repairs": [
+        "shunt_step",
+        "voltage_setpoint",
+        "parallel_line",
+        "upgrade_transformer",
+        "transformer_tap",
+        "redispatch",
+        "relocate_corridor"
+      ],
+      "n_buses": 120,
+      "n_generators": 18,
+      "voltage_kv": 220,
+      "total_mw": 2400.0,
+      "power_factor": 0.97,
+      "topology": "meshed",
+      "extra_edges": 40,
+      "shunt_compensation": 0.7,
+      "radius_km": 40.0,
+      "generator_types": [
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic",
+        "generic"
+      ],
+      "voltage_min_pu": 0.95,
+      "voltage_max_pu": 1.05,
+      "count": 1,
+      "seed": 42
+    },
+    "ledger": {
+      "network_kind": "transmission",
+      "model_family": "transmission",
+      "summary": "220kV balanced AC transmission research case with meshed topology, 120 buses, 18 generators, and 2400MW total load.",
+      "requirements": [
+        {
+          "id": "req_001",
+          "segment_ids": [
+            1
+          ],
+          "evidence": "\u751f\u6210\u4e00\u4e2a220kV\u5e73\u8861\u4ea4\u6d41\u8f93\u7535\u79d1\u7814case",
+          "meaning": "Voltage level and network type",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "transmission.voltage_kv",
+          "expected_value": 220,
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_002",
+          "segment_ids": [
+            1
+          ],
+          "evidence": "\u4e00\u767e\u591a\u4e2a\u6bcd\u7ebf",
+          "meaning": "Bus count range",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "transmission.n_buses",
+          "expected_value": [
+            101,
+            199
+          ],
+          "operator": "ge",
+          "reason": ""
+        },
+        {
+          "id": "req_003",
+          "segment_ids": [
+            1
+          ],
+          "evidence": "18\u53f0\u53d1\u7535\u673a",
+          "meaning": "Generator count",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "transmission.n_generators",
+          "expected_value": 18,
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_004",
+          "segment_ids": [
+            1
+          ],
+          "evidence": "\u603b\u8d1f\u83772400MW",
+          "meaning": "Total active power load",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "transmission.total_mw",
+          "expected_value": 2400,
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_005",
+          "segment_ids": [
+            1
+          ],
+          "evidence": "\u91c7\u7528\u7f51\u72b6\u7ed3\u6784",
+          "meaning": "Network topology",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "transmission.topology",
+          "expected_value": "meshed",
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_006",
+          "segment_ids": [
+            0
+          ],
+          "evidence": "\u8f93\u51faMATPOWER\u6a21\u578b",
+          "meaning": "Deliverable format",
+          "priority": "hard",
+          "disposition": "supported",
+          "target_field": "deliverables",
+          "expected_value": [
+            "matpower"
+          ],
+          "operator": "contains",
+          "reason": ""
+        },
+        {
+          "id": "req_007",
+          "segment_ids": [
+            0
+          ],
+          "evidence": "\u7531Agent\u5728\u6240\u8ff0\u89c4\u6a21\u5185\u9009\u62e9\u5177\u4f53\u6bcd\u7ebf\u6570",
+          "meaning": "Agent discretion for exact bus count within range",
+          "priority": "permission",
+          "disposition": "supported",
+          "target_field": null,
+          "expected_value": null,
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_008",
+          "segment_ids": [
+            0
+          ],
+          "evidence": "\u8bbe\u5907\u53c2\u6570\u5408\u7406\u8bbe\u8ba1",
+          "meaning": "Reasonable equipment parameter design",
+          "priority": "permission",
+          "disposition": "supported",
+          "target_field": null,
+          "expected_value": null,
+          "operator": "eq",
+          "reason": ""
+        },
+        {
+          "id": "req_009",
+          "segment_ids": [
+            0
+          ],
+          "evidence": "\u4e0d\u8981\u6c42\u590d\u5236\u5df2\u6709\u540c\u540d\u57fa\u51c6\u7b97\u4f8b",
+          "meaning": "No requirement to replicate existing benchmark cases",
+          "priority": "permission",
+          "disposition": "supported",
+          "target_field": null,
+          "expected_value": null,
+          "operator": "eq",
+          "reason": ""
+        }
+      ],
+      "questions": []
+    },
+    "issues": [],
+    "assumptions": [],
+    "uncertainties": [],
+    "edits": null,
+    "base_candidate_hash": null
+  },
+  "request": "\u8f93\u51faMATPOWER\u6a21\u578b\uff0c\u7531Agent\u5728\u6240\u8ff0\u89c4\u6a21\u5185\u9009\u62e9\u5177\u4f53\u6bcd\u7ebf\u6570\uff0c\u8bbe\u5907\u53c2\u6570\u5408\u7406\u8bbe\u8ba1\uff0c\u4e0d\u8981\u6c42\u590d\u5236\u5df2\u6709\u540c\u540d\u57fa\u51c6\u7b97\u4f8b\uff1b\u751f\u6210\u4e00\u4e2a220kV\u5e73\u8861\u4ea4\u6d41\u8f93\u7535\u79d1\u7814case\uff0c\u4e00\u767e\u591a\u4e2a\u6bcd\u7ebf\u300118\u53f0\u53d1\u7535\u673a\uff0c\u603b\u8d1f\u83772400MW\uff0c\u91c7\u7528\u7f51\u72b6\u7ed3\u6784\u3002"
+}

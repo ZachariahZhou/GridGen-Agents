@@ -9,7 +9,10 @@ from feeder_agents.transmission import TransmissionSpec, generate_case, validate
 
 @pytest.mark.parametrize('size,seed', [(139, 1106), (139, 1107), (139, 1301), (237, 1302)])
 def test_local_voltage_initialization_recovers_q_limits_without_added_capacity(size, seed):
-    spec = TransmissionSpec(n_buses=size, n_generators=12, total_mw=1200, seed=seed)
+    # Preserve the historical failing physical fixture after default siting
+    # became graph-aware; this test exercises voltage repair, not site choice.
+    spec = TransmissionSpec(n_buses=size, n_generators=12, total_mw=1200, seed=seed,
+                            generator_buses=[int(i * size / 12) + 1 for i in range(12)])
     case, metadata = generate_case(spec, seed)
     checked, solved = validate_case(case, spec, metadata)
     assert checked['accepted'], checked
@@ -32,7 +35,8 @@ def test_local_voltage_initialization_recovers_q_limits_without_added_capacity(s
 
 def test_voltage_initialization_honors_repair_permissions():
     spec = TransmissionSpec(n_buses=139, n_generators=12, total_mw=1200,
-                            seed=1106, allowed_repairs=['parallel_line'])
+                            seed=1106, allowed_repairs=['parallel_line'],
+                            generator_buses=[int(i * 139 / 12) + 1 for i in range(12)])
     case, metadata = generate_case(spec, spec.seed)
     np.testing.assert_array_equal(case['gen'][:, 5], np.ones(12))
     checked, _ = validate_case(case, spec, metadata)

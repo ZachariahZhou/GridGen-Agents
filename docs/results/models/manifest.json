@@ -1,0 +1,85 @@
+{
+  "models": [
+    {
+      "id": "rural_37",
+      "domain": "distribution",
+      "source": "current_release_gallery",
+      "runtime_hash": "533df73775785bdfbe270cf7ef4c50a28c41ebdf62352d70f8ba71c1388f39ad",
+      "files": {
+        "feeder.json": "9d669e1d32a9476301d90252ea8ac3d104a3685f9675bcf420de8c56654347bb",
+        "opendss/BusCoords.csv": "4031a50431e7e591cdffa2ca6cb9b5feb02edf4fef8492918cf48bf29b34a4ce",
+        "opendss/Generation.dss": "cf7381eb52367d364adc8bf3a5be58b431bf17bff9d3e5ac6c44f250107ce84b",
+        "opendss/LineCodes.dss": "0fac64a2c763568581d2a8f62c0c0057b2d5b58e6b5c465c95bdc44416516860",
+        "opendss/Lines.dss": "a8b8ccf600fefcf850f711477fe6df0ff24f6291eda91121b53b67a9422ca11f",
+        "opendss/Loads.dss": "4c49258a0a53aad1610cef2da208bb66d02530dd6ac782122f5396e91e527b55",
+        "opendss/Master.dss": "65221f01b9c4be6791c721dad2712b77090887ebd5280840ae687fbeb0c6471f",
+        "simulation.json": "64b1944b7eab7821e83a55ddef32a231d62e7b281a18723e3297ad1e1b98ebad",
+        "spec.json": "567b82fdd70a163545f2d44b9e07d949e01e740dc1ac050f44c1faa7abb8f7fd",
+        "validation.json": "24428836f21c4bc77aa67447646de8cc0cbb5ff05357315e31e8710c6d8c6d21"
+      },
+      "source_model_directory": "release/GridGen-Agents/workspace/gallery/run_hw78phfv/experiments/distribution_villages/sample_00000"
+    },
+    {
+      "id": "urban_hierarchy_40",
+      "domain": "hierarchy",
+      "source": "current_release_gallery",
+      "runtime_hash": "533df73775785bdfbe270cf7ef4c50a28c41ebdf62352d70f8ba71c1388f39ad",
+      "files": {
+        "feeder.json": "0e592e0248ab0956718fdefd7f142668414c71b60641e89c687a702af9900b3f",
+        "opendss/BusCoords.csv": "30148da225e5550c8db875d88c70d0fe4ca3cb55a5e4b511d5db1a67322799dd",
+        "opendss/Generation.dss": "aba1201ba8c48e8dc1a5e6187634ac6667871b2928e3f845835a2329919e3469",
+        "opendss/LineCodes.dss": "d46d9c1a41f7f1647207d969dad7fbee9ab5f52d254739ac06353ef0f4d7b2c8",
+        "opendss/Lines.dss": "9e66cbea93b1a9d6b990f777de3a0e4ca8f4dfbe5acf7d777bd3b54b16b6f46e",
+        "opendss/Loads.dss": "91b7b7456647be8784373112417f64d9c32140a9d3b386d4ec93975400a67990",
+        "opendss/Master.dss": "0755638028bd650f282d74db1a42de5f7f843472445e255ed5fab605fcd405a4",
+        "opendss/Transformers.dss": "db0f90f5e475f350d9fd94f69b4af4ecbf134a7b67c5cf14c041e0473c719ff9",
+        "simulation.json": "9bcd1a6d45411868929d382347eb4771cc7f07e8c6b431d8888af5833694d442",
+        "spec.json": "42a52185f67a4e1ead77692875714ff41b84a233fdde7f99ec5324ec9323a89a",
+        "validation.json": "46a6a2670f0f5f74f6820f012c83328f93d50b838b8a21d503833c1e2fb5c6ee"
+      },
+      "source_model_directory": "release/GridGen-Agents/workspace/gallery/run_hw78phfv/hierarchical_experiments/hierarchical_urban/sample_00000"
+    },
+    {
+      "id": "transmission_139",
+      "domain": "transmission",
+      "source": "current_release_gallery",
+      "runtime_hash": "533df73775785bdfbe270cf7ef4c50a28c41ebdf62352d70f8ba71c1388f39ad",
+      "files": {
+        "case.json": "715fd2da2cbef473ebd606336069b164c661ba88d912dd35088230ff5788dc49",
+        "case_generated.m": "f0d520d697b4c70d2d7a2c5e7246bc2be0d7fd2a589099a55d6efd69428513a8",
+        "metadata.json": "a8c06fbbc1719fa2d70afb3884ee662a3ca12a5774135ce5d7017583d63a501f",
+        "spec.json": "46fc0bfe359e2576f49120b0fb71d1011ff7f2bd61d91beaa486ac912dc37c98",
+        "validation.json": "609f4725aaf9c817c6729ae1ce012212666ff103eb7676dcd97c8926acb1a3f7"
+      },
+      "source_model_directory": "release/GridGen-Agents/workspace/gallery/run_hw78phfv/transmission_experiments/transmission_139/sample_00000"
+    },
+    {
+      "id": "transmission_237",
+      "domain": "transmission",
+      "source": "current_release_gallery",
+      "runtime_hash": "533df73775785bdfbe270cf7ef4c50a28c41ebdf62352d70f8ba71c1388f39ad",
+      "files": {
+        "case.json": "2c4a6f28a791b0ebff0bed37a3f7cac87db354a25ba582f3d85e69da4a60fa6f",
+        "case_generated.m": "e566d2c88ee43797d7879c07d5d63cef5368d04a1861779fcd27f6da3a06604a",
+        "metadata.json": "5c74cdb323b93e308b532baf974a182d49abc9b6877309ea5f0dde4158b1dfa0",
+        "spec.json": "9e73e22e2a8ceb988b3462b2a970041d8fb40fce983995f34036b866ce319d84",
+        "validation.json": "ee91f19e18d1bda79639c75f1516222c0aabf2f2543fe5591dbe43ca498a1059"
+      },
+      "source_model_directory": "release/GridGen-Agents/workspace/gallery/run_hw78phfv/transmission_experiments/transmission_237/sample_00000"
+    },
+    {
+      "id": "transmission_223",
+      "domain": "transmission",
+      "source": "accepted_language_delivery",
+      "runtime_hash": "4ed13774a7fd7d057235edc2e415fb278824b62c4886a6c94d4807961fd30465",
+      "files": {
+        "case.json": "36ee9929888148febc8856dd1dbdffdc22594f16962b326a931cc219f036517a",
+        "case_generated.m": "77c5c77472443712caa25dbcd11089038e824632a6d4f03ddc52e506b26f64d7",
+        "metadata.json": "ba1addd9e5238279e4352922a82f28bea1c54deea92ffddf1b9dcd29784df6a3",
+        "spec.json": "e20a4d7c2e44eb2ee03f68c2b5b6f5ccc060e504dae15ae29afd7a73b51d74da",
+        "validation.json": "e1c068185456ff3fff2afbebd594f5c305c0170430d1e28c698eed1abbb1a6f1"
+      },
+      "source_model_directory": "experiments/m102_generation_recovery_v2/jobs/construction_t02__full_outer__r0/workspace/projects/conversation/transmission_experiments/transmission_223bus_20gen_220kv_640mw_r20km_seed101032/sample_00000"
+    }
+  ]
+}

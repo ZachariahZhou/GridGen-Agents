@@ -106,11 +106,11 @@ def test_language_local_permissions_are_checked_against_user_numbers(tmp_path):
             max_branch_length_change=.6,max_node_displacement_km=.5),issues=[])
     base='\u751f\u621013\u8282\u70b9\u57ce\u5e02\u9988\u7ebf\uff0c\u63a7\u5236\u7535\u538b\u7075\u654f\u5ea6\u3002'
     denied=design_response_from_request(base,tmp_path,'denied',execute=False,model=Model())
-    assert denied['status']=='needs_clarification'
+    assert denied['status']=='planning_failed' and denied['failure_origin']=='compiler'
     granted=design_response_from_request(base+'\u5141\u8bb8\u5b50\u6811\u7f29\u653e\u4e0d\u8d85\u8fc760%\uff0c\u8282\u70b9\u4f4d\u79fb\u4e0d\u8d85\u8fc70.5km\u3002',tmp_path,'granted',execute=False,model=Model())
     assert granted['status']=='draft'
     excessive=design_response_from_request(base+'\u5141\u8bb8\u5b50\u6811\u7f29\u653e\u4e0d\u8d85\u8fc730%\uff0c\u8282\u70b9\u4f4d\u79fb\u4e0d\u8d85\u8fc70.5km\u3002',tmp_path,'excessive',execute=False,model=Model())
-    assert excessive['status']=='needs_clarification'
+    assert excessive['status']=='planning_failed' and excessive['failure_origin']=='compiler'
 
 
 @pytest.mark.parametrize('action,bounds,text',[

@@ -1,0 +1,4 @@
+New LineCode.research_small nphases=3 units=km r1=0.32 x1=0.35 r0=0.65 x0=1.05 c1=0 c0=0 normamps=180 basefreq=50
+New LineCode.research_medium nphases=3 units=km r1=0.16 x1=0.32 r0=0.45 x0=0.96 c1=0 c0=0 normamps=320 basefreq=50
+New LineCode.research_large nphases=3 units=km r1=0.08 x1=0.29 r0=0.3 x0=0.87 c1=0 c0=0 normamps=520 basefreq=50
+New LineCode.research_small_illustrative_3ph nphases=3 units=km basefreq=50 rmatrix=[0.43 | 0.11 0.43 | 0.11 0.11 0.43] xmatrix=[0.583333333333 | 0.233333333333 0.583333333333 | 0.233333333333 0.233333333333 0.583333333333] cmatrix=[0 | 0 0 | 0 0 0] normamps=180

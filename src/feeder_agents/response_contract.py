@@ -16,7 +16,7 @@ def change_summary(original,trial):
     return dict(line_length_ratio_min=min(ratios),line_length_ratio_max=max(ratios),
         maximum_node_displacement_km=max(math.hypot(n.x_km-o.x_km,n.y_km-o.y_km) for o,n in zip(a.buses,b.buses)),
         rewired_lines=sum({o.bus1,o.bus2}!={n.bus1,n.bus2} for o,n in zip(a.lines,b.lines)),
-        changed_conductors=sum(o.conductor!=n.conductor for o,n in zip(a.lines,b.lines)),
+        changed_conductors=sum(o.conductor!=n.conductor for o,n in zip(a.lines+a.tie_lines,b.lines+b.tie_lines)),
         redistributed_load_fraction=sum(abs(n.kw-o.kw) for o,n in zip(a.loads,b.loads))/(2*a.total_kw),
         maximum_bus_load_change=max(abs(n.kw/o.kw-1) for o,n in zip(a.loads,b.loads)),
         total_kw_before=sum(l.kw for l in a.loads),total_kw_after=sum(l.kw for l in b.loads),
@@ -29,6 +29,9 @@ def distribution_contract(original,trial,plan):
     close=lambda x,y:math.isclose(x,y,rel_tol=1e-8,abs_tol=1e-9)
     for name in ('buses','lines','tie_lines','loads'):
         if [v.id for v in getattr(a,name)]!=[v.id for v in getattr(b,name)]:return False
+    conductor_cap=getattr(search,'max_changed_conductors',None)
+    if conductor_cap is not None and sum(o.conductor!=n.conductor
+            for o,n in zip(a.lines+a.tie_lines,b.lines+b.tie_lines))>conductor_cap:return False
     source=next(v for v in a.buses if v.id==a.source_bus)
     actual_source=next(v for v in b.buses if v.id==a.source_bus)
     if not (close(source.x_km,actual_source.x_km) and close(source.y_km,actual_source.y_km)):return False

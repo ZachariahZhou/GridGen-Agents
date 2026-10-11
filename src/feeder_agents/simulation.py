@@ -1,8 +1,72 @@
+from contextlib import contextmanager
+from functools import lru_cache
+from importlib.metadata import version
 from math import sqrt
 from pathlib import Path
+from threading import Lock
 
 from .rules import data
 from .schemas import Feeder
+
+
+_DSS_CONTEXT_LOCK = Lock()
+
+
+@lru_cache(maxsize=1)
+def _validate_dss_versions():
+    """Check the disposal adapter without loading native libraries in the caller."""
+    supported = {'opendssdirect.py': '0.9.4', 'dss-python': '0.15.7',
+                 'dss-python-backend': '0.14.5'}
+    installed = {name: version(name) for name in supported}
+    if installed != supported:
+        raise RuntimeError('OpenDSS context disposal must be validated for these dependency '
+                           f'versions before use: {installed}; supported: {supported}')
+
+
+@lru_cache(maxsize=1)
+def _dss_lifecycle():
+    """Native lifecycle adapter, used on the solver worker's main thread."""
+    _validate_dss_versions()
+    from opendssdirect import dss
+    from opendssdirect.OpenDSSDirect import OpenDSSDirect
+    from dss._cffi_api_util import CffiApiUtil
+    from dss_python_backend.events import EventCallbackManager
+    return dss, OpenDSSDirect, CffiApiUtil, EventCallbackManager
+
+
+def _callbacks_already_removed():
+    """Prevent a later CffiApiUtil destructor from registering a released pointer."""
+
+
+@contextmanager
+def _fresh_dss_context():
+    """Own one native context through extraction, including exceptional exits.
+
+    In the validated dependency versions, three WeakKeyDictionary registries hold
+    values which strongly reference their own context keys. Dropping the wrapper
+    therefore never runs its CFFI finalizer. Unregister callbacks while the pointer
+    is live, detach only this context, then release the CFFI-owned pointer once.
+    Creation/disposal share a lock; independent contexts may still solve in parallel.
+    """
+    dss, wrapper, api_type, event_type = _dss_lifecycle()
+    with _DSS_CONTEXT_LOCK:
+        engine = dss.NewContext()
+    try:
+        yield engine
+    finally:
+        with _DSS_CONTEXT_LOCK:
+            api = engine._api_util
+            ctx = api.ctx
+            # CffiApiUtil.__del__ otherwise calls get_manager_for_ctx after release,
+            # recreating a callback manager around a stale native pointer.
+            api.unregister_callbacks()
+            api.unregister_callbacks = _callbacks_already_removed
+            manager = event_type._ctx_to_manager.pop(ctx, None)
+            if manager is not None:
+                manager.unregister_all()
+            wrapper._ctx_to_dss.pop(ctx, None)
+            api_type._ctx_to_util.pop(ctx, None)
+            api.ffi.release(ctx)
 
 
 def export_dss(feeder: Feeder, directory: Path) -> Path:
@@ -104,11 +168,23 @@ def export_dss(feeder: Feeder, directory: Path) -> Path:
 
 
 def simulate(master: Path) -> dict:
-    """A fresh engine context per solve; no shared engine state or cwd mutation."""
-    from opendssdirect import dss
+    """Fresh native context in the owned worker; Python results only cross IPC.
 
-    engine = dss.NewContext()
+    Record/check the calling context's AC budget before dispatch. Native failures
+    raise dss_worker.OpenDSSError; failed requests are never silently retried.
+    """
+    _validate_dss_versions()
+    from .solver_accounting import record_ac_solve
+    from .dss_worker import solve
+    record_ac_solve('opendss')
+    return solve(master)
+
+
+def _simulate_with_engine(master: Path, engine) -> dict:
+    """Extract Python-owned results before the caller disposes the native engine."""
     engine.Basic.AllowChangeDir(False)
+    from .solver_accounting import record_ac_solve
+    record_ac_solve('opendss')
     engine.Text.Command(f'Compile "{Path(master).resolve()}"')
     converged = bool(engine.Solution.Converged())
     voltages = {}

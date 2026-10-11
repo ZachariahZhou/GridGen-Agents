@@ -1,0 +1,5 @@
+variant,gain,requested,valid,converged,saturated,target_reached,local_error_mean_pu,abs_q_mean_mvar,voltage_violation_runs,thermal_violation_runs
+original,0,36,36,0,0,1,0.0051901053353259835,0.0,0,0
+original,25,36,36,30,18,18,0.0012787588212833472,0.2402799592513898,0,0
+delivered,0,36,36,0,0,0,0.005234263338165059,0.0,0,0
+delivered,25,36,36,30,18,18,0.0011809936721075924,0.24116291793497333,0,0

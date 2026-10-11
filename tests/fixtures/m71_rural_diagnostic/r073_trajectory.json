@@ -1,0 +1,567 @@
+{
+  "request": "\u751f\u6210\u4e00\u4e2a10kV\u519c\u6751\u79d1\u7814\u914d\u7535case\uff0c\u4e03\u5341\u591a\u4e2a\u6bcd\u7ebf\uff08\u5305\u542b\u7535\u6e90\uff09\uff0c\u603b\u8d1f\u83771000kW\u3002\u91c7\u7528\u5355\u7535\u538b\u4e09\u76f8\u4e0d\u5e73\u8861\u6a21\u578b\uff0c\u4e3b\u5e72\u8fde\u63a54\u4e2a\u6751\u843d\uff0c\u4fdd\u6301\u5f84\u5411\u8fd0\u884c\uff1b\u4e0d\u8bbe\u7f6e\u5e38\u5f00\u8054\u7edc\uff1b\u5149\u4f0f\u603b\u6709\u529f\u4e3a\u603b\u8d1f\u8377\u768420%\uff1b\u8f93\u51faOpenDSS\uff0c\u7531Agent\u5728\u6240\u8ff0\u89c4\u6a21\u5185\u9009\u62e9\u5177\u4f53\u6bcd\u7ebf\u6570\uff0c\u5176\u4f59\u53c2\u6570\u5408\u7406\u8bbe\u8ba1\u3002",
+  "candidates": [
+    {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "voltage_kv": 10,
+        "frequency_hz": 50,
+        "n_buses": 75,
+        "total_kw_min": 1000,
+        "total_kw_max": 1000,
+        "pv_ratio": 0.2,
+        "power_factor": 0.95,
+        "scenario": {
+          "kind": "rural",
+          "layout": "structured_radial",
+          "topology": {
+            "family": "multi_branch",
+            "branch_count": 4
+          },
+          "tie_count": 0,
+          "load_placement": "all_nodes"
+        },
+        "phase_design": {
+          "mode": "unbalanced",
+          "load_phase_weights": [
+            0.5,
+            0.3,
+            0.2
+          ],
+          "max_vuf_percent": 2
+        },
+        "equipment_design": {
+          "mode": "auto",
+          "loading_margin": 0.8,
+          "capacity_band": 2,
+          "conditioning": "length_voltage"
+        },
+        "count": 1,
+        "seed": 42
+      },
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "10kV rural single-voltage distribution feeder with 75 buses (including source), 1000kW total load, unbalanced three-phase operation, radial topology connecting 4 village branches, no normally-open ties, 20% PV penetration, OpenDSS deliverable.",
+        "requirements": [
+          {
+            "id": "req_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u751f\u6210\u4e00\u4e2a10kV\u519c\u6751\u79d1\u7814\u914d\u7535case",
+            "meaning": "Nominal voltage level is 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq"
+          },
+          {
+            "id": "req_scene",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u519c\u6751\u79d1\u7814\u914d\u7535case",
+            "meaning": "Rural scene configuration",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "rural",
+            "operator": "eq"
+          },
+          {
+            "id": "req_n_buses_lower",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u4e03\u5341\u591a\u4e2a\u6bcd\u7ebf\uff08\u5305\u542b\u7535\u6e90\uff09",
+            "meaning": "Total buses including source must be in the range 71-79",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 71,
+            "operator": "ge"
+          },
+          {
+            "id": "req_n_buses_upper",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u4e03\u5341\u591a\u4e2a\u6bcd\u7ebf\uff08\u5305\u542b\u7535\u6e90\uff09",
+            "meaning": "Total buses including source must be in the range 71-79",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 79,
+            "operator": "le"
+          },
+          {
+            "id": "req_total_load",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u8d1f\u83771000kW",
+            "meaning": "Fixed total coincident peak load is 1000 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 1000,
+            "operator": "eq"
+          },
+          {
+            "id": "req_total_load_max",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u8d1f\u83771000kW",
+            "meaning": "Fixed total coincident peak load is 1000 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_max",
+            "expected_value": 1000,
+            "operator": "eq"
+          },
+          {
+            "id": "req_phase_model",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u91c7\u7528\u5355\u7535\u538b\u4e09\u76f8\u4e0d\u5e73\u8861\u6a21\u578b",
+            "meaning": "Unbalanced three-phase model at distribution voltage",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "unbalanced",
+            "operator": "eq"
+          },
+          {
+            "id": "req_topology_structure",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u4e3b\u5e72\u8fde\u63a54\u4e2a\u6751\u843d",
+            "meaning": "Main trunk connects to 4 distinct village branches",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.topology.branch_count",
+            "expected_value": 4,
+            "operator": "eq"
+          },
+          {
+            "id": "req_operating_topology",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u4fdd\u6301\u5f84\u5411\u8fd0\u884c",
+            "meaning": "Energized network operates radially",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "operating_topology",
+            "expected_value": "radial",
+            "operator": "eq"
+          },
+          {
+            "id": "req_tie_count",
+            "segment_ids": [
+              2
+            ],
+            "evidence": "\u4e0d\u8bbe\u7f6e\u5e38\u5f00\u8054\u7edc",
+            "meaning": "No normally-open physical ties",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.tie_count",
+            "expected_value": 0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              3
+            ],
+            "evidence": "\u5149\u4f0f\u603b\u6709\u529f\u4e3a\u603b\u8d1f\u8377\u768420%",
+            "meaning": "PV capacity is 20% of total load kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0.2,
+            "operator": "eq"
+          },
+          {
+            "id": "req_deliverable_opendss",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u8f93\u51faOpenDSS",
+            "meaning": "Deliver OpenDSS model files",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": "opendss",
+            "operator": "contains"
+          },
+          {
+            "id": "req_agent_selection",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u7531Agent\u5728\u6240\u8ff0\u89c4\u6a21\u5185\u9009\u62e9\u5177\u4f53\u6bcd\u7ebf\u6570",
+            "meaning": "Agent selects specific bus count within the 71-79 range",
+            "priority": "permission",
+            "disposition": "supported",
+            "target_field": null,
+            "expected_value": null,
+            "operator": "eq",
+            "reason": "\u672a\u6307\u5b9a\u7684\u8bbe\u5907\u548c\u5206\u652f\u6570\u91cf\u7531\u7cfb\u7edf\u5408\u7406\u8bbe\u8ba1"
+          },
+          {
+            "id": "req_other_params",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u5176\u4f59\u53c2\u6570\u5408\u7406\u8bbe\u8ba1",
+            "meaning": "Other parameters designed reasonably by the system",
+            "priority": "permission",
+            "disposition": "supported",
+            "target_field": null,
+            "expected_value": null,
+            "operator": "eq",
+            "reason": "\u672a\u6307\u5b9a\u7684\u8bbe\u5907\u548c\u5206\u652f\u6570\u91cf\u7531\u7cfb\u7edf\u5408\u7406\u8bbe\u8ba1"
+          }
+        ],
+        "questions": []
+      },
+      "assumptions": [
+        "Default frequency 50Hz as per system capability for distribution models",
+        "Power factor 0.95 as reasonable default for aggregated rural loads",
+        "Structured radial layout with multi_branch topology family to represent 4 village connections from a main trunk",
+        "Load placement all_nodes since each bus represents an aggregated load point in this single-voltage research model",
+        "Equipment design mode auto for automatic selection based on scenario construction and length/voltage conditioning",
+        "Phase weights [0.5, 0.3, 0.2] as default unbalanced load distribution across phases A, B, C",
+        "Max VUF percent 2 as research limit for voltage unbalance factor",
+        "Loading margin 0.8 and capacity band 2 for equipment sizing with reasonable headroom",
+        "Seed 42 for reproducible random generation"
+      ],
+      "uncertainties": [],
+      "issues": []
+    },
+    {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "document_rules": [],
+        "repair_policy": {
+          "strategy": "fixed",
+          "allow_rewire": false,
+          "preview_limit": 2,
+          "max_candidates": 8
+        },
+        "scenario": {
+          "load_placement": "all_nodes",
+          "reference_case_id": null,
+          "kind": "rural",
+          "layout": "structured_radial",
+          "engineering_profile": "generic",
+          "topology": {
+            "family": "multi_branch",
+            "branch_count": 4,
+            "branching_factor": null,
+            "trunk_fraction": null
+          },
+          "tie_count": 0,
+          "load_shape": "heterogeneous",
+          "load_concentration": 2,
+          "calibration_profile": null,
+          "empirical_weight": 0.7,
+          "village_count": 4,
+          "trunk_fraction": 0.3,
+          "aspect_ratio": null,
+          "positions_km": null
+        },
+        "phase_design": {
+          "mode": "unbalanced",
+          "load_phase_weights": [
+            0.5,
+            0.3,
+            0.2
+          ],
+          "pv_phase_weights": null,
+          "single_phase_laterals": null,
+          "two_phase_laterals": null,
+          "max_vuf_percent": 2.0
+        },
+        "equipment_design": {
+          "mode": "auto",
+          "reference_feeders": [
+            "J1",
+            "K1",
+            "Ckt5",
+            "Ckt24"
+          ],
+          "source_weighting": "equal_feeder",
+          "loading_margin": 0.8,
+          "capacity_band": 2.0,
+          "conditioning": "length_voltage",
+          "length_bandwidth": 0.65,
+          "voltage_drop_budget_pu": 0.05,
+          "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+        },
+        "count": 1,
+        "n_buses": 75,
+        "n_loads_min": 74,
+        "n_loads_max": 74,
+        "total_kw_min": 1000.0,
+        "total_kw_max": 1000.0,
+        "voltage_kv": 10.0,
+        "frequency_hz": 50,
+        "power_factor": 0.95,
+        "pv_ratio": 0.2,
+        "segment_km_min": 0.05,
+        "segment_km_max": 0.25,
+        "seed": 42,
+        "mode": "normal",
+        "load_semantics": "aggregated",
+        "special_pf_agreement": false,
+        "max_repairs": 2
+      },
+      "distribution_spec": null,
+      "transmission_spec": null,
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "10kV rural single-voltage distribution feeder with 75 buses (including source), 1000kW total load, unbalanced three-phase operation, radial topology connecting 4 village branches, no normally-open ties, 20% PV penetration, OpenDSS deliverable.",
+        "requirements": [
+          {
+            "id": "req_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u751f\u6210\u4e00\u4e2a10kV\u519c\u6751\u79d1\u7814\u914d\u7535case",
+            "meaning": "Nominal voltage level is 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_scene",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u519c\u6751\u79d1\u7814\u914d\u7535case",
+            "meaning": "Rural scene configuration",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "rural",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_n_buses_lower",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u4e03\u5341\u591a\u4e2a\u6bcd\u7ebf\uff08\u5305\u542b\u7535\u6e90\uff09",
+            "meaning": "Total buses including source must be in the range 71-79",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 71,
+            "operator": "ge",
+            "reason": ""
+          },
+          {
+            "id": "req_n_buses_upper",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u4e03\u5341\u591a\u4e2a\u6bcd\u7ebf\uff08\u5305\u542b\u7535\u6e90\uff09",
+            "meaning": "Total buses including source must be in the range 71-79",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 79,
+            "operator": "le",
+            "reason": ""
+          },
+          {
+            "id": "req_total_load",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u8d1f\u83771000kW",
+            "meaning": "Fixed total coincident peak load is 1000 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 1000,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_total_load_max",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u8d1f\u83771000kW",
+            "meaning": "Fixed total coincident peak load is 1000 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_max",
+            "expected_value": 1000,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_phase_model",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u91c7\u7528\u5355\u7535\u538b\u4e09\u76f8\u4e0d\u5e73\u8861\u6a21\u578b",
+            "meaning": "Unbalanced three-phase model at distribution voltage",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "unbalanced",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_topology_structure",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u4e3b\u5e72\u8fde\u63a54\u4e2a\u6751\u843d",
+            "meaning": "Main trunk connects to 4 distinct village branches",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.topology.branch_count",
+            "expected_value": 4,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_village_count",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u4e3b\u5e72\u8fde\u63a54\u4e2a\u6751\u843d",
+            "meaning": "Scenario describes 4 villages for rural layout",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.village_count",
+            "expected_value": 4,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_operating_topology",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u4fdd\u6301\u5f84\u5411\u8fd0\u884c",
+            "meaning": "Energized network operates radially",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "operating_topology",
+            "expected_value": "radial",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_tie_count",
+            "segment_ids": [
+              2
+            ],
+            "evidence": "\u4e0d\u8bbe\u7f6e\u5e38\u5f00\u8054\u7edc",
+            "meaning": "No normally-open physical ties",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.tie_count",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              3
+            ],
+            "evidence": "\u5149\u4f0f\u603b\u6709\u529f\u4e3a\u603b\u8d1f\u8377\u768420%",
+            "meaning": "PV capacity is 20% of total load kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0.2,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverable_opendss",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u8f93\u51faOpenDSS",
+            "meaning": "Deliver OpenDSS model files",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "opendss"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_agent_selection",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u7531Agent\u5728\u6240\u8ff0\u89c4\u6a21\u5185\u9009\u62e9\u5177\u4f53\u6bcd\u7ebf\u6570",
+            "meaning": "Agent selects specific bus count within the 71-79 range",
+            "priority": "permission",
+            "disposition": "supported",
+            "target_field": null,
+            "expected_value": null,
+            "operator": "eq",
+            "reason": "\u672a\u6307\u5b9a\u7684\u8bbe\u5907\u548c\u5206\u652f\u6570\u91cf\u7531\u7cfb\u7edf\u5408\u7406\u8bbe\u8ba1"
+          },
+          {
+            "id": "req_other_params",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u5176\u4f59\u53c2\u6570\u5408\u7406\u8bbe\u8ba1",
+            "meaning": "Other parameters designed reasonably by the system",
+            "priority": "permission",
+            "disposition": "supported",
+            "target_field": null,
+            "expected_value": null,
+            "operator": "eq",
+            "reason": "\u672a\u6307\u5b9a\u7684\u8bbe\u5907\u548c\u5206\u652f\u6570\u91cf\u7531\u7cfb\u7edf\u5408\u7406\u8bbe\u8ba1"
+          }
+        ],
+        "questions": []
+      },
+      "issues": [],
+      "assumptions": [
+        "Default frequency 50Hz as per system capability for distribution models",
+        "Power factor 0.95 as reasonable default for aggregated rural loads",
+        "Structured radial layout with multi_branch topology family to represent 4 village connections from a main trunk",
+        "Load placement all_nodes since each bus represents an aggregated load point in this single-voltage research model",
+        "Equipment design mode auto for automatic selection based on scenario construction and length/voltage conditioning",
+        "Phase weights [0.5, 0.3, 0.2] as default unbalanced load distribution across phases A, B, C",
+        "Max VUF percent 2 as research limit for voltage unbalance factor",
+        "Loading margin 0.8 and capacity band 2 for equipment sizing with reasonable headroom",
+        "Seed 42 for reproducible random generation"
+      ],
+      "uncertainties": []
+    }
+  ]
+}

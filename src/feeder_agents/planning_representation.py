@@ -16,11 +16,16 @@ def representation_repairs(raw):
     requirements=ledger.get('requirements',[])
     if not isinstance(requirements,list):return []
     requirements=[r for r in requirements if isinstance(r,dict) and r.get('priority')=='hard']
-    bound={canonical(r.get('target_field') or '') for r in requirements}
+    def field_name(requirement):
+        field=requirement.get('target_field') or ''
+        for namespace in (prefix+'.','plan.spec.','spec.'):
+            if field.startswith(namespace):field=field[len(namespace):];break
+        return canonical(field)
+    bound={field_name(r) for r in requirements}
     schema=ExperimentSpec if family=='single_voltage' else HierarchicalSpec
     options=[]
 
-    def offer(updates, name):
+    def offer(updates, name, *, arithmetic=True):
         edits=[]
         for path,value in updates.items():
             node=raw
@@ -34,8 +39,8 @@ def representation_repairs(raw):
         except (ValueError,TypeError):return
         # An arithmetic repair cannot discard a user-bound quantity. Other
         # constraints still go through the ordinary complete source/ledger audit.
-        for r in requirements:
-            field=canonical(r.get('target_field') or '')
+        for r in requirements if arithmetic else []:
+            field=field_name(r)
             attr={'n_buses':'n_buses','users':'users','transformers':'transformer_count','mv_buses':'mv_buses',
                   'lv_branches':'lv_branches','n_loads_min':'n_loads_min','n_loads_max':'n_loads_max'}.get(field)
             if attr and hasattr(validated,attr) and not compare(getattr(validated,attr),r.get('expected_value'),r.get('operator','eq')):
@@ -51,6 +56,16 @@ def representation_repairs(raw):
             changes.update({prefix+'.scenario.layout':'rural_villages',prefix+'.scenario.topology':None})
         elif scenario.get('topology') and scenario.get('layout')!='structured_radial':
             changes[prefix+'.scenario.layout']='structured_radial'
+        elif (scenario.get('layout')=='structured_radial' and scenario.get('topology') is None
+                and not any(field=='scenario.layout' or field=='scenario.topology'
+                            or field.startswith('scenario.topology.') for field in bound)):
+            # The planner selected an incomplete optional representation. Fall
+            # back only to the schema's unbound layout, preserving every user
+            # quantity and the ledger verbatim. Malformed unrelated quantities
+            # still undergo their own contract checks after this schema repair.
+            from .schemas import ScenarioProfile
+            offer({prefix+'.scenario.layout':ScenarioProfile.model_fields['layout'].default},
+                  'default_unbound_layout',arithmetic=False)
         offer(changes,'compatible_layout')
         n=spec.get('n_buses')
         if type(n) is int and not bound & {'n_loads','n_loads_min','n_loads_max'}:

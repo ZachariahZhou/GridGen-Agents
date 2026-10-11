@@ -110,7 +110,8 @@ def test_research_language_route_preserves_exact_counts_and_supports_draft(tmp_p
     good=design_from_request('\u751f\u621013\u4e2a\u8282\u70b9\u7684\u519c\u6751\u9988\u7ebf\uff0c\u7528\u4e8e\u7814\u7a76\u7535\u538b\u63a7\u5236\u3002',tmp_path,'draft',execute=False,model=Model())
     assert good['status']=='draft' and good['plan_type']=='research_task'
     bad=design_from_request('\u751f\u621037\u4e2a\u8282\u70b9\u7684\u519c\u6751\u9988\u7ebf\uff0c\u7528\u4e8e\u7814\u7a76\u7535\u538b\u63a7\u5236\u3002',tmp_path,'bad',execute=False,model=Model())
-    assert bad['status']=='needs_clarification' and not (tmp_path/'research_tasks/bad').exists()
+    assert bad['status']=='planning_failed' and not (tmp_path/'research_tasks/bad').exists()
+    assert bad['failure_origin']=='compiler'
 
 
 def test_denied_geometry_cannot_be_granted_by_task_language_model(tmp_path):
@@ -119,7 +120,7 @@ def test_denied_geometry_cannot_be_granted_by_task_language_model(tmp_path):
         def with_structured_output(self,*args,**kwargs):return self
         def invoke(self,messages):return dict(status='ready',plan=task_payload(),issues=[])
     result=design_research_from_request('\u751f\u621013\u8282\u70b9\u9988\u7ebf\u7528\u4e8e\u7814\u7a76\u7535\u538b\u63a7\u5236\u3002\u56fa\u5b9a\u5750\u6807\uff0c\u4e0d\u5141\u8bb8\u7a7a\u95f4\u7f29\u653e\u3002',tmp_path,'fixed',execute=False,model=Model())
-    assert result['status']=='needs_clarification'
+    assert result['status']=='planning_failed' and result['failure_origin']=='compiler'
 
 
 def test_negated_research_task_is_not_routed_as_a_positive_task():

@@ -74,6 +74,105 @@ def _new_requirement_id(base,suffix,used):
     raise ValueError('No unique requirement ID available')
 
 
+def complete_closed_source_clauses(ledger, family, request):
+    """Bind mechanical execution/count clauses without regenerating the plan.
+
+    Full-clause matches cannot absorb added conditions. A repair prohibition is
+    an explicit hard requirement, including when a planner incorrectly treats
+    it as a topology-only restriction. This function never changes the spec.
+    """
+    from .requirements import Requirement, request_segments
+    segments = request_segments(request)
+    covered = {i for item in ledger.requirements for i in item.segment_ids}
+    changes = []
+    used = {item.id for item in ledger.requirements}
+
+    def add(quote, priority, meaning, field=None, value=None):
+        identifier = _new_requirement_id('source_completion', str(len(changes)), used)
+        used.add(identifier)
+        item = Requirement(id=identifier, evidence=quote, meaning=meaning,
+            segment_ids=[i for i, segment in enumerate(segments) if quote in segment or segment in quote],
+            priority=priority, disposition='supported', target_field=field, expected_value=value,
+            reason='Closed source-clause binding; no change to the proposed physical specification.')
+        ledger.requirements.append(item)
+        changes.append(dict(kind='closed_source_clause_completion', before=None, after=item.model_dump()))
+
+    for i, segment in enumerate(segments):
+        if i in covered:
+            continue
+        if re.fullmatch('(?:\u8bf7)?\u6267\u884c\u751f\u6210\u5e76\u4ea4\u4ed8(?:\u4fdd\u5b58\u7684)?\u6a21\u578b\u6587\u4ef6', segment):
+            add(segment, 'permission', 'Execute and save the validated requested model; no additional edit authority.')
+        match = re.fullmatch('\u7ed3\u6784\u5316\u8865\u5145\u7ea6\u675f\uff1a\u603b\u6bcd\u7ebf\u8282\u70b9\u6570\uff08\u5305\u542b1\u4e2a\u7535\u6e90\u8282\u70b9\uff09\u4e3a([0-9]+)', segment)
+        if match:
+            prefix = 'hierarchy.' if family == 'hierarchical' else 'transmission.' if family == 'transmission' else ''
+            add(segment, 'hard', 'Explicit total bus count including the source.', prefix + 'n_buses', int(match[1]))
+
+    if family not in {'single_voltage', 'transmission'}:
+        return changes
+    prohibition = '(?:^|[\u3002\uff1b;\uff0c,\\n.])\\s*(?P<clause>(?:\u521d\u59cb\u6784\u5efa\u5b8c\u6210\u540e)?\u7981\u7528\u81ea\u52a8\u4fee\u590d|Disable automatic repairs)\\s*(?=[\u3002\uff1b;\uff0c,\\n.]|$)'
+    field, value = ('allowed_repairs', []) if family == 'transmission' else ('repair_policy.strategy', 'none')
+    for match in re.finditer(prohibition, request, re.I):
+        quote = match['clause']
+        if any(item.priority == 'hard' and item.disposition == 'supported'
+               and canonical(item.target_field or '') == field and item.operator == 'eq'
+               and item.expected_value == value and item.evidence in request
+               and (quote in item.evidence or item.evidence in quote) for item in ledger.requirements):
+            continue
+        add(quote, 'hard', 'Automatic post-construction repair is disabled.',
+            'transmission.' + field if family == 'transmission' else field, value)
+    return changes
+
+
+def _closed_english_bus_interval(ledger, request):
+    """Compile an explicit inclusive range paired with an approximate count.
+
+    This closed current-request form distinguishes the user's allowed interval
+    from a planner's chosen count. Other exact count clauses remain untouched.
+    """
+    pattern=(r'\A\s*(?P<approx>(?:Generate|Create) one (?:urban|rural) distribution feeder with '
+             r'approximately (?P<number>\d+|[a-z]+(?:[- ][a-z]+)?) total buses),\s*'
+             r'(?P<range>any integer from (?P<lo>\d+) through (?P<hi>\d+) including the source)(?=\s*[,.;]|$)')
+    match=re.search(pattern,request,re.I)
+    if match is None:return []
+    words=['zero','one','two','three','four','five','six','seven','eight','nine','ten',
+           'eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen']
+    numbers={word:index for index,word in enumerate(words)}
+    tens={word:index*10 for index,word in enumerate(['twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'],2)}
+    token=match['number'].lower();parts=re.split('[- ]',token)
+    approximate=(int(token) if token.isdigit() else numbers.get(token,tens.get(token)))
+    if len(parts)==2 and parts[0] in tens and parts[1] in words[1:10]:
+        approximate=tens[parts[0]]+numbers[parts[1]]
+    lo,hi=int(match['lo']),int(match['hi'])
+    if approximate is None or not 0<lo<=approximate<=hi:return []
+    items=[r for r in ledger.requirements if r.priority=='hard' and r.disposition=='supported'
+           and canonical(r.target_field or '')=='n_buses']
+    ranges=[r for r in items if r.evidence==match['range']]
+    if not ranges:return []
+    # Do not repair unknown encodings or conflicting values by guessing.
+    for item in ranges:
+        value=item.expected_value
+        if not (item.operator in ('eq','ge','le') and (
+            value=={'ge':lo,'le':hi} or value==[lo,hi]
+            or (type(value) in (int,float) and math.isfinite(value) and lo<=value<=hi))):return []
+    changes=[];used={r.id for r in ledger.requirements}
+    for item in items:
+        if item.evidence==match['approx'] and item.operator=='eq' and item.expected_value==approximate:
+            old=item.model_dump();item.priority='preference'
+            changes.append(dict(kind='source_approximate_count',before=old,after=item.model_dump()))
+    for item in ranges:
+        old=item.model_dump()
+        operator=item.operator if item.operator in ('ge','le') else 'ge'
+        item.operator=operator;item.expected_value=lo if operator=='ge' else hi
+        if item.model_dump()!=old:changes.append(dict(kind='source_interval',before=old,after=item.model_dump()))
+    for operator,value in [('ge',lo),('le',hi)]:
+        if any(r.operator==operator and r.expected_value==value for r in ranges):continue
+        base=ranges[0];identifier=_new_requirement_id(base.id,'source_'+operator,used);used.add(identifier)
+        item=base.model_copy(update=dict(id=identifier,operator=operator,expected_value=value))
+        ledger.requirements.append(item)
+        changes.append(dict(kind='source_interval',before=None,after=item.model_dump()))
+    return changes
+
+
 def _village_bindings(item, family):
     """Compile every atom of a closed village clause, or leave it for review."""
     if family!='single_voltage' or item.operator!='eq':return None
@@ -261,6 +360,7 @@ def _nonnumeric_label(value):
 
 def normalize_ledger(ledger, family, request):
     changes=normalize_reference_context(ledger,request)
+    changes.extend(_closed_english_bus_interval(ledger,request))
     if ledger.model_family is None and (ledger.network_kind,family) in {('distribution','single_voltage'),('distribution','hierarchical'),('transmission','transmission')}:
         ledger.model_family=family
         changes.append(dict(kind='missing_route_metadata',before=None,after=family))

@@ -1,0 +1,13 @@
+! Synthetic research case; parameters are illustrative, not a construction design.
+Clear
+Set DefaultBaseFrequency=50
+New Circuit.feeder basekv=10.0 pu=1 phases=3 bus1=source.1.2.3 frequency=50 mvasc3=1000 mvasc1=500
+Redirect LineCodes.dss
+Redirect Lines.dss
+Redirect Loads.dss
+Redirect Generation.dss
+Set VoltageBases=[10.0]
+CalcVoltageBases
+BusCoords BusCoords.csv
+Set mode=snapshot controlmode=off maxiterations=100 tolerance=1e-8
+Solve

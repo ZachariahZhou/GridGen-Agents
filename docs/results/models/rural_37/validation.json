@@ -1,0 +1,199 @@
+{
+  "checks": [
+    {
+      "rule_id": "model.radial_connected",
+      "rule_version": "1",
+      "category": "validity",
+      "kind": "project_assumption",
+      "source_id": "project-v1",
+      "locator": "Prototype topology",
+      "status": "pass",
+      "evidence": {
+        "buses": 37,
+        "lines": 36,
+        "loads": 36,
+        "normally_open_ties": 0,
+        "tie_contract_matches": true
+      }
+    },
+    {
+      "rule_id": "model.demand",
+      "rule_version": "1",
+      "category": "validity",
+      "kind": "project_assumption",
+      "source_id": "project-v1",
+      "locator": "ExperimentSpec",
+      "status": "pass",
+      "evidence": {
+        "total_kw": 480.0,
+        "pv_kw": 72.0,
+        "count": 36,
+        "bus_count": 37,
+        "junction_count": 0,
+        "bus_count_matches": true,
+        "node_roles_valid": true,
+        "geometry_matches": true,
+        "settlement_hierarchy_matches": true,
+        "topology_family_matches": true,
+        "load_shape_matches": true,
+        "phase_contract_matches": true,
+        "scene_profile_matches": true
+      }
+    },
+    {
+      "rule_id": "cn.frequency",
+      "rule_version": "1",
+      "category": "validity",
+      "kind": "sourced_clause",
+      "source_id": "ndrc-2024",
+      "locator": "Article 6",
+      "status": "pass",
+      "evidence": {
+        "frequency_hz": 50
+      }
+    },
+    {
+      "rule_id": "model.solver",
+      "rule_version": "1",
+      "category": "validity",
+      "kind": "project_assumption",
+      "source_id": "project-v1",
+      "locator": "Simulation acceptance",
+      "status": "pass",
+      "evidence": {
+        "converged": true,
+        "complete_finite": true,
+        "power_balance_error_kw": 7.813612228346756e-07,
+        "delivered_load_error_kw": 4.1210978451999836e-07,
+        "delivered_generation_error_kw": 9.727841643325519e-08,
+        "element_injection_checks": {
+          "load_element_kw": true,
+          "load_element_kvar": true,
+          "generation_element_kw": true,
+          "generation_element_kvar": true,
+          "unique_element_names": true
+        },
+        "error": null
+      }
+    },
+    {
+      "rule_id": "research.unbalance",
+      "rule_version": "1",
+      "category": "operational",
+      "kind": "project_assumption",
+      "source_id": "project-v1",
+      "locator": "Explicit research phase_design threshold",
+      "status": "pass",
+      "evidence": {
+        "maximum_percent": 0.08914702486467102,
+        "limit_percent": 2.0,
+        "eligible_buses": 37,
+        "excluded_buses": 0,
+        "definition": "100*abs(Vnegative)/abs(Vpositive); ABC buses only; research limit, not regulatory certification"
+      }
+    },
+    {
+      "rule_id": "cn.power_factor",
+      "rule_version": "1",
+      "category": "operational",
+      "kind": "sourced_clause",
+      "source_id": "ndrc-2024",
+      "locator": "Article 45",
+      "status": "not_applicable",
+      "evidence": {
+        "violations": [],
+        "scope": "aggregated",
+        "note": "Only non-agricultural users without PV/special agreement; PV PCC ownership is not represented; contract capacity is a research approximation"
+      }
+    },
+    {
+      "rule_id": "research.voltage",
+      "rule_version": "cn_research_10kv_v1",
+      "category": "operational",
+      "kind": "project_assumption",
+      "source_id": "project-v1",
+      "locator": "Research acceptance profile",
+      "status": "pass",
+      "evidence": {
+        "limits": {
+          "min_pu": 0.93,
+          "max_pu": 1.07
+        },
+        "violations": [],
+        "note": "Sourced voltage handler supports 6/10/20 kV receiving points with user/PF/normal-service prerequisites; research band is independent"
+      }
+    },
+    {
+      "rule_id": "cn.voltage",
+      "rule_version": "2",
+      "category": "operational",
+      "kind": "sourced_clause",
+      "source_id": "ndrc-2024",
+      "locator": "Article 57",
+      "status": "not_applicable",
+      "evidence": {
+        "limits": {
+          "min_pu": 0.93,
+          "max_pu": 1.07
+        },
+        "violations": [],
+        "note": "Sourced voltage handler supports 6/10/20 kV receiving points with user/PF/normal-service prerequisites; research band is independent"
+      }
+    },
+    {
+      "rule_id": "research.ampacity",
+      "rule_version": "1",
+      "category": "operational",
+      "kind": "project_assumption",
+      "source_id": "project-v1",
+      "locator": "Synthetic conductor catalogue",
+      "status": "pass",
+      "evidence": {
+        "violations": []
+      }
+    },
+    {
+      "rule_id": "design.voltage_scope",
+      "rule_version": "1",
+      "category": "validity",
+      "kind": "project_assumption",
+      "source_id": "project-v1",
+      "locator": "feeder-design-rule-system",
+      "status": "pass",
+      "evidence": {
+        "profile_id": "cn_research_10kv_v1",
+        "requested_kv": 10.0,
+        "actual_kv": 10.0
+      }
+    },
+    {
+      "rule_id": "design.geometry",
+      "rule_version": "1",
+      "category": "validity",
+      "kind": "project_assumption",
+      "source_id": "project-v1",
+      "locator": "feeder-design-rule-system",
+      "status": "pass",
+      "evidence": {
+        "basis": "Synthetic straight-line km; not road routing or tower spans"
+      }
+    },
+    {
+      "rule_id": "design.equipment",
+      "rule_version": "1",
+      "category": "validity",
+      "kind": "project_assumption",
+      "source_id": "project-v1",
+      "locator": "feeder-design-rule-system",
+      "status": "pass",
+      "evidence": {
+        "invalid_lines": [],
+        "basis": "Illustrative sequence impedances/current ratings; not certified insulation, thermal or fault ratings."
+      }
+    }
+  ],
+  "valid": true,
+  "operational_pass": true,
+  "accepted": true,
+  "certification": "research_checks_only"
+}

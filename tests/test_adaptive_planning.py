@@ -22,7 +22,7 @@ class Model:
                 parent.calls += 1
                 parent.schemas.append(schema.__name__)
                 if schema.__name__ == 'FailureDiagnosis':
-                    from planning_fixtures import decision_from_context
+                    from test_m52_diagnostic_loop import decision_from_context
                     return decision_from_context(messages)
                 if schema.__name__ == 'SemanticReview' and (not parent.responses or 'approved' not in parent.responses[0]):
                     return dict(approved=True, issues=[])

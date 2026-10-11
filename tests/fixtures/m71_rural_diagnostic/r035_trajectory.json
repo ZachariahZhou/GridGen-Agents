@@ -1,0 +1,580 @@
+{
+  "request": "\u751f\u6210\u4e00\u4e2a10kV\u519c\u6751\u79d1\u7814\u914d\u7535case\uff0c\u4e09\u5341\u591a\u4e2a\u6bcd\u7ebf\uff08\u5305\u542b\u7535\u6e90\uff09\uff0c\u603b\u8d1f\u8377500kW\u3002\u91c7\u7528\u5355\u7535\u538b\u5e73\u8861\u7b49\u503c\u6a21\u578b\uff0c\u4e3b\u5e72\u8fde\u63a53\u4e2a\u6751\u843d\uff0c\u4fdd\u6301\u5f84\u5411\u8fd0\u884c\uff1b\u4e0d\u8bbe\u7f6e\u5e38\u5f00\u8054\u7edc\uff1b\u5149\u4f0f\u603b\u6709\u529f\u4e3a\u603b\u8d1f\u8377\u768420%\uff1b\u8f93\u51faOpenDSS\u548cMATPOWER\uff0c\u7531Agent\u5728\u6240\u8ff0\u89c4\u6a21\u5185\u9009\u62e9\u5177\u4f53\u6bcd\u7ebf\u6570\uff0c\u5176\u4f59\u53c2\u6570\u5408\u7406\u8bbe\u8ba1\u3002",
+  "candidates": [
+    {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "voltage_kv": 10,
+        "frequency_hz": 50,
+        "total_kw_min": 500,
+        "total_kw_max": 500,
+        "n_buses": 35,
+        "scenario": {
+          "kind": "rural",
+          "layout": "structured_radial",
+          "topology": {
+            "family": "multi_branch",
+            "branch_count": 3
+          },
+          "tie_count": 0,
+          "load_placement": "all_nodes"
+        },
+        "phase_design": {
+          "mode": "balanced"
+        },
+        "pv_ratio": 0.2,
+        "power_factor": 0.95,
+        "equipment_design": {
+          "mode": "auto"
+        },
+        "seed": 42
+      },
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "10kV rural research distribution case with 35 buses (including source), 500kW total load, balanced single-voltage model, radial operation with 3 branches representing villages, no normally-open ties, 20% PV ratio, delivering OpenDSS and MATPOWER formats.",
+        "requirements": [
+          {
+            "id": "req_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u751f\u6210\u4e00\u4e2a10kV\u519c\u6751\u79d1\u7814\u914d\u7535case",
+            "meaning": "Nominal voltage level is 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.voltage_kv",
+            "expected_value": 10,
+            "operator": "eq"
+          },
+          {
+            "id": "req_scene",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u519c\u6751\u79d1\u7814\u914d\u7535case",
+            "meaning": "Rural scene configuration",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.scenario.kind",
+            "expected_value": "rural",
+            "operator": "eq"
+          },
+          {
+            "id": "req_buses_lower",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u4e09\u5341\u591a\u4e2a\u6bcd\u7ebf\uff08\u5305\u542b\u7535\u6e90\uff09",
+            "meaning": "Total buses including source must be between 31 and 39",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.n_buses",
+            "expected_value": 31,
+            "operator": "ge"
+          },
+          {
+            "id": "req_buses_upper",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u4e09\u5341\u591a\u4e2a\u6bcd\u7ebf\uff08\u5305\u542b\u7535\u6e90\uff09",
+            "meaning": "Total buses including source must be between 31 and 39",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.n_buses",
+            "expected_value": 39,
+            "operator": "le"
+          },
+          {
+            "id": "req_total_load",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u8d1f\u8377500kW",
+            "meaning": "Fixed total coincident peak load of 500 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.total_kw_min",
+            "expected_value": 500,
+            "operator": "eq"
+          },
+          {
+            "id": "req_total_load_max",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u8d1f\u8377500kW",
+            "meaning": "Fixed total coincident peak load of 500 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.total_kw_max",
+            "expected_value": 500,
+            "operator": "eq"
+          },
+          {
+            "id": "req_model_type",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u91c7\u7528\u5355\u7535\u538b\u5e73\u8861\u7b49\u503c\u6a21\u578b",
+            "meaning": "Single-voltage balanced equivalent model",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq"
+          },
+          {
+            "id": "req_topology",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u4e3b\u5e72\u8fde\u63a53\u4e2a\u6751\u843d",
+            "meaning": "Main trunk connects 3 village branches",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.scenario.topology.branch_count",
+            "expected_value": 3,
+            "operator": "eq"
+          },
+          {
+            "id": "req_operating_mode",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u4fdd\u6301\u5f84\u5411\u8fd0\u884c",
+            "meaning": "Radial operating topology",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.scenario.tie_count",
+            "expected_value": 0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_no_ties",
+            "segment_ids": [
+              2
+            ],
+            "evidence": "\u4e0d\u8bbe\u7f6e\u5e38\u5f00\u8054\u7edc",
+            "meaning": "No normally-open physical ties",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.scenario.tie_count",
+            "expected_value": 0,
+            "operator": "eq"
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              3
+            ],
+            "evidence": "\u5149\u4f0f\u603b\u6709\u529f\u4e3a\u603b\u8d1f\u8377\u768420%",
+            "meaning": "PV capacity is 20% of total load",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "single_voltage_spec.pv_ratio",
+            "expected_value": 0.2,
+            "operator": "eq"
+          },
+          {
+            "id": "req_deliverable_opendss",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u8f93\u51faOpenDSS\u548cMATPOWER",
+            "meaning": "Deliver OpenDSS model format",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": "opendss",
+            "operator": "contains"
+          },
+          {
+            "id": "req_deliverable_matpower",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u8f93\u51faOpenDSS\u548cMATPOWER",
+            "meaning": "Deliver MATPOWER model format",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": "matpower",
+            "operator": "contains"
+          },
+          {
+            "id": "req_agent_selection",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u7531Agent\u5728\u6240\u8ff0\u89c4\u6a21\u5185\u9009\u62e9\u5177\u4f53\u6bcd\u7ebf\u6570",
+            "meaning": "Agent selects specific bus count within the 31-39 range",
+            "priority": "permission",
+            "disposition": "supported",
+            "target_field": null,
+            "expected_value": null,
+            "operator": "eq",
+            "reason": "\u672a\u6307\u5b9a\u7684\u8bbe\u5907\u548c\u5206\u652f\u6570\u91cf\u7531\u7cfb\u7edf\u5408\u7406\u8bbe\u8ba1"
+          },
+          {
+            "id": "req_other_params",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u5176\u4f59\u53c2\u6570\u5408\u7406\u8bbe\u8ba1",
+            "meaning": "Other parameters designed reasonably by the system",
+            "priority": "permission",
+            "disposition": "supported",
+            "target_field": null,
+            "expected_value": null,
+            "operator": "eq",
+            "reason": "\u672a\u6307\u5b9a\u7684\u8bbe\u5907\u548c\u5206\u652f\u6570\u91cf\u7531\u7cfb\u7edf\u5408\u7406\u8bbe\u8ba1"
+          }
+        ],
+        "questions": []
+      },
+      "assumptions": [
+        "Default frequency 50Hz as per system standard",
+        "Balanced three-phase model with aggregated loads at each bus",
+        "Radial topology with multi_branch family and 3 branches representing village clusters",
+        "No normally-open ties (tie_count=0) ensuring strict radial operation",
+        "PV ratio 0.2 applied as fixed unity-PF injection relative to coincident peak load",
+        "Equipment selected automatically based on rural engineering profile and length/voltage conditioning",
+        "Load placement at all nodes (all_nodes) since each bus represents a load point or junction in the rural village structure",
+        "MATPOWER export enabled for balanced model; source terminal voltage fixed to OpenDSS solved value"
+      ]
+    },
+    {
+      "status": "ready",
+      "family": "single_voltage",
+      "single_voltage_spec": {
+        "network_kind": "distribution",
+        "document_rules": [],
+        "repair_policy": {
+          "strategy": "fixed",
+          "allow_rewire": false,
+          "preview_limit": 2,
+          "max_candidates": 8
+        },
+        "scenario": {
+          "load_placement": "all_nodes",
+          "reference_case_id": null,
+          "kind": "rural",
+          "layout": "structured_radial",
+          "engineering_profile": "generic",
+          "topology": {
+            "family": "multi_branch",
+            "branch_count": 3,
+            "branching_factor": null,
+            "trunk_fraction": null
+          },
+          "tie_count": 0,
+          "load_shape": "heterogeneous",
+          "load_concentration": 2,
+          "calibration_profile": null,
+          "empirical_weight": 0.7,
+          "village_count": 3,
+          "trunk_fraction": 0.3,
+          "aspect_ratio": null,
+          "positions_km": null
+        },
+        "phase_design": {
+          "mode": "balanced",
+          "load_phase_weights": [
+            0.5,
+            0.3,
+            0.2
+          ],
+          "pv_phase_weights": null,
+          "single_phase_laterals": null,
+          "two_phase_laterals": null,
+          "max_vuf_percent": 2
+        },
+        "equipment_design": {
+          "mode": "auto",
+          "reference_feeders": [
+            "J1",
+            "K1",
+            "Ckt5",
+            "Ckt24"
+          ],
+          "source_weighting": "equal_feeder",
+          "loading_margin": 0.8,
+          "capacity_band": 2,
+          "conditioning": "length_voltage",
+          "length_bandwidth": 0.65,
+          "voltage_drop_budget_pu": 0.05,
+          "selection_reason": "Scenario construction, phase count, downstream endpoint capacity and observed usage frequency."
+        },
+        "count": 1,
+        "n_buses": 35,
+        "n_loads_min": 34,
+        "n_loads_max": 34,
+        "total_kw_min": 500.0,
+        "total_kw_max": 500.0,
+        "voltage_kv": 10.0,
+        "frequency_hz": 50,
+        "power_factor": 0.95,
+        "pv_ratio": 0.2,
+        "segment_km_min": 0.05,
+        "segment_km_max": 0.25,
+        "seed": 42,
+        "mode": "normal",
+        "load_semantics": "aggregated",
+        "special_pf_agreement": false,
+        "max_repairs": 2
+      },
+      "ledger": {
+        "network_kind": "distribution",
+        "model_family": "single_voltage",
+        "summary": "10kV rural research distribution case with 35 buses (including source), 500kW total load, balanced single-voltage model, radial operation with 3 branches representing villages, no normally-open ties, 20% PV ratio, delivering OpenDSS and MATPOWER formats.",
+        "requirements": [
+          {
+            "id": "req_voltage",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u751f\u6210\u4e00\u4e2a10kV\u519c\u6751\u79d1\u7814\u914d\u7535case",
+            "meaning": "Nominal voltage level is 10 kV",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "voltage_kv",
+            "expected_value": 10,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_scene",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u519c\u6751\u79d1\u7814\u914d\u7535case",
+            "meaning": "Rural scene configuration",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.kind",
+            "expected_value": "rural",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_buses_lower",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u4e09\u5341\u591a\u4e2a\u6bcd\u7ebf\uff08\u5305\u542b\u7535\u6e90\uff09",
+            "meaning": "Total buses including source must be between 31 and 39",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 31,
+            "operator": "ge",
+            "reason": ""
+          },
+          {
+            "id": "req_buses_upper",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u4e09\u5341\u591a\u4e2a\u6bcd\u7ebf\uff08\u5305\u542b\u7535\u6e90\uff09",
+            "meaning": "Total buses including source must be between 31 and 39",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "n_buses",
+            "expected_value": 39,
+            "operator": "le",
+            "reason": ""
+          },
+          {
+            "id": "req_total_load",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u8d1f\u8377500kW",
+            "meaning": "Fixed total coincident peak load of 500 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_min",
+            "expected_value": 500,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_total_load_max",
+            "segment_ids": [
+              0
+            ],
+            "evidence": "\u603b\u8d1f\u8377500kW",
+            "meaning": "Fixed total coincident peak load of 500 kW",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "total_kw_max",
+            "expected_value": 500,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_model_type",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u91c7\u7528\u5355\u7535\u538b\u5e73\u8861\u7b49\u503c\u6a21\u578b",
+            "meaning": "Single-voltage balanced equivalent model",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "phase_design.mode",
+            "expected_value": "balanced",
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_topology",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u4e3b\u5e72\u8fde\u63a53\u4e2a\u6751\u843d",
+            "meaning": "Main trunk connects 3 village branches",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.topology.branch_count",
+            "expected_value": 3,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_village_count",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u4e3b\u5e72\u8fde\u63a53\u4e2a\u6751\u843d",
+            "meaning": "Three village clusters in the rural scenario",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.village_count",
+            "expected_value": 3,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_operating_mode",
+            "segment_ids": [
+              1
+            ],
+            "evidence": "\u4fdd\u6301\u5f84\u5411\u8fd0\u884c",
+            "meaning": "Radial operating topology",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.tie_count",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_no_ties",
+            "segment_ids": [
+              2
+            ],
+            "evidence": "\u4e0d\u8bbe\u7f6e\u5e38\u5f00\u8054\u7edc",
+            "meaning": "No normally-open physical ties",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "scenario.tie_count",
+            "expected_value": 0,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_pv_ratio",
+            "segment_ids": [
+              3
+            ],
+            "evidence": "\u5149\u4f0f\u603b\u6709\u529f\u4e3a\u603b\u8d1f\u8377\u768420%",
+            "meaning": "PV capacity is 20% of total load",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "pv_ratio",
+            "expected_value": 0.2,
+            "operator": "eq",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverable_opendss",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u8f93\u51faOpenDSS\u548cMATPOWER",
+            "meaning": "Deliver OpenDSS model format",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "matpower",
+              "opendss"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_deliverable_matpower",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u8f93\u51faOpenDSS\u548cMATPOWER",
+            "meaning": "Deliver MATPOWER model format",
+            "priority": "hard",
+            "disposition": "supported",
+            "target_field": "deliverables",
+            "expected_value": [
+              "matpower",
+              "opendss"
+            ],
+            "operator": "contains",
+            "reason": ""
+          },
+          {
+            "id": "req_agent_selection",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u7531Agent\u5728\u6240\u8ff0\u89c4\u6a21\u5185\u9009\u62e9\u5177\u4f53\u6bcd\u7ebf\u6570",
+            "meaning": "Agent selects specific bus count within the 31-39 range",
+            "priority": "permission",
+            "disposition": "supported",
+            "target_field": null,
+            "expected_value": null,
+            "operator": "eq",
+            "reason": "\u672a\u6307\u5b9a\u7684\u8bbe\u5907\u548c\u5206\u652f\u6570\u91cf\u7531\u7cfb\u7edf\u5408\u7406\u8bbe\u8ba1"
+          },
+          {
+            "id": "req_other_params",
+            "segment_ids": [
+              4
+            ],
+            "evidence": "\u5176\u4f59\u53c2\u6570\u5408\u7406\u8bbe\u8ba1",
+            "meaning": "Other parameters designed reasonably by the system",
+            "priority": "permission",
+            "disposition": "supported",
+            "target_field": null,
+            "expected_value": null,
+            "operator": "eq",
+            "reason": "\u672a\u6307\u5b9a\u7684\u8bbe\u5907\u548c\u5206\u652f\u6570\u91cf\u7531\u7cfb\u7edf\u5408\u7406\u8bbe\u8ba1"
+          }
+        ],
+        "questions": []
+      },
+      "assumptions": [
+        "Default frequency 50Hz as per system standard",
+        "Balanced three-phase model with aggregated loads at each bus",
+        "Radial topology with multi_branch family and 3 branches representing village clusters",
+        "No normally-open ties (tie_count=0) ensuring strict radial operation",
+        "PV ratio 0.2 applied as fixed unity-PF injection relative to coincident peak load",
+        "Equipment selected automatically based on rural engineering profile and length/voltage conditioning",
+        "Load placement at all nodes (all_nodes) since each bus represents a load point or junction in the rural village structure",
+        "MATPOWER export enabled for balanced model; source terminal voltage fixed to OpenDSS solved value"
+      ]
+    }
+  ]
+}

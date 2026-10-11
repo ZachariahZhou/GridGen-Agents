@@ -70,7 +70,7 @@ def exact_bus_counts(request):
                     not re.search('(?:\u4e2d\u538b|\u4f4e\u538b|\u9ad8\u538b|\u4e3b\u5e72|\u652f\u7ebf)\\s*(?:\u6539\u4e3a|\u6539\u6210)',part))
     has_revision=any(global_revision(part) and
                      (re.search(forward,part) or re.search(reverse,part)) for part in clauses)
-    values=set()
+    values=_english_exact_bus_counts(clauses)
     for clause in clauses:
         if has_revision and not global_revision(clause):continue
         if re.search('\u6216|\u6216\u8005|\u6216\u662f',clause) and re.search('\u5747\u53ef|\u90fd\u53ef|\u4efb\u9009|\u53ef\u9009',clause):continue
@@ -87,6 +87,34 @@ def exact_bus_counts(request):
                 if re.search('\u5f15\u7528|\u793a\u4f8b|\u4f8b\u5982|\u53ea\u662f|\u65e7\u65b9\u6848',suffix.split('，')[0].split(',')[0]):continue
                 number_value=_integer_count(match[1])
                 if number_value is not None:values.add(number_value)
+    return values
+
+
+def _english_exact_bus_counts(clauses):
+    """Recognize whole-model English counts without treating bounds as equality."""
+    from .source_intent import numeric_constraints
+    values=set()
+    patterns=(r'(?<![\d.])(?P<value>\d+)\s*[- ]?\s*(?:total\s+)?(?:buses|bus|nodes?)\b',
+              r'\b(?:total\s+)?(?:bus|node)\s+count\s*(?:must\s+be|is|=|:)?\s*(?P<value>\d+)(?!\d|\.\d)')
+    for clause in clauses:
+        for pattern in patterns:
+            for match in re.finditer(pattern,clause,re.I):
+                prefix=clause[:match.start()];suffix=clause[match.end():]
+                if any(op!='eq' for op,_ in numeric_constraints({'text':clause},match)):continue
+                # A bound on a preceding generator count is not a bus-count bound.
+                local=re.split(r'\d+(?:\.\d+)?',clause[:match.start('value')])[-1]
+                if re.search(r'\b(?:about|approximately|around|roughly|between|more than|less than|up to)\b',local,re.I):continue
+                if re.search(r'\d+\s*(?:-|–|~|to|through|and)\s*$',prefix,re.I):continue
+                if re.match(r'\s*(?:-|–|~|to\b|through\b|or\b|and\b\s*\d|per\b|in each\b)',suffix,re.I):continue
+                # "Total" can count one voltage layer or village. Only an
+                # explicit whole-model scope overrides such a local subject.
+                regional=re.search(r'\b(?:MV|LV|HV|each|per|local)\b',prefix,re.I)
+                places=list(re.finditer(r'\b(?:substation|village|cluster)\b',prefix,re.I))
+                place_local=bool(places and not re.search(r'\b(?:network|grid|feeder|model)\b',prefix[places[-1].end():],re.I))
+                whole=re.search(r'\b(?:entire|whole|overall)\s+(?:network|grid|feeder|model|system)\b',prefix,re.I)
+                if (regional or place_local) and not whole:continue
+                if prefix.count('"')%2 or prefix.count('“')>prefix.count('”'):continue
+                values.add(int(match['value']))
     return values
 
 

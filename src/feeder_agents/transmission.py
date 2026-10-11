@@ -57,7 +57,8 @@ class TransmissionSpec(StrictModel):
     topology: Literal['ring','meshed']='meshed'
     extra_edges: int | None=Field(default=None,ge=0,le=400)
     shunt_compensation: float=Field(default=.7,ge=0,le=1,description='Initial fixed-reactor charging compensation fraction; shunt_step may revise it only if allowed_repairs includes that action.')
-    radius_km: float=Field(default=40,ge=1,le=500)
+    radius_km: float=Field(default=40,ge=1,le=500,
+        description='Envelope radius of all synthetic bus coordinates around (0,0), in km; the farthest bus attains this radius.')
     generator_types: list[Literal['generic','thermal','hydro','wind','solar']] | None=None
     voltage_min_pu: float=Field(default=.95,gt=.5,lt=1)
     voltage_max_pu: float=Field(default=1.05,gt=1,lt=1.5)
@@ -134,7 +135,8 @@ def dependencies():
         from pypower.api import runpf,ppoption
         from pypower.case9 import case9
     except ImportError as exc:raise ValueError('Install transmission extras: pip install -e ".[transmission]"') from exc
-    return runpf,ppoption,case9
+    from .solver_accounting import metered_pypower
+    return metered_pypower(runpf),ppoption,case9
 
 
 def generate_case(spec,seed):
@@ -309,8 +311,8 @@ def run_transmission(spec,workspace,run_id,*,agent_feedback=False,feedback_model
                 row=dict(sample_id=path.name,seed=seed,accepted=False,error=f'{type(exc).__name__}: {exc}');rows.append(row);atomic_json(path/'error.json',row)
         accepted=sum(r['accepted'] for r in rows)
         voltage_label='/'.join(str(v.kv) for v in spec.voltage_layers) if spec.voltage_layers else str(spec.voltage_kv)
-        report=f'Transmission research model: {voltage_label} kV; {spec.n_buses} buses; {spec.n_generators} static generators; {spec.total_mw} MW demand; {spec.topology}. Generated {spec.count} cases; {accepted} passed AC power flow and constraint checks.\n\nMATPOWER v2 models include per-case parameter provenance and assumptions. Voltage-dependent engineering parameters are converted using length and base quantities and then checked. The objective is plausible research cases, not exact replication of real-network distributions. Time series, dynamics, OPF and N-1 validation are not included.'
-        report+=f'\n\nTarget constraints: {len(spec.targets)}; internal validation conditions: {len(spec.validation_conditions)}; applicable document rules: {len(spec.document_rules)}; agent feedback '+('enabled' if agent_feedback else 'disabled')+'.'
+        report=f'Transmission research model: {voltage_label}kV，{spec.n_buses} buses; {spec.n_generators} static generators; {spec.total_mw}MW；{spec.topology}. Generated {spec.count} cases; {accepted} passed AC power flow and constraint checks.\n\nMATPOWER v2 models include per-case parameter provenance and assumptions. Voltage-dependent engineering parameters are converted using length and base quantities and then checked. The objective is plausible research cases, not exact replication of real-network distributions. Time series, dynamics, OPF and N-1 validation are not included.'
+        report+=f'\n\nTarget constraints: {len(spec.targets)}; internal validation conditions: {len(spec.validation_conditions)}; applicable document rules: {len(spec.document_rules)}; agent feedback '+('enabled' if agent_feedback else 'disabled')+'。'
         (root/'report.md').write_text(report)
         links=''.join(f'<li><a href="{r["sample_id"]}/visualization.html">{r["sample_id"]}</a>: {r["accepted"]} · <a href="{r["sample_id"]}/case_generated.m">MATPOWER</a></li>' for r in rows if 'error' not in r)
         (root/'index.html').write_text('<meta charset="utf-8"><h1>Transmission research models</h1><p>'+html.escape(report)+'</p><ul>'+links+'</ul>')
